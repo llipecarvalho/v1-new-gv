@@ -160,14 +160,27 @@
   <!-- HOW IT WORKS: BENTO GRID -->
   <section class="py-24 md:py-32 px-6 md:px-8 border-b border-white/5" id="como-funciona">
     <div class="max-w-7xl mx-auto">
-      <div class="text-center mb-20 space-y-4">
-        <span class="text-xs font-black text-gray-500 uppercase tracking-[0.3em]">[ O PROCESSO DE VANTAGEM ]</span>
-        <h2 class="text-5xl md:text-6xl font-black text-white uppercase tracking-tight">Como Extrair Valor Máximo</h2>
+      <div class="flex items-end justify-between mb-16 gap-6">
+        <div class="space-y-4">
+          <span class="text-xs font-black text-gray-500 uppercase tracking-[0.3em]">[ O PROCESSO DE VANTAGEM ]</span>
+          <h2 class="text-4xl md:text-6xl font-black text-white uppercase tracking-tight">Como Extrair Máximo Valor</h2>
+        </div>
+        <!-- Setas de navegação (Ocultas no mobile se o espaço apertar, mas os usuários podem fazer scroll via touch tranquilamente) -->
+        <div class="hidden sm:flex gap-3 relative z-10">
+          <button id="hw-prev" class="w-12 h-12 rounded-full border border-white/20 bg-white/5 flex items-center justify-center text-white hover:bg-[#f085aa] hover:text-black hover:border-[#f085aa] transition-colors cursor-pointer">
+            <span class="material-symbols-outlined">arrow_back</span>
+          </button>
+          <button id="hw-next" class="w-12 h-12 rounded-full border border-white/20 bg-white/5 flex items-center justify-center text-white hover:bg-[#f085aa] hover:text-black hover:border-[#f085aa] transition-colors cursor-pointer">
+            <span class="material-symbols-outlined">arrow_forward</span>
+          </button>
+        </div>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- Container do Carrossel (Esconde Scrollbar) -->
+      <div id="hw-carousel" class="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-8 pt-4 scroll-smooth [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+        
         <!-- Card 1 -->
-        <div class="bento-card p-6 md:p-8 flex flex-col justify-end md:aspect-square h-auto md:h-full gap-6 md:gap-0 group relative overflow-hidden bg-gradient-to-br from-white/5 to-transparent border border-white/5 hover:border-white/20 hover:shadow-[0_10px_40px_rgba(240,133,170,0.05)] transition-all duration-500">
+        <div class="bento-card p-6 md:p-8 flex flex-col justify-end h-[380px] md:h-[420px] w-[85vw] sm:w-[380px] lg:w-[400px] flex-shrink-0 snap-start group relative overflow-hidden bg-gradient-to-br from-white/5 to-transparent border border-white/5 hover:border-white/20 hover:shadow-[0_10px_40px_rgba(240,133,170,0.05)] transition-all duration-500">
           <span class="absolute -top-4 -right-4 text-[8rem] font-black text-white/[0.03] leading-none transition-transform duration-700 group-hover:scale-110 pointer-events-none">01</span>
           
           <div class="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center border border-white/10 text-[#f085aa] shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] mb-auto relative z-10 transition-transform duration-500 group-hover:-translate-y-1">
@@ -180,7 +193,7 @@
         </div>
         
         <!-- Card 2 -->
-        <div class="bento-card p-6 md:p-8 flex flex-col justify-end md:aspect-square h-auto md:h-full gap-6 md:gap-0 group relative overflow-hidden bg-gradient-to-br from-white/5 to-transparent border border-white/5 hover:border-white/20 hover:shadow-[0_10px_40px_rgba(240,133,170,0.05)] transition-all duration-500">
+        <div class="bento-card p-6 md:p-8 flex flex-col justify-end h-[380px] md:h-[420px] w-[85vw] sm:w-[380px] lg:w-[400px] flex-shrink-0 snap-start group relative overflow-hidden bg-gradient-to-br from-white/5 to-transparent border border-white/5 hover:border-white/20 hover:shadow-[0_10px_40px_rgba(240,133,170,0.05)] transition-all duration-500">
           <span class="absolute -top-4 -right-4 text-[8rem] font-black text-white/[0.03] leading-none transition-transform duration-700 group-hover:scale-110 pointer-events-none">02</span>
           
           <div class="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center border border-white/10 text-[#f085aa] shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] mb-auto relative z-10 transition-transform duration-500 group-hover:-translate-y-1">
@@ -193,7 +206,7 @@
         </div>
 
         <!-- Card 3 -->
-        <div class="bento-card p-6 md:p-8 flex flex-col justify-end md:aspect-square h-auto md:h-full gap-6 md:gap-0 group relative overflow-hidden bg-gradient-to-br from-white/5 to-transparent border border-white/5 hover:border-white/20 hover:shadow-[0_10px_40px_rgba(240,133,170,0.05)] transition-all duration-500">
+        <div class="bento-card p-6 md:p-8 flex flex-col justify-end h-[380px] md:h-[420px] w-[85vw] sm:w-[380px] lg:w-[400px] flex-shrink-0 snap-start group relative overflow-hidden bg-gradient-to-br from-white/5 to-transparent border border-white/5 hover:border-white/20 hover:shadow-[0_10px_40px_rgba(240,133,170,0.05)] transition-all duration-500">
           <span class="absolute -top-4 -right-4 text-[8rem] font-black text-white/[0.03] leading-none transition-transform duration-700 group-hover:scale-110 pointer-events-none">03</span>
           
           <div class="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center border border-white/10 text-[#f085aa] shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] mb-auto relative z-10 transition-transform duration-500 group-hover:-translate-y-1">
@@ -206,7 +219,7 @@
         </div>
 
         <!-- Card 4 (Highlighted) -->
-        <div class="bento-card p-6 md:p-8 flex flex-col justify-end md:aspect-square h-auto md:h-full gap-6 md:gap-0 group relative overflow-hidden bg-gradient-to-br from-[#1a0c24] to-[#050505] border border-[#f085aa]/20 hover:border-[#f085aa]/60 hover:shadow-[0_0_60px_rgba(240,133,170,0.15)] transition-all duration-500">
+        <div class="bento-card p-6 md:p-8 flex flex-col justify-end h-[380px] md:h-[420px] w-[85vw] sm:w-[380px] lg:w-[400px] flex-shrink-0 snap-start group relative overflow-hidden bg-gradient-to-br from-[#1a0c24] to-[#050505] border border-[#f085aa]/20 hover:border-[#f085aa]/60 hover:shadow-[0_0_60px_rgba(240,133,170,0.15)] transition-all duration-500">
           <!-- Subtle Glow behind number -->
           <div class="absolute -top-10 -right-10 w-40 h-40 bg-[#f085aa] blur-[80px] opacity-20 pointer-events-none"></div>
           <span class="absolute -top-4 -right-4 text-[8rem] font-black text-[#f085aa]/[0.05] leading-none transition-transform duration-700 group-hover:scale-110 pointer-events-none z-0">04</span>
@@ -579,6 +592,47 @@
       mobileLinks.forEach(link => {
          link.addEventListener('click', toggleMobileMenu);
       });
+
+      // How It Works Carousel Logic
+      const hwCarousel = document.getElementById('hw-carousel');
+      const hwPrev = document.getElementById('hw-prev');
+      const hwNext = document.getElementById('hw-next');
+      
+      if (hwCarousel) {
+         const scrollStep = () => {
+            const card = hwCarousel.querySelector('.bento-card');
+            return card ? card.offsetWidth + 24 : 350; // Largura do card + gap (24px)
+         };
+
+         if (hwNext) {
+            hwNext.addEventListener('click', () => {
+               if (hwCarousel.scrollLeft + hwCarousel.clientWidth >= hwCarousel.scrollWidth - 10) {
+                  hwCarousel.scrollTo({ left: 0, behavior: 'smooth' }); // Loop back
+               } else {
+                  hwCarousel.scrollBy({ left: scrollStep(), behavior: 'smooth' });
+               }
+            });
+         }
+
+         if (hwPrev) {
+            hwPrev.addEventListener('click', () => {
+               if (hwCarousel.scrollLeft <= 10) {
+                  hwCarousel.scrollTo({ left: hwCarousel.scrollWidth, behavior: 'smooth' }); // Loop end
+               } else {
+                  hwCarousel.scrollBy({ left: -scrollStep(), behavior: 'smooth' });
+               }
+            });
+         }
+
+         // Auto-play interval
+         setInterval(() => {
+            if (hwCarousel.scrollLeft + hwCarousel.clientWidth >= hwCarousel.scrollWidth - 10) {
+               hwCarousel.scrollTo({ left: 0, behavior: 'smooth' });
+            } else {
+               hwCarousel.scrollBy({ left: scrollStep(), behavior: 'smooth' });
+            }
+         }, 3500);
+      }
     });
   </script>
 </body>
