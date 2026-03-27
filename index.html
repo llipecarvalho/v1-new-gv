@@ -110,8 +110,23 @@
        outline: none;
        box-shadow: 0 0 20px rgba(240, 133, 170, 0.15);
     }
-    .hidden-auth-form {
-       display: none !important;
+    .auth-form-step {
+       opacity: 0;
+       filter: blur(8px);
+       transform: scale(0.96);
+       pointer-events: none;
+       transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+       position: absolute;
+       inset: 0;
+       width: 100%;
+       height: fit-content;
+    }
+    .auth-form-step.active {
+       opacity: 1;
+       filter: blur(0px);
+       transform: scale(1);
+       pointer-events: auto;
+       position: relative;
     }
   </style>
   <script type="module">
@@ -770,60 +785,65 @@
          </button>
 
          <div class="text-center mb-8">
-            <span class="text-[10px] font-black text-[#f085aa] uppercase tracking-[0.5em] mb-2 block">CLUB VERSANI</span>
+            <span class="text-[10px] font-black text-[#f085aa] uppercase tracking-[0.5em] mb-2 block">CLUB VERSIANI</span>
             <h2 id="modal-title" class="text-3xl font-black text-white uppercase tracking-tight">FAÇA SEU ACESSO</h2>
          </div>
 
-         <!-- LOGIN FORM -->
-         <div id="modal-login-form">
-            <form class="space-y-6">
-               <div class="space-y-2 text-left">
-                  <label class="text-[10px] font-bold text-gray-500 uppercase tracking-widest pl-1">E-mail</label>
-                  <input type="email" placeholder="seu@email.com" class="w-full input-premium h-14 rounded-2xl px-5 text-sm">
-               </div>
-               <div class="space-y-2 text-left">
-                  <div class="flex justify-between items-center px-1">
-                     <label class="text-[10px] font-bold text-gray-500 uppercase tracking-widest">Senha</label>
+         <!-- FORMS CONTAINER (ANIMATED) -->
+         <div class="relative min-h-[400px]">
+            
+            <!-- LOGIN FORM -->
+            <div id="modal-login-form" class="auth-form-step active">
+               <form class="space-y-6">
+                  <div class="space-y-2 text-left">
+                     <label class="text-[10px] font-bold text-gray-500 uppercase tracking-widest pl-1">E-mail</label>
+                     <input type="email" placeholder="seu@email.com" class="w-full input-premium h-14 rounded-2xl px-5 text-sm">
                   </div>
-                  <input type="password" placeholder="••••••••" class="w-full input-premium h-14 rounded-2xl px-5 text-sm">
+                  <div class="space-y-2 text-left">
+                     <div class="flex justify-between items-center px-1">
+                        <label class="text-[10px] font-bold text-gray-500 uppercase tracking-widest">Senha</label>
+                     </div>
+                     <input type="password" placeholder="••••••••" class="w-full input-premium h-14 rounded-2xl px-5 text-sm">
+                  </div>
+                  <button type="button" class="w-full h-16 bg-[#f085aa] text-black font-black uppercase tracking-widest text-sm rounded-2xl hover:scale-[1.02] transition-transform shadow-[0_15px_30px_rgba(240,133,170,0.3)]">Entrar no Clube</button>
+               </form>
+               <div class="mt-8 text-center border-t border-white/5 pt-6">
+                  <p class="text-gray-500 text-[10px] mb-2 uppercase font-bold tracking-widest">Novo por aqui?</p>
+                  <button onclick="toggleModalForm('signup')" class="text-white font-black uppercase tracking-widest text-[10px] hover:text-[#f085aa] transition-colors">Criar cadastro exclusivo</button>
                </div>
-               <button type="button" class="w-full h-16 bg-[#f085aa] text-black font-black uppercase tracking-widest text-sm rounded-2xl hover:scale-[1.02] transition-transform shadow-[0_15px_30px_rgba(240,133,170,0.3)]">Entrar no Clube</button>
-            </form>
-            <div class="mt-8 text-center border-t border-white/5 pt-6">
-               <p class="text-gray-500 text-xs mb-2 uppercase font-bold tracking-widest">Novo por aqui?</p>
-               <button onclick="toggleModalForm('signup')" class="text-[#f085aa] font-black uppercase tracking-widest text-[10px] hover:underline">Criar cadastro exclusivo</button>
             </div>
-         </div>
 
-         <!-- SIGNUP FORM -->
-         <div id="modal-signup-form" class="hidden-auth-form">
-            <form class="space-y-4">
-               <div class="text-left space-y-1">
-                  <label class="text-[9px] font-bold text-gray-500 uppercase tracking-widest pl-1">Nome Completo</label>
-                  <input type="text" class="w-full input-premium h-12 rounded-xl px-4 text-sm">
-               </div>
-               <div class="grid grid-cols-2 gap-3">
+            <!-- SIGNUP FORM -->
+            <div id="modal-signup-form" class="auth-form-step">
+               <form class="space-y-4">
                   <div class="text-left space-y-1">
-                     <label class="text-[9px] font-bold text-gray-500 uppercase tracking-widest pl-1">Nascimento</label>
-                     <input type="date" class="w-full input-premium h-12 rounded-xl px-4 text-xs opacity-40 focus:opacity-100">
+                     <label class="text-[9px] font-bold text-gray-500 uppercase tracking-widest pl-1">Nome Completo</label>
+                     <input type="text" class="w-full input-premium h-12 rounded-xl px-4 text-sm">
+                  </div>
+                  <div class="grid grid-cols-2 gap-3">
+                     <div class="text-left space-y-1">
+                        <label class="text-[9px] font-bold text-gray-500 uppercase tracking-widest pl-1">Nascimento</label>
+                        <input type="date" class="w-full input-premium h-12 rounded-xl px-4 text-xs opacity-40 focus:opacity-100">
+                     </div>
+                     <div class="text-left space-y-1">
+                        <label class="text-[9px] font-bold text-gray-500 uppercase tracking-widest pl-1">CPF</label>
+                        <input type="text" placeholder="000.000..." class="w-full input-premium h-12 rounded-xl px-4 text-xs">
+                     </div>
                   </div>
                   <div class="text-left space-y-1">
-                     <label class="text-[9px] font-bold text-gray-500 uppercase tracking-widest pl-1">CPF</label>
-                     <input type="text" placeholder="000.000..." class="w-full input-premium h-12 rounded-xl px-4 text-xs">
+                     <label class="text-[9px] font-bold text-gray-500 uppercase tracking-widest pl-1">E-mail</label>
+                     <input type="email" class="w-full input-premium h-12 rounded-xl px-4 text-sm">
                   </div>
+                  <div class="grid grid-cols-2 gap-3">
+                     <input type="password" placeholder="Senha" class="w-full input-premium h-12 rounded-xl px-4 text-xs">
+                     <input type="password" placeholder="Confirmar" class="w-full input-premium h-12 rounded-xl px-4 text-xs">
+                  </div>
+                  <button type="button" class="w-full h-14 bg-white text-black font-black uppercase tracking-widest text-xs rounded-xl mt-4 hover:bg-[#f085aa] hover:text-white transition-all shadow-lg">Ativar Meu Acesso VIP</button>
+               </form>
+               <div class="mt-6 text-center border-t border-white/5 pt-4">
+                  <p class="text-gray-500 text-[10px] mb-2 uppercase font-bold tracking-widest">Já tem conta?</p>
+                  <button onclick="toggleModalForm('login')" class="text-white font-bold uppercase tracking-widest text-[10px] transition-colors hover:text-white">Fazer <span class="text-[#f085aa] font-black">Login</span></button>
                </div>
-               <div class="text-left space-y-1">
-                  <label class="text-[9px] font-bold text-gray-500 uppercase tracking-widest pl-1">E-mail</label>
-                  <input type="email" class="w-full input-premium h-12 rounded-xl px-4 text-sm">
-               </div>
-               <div class="grid grid-cols-2 gap-3">
-                  <input type="password" placeholder="Senha" class="w-full input-premium h-12 rounded-xl px-4 text-xs">
-                  <input type="password" placeholder="Confirmar" class="w-full input-premium h-12 rounded-xl px-4 text-xs">
-               </div>
-               <button type="button" class="w-full h-14 bg-white text-black font-black uppercase tracking-widest text-xs rounded-xl mt-4 hover:bg-[#f085aa] hover:text-white transition-all shadow-lg">Ativar Meu Acesso VIP</button>
-            </form>
-            <div class="mt-6 text-center border-t border-white/5 pt-4">
-               <button onclick="toggleModalForm('login')" class="text-gray-400 font-bold uppercase tracking-widest text-[9px] hover:text-white">Já tenho conta — Logar</button>
             </div>
          </div>
 
@@ -852,13 +872,17 @@
 
       window.toggleModalForm = (mode) => {
          if (mode === 'signup') {
-            loginForm.classList.add('hidden-auth-form');
-            signupForm.classList.remove('hidden-auth-form');
-            modalTitle.innerText = 'CRIAR CADASTRO';
+            loginForm.classList.remove('active');
+            setTimeout(() => {
+              signupForm.classList.add('active');
+              modalTitle.textContent = 'CRIAÇÃO DE CONTA';
+            }, 300);
          } else {
-            signupForm.classList.add('hidden-auth-form');
-            loginForm.classList.remove('hidden-auth-form');
-            modalTitle.innerText = 'FAÇA SEU ACESSO';
+            signupForm.classList.remove('active');
+            setTimeout(() => {
+              loginForm.classList.add('active');
+              modalTitle.textContent = 'FAÇA SEU ACESSO';
+            }, 300);
          }
       };
 
