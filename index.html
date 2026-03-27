@@ -158,8 +158,8 @@
   </div>
 
   <!-- HOW IT WORKS: BENTO GRID -->
-  <section class="pt-24 md:pt-32 pb-8 md:pb-12 px-6 md:px-8 border-b border-white/5" id="como-funciona">
-    <div class="max-w-7xl mx-auto">
+  <section class="pt-24 md:pt-32 pb-8 md:pb-12 border-b border-white/5 overflow-hidden" id="como-funciona">
+    <div class="max-w-7xl mx-auto px-6 md:px-8">
       <div class="flex items-end justify-between mb-16 gap-6">
         <div class="space-y-4">
           <span class="text-xs font-black text-gray-500 uppercase tracking-[0.3em]">[ O PROCESSO DE VANTAGEM ]</span>
@@ -175,9 +175,10 @@
           </button>
         </div>
       </div>
+    </div>
 
-      <!-- Wrapper do Carrossel Full-Bleed -->
-      <div class="relative w-[100vw] left-1/2 -ml-[50vw]">
+    <!-- Wrapper do Carrossel Full-Bleed (Livre das limitações do Max-W) -->
+    <div class="relative w-full">
          <!-- Máscara de Blur Esquerda -->
          <div class="absolute left-0 top-0 bottom-12 w-[15vw] sm:w-[calc(50%-160px)] bg-gradient-to-r from-[#050505] via-[#050505]/80 to-transparent backdrop-blur-[4px] z-20 pointer-events-none"></div>
          <!-- Máscara de Blur Direita -->
