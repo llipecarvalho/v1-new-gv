@@ -28,9 +28,31 @@
         <a class="hover:text-white transition-colors" href="#planos">Benefícios</a>
       </div>
       <div class="flex items-center gap-2 pr-1 md:pr-0">
-         <button class="bg-[#f085aa] text-black px-4 md:px-6 py-2 md:py-2.5 rounded-full font-black text-xs md:text-sm hover:scale-105 hover:bg-white transition-all shadow-[0_0_20px_rgba(240,133,170,0.4)]">ASSINAR <span class="material-symbols-outlined align-middle text-[1rem] hidden lg:inline-flex">arrow_outward</span></button>
+         <button class="bg-[#f085aa] text-black px-4 md:px-6 py-2 md:py-2.5 rounded-full font-black text-xs md:text-sm hover:scale-105 hover:bg-white transition-all shadow-[0_0_20px_rgba(240,133,170,0.4)] pointer-events-auto">ASSINAR <span class="material-symbols-outlined align-middle text-[1rem] hidden lg:inline-flex">arrow_outward</span></button>
+         <button id="mobile-menu-btn" class="md:hidden text-white flex items-center justify-center p-1 ml-1 hover:text-[#f085aa] transition-colors cursor-pointer pointer-events-auto">
+           <span class="material-symbols-outlined text-[1.75rem]">menu</span>
+         </button>
       </div>
     </nav>
+  </div>
+
+  <!-- MOBILE MENU OVERLAY -->
+  <div id="mobile-menu" class="fixed inset-0 bg-black/95 backdrop-blur-xl z-[100] flex flex-col items-center justify-center gap-10 opacity-0 pointer-events-none transition-all duration-300">
+     <button id="close-menu-btn" class="absolute top-8 right-8 text-white p-2 hover:text-[#f085aa] transition-colors cursor-pointer">
+        <span class="material-symbols-outlined text-4xl">close</span>
+     </button>
+     
+     <div class="text-center mb-4">
+        <span class="text-4xl font-black text-white tracking-tighter">Versiani<span class="text-[#f085aa]">.</span></span>
+     </div>
+     
+     <nav class="flex flex-col items-center gap-8">
+        <a class="mobile-link text-2xl font-black text-gray-300 hover:text-white uppercase tracking-widest transition-colors" href="#como-funciona">Como Funciona</a>
+        <a class="mobile-link text-2xl font-black text-gray-300 hover:text-white uppercase tracking-widest transition-colors" href="#sorteio">Sorteio</a>
+        <a class="mobile-link text-2xl font-black text-gray-300 hover:text-white uppercase tracking-widest transition-colors" href="#planos">Benefícios</a>
+     </nav>
+     
+     <button class="mobile-link mt-8 bg-[#f085aa] text-black px-12 py-4 rounded-full font-black text-lg uppercase hover:scale-105 hover:bg-white transition-all shadow-[0_0_30px_rgba(240,133,170,0.4)] cursor-pointer">ASSINE AGORA</button>
   </div>
 
   <!-- SPLIT SCREEN HERO: ZAIOTTO MASSIVE STYLE -->
@@ -532,6 +554,28 @@
                icon.style.transform = 'rotate(0deg)';
             }
          });
+      });
+
+      // Mobile Menu Logic
+      const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+      const closeMenuBtn = document.getElementById('close-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const mobileLinks = document.querySelectorAll('.mobile-link');
+
+      const toggleMobileMenu = () => {
+         if (mobileMenu) {
+            mobileMenu.classList.toggle('opacity-0');
+            mobileMenu.classList.toggle('pointer-events-none');
+            // Prevent scrolling on background when menu is open
+            document.body.classList.toggle('overflow-hidden');
+         }
+      };
+
+      if (mobileMenuBtn) mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+      if (closeMenuBtn) closeMenuBtn.addEventListener('click', toggleMobileMenu);
+      
+      mobileLinks.forEach(link => {
+         link.addEventListener('click', toggleMobileMenu);
       });
     });
   </script>
