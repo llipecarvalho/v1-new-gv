@@ -126,17 +126,17 @@
       <div class="absolute bottom-[15%] right-[-10%] w-[1000px] h-[1000px] bg-[#320075]/17 blur-[190px] rounded-full animate-blob" style="animation-delay: -5s;"></div>
    </div>
   
-  <div class="fixed top-6 w-full z-50 px-4 md:px-6 pointer-events-none flex justify-center">
-    <nav class="pill-nav-glass pointer-events-auto rounded-full px-2 py-2 flex items-center justify-between shadow-2xl w-full max-w-5xl border border-white/10 relative overflow-hidden h-16 md:h-20">
+  <div class="fixed top-6 w-full z-50 px-3 md:px-6 pointer-events-none flex justify-center">
+    <nav class="pill-nav-glass pointer-events-auto rounded-full px-1.5 md:px-2 py-1.5 md:py-2 flex items-center justify-between shadow-2xl w-full max-w-5xl border border-white/10 relative overflow-hidden h-14 md:h-20">
       
       <!-- LEFT: Hamburger + Logo Grouped -->
-      <div class="flex items-center gap-2 md:gap-4 pl-1 md:pl-4">
-         <button id="mobile-menu-btn" class="md:hidden text-white flex items-center justify-center p-2 hover:text-[#f085aa] transition-colors cursor-pointer pointer-events-auto">
-           <span class="material-symbols-outlined text-[1.75rem]">menu</span>
+      <div class="flex items-center gap-1 md:gap-4 pl-1 md:pl-4 flex-shrink-0">
+         <button id="mobile-menu-btn" class="md:hidden text-white flex items-center justify-center p-1 hover:text-[#f085aa] transition-colors cursor-pointer pointer-events-auto">
+           <span class="material-symbols-outlined text-[1.5rem]">menu</span>
          </button>
          
-         <div class="flex flex-col md:flex-row md:items-center gap-4">
-            <span class="text-xl md:text-3xl font-black text-white tracking-tighter">Versiani<span class="text-[#f085aa]">.</span></span>
+         <div class="flex flex-col md:flex-row md:items-center gap-2 md:gap-4">
+            <span class="text-lg md:text-3xl font-black text-white tracking-tighter">Versiani<span class="text-[#f085aa]">.</span></span>
             
             <!-- Desktop Links (Hidden on Mobile) -->
             <div class="hidden md:flex items-center gap-6 text-[11px] font-black uppercase tracking-[0.2em] text-gray-400 ml-4">
@@ -146,13 +146,16 @@
          </div>
       </div>
 
-      <!-- RIGHT: Large Action Pills -->
-      <div class="flex items-center gap-2 md:gap-4 pr-1 md:pr-4">
-         <!-- Secondary Large Pill: Member Area -->
-         <button onclick="openAuthModal('login')" class="px-4 md:px-7 py-2.5 md:py-3.5 rounded-full border border-white/10 bg-white/5 text-[9px] md:text-[11px] font-black uppercase tracking-[0.2em] text-gray-300 hover:bg-white/10 transition-all cursor-pointer whitespace-nowrap">Área do Membro</button>
+      <!-- RIGHT: Large Action Pills (Responsive Sizes) -->
+      <div class="flex items-center gap-1.5 md:gap-4 pr-1 md:pr-4 flex-shrink-0">
+         <!-- Secondary Responsive Pill: Member Area -->
+         <button onclick="openAuthModal('login')" class="px-3 md:px-7 py-2 md:py-3.5 rounded-full border border-white/10 bg-white/5 text-[8px] md:text-[11px] font-black uppercase tracking-[0.2em] text-gray-300 hover:bg-white/10 transition-all cursor-pointer whitespace-nowrap">
+            <span class="md:hidden">Membros</span>
+            <span class="hidden md:inline">Área do Membro</span>
+         </button>
          
-         <!-- Main Large Pill: Assinar -->
-         <button onclick="openAuthModal('signup')" class="bg-[#f085aa] text-black px-5 md:px-8 py-2.5 md:py-3.5 rounded-full font-black text-[10px] md:text-sm hover:scale-105 hover:bg-white transition-all shadow-[0_10px_30px_rgba(240,133,170,0.4)] pointer-events-auto btn-shine flex items-center justify-center gap-2 cursor-pointer whitespace-nowrap">ASSINAR <span class="material-symbols-outlined align-middle text-[1.2rem] hidden lg:inline-flex">arrow_outward</span></button>
+         <!-- Main Responsive Pill: Assinar -->
+         <button onclick="openAuthModal('signup')" class="bg-[#f085aa] text-black px-4 md:px-8 py-2 md:py-3.5 rounded-full font-black text-[9px] md:text-sm hover:scale-105 hover:bg-white transition-all shadow-[0_10px_30px_rgba(240,133,170,0.4)] pointer-events-auto btn-shine flex items-center justify-center gap-1 md:gap-2 cursor-pointer whitespace-nowrap">ASSINAR <span class="material-symbols-outlined align-middle text-[1.2rem] hidden lg:inline-flex">arrow_outward</span></button>
       </div>
 
     </nav>
