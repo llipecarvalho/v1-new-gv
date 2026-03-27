@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html class="dark" lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Versiani VIP | Edição Limitada</title>
+  <meta name="description" content="O Clube Privado de Benefícios Versiani.">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/styles/main.css">
+  <script type="module">
+    import '/src/scripts/tailwind.config.js';
+  </script>
+  <script src="/src/scripts/app.js" type="module" defer></script>
+</head>
+<body class="dark-bg-base text-gray-200 antialiased overflow-x-hidden">
+  
+  <!-- PILL NAVBAR (Zaiotto Style) -->
+  <div class="fixed top-6 w-full z-50 px-6 pointer-events-none flex justify-center">
+    <nav class="pill-nav-glass pointer-events-auto rounded-full px-2 py-2 flex items-center justify-between shadow-2xl w-full max-w-4xl border border-white/10">
+      <div class="px-6">
+        <span class="text-2xl font-black text-white tracking-tighter">Versiani<span class="text-[#f085aa]">.</span></span>
+      </div>
+      <div class="hidden md:flex items-center gap-6 text-sm font-bold text-gray-300">
+        <a class="hover:text-white transition-colors" href="#como-funciona">Como Funciona</a>
+        <a class="hover:text-white transition-colors" href="#sorteio">Sorteio</a>
+        <a class="hover:text-white transition-colors" href="#planos">Benefícios</a>
+      </div>
+      <div class="flex items-center gap-2">
+         <button class="bg-[#f085aa] text-black px-6 py-2.5 rounded-full font-black text-sm hover:scale-105 hover:bg-white transition-all shadow-[0_0_20px_rgba(240,133,170,0.4)]">ASSINE AGORA <span class="material-symbols-outlined align-middle text-[1rem]">arrow_outward</span></button>
+      </div>
+    </nav>
+  </div>
+
+  <!-- SPLIT SCREEN HERO: ZAIOTTO MASSIVE STYLE -->
+  <header class="relative min-h-[90vh] flex flex-col lg:flex-row border-b border-white/5 bg-[#050505]">
+    
+    <!-- Left Side: Typography & CTAs -->
+    <div class="w-full lg:w-1/2 flex flex-col justify-center px-6 md:px-12 lg:px-20 xl:px-32 pt-44 pb-20 z-10 relative">
+      <div class="space-y-8 max-w-2xl relative z-10">
+        <div class="inline-flex items-center gap-2 px-3 py-1 border border-white/20 bg-white/5 rounded-full text-xs font-bold tracking-[0.2em] uppercase text-gray-400">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#f085aa] animate-pulse"></span>
+          Resgate Oficial
+        </div>
+        <h1 class="text-6xl md:text-7xl lg:text-[5.5rem] font-black text-white leading-[0.9] tracking-tighter uppercase">
+          Reivindique <br>Seu <span class="text-gradient-rose">Prêmio.</span>
+        </h1>
+        <p class="text-xl text-gray-400 font-medium leading-relaxed">
+          Assine a partir de R$ 20. Cada cota gera descontos imediatos nas lojas Versiani e chances vitais no sorteio auditado do mês.
+        </p>
+        <div class="flex gap-4">
+          <button class="bg-[#f085aa] text-black px-8 py-4 rounded-full text-lg font-black hover:bg-white transition-all flex items-center gap-2">
+            Ver Planos Iniciais
+          </button>
+          <button class="border border-white/20 bg-white/5 backdrop-blur-md px-8 py-4 rounded-full text-lg font-bold hover:bg-white/10 transition-all flex items-center gap-2 text-white">
+            <span class="material-symbols-outlined">play_circle</span> Como Funciona
+          </button>
+        </div>
+        <div class="flex items-center gap-4 pt-6 text-sm font-bold text-gray-500">
+          <div class="flex -space-x-3">
+            <div class="w-10 h-10 rounded-full bg-white/10 border-2 border-[#111] flex items-center justify-center text-white"><span class="material-symbols-outlined text-[1rem]">person</span></div>
+            <div class="w-10 h-10 rounded-full bg-white/20 border-2 border-[#111] flex items-center justify-center text-white"><span class="material-symbols-outlined text-[1rem]">favorite</span></div>
+            <div class="w-10 h-10 rounded-full bg-white/30 border-2 border-[#111] flex items-center justify-center text-[#111]"><span class="material-symbols-outlined text-[1rem]">star</span></div>
+          </div>
+          <span>Mais de 10k membros confiáveis</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Right Side: Massive Image Slider (Full Height / Edge to Edge Zaiotto Style) -->
+    <div class="w-full lg:w-1/2 relative min-h-[50vh] lg:min-h-full flex-grow group" id="zaiotto-slider">
+      
+      <!-- Gradient Fade from Left -->
+      <div class="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#050505] to-transparent z-20 pointer-events-none hidden lg:block"></div>
+
+      <!-- Slider Navigation (Left side center inside the image) -->
+      <div class="absolute inset-y-0 left-0 lg:-left-6 w-16 z-30 flex flex-col justify-center gap-4 items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+         <button id="slider-prev" class="w-12 h-12 rounded-full bg-black/80 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-[#f085aa] hover:border-[#f085aa] hover:text-black transition-colors cursor-pointer shadow-2xl">
+            <span class="material-symbols-outlined text-[1.2rem] -mt-1">keyboard_arrow_up</span>
+         </button>
+         <button id="slider-next" class="w-12 h-12 rounded-full bg-black/80 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-[#f085aa] hover:border-[#f085aa] hover:text-black transition-colors cursor-pointer shadow-2xl">
+            <span class="material-symbols-outlined text-[1.2rem] mt-1">keyboard_arrow_down</span>
+         </button>
+      </div>
+
+      <!-- SLIDES -->
+      <div id="slider-slides" class="absolute inset-0 w-full h-full overflow-hidden bg-[#111]">
+         
+         <!-- Slide 1 -->
+         <div class="slide absolute inset-0 transition-opacity duration-700 opacity-100 z-10 w-full h-full">
+            <img src="https://images.unsplash.com/photo-1584916201218-f4242ceb4809?q=80&w=1200&auto=format&fit=crop" alt="Bolsa Prada" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black/20 z-10 pointer-events-none"></div>
+            
+            <div class="absolute bottom-16 left-12 right-12 lg:left-24 lg:right-24 z-20 flex flex-col items-start gap-4">
+               <div class="bg-black/60 backdrop-blur-md border border-[#f085aa]/30 px-3 py-2 rounded-full flex items-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-[#f085aa] animate-pulse"></span>
+                  <span class="text-xs font-bold text-white uppercase tracking-wider">Sorteio em 15 Dias</span>
+               </div>
+               <h3 class="text-5xl lg:text-7xl font-black text-white leading-tight uppercase tracking-tight">Prada<br>Galleria Bag</h3>
+               <p class="text-sm font-bold text-gray-300 uppercase tracking-[0.2em] bg-black/40 px-4 py-2 rounded-md backdrop-blur-sm">Prêmio da Cota</p>
+            </div>
+         </div>
+
+         <!-- Slide 2 -->
+         <div class="slide absolute inset-0 transition-opacity duration-700 opacity-0 z-0 w-full h-full">
+            <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=1200&auto=format&fit=crop" alt="Viagem para Paris" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black/20 z-10 pointer-events-none"></div>
+            
+            <div class="absolute bottom-16 left-12 right-12 lg:left-24 lg:right-24 z-20 flex flex-col items-start gap-4">
+               <div class="bg-black/60 backdrop-blur-md border border-[#f085aa]/30 px-3 py-2 rounded-full flex items-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-[#f085aa] animate-pulse"></span>
+                  <span class="text-xs font-bold text-white uppercase tracking-wider">Sorteio em 45 Dias</span>
+               </div>
+               <h3 class="text-5xl lg:text-7xl font-black text-white leading-tight uppercase tracking-tight">Paris <br>(C/Acompanhante)</h3>
+               <p class="text-sm font-bold text-gray-300 uppercase tracking-[0.2em] bg-black/40 px-4 py-2 rounded-md backdrop-blur-sm">Grande Sorteio Anual</p>
+            </div>
+         </div>
+
+         <!-- Slide 3 -->
+         <div class="slide absolute inset-0 transition-opacity duration-700 opacity-0 z-0 w-full h-full">
+            <img src="https://images.unsplash.com/photo-1695048133142-1a20484d2569?q=80&w=1200&auto=format&fit=crop" alt="iPhone 16 Pro" class="w-full h-full object-cover" style="object-position: center;">
+            <div class="absolute inset-0 bg-black/20 z-10 pointer-events-none"></div>
+            
+            <div class="absolute bottom-16 left-12 right-12 lg:left-24 lg:right-24 z-20 flex flex-col items-start gap-4">
+               <div class="bg-black/60 backdrop-blur-md border border-[#f085aa]/30 px-3 py-2 rounded-full flex items-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-[#f085aa] animate-pulse"></span>
+                  <span class="text-xs font-bold text-white uppercase tracking-wider">Sorteio em 2 Dias</span>
+               </div>
+               <h3 class="text-5xl lg:text-7xl font-black text-white leading-tight uppercase tracking-tight">iPhone 16 <br>Pro Max</h3>
+               <p class="text-sm font-bold text-gray-300 uppercase tracking-[0.2em] bg-black/40 px-4 py-2 rounded-md backdrop-blur-sm">Loteria Relâmpago</p>
+            </div>
+         </div>
+
+      </div>
+    </div>
+    </div>
+  </header>
+
+  <!-- INFINITE MARQUEE TICKER -->
+  <div class="w-full overflow-hidden bg-[#f085aa] text-black py-4 border-y border-white/10 whitespace-nowrap">
+    <div class="animate-marquee text-sm font-black uppercase tracking-[0.2em] inline-block">
+      <span class="mx-8">★ Acesso Estritamente Limitado</span>
+      <span class="mx-8">★ Sorteios Garantidos pela Loteria Federal</span>
+      <span class="mx-8">★ 1 Cota = Descontos Reais</span>
+      <span class="mx-8">★ Clube Exclusivo Versiani VIP</span>
+      <span class="mx-8">★ Acesso Estritamente Limitado</span>
+      <span class="mx-8">★ Sorteios Garantidos pela Loteria Federal</span>
+      <span class="mx-8">★ 1 Cota = Descontos Reais</span>
+      <span class="mx-8">★ Clube Exclusivo Versiani VIP</span>
+    </div>
+  </div>
+
+  <!-- HOW IT WORKS: BENTO GRID -->
+  <section class="py-24 md:py-32 px-6 md:px-8 border-b border-white/5" id="como-funciona">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-20 space-y-4">
+        <span class="text-xs font-black text-gray-500 uppercase tracking-[0.3em]">[ O PROCESSO DE VANTAGEM ]</span>
+        <h2 class="text-5xl md:text-6xl font-black text-white uppercase tracking-tight">Como Extrair Valor Máximo</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Card 1 -->
+        <div class="bento-card p-8 flex flex-col justify-between aspect-square group">
+          <div class="w-16 h-16 rounded-2xl bg-white/5 flex items-center justify-center border border-white/10 text-[#f085aa] group-hover:bg-[#f085aa] group-hover:text-black transition-colors">
+            <span class="material-symbols-outlined text-3xl font-light">shopping_cart_checkout</span>
+          </div>
+          <div>
+             <h3 class="text-2xl font-black text-white mb-2 uppercase">1. Assine a Cota</h3>
+             <p class="text-sm text-gray-400 font-medium">Você escolhe seu plano a partir de R$ 20. Sem burocracia, cancelamento em 1 clique.</p>
+          </div>
+        </div>
+        
+        <!-- Card 2 -->
+        <div class="bento-card p-8 flex flex-col justify-between aspect-square group">
+          <div class="w-16 h-16 rounded-2xl bg-white/5 flex items-center justify-center border border-white/10 text-[#f085aa] group-hover:bg-[#f085aa] group-hover:text-black transition-colors">
+            <span class="material-symbols-outlined text-3xl font-light">account_balance_wallet</span>
+          </div>
+          <div>
+             <h3 class="text-2xl font-black text-white mb-2 uppercase">2. R$ Vira Pontos</h3>
+             <p class="text-sm text-gray-400 font-medium">Nenhum centavo é perdido. Os R$ 20 viram 20 pontos de saldo garantido todo mês.</p>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="bento-card p-8 flex flex-col justify-between aspect-square group">
+          <div class="w-16 h-16 rounded-2xl bg-white/5 flex items-center justify-center border border-white/10 text-[#f085aa] group-hover:bg-[#f085aa] group-hover:text-black transition-colors">
+            <span class="material-symbols-outlined text-3xl font-light">stars</span>
+          </div>
+          <div>
+             <h3 class="text-2xl font-black text-white mb-2 uppercase">3. Resgate Real</h3>
+             <p class="text-sm text-gray-400 font-medium">Use seu saldo como dinheiro no carrinho de marcas Versiani. 20 pontos = 20 reais off.</p>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="bento-card p-8 flex flex-col justify-between aspect-square bg-gradient-to-br from-[#1a0c24] to-[#050505]">
+          <div class="w-16 h-16 rounded-2xl bg-[#f085aa] flex items-center justify-center border border-[#f085aa] text-black">
+            <span class="material-symbols-outlined text-3xl font-light">diamond</span>
+          </div>
+          <div>
+             <h3 class="text-2xl font-black text-white mb-2 uppercase">4. Sorteio Vip</h3>
+             <p class="text-sm text-gray-400 font-medium">Sua cota gera um Número da Sorte habilitado para a extração cega da Loteria Federal.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ECONOMY SHOWCASE (The Value Proposition) -->
+  <section class="py-32 px-6 md:px-8 border-b border-white/5 overflow-hidden relative">
+     <!-- Massive BG Text -->
+     <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full text-center pointer-events-none opacity-[0.03]">
+        <h2 class="text-[15rem] font-black uppercase tracking-tighter text-white whitespace-nowrap">Cashback</h2>
+     </div>
+
+     <div class="max-w-7xl mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div>
+           <span class="text-xs font-black text-[#f085aa] uppercase tracking-[0.3em] mb-4 block">[ ECONOMIA TANGÍVEL ]</span>
+           <h2 class="text-5xl md:text-6xl font-black text-white uppercase tracking-tight leading-[0.95] mb-8">O Clube que se paga todo mês.</h2>
+           <p class="text-xl text-gray-400 font-medium leading-relaxed mb-10">
+              O modelo tradicional de sorteios é uma aposta furada. Aqui não há perdas. O valor que garante o seu acesso ao maior prêmio da internet retorna 100% para você aplicar em beleza e moda.
+           </p>
+           
+           <div class="space-y-6">
+              <div class="flex items-start gap-4">
+                 <div class="w-12 h-12 rounded-full border border-white/20 bg-white/5 flex items-center justify-center text-white mt-1">
+                    <span class="material-symbols-outlined">payments</span>
+                 </div>
+                 <div>
+                    <h4 class="text-xl font-bold text-white uppercase tracking-wide">Moeda Forte</h4>
+                    <p class="text-gray-400 text-sm">Seu painel converte cotas em saldo ativo com paridade 1 para 1 na rede Versiani.</p>
+                 </div>
+              </div>
+              <div class="flex items-start gap-4">
+                 <div class="w-12 h-12 rounded-full border border-white/20 bg-white/5 flex items-center justify-center text-white mt-1">
+                    <span class="material-symbols-outlined">verified_user</span>
+                 </div>
+                 <div>
+                    <h4 class="text-xl font-bold text-white uppercase tracking-wide">Garantido pela Loteria</h4>
+                    <p class="text-gray-400 text-sm">Todo o módulo de premiação opera sob os números de extração oficiais da Caixa.</p>
+                 </div>
+              </div>
+           </div>
+        </div>
+        
+        <div class="relative flex justify-end">
+           <div class="bento-card p-10 max-w-md w-full relative z-20 bg-black/80">
+              <div class="flex justify-between items-center mb-8 border-b border-white/10 pb-6">
+                 <div>
+                    <span class="text-[10px] font-black text-gray-500 uppercase tracking-widest block mb-1">Cotas Ativas</span>
+                    <span class="text-3xl font-black text-white">5 Cotas Pop</span>
+                 </div>
+                 <span class="material-symbols-outlined text-4xl text-gray-600">sync_alt</span>
+              </div>
+              <div>
+                 <span class="text-[10px] font-black text-[#f085aa] uppercase tracking-widest block mb-1">Poder de Compra</span>
+                 <p class="text-6xl font-black text-white tracking-tighter mb-4"><span class="text-3xl text-gray-500">R$</span> 100</p>
+                 <button class="w-full bg-white text-black py-4 rounded-xl font-black uppercase text-sm hover:bg-[#f085aa] transition-colors">Abrir Loja Versiani Skin</button>
+              </div>
+           </div>
+           
+           <!-- Blur effect behind purely for aesthetic -->
+           <div class="absolute top-10 right-10 w-full h-full bg-[#f085aa]/20 blur-[100px] z-0 rounded-full"></div>
+        </div>
+     </div>
+  </section>
+
+   <!-- SOCIAL PROOF / WALL OF LOVE -->
+   <section class="py-24 md:py-32 px-6 md:px-8 border-b border-white/5 bg-[#080808]">
+     <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16 md:mb-20 space-y-4">
+          <span class="text-xs font-black text-gray-500 uppercase tracking-[0.3em]">[ TRUSTED MEMBERS ]</span>
+          <h2 class="text-4xl md:text-6xl font-black text-white uppercase tracking-tight">Elas Ousaram.<br>Elas Ganharam.</h2>
+        </div>
+        
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+           <!-- Member 1 -->
+           <div class="relative group aspect-[3/4] overflow-hidden rounded-2xl border border-white/5">
+              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+              <div class="absolute bottom-4 md:bottom-6 left-4 md:left-6 right-4 md:right-6">
+                 <p class="text-[10px] md:text-xs text-[#f085aa] font-bold uppercase tracking-widest mb-1">Ganhou iPhone 15</p>
+                 <h4 class="text-white font-black text-sm md:text-lg">Camila R.</h4>
+              </div>
+           </div>
+           <!-- Member 2 -->
+           <div class="relative group aspect-[3/4] overflow-hidden rounded-2xl border border-white/5 lg:translate-y-8">
+              <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+              <div class="absolute bottom-4 md:bottom-6 left-4 md:left-6 right-4 md:right-6">
+                 <p class="text-[10px] md:text-xs text-[#f085aa] font-bold uppercase tracking-widest mb-1">Membro Elite</p>
+                 <h4 class="text-white font-black text-sm md:text-lg">Juliana M.</h4>
+              </div>
+           </div>
+           <!-- Member 3 -->
+           <div class="relative group aspect-[3/4] overflow-hidden rounded-2xl border border-white/5">
+              <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+              <div class="absolute bottom-4 md:bottom-6 left-4 md:left-6 right-4 md:right-6">
+                 <p class="text-[10px] md:text-xs text-[#f085aa] font-bold uppercase tracking-widest mb-1">Ganhou Prada</p>
+                 <h4 class="text-white font-black text-sm md:text-lg">Marina S.</h4>
+              </div>
+           </div>
+           <!-- Member 4 -->
+           <div class="relative group aspect-[3/4] overflow-hidden rounded-2xl border border-white/5 lg:translate-y-8">
+              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+              <div class="absolute bottom-4 md:bottom-6 left-4 md:left-6 right-4 md:right-6">
+                 <p class="text-[10px] md:text-xs text-[#f085aa] font-bold uppercase tracking-widest mb-1">Resgatou R$ 500</p>
+                 <h4 class="text-white font-black text-sm md:text-lg">Fernanda A.</h4>
+              </div>
+           </div>
+        </div>
+     </div>
+   </section>
+
+  <!-- PRICING TABLE (Dark Mode Tiers) -->
+  <section class="py-24 md:py-32 px-6 md:px-8 bg-[#0a0a0a]" id="planos">
+     <div class="max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+           <div class="max-w-xl">
+              <span class="text-xs font-black text-gray-500 uppercase tracking-[0.3em] block mb-4">[ SELECIONE SUAS CHANCES ]</span>
+              <h2 class="text-5xl md:text-6xl font-black text-white uppercase tracking-tight">Qual o Seu Nível <br>de Experiência?</h2>
+           </div>
+           
+           <!-- Pricing Toggle Zaiotto Style -->
+           <div class="bento-card flex items-center gap-4 p-2 rounded-full border border-white/20">
+              <button class="px-6 py-2 rounded-full bg-white text-black font-black text-sm uppercase cursor-pointer" id="btn-mensal">Mensal</button>
+              <button class="px-6 py-2 rounded-full text-gray-400 font-bold text-sm uppercase hover:text-white transition-colors cursor-pointer" id="btn-anual">Anual <span class="text-[#f085aa] ml-1 text-xs">-20%</span></button>
+           </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+           
+           <!-- Starter -->
+           <div class="bento-card p-10 flex flex-col justify-between hover:border-white/30 transition-all">
+              <div>
+                 <h3 class="text-2xl font-black text-white uppercase tracking-wide mb-2">Pilar</h3>
+                 <p class="text-gray-400 text-sm font-medium h-12">O passe de entrada mínimo para participar.</p>
+                 <div class="my-8 flex items-end gap-2">
+                    <span class="text-5xl font-black text-white">R$20</span>
+                    <span class="text-gray-500 font-bold mb-1 uppercase text-sm">/mês</span>
+                 </div>
+                 <ul class="space-y-4 mb-10">
+                    <li class="flex items-center gap-3 text-sm text-gray-300 font-bold"><span class="material-symbols-outlined text-[#f085aa] text-lg">check_circle</span> 1 Cota</li>
+                    <li class="flex items-center gap-3 text-sm text-gray-300 font-bold"><span class="material-symbols-outlined text-[#f085aa] text-lg">check_circle</span> 20 Pontos todo mês</li>
+                 </ul>
+              </div>
+              <button class="w-full py-4 border border-white/20 rounded-full font-black text-white hover:bg-white hover:text-black transition-all uppercase text-sm">Adquirir Pilar</button>
+           </div>
+
+           <!-- PRO (Highlighted) -->
+           <div class="bento-card p-10 flex flex-col justify-between border-[#f085aa]/50 bg-gradient-to-b from-[#1a0c24] to-transparent relative transform md:-translate-y-4">
+              <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#f085aa] text-black px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest shadow-[0_0_20px_rgba(240,133,170,0.5)]">
+                 O Mais Usado
+              </div>
+              <div>
+                 <h3 class="text-2xl font-black text-white uppercase tracking-wide mb-2">Essencial</h3>
+                 <p class="text-gray-400 text-sm font-medium h-12">O equilíbrio perfeito de potência e custo.</p>
+                 <div class="my-8 flex items-end gap-2">
+                    <span class="text-6xl font-black text-white">R$80</span>
+                    <span class="text-gray-500 font-bold mb-1 uppercase text-sm">/mês</span>
+                 </div>
+                 <ul class="space-y-4 mb-10">
+                    <li class="flex items-center gap-3 text-sm text-white font-bold"><span class="material-symbols-outlined text-[#f085aa] text-lg">hotel_class</span> 5 Cotas (5x Chances)</li>
+                    <li class="flex items-center gap-3 text-sm text-white font-bold"><span class="material-symbols-outlined text-[#f085aa] text-lg">hotel_class</span> 100 Pontos Mensais</li>
+                    <li class="flex items-center gap-3 text-sm text-white font-bold"><span class="material-symbols-outlined text-[#f085aa] text-lg">hotel_class</span> Acesso VIP Eventos</li>
+                 </ul>
+              </div>
+              <button class="w-full py-4 bg-[#f085aa] text-black rounded-full font-black hover:bg-white transition-all uppercase text-sm">Criar Conta Essencial</button>
+           </div>
+
+           <!-- VIP -->
+           <div class="bento-card p-10 flex flex-col justify-between hover:border-white/30 transition-all">
+              <div>
+                 <div class="flex justify-between items-center mb-2">
+                    <h3 class="text-2xl font-black text-white uppercase tracking-wide">Elite</h3>
+                    <span class="material-symbols-outlined text-gray-600">diamond</span>
+                 </div>
+                 <p class="text-gray-400 text-sm font-medium h-12">O máximo de chances para clientes de alto padrão.</p>
+                 <div class="my-8 flex items-end gap-2">
+                    <span class="text-5xl font-black text-white">R$220</span>
+                    <span class="text-gray-500 font-bold mb-1 uppercase text-sm">/mês</span>
+                 </div>
+                 <ul class="space-y-4 mb-10">
+                    <li class="flex items-center gap-3 text-sm text-gray-300 font-bold"><span class="material-symbols-outlined text-[#f085aa] text-lg">check_circle</span> 20 Cotas Gigantes</li>
+                    <li class="flex items-center gap-3 text-sm text-gray-300 font-bold"><span class="material-symbols-outlined text-[#f085aa] text-lg">check_circle</span> 400 Pontos Blindados</li>
+                 </ul>
+              </div>
+              <button class="w-full py-4 border border-white/20 rounded-full font-black text-white hover:bg-white hover:text-black transition-all uppercase text-sm">Assinar Nível Elite</button>
+           </div>
+
+        </div>
+     </div>
+  </section>
+
+   <!-- AFILIADAS (CASHBACK/INDIQUE E GANHE) -->
+   <section class="py-24 md:py-32 px-6 md:px-8 border-b border-white/5 relative overflow-hidden">
+      <!-- Decorator -->
+      <div class="absolute -right-40 top-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#320075]/30 blur-[120px] rounded-full pointer-events-none"></div>
+
+      <div class="max-w-7xl mx-auto bento-card border-[#320075]/40 bg-gradient-to-br from-[#1d1a22] to-[#050505] p-8 md:p-16 flex flex-col md:flex-row items-center justify-between gap-12 relative z-10">
+         <div class="max-w-xl">
+            <span class="text-xs font-black text-[#f085aa] uppercase tracking-[0.3em] block mb-4">[ PARCERIA DE SUCESSO ]</span>
+            <h2 class="text-4xl md:text-5xl font-black text-white uppercase tracking-tight mb-6">Convide Amigas e Fature <span class="text-gradient-rose">25% Recorrente</span>.</h2>
+            <p class="text-gray-400 font-medium mb-8">
+               Como membro ativa do Clube, você tem acesso ao seu próprio painel de rede. Cada amiga que assina o clube pelo seu link te garante 25% do valor da assinatura em dinheiro, todos os meses.
+            </p>
+            <ul class="space-y-3 mb-10">
+               <li class="flex items-center gap-3 text-sm text-white font-bold"><span class="material-symbols-outlined text-[#f085aa]">link</span> Gere seu link rastreável com 1 clique</li>
+               <li class="flex items-center gap-3 text-sm text-white font-bold"><span class="material-symbols-outlined text-[#f085aa]">monitoring</span> Dashboard transparente de indicações</li>
+               <li class="flex items-center gap-3 text-sm text-white font-bold"><span class="material-symbols-outlined text-[#f085aa]">account_balance</span> Saque direto via PIX para sua conta</li>
+            </ul>
+         </div>
+         <div class="w-full max-w-sm bento-card p-8 bg-black/60 relative">
+            <div class="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-16 h-16 bg-[#f085aa] blur-[30px] rounded-full z-0 pointer-events-none"></div>
+            <div class="relative z-10 text-center">
+               <span class="material-symbols-outlined text-5xl text-[#f085aa] mb-4">wallet</span>
+               <h4 class="text-xl font-black text-white uppercase mb-2">Simulação Rápida</h4>
+               <p class="text-xs text-gray-500 mb-6">10 amigas no Padrão Essencial (5 cotas)</p>
+               <div class="bg-white/5 border border-white/10 rounded-xl p-4 mb-6">
+                  <span class="block text-[10px] uppercase text-gray-400 font-black mb-1">Sua Renda Extra</span>
+                  <span class="text-4xl text-white font-black">R$ 200<span class="text-lg text-gray-500">/mês</span></span>
+               </div>
+               <button class="w-full bg-white text-black py-3 rounded-full font-black text-sm uppercase hover:bg-[#f085aa] transition-colors">Acessar Painel</button>
+            </div>
+         </div>
+      </div>
+   </section>
+
+   <!-- FAQ ACCORDION -->
+   <section class="py-24 md:py-32 px-6 md:px-8 border-b border-white/5 bg-[#050505]" id="faq">
+      <div class="max-w-3xl mx-auto mt-4">
+         <div class="text-center mb-16 space-y-4">
+            <span class="text-xs font-black text-gray-500 uppercase tracking-[0.3em]">[ TRANSPARÊNCIA TOTAL ]</span>
+            <h2 class="text-4xl md:text-5xl font-black text-white uppercase tracking-tight">Dúvidas Frequentes</h2>
+         </div>
+         
+         <div class="space-y-4 text-left">
+            <!-- FAQ 1 -->
+            <div class="border-b border-white/10 pb-4">
+               <button class="faq-toggle w-full flex justify-between items-center py-4 text-left group cursor-pointer focus:outline-none">
+                  <h4 class="text-base md:text-lg font-bold text-white uppercase tracking-wide group-hover:text-[#f085aa] transition-colors pr-4">1. Como funciona o resgate de descontos nas lojas?</h4>
+                  <span class="material-symbols-outlined text-white transition-transform duration-300 transform group-hover:text-[#f085aa]">expand_more</span>
+               </button>
+               <div class="faq-panel text-gray-400 text-sm leading-relaxed pr-8">
+                  <div class="pt-2 pb-6">De acordo com seu plano, seus R$ são convertidos em pontos. Basta acessar a loja de parcerias da Versiani e aplicar seus pontos no carrinho de compras. 1 Ponto equivale a R$1 de desconto real.</div>
+               </div>
+            </div>
+            <!-- FAQ 2 -->
+            <div class="border-b border-white/10 pb-4">
+               <button class="faq-toggle w-full flex justify-between items-center py-4 text-left group cursor-pointer focus:outline-none">
+                  <h4 class="text-base md:text-lg font-bold text-white uppercase tracking-wide group-hover:text-[#f085aa] transition-colors pr-4">2. O sorteio é legalizado?</h4>
+                  <span class="material-symbols-outlined text-white transition-transform duration-300 transform group-hover:text-[#f085aa]">expand_more</span>
+               </button>
+               <div class="faq-panel text-gray-400 text-sm leading-relaxed pr-8">
+                  <div class="pt-2 pb-6">100% regulamentado. Trabalhamos exclusivamente utilizando as extrações oficiais da Loteria Federal (CEF) sob autorização dos órgãos competentes, garantindo transparência máxima e lisura.</div>
+               </div>
+            </div>
+            <!-- FAQ 3 -->
+            <div class="border-b border-white/10 pb-4">
+               <button class="faq-toggle w-full flex justify-between items-center py-4 text-left group cursor-pointer focus:outline-none">
+                  <h4 class="text-base md:text-lg font-bold text-white uppercase tracking-wide group-hover:text-[#f085aa] transition-colors pr-4">3. Posso cancelar minha assinatura a qualquer momento?</h4>
+                  <span class="material-symbols-outlined text-white transition-transform duration-300 transform group-hover:text-[#f085aa]">expand_more</span>
+               </button>
+               <div class="faq-panel text-gray-400 text-sm leading-relaxed pr-8">
+                  <div class="pt-2 pb-6">Sim. O cancelamento para planos mensais pode ser feito com 1 botão através do seu painel corporativo, sem burocracia, sem fidelidade e sem retenção de dados.</div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+
+  <!-- CTA FOOTER (Massive Impact) -->
+  <footer class="bg-black pt-24 pb-10 border-t border-white/10 px-6 md:px-8">
+     <div class="max-w-7xl mx-auto flex flex-col items-center text-center mb-32">
+        <h2 class="text-6xl md:text-8xl lg:text-[10rem] font-black text-white uppercase tracking-tighter leading-[0.85] mb-8">
+           Entre<br>Para o <span class="text-gradient-rose">Clube</span>.
+        </h2>
+        <p class="text-xl text-gray-400 max-w-2xl font-medium mb-10">Não fique de fora do ecossistema que está premiando todos os meses.</p>
+        <button class="bg-white text-black px-12 py-5 rounded-full text-xl font-black uppercase hover:scale-105 hover:bg-[#f085aa] hover:text-white transition-all shadow-[0_0_30px_rgba(255,255,255,0.2)]">
+           Garantir Primeira Cota
+        </button>
+     </div>
+     
+     <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center border-t border-white/10 pt-8 gap-4">
+        <div class="flex items-center gap-2">
+           <span class="text-2xl font-black text-white tracking-tighter">Versiani<span class="text-[#f085aa]">.</span></span>
+           <span class="text-xs font-bold text-gray-600 uppercase">© 2026 Todos os Direitos</span>
+        </div>
+        <div class="flex gap-6 text-xs font-bold text-gray-500 uppercase">
+           <a href="#" class="hover:text-white transition-colors">Instagram</a>
+           <a href="#" class="hover:text-white transition-colors">Termos</a>
+           <a href="#" class="hover:text-white transition-colors">Contato</a>
+        </div>
+     </div>
+  </footer>
+
+  <script>
+    // Zaiotto Style Hero Slider Logic
+    document.addEventListener('DOMContentLoaded', () => {
+      const slides = document.querySelectorAll('#slider-slides .slide');
+      const btnNext = document.getElementById('slider-next');
+      const btnPrev = document.getElementById('slider-prev');
+      let currentSlide = 0;
+  
+      const updateSlider = () => {
+        slides.forEach((slide, index) => {
+          if (index === currentSlide) {
+            slide.classList.remove('opacity-0', 'z-0');
+            slide.classList.add('opacity-100', 'z-10');
+          } else {
+            slide.classList.remove('opacity-100', 'z-10');
+            slide.classList.add('opacity-0', 'z-0');
+          }
+        });
+      };
+  
+      if(btnNext && btnPrev && slides.length > 0) {
+        btnNext.addEventListener('click', () => {
+          currentSlide = (currentSlide + 1) % slides.length;
+          updateSlider();
+        });
+  
+        btnPrev.addEventListener('click', () => {
+          currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+          updateSlider();
+        });
+  
+        // Auto-play every 6 seconds
+        setInterval(() => {
+          currentSlide = (currentSlide + 1) % slides.length;
+          updateSlider();
+        }, 6000);
+      }
+
+      // FAQ Accordion Logic
+      const faqToggles = document.querySelectorAll('.faq-toggle');
+      faqToggles.forEach(toggle => {
+         toggle.addEventListener('click', () => {
+            const panel = toggle.nextElementSibling;
+            const icon = toggle.querySelector('.material-symbols-outlined');
+            
+            // Toggle active state
+            panel.classList.toggle('active');
+            
+            // Rotate icon
+            if (panel.classList.contains('active')) {
+               icon.style.transform = 'rotate(180deg)';
+            } else {
+               icon.style.transform = 'rotate(0deg)';
+            }
+         });
+      });
+    });
+  </script>
+</body>
+</html>
