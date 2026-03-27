@@ -475,10 +475,14 @@
             <div class="relative z-10 text-center">
                <span class="material-symbols-outlined text-5xl text-[#f085aa] mb-4">wallet</span>
                <h4 class="text-xl font-black text-white uppercase mb-2">Simulação Rápida</h4>
-               <p class="text-xs text-gray-500 mb-6">10 amigas no Padrão Essencial (5 cotas)</p>
-               <div class="bg-white/5 border border-white/10 rounded-xl p-4 mb-6">
+               <p class="text-xs text-gray-500 mb-4"><span id="amigas-count" class="text-[#f085aa] font-black text-sm">10</span> amigas no Padrão Essencial <br/>(R$ 80)</p>
+               
+               <!-- Range Slider -->
+               <input type="range" id="amigas-slider" min="1" max="100" value="10" class="w-full h-1 bg-white/20 rounded-lg appearance-none cursor-pointer accent-[#f085aa] hover:accent-white transition-all mb-8">
+               
+               <div class="bg-white/5 border border-white/10 rounded-xl p-4 mb-6 transition-all duration-300 transform scale-100" id="renda-box">
                   <span class="block text-[10px] uppercase text-gray-400 font-black mb-1">Sua Renda Extra</span>
-                  <span class="text-4xl text-white font-black">R$ 200<span class="text-lg text-gray-500">/mês</span></span>
+                  <span class="text-4xl text-white font-black">R$ <span id="renda-value">200</span><span class="text-lg text-gray-500">/mês</span></span>
                </div>
                <button class="w-full bg-white text-black py-3 rounded-full font-black text-sm uppercase hover:bg-[#f085aa] transition-colors">Acessar Painel</button>
             </div>
@@ -562,15 +566,27 @@
   
       const updateSlider = () => {
         slides.forEach((slide, index) => {
+          const img = slide.querySelector('img');
           if (index === currentSlide) {
             slide.classList.remove('opacity-0', 'z-0');
             slide.classList.add('opacity-100', 'z-10');
+            if (img) {
+               img.style.transition = 'transform 6s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+               img.style.transform = 'scale(1.1)';
+            }
           } else {
             slide.classList.remove('opacity-100', 'z-10');
             slide.classList.add('opacity-0', 'z-0');
+            if (img) {
+               img.style.transition = 'transform 0s';
+               img.style.transform = 'scale(1)';
+            }
           }
         });
       };
+
+      // Inicia a Escala Ken Burns na primeira renderização visível
+      if(slides.length > 0) updateSlider();
   
       if(slides.length > 0) {
         // Auto-play every 5 seconds
@@ -670,6 +686,32 @@
             }, 3500);
          }
       };
+
+      // Afiliadas Calculator Logic
+      const amigasSlider = document.getElementById('amigas-slider');
+      const amigasCountInfo = document.getElementById('amigas-count');
+      const rendaValueInfo = document.getElementById('renda-value');
+      const rendaBox = document.getElementById('renda-box');
+
+      if (amigasSlider && amigasCountInfo && rendaValueInfo) {
+         amigasSlider.addEventListener('input', (e) => {
+            const count = parseInt(e.target.value);
+            const renda = count * 20; // 25% de R$ 80 é R$ 20
+            
+            amigasCountInfo.textContent = count;
+            rendaValueInfo.textContent = renda.toLocaleString('pt-BR');
+            
+            // Pop effect text
+            rendaBox.classList.remove('scale-100');
+            rendaBox.classList.add('scale-105', 'bg-white/10');
+            
+            clearTimeout(amigasSlider.timeoutId);
+            amigasSlider.timeoutId = setTimeout(() => {
+               rendaBox.classList.add('scale-100');
+               rendaBox.classList.remove('scale-105', 'bg-white/10');
+            }, 150);
+         });
+      }
 
       setupCarousel('hw');
       setupCarousel('planos');
