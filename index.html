@@ -354,82 +354,101 @@
    </section>
 
   <!-- PRICING TABLE (Dark Mode Tiers) -->
-  <section class="py-16 md:py-20 px-6 md:px-8 bg-[#0a0a0a]" id="planos">
-     <div class="max-w-7xl mx-auto">
+  <section class="py-16 md:py-20 bg-[#0a0a0a] overflow-hidden" id="planos">
+     <!-- Container do Header -->
+     <div class="max-w-7xl mx-auto px-6 md:px-8">
          <div class="flex flex-col md:flex-row justify-between items-center md:items-end mb-10 md:mb-16 gap-8 text-center md:text-left">
             <div class="max-w-xl flex flex-col items-center md:items-start">
                <span class="text-xs font-black text-gray-500 uppercase tracking-[0.3em] block mb-4">[ SELECIONE SUAS CHANCES ]</span>
                <h2 class="text-4xl md:text-6xl font-black text-white uppercase tracking-tight break-words hyphens-auto">Qual o Seu Nível <br class="hidden md:block">de Experiência?</h2>
             </div>
            
-           <!-- Pricing Toggle Zaiotto Style -->
-           <div class="bento-card flex items-center gap-1 sm:gap-4 p-1.5 md:p-2 rounded-full border border-white/20 mt-4 md:mt-0">
-              <button class="px-4 md:px-6 py-2 rounded-full bg-white text-black font-black text-xs md:text-sm uppercase cursor-pointer whitespace-nowrap" id="btn-mensal">Mensal</button>
-              <button class="px-4 md:px-6 py-2 rounded-full text-gray-400 font-bold text-xs md:text-sm uppercase hover:text-white transition-colors cursor-pointer whitespace-nowrap" id="btn-anual">Anual <span class="text-[#f085aa] ml-1 text-[10px] md:text-xs">-20%</span></button>
-           </div>
-        </div>
+            <div class="flex flex-col sm:flex-row items-center gap-6">
+               <!-- Pricing Toggle -->
+               <div class="bento-card flex items-center gap-1 sm:gap-4 p-1.5 md:p-2 rounded-full border border-white/20">
+                  <button class="px-4 md:px-6 py-2 rounded-full bg-white text-black font-black text-xs md:text-sm uppercase cursor-pointer whitespace-nowrap" id="btn-mensal">Mensal</button>
+                  <button class="px-4 md:px-6 py-2 rounded-full text-gray-400 font-bold text-xs md:text-sm uppercase hover:text-white transition-colors cursor-pointer whitespace-nowrap" id="btn-anual">Anual <span class="text-[#f085aa] ml-1 text-[10px] md:text-xs">-20%</span></button>
+               </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-           
-           <!-- Starter -->
-           <div class="bento-card p-10 flex flex-col justify-between hover:border-white/30 transition-all">
-              <div>
-                 <h3 class="text-2xl font-black text-white uppercase tracking-wide mb-2">Pilar</h3>
-                 <p class="text-gray-400 text-sm font-medium h-12">O passe de entrada mínimo para participar.</p>
-                 <div class="my-8 flex items-end gap-2">
-                    <span class="text-5xl font-black text-white">R$20</span>
-                    <span class="text-gray-500 font-bold mb-1 uppercase text-sm">/mês</span>
-                 </div>
-                 <ul class="space-y-4 mb-10">
-                    <li class="flex items-center gap-3 text-sm text-gray-300 font-bold"><span class="material-symbols-outlined text-[#f085aa] text-lg">check_circle</span> 1 Cota</li>
-                    <li class="flex items-center gap-3 text-sm text-gray-300 font-bold"><span class="material-symbols-outlined text-[#f085aa] text-lg">check_circle</span> 20 Pontos todo mês</li>
-                 </ul>
-              </div>
-              <button class="w-full py-4 border border-white/20 rounded-full font-black text-white hover:bg-white hover:text-black transition-all uppercase text-sm">Adquirir Pilar</button>
-           </div>
+               <!-- Navigation Arrows -->
+               <div class="hidden sm:flex gap-3 relative z-10">
+                 <button id="planos-prev" class="w-12 h-12 rounded-full border border-white/20 bg-white/5 flex items-center justify-center text-white hover:bg-[#f085aa] hover:text-black hover:border-[#f085aa] transition-colors cursor-pointer">
+                   <span class="material-symbols-outlined">arrow_back</span>
+                 </button>
+                 <button id="planos-next" class="w-12 h-12 rounded-full border border-white/20 bg-white/5 flex items-center justify-center text-white hover:bg-[#f085aa] hover:text-black hover:border-[#f085aa] transition-colors cursor-pointer">
+                   <span class="material-symbols-outlined">arrow_forward</span>
+                 </button>
+               </div>
+            </div>
+         </div>
+     </div>
 
-           <!-- PRO (Highlighted) -->
-           <div class="bento-card p-10 flex flex-col justify-between border-[#f085aa]/50 bg-gradient-to-b from-[#1a0c24] to-transparent relative transform md:-translate-y-4">
-              <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#f085aa] text-black px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest shadow-[0_0_20px_rgba(240,133,170,0.5)]">
-                 O Mais Usado
-              </div>
-              <div>
-                 <h3 class="text-2xl font-black text-white uppercase tracking-wide mb-2">Essencial</h3>
-                 <p class="text-gray-400 text-sm font-medium h-12">O equilíbrio perfeito de potência e custo.</p>
-                 <div class="my-8 flex items-end gap-2">
-                    <span class="text-6xl font-black text-white">R$80</span>
-                    <span class="text-gray-500 font-bold mb-1 uppercase text-sm">/mês</span>
-                 </div>
-                 <ul class="space-y-4 mb-10">
-                    <li class="flex items-center gap-3 text-sm text-white font-bold"><span class="material-symbols-outlined text-[#f085aa] text-lg">hotel_class</span> 5 Cotas (5x Chances)</li>
-                    <li class="flex items-center gap-3 text-sm text-white font-bold"><span class="material-symbols-outlined text-[#f085aa] text-lg">hotel_class</span> 100 Pontos Mensais</li>
-                    <li class="flex items-center gap-3 text-sm text-white font-bold"><span class="material-symbols-outlined text-[#f085aa] text-lg">hotel_class</span> Acesso VIP Eventos</li>
-                 </ul>
-              </div>
-              <button class="w-full py-4 bg-[#f085aa] text-black rounded-full font-black hover:bg-white transition-all uppercase text-sm">Criar Conta Essencial</button>
-           </div>
+     <!-- Wrapper do Carrossel Full-Bleed -->
+     <div class="relative w-full">
+         <div class="absolute left-0 top-0 bottom-0 w-[18vw] sm:w-[calc(50%_-_130px)] bg-[#0a0a0a]/60 backdrop-blur-[8px] z-20 pointer-events-none" style="-webkit-mask-image: linear-gradient(to right, black 20%, transparent 100%); mask-image: linear-gradient(to right, black 20%, transparent 100%);"></div>
+         <div class="absolute right-0 top-0 bottom-0 w-[18vw] sm:w-[calc(50%_-_130px)] bg-[#0a0a0a]/60 backdrop-blur-[8px] z-20 pointer-events-none" style="-webkit-mask-image: linear-gradient(to left, black 20%, transparent 100%); mask-image: linear-gradient(to left, black 20%, transparent 100%);"></div>
 
-           <!-- VIP -->
-           <div class="bento-card p-10 flex flex-col justify-between hover:border-white/30 transition-all">
-              <div>
-                 <div class="flex justify-between items-center mb-2">
-                    <h3 class="text-2xl font-black text-white uppercase tracking-wide">Elite</h3>
-                    <span class="material-symbols-outlined text-gray-600">diamond</span>
-                 </div>
-                 <p class="text-gray-400 text-sm font-medium h-12">O máximo de chances para clientes de alto padrão.</p>
-                 <div class="my-8 flex items-end gap-2">
-                    <span class="text-5xl font-black text-white">R$220</span>
-                    <span class="text-gray-500 font-bold mb-1 uppercase text-sm">/mês</span>
-                 </div>
-                 <ul class="space-y-4 mb-10">
-                    <li class="flex items-center gap-3 text-sm text-gray-300 font-bold"><span class="material-symbols-outlined text-[#f085aa] text-lg">check_circle</span> 20 Cotas Gigantes</li>
-                    <li class="flex items-center gap-3 text-sm text-gray-300 font-bold"><span class="material-symbols-outlined text-[#f085aa] text-lg">check_circle</span> 400 Pontos Blindados</li>
-                 </ul>
-              </div>
-              <button class="w-full py-4 border border-white/20 rounded-full font-black text-white hover:bg-white hover:text-black transition-all uppercase text-sm">Assinar Nível Elite</button>
-           </div>
+         <div id="planos-carousel" class="flex gap-6 overflow-x-auto snap-x snap-mandatory pt-8 pb-12 px-[18vw] sm:px-[calc(50%_-_160px)] scroll-smooth [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+            
+            <!-- Starter -->
+            <div class="bento-card p-10 flex flex-col justify-between hover:border-white/30 transition-all w-[75vw] sm:w-[320px] flex-shrink-0 snap-center min-h-[460px]">
+               <div>
+                  <h3 class="text-2xl font-black text-white uppercase tracking-wide mb-2">Pilar</h3>
+                  <p class="text-gray-400 text-sm font-medium h-12">O passe de entrada mínimo para participar.</p>
+                  <div class="my-8 flex items-end gap-2">
+                     <span class="text-5xl font-black text-white">R$20</span>
+                     <span class="text-gray-500 font-bold mb-1 uppercase text-sm">/mês</span>
+                  </div>
+                  <ul class="space-y-4 mb-10">
+                     <li class="flex items-center gap-3 text-sm text-gray-300 font-bold"><span class="material-symbols-outlined text-[#f085aa] text-lg">check_circle</span> 1 Cota</li>
+                     <li class="flex items-center gap-3 text-sm text-gray-300 font-bold"><span class="material-symbols-outlined text-[#f085aa] text-lg">check_circle</span> 20 Pontos todo mês</li>
+                  </ul>
+               </div>
+               <button class="w-full mt-auto py-4 border border-white/20 rounded-full font-black text-white hover:bg-white hover:text-black transition-all uppercase text-sm">Adquirir Pilar</button>
+            </div>
 
-        </div>
+            <!-- PRO (Highlighted) -->
+            <div class="bento-card p-10 flex flex-col justify-between border-[#f085aa]/50 bg-gradient-to-b from-[#1a0c24] to-transparent relative w-[75vw] sm:w-[320px] flex-shrink-0 snap-center min-h-[460px]">
+               <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#f085aa] text-black px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest shadow-[0_0_20px_rgba(240,133,170,0.5)] whitespace-nowrap z-10">
+                  O Mais Usado
+               </div>
+               <div>
+                  <h3 class="text-2xl font-black text-white uppercase tracking-wide mb-2">Essencial</h3>
+                  <p class="text-gray-400 text-sm font-medium h-12">O equilíbrio perfeito de potência e custo.</p>
+                  <div class="my-8 flex items-end gap-2">
+                     <span class="text-6xl font-black text-white">R$80</span>
+                     <span class="text-gray-500 font-bold mb-1 uppercase text-sm">/mês</span>
+                  </div>
+                  <ul class="space-y-4 mb-10">
+                     <li class="flex items-center gap-3 text-sm text-white font-bold"><span class="material-symbols-outlined text-[#f085aa] text-lg">hotel_class</span> 5 Cotas <span class="text-gray-400 font-normal text-xs">(5x Chances)</span></li>
+                     <li class="flex items-center gap-3 text-sm text-white font-bold"><span class="material-symbols-outlined text-[#f085aa] text-lg">hotel_class</span> 100 Pontos Mensais</li>
+                     <li class="flex items-center gap-3 text-sm text-white font-bold"><span class="material-symbols-outlined text-[#f085aa] text-lg">hotel_class</span> Acesso VIP Eventos</li>
+                  </ul>
+               </div>
+               <button class="w-full mt-auto py-4 bg-[#f085aa] text-black rounded-full font-black hover:bg-white transition-all uppercase text-sm">Criar Conta Essencial</button>
+            </div>
+
+            <!-- VIP -->
+            <div class="bento-card p-10 flex flex-col justify-between hover:border-white/30 transition-all w-[75vw] sm:w-[320px] flex-shrink-0 snap-center min-h-[460px]">
+               <div>
+                  <div class="flex justify-between items-center mb-2">
+                     <h3 class="text-2xl font-black text-white uppercase tracking-wide">Elite</h3>
+                     <span class="material-symbols-outlined text-gray-600">diamond</span>
+                  </div>
+                  <p class="text-gray-400 text-sm font-medium h-12">O máximo de chances para clientes VIP.</p>
+                  <div class="my-8 flex items-end gap-2">
+                     <span class="text-5xl font-black text-white">R$220</span>
+                     <span class="text-gray-500 font-bold mb-1 uppercase text-sm">/mês</span>
+                  </div>
+                  <ul class="space-y-4 mb-10">
+                     <li class="flex items-center gap-3 text-sm text-gray-300 font-bold"><span class="material-symbols-outlined text-[#f085aa] text-lg">check_circle</span> 20 Cotas Gigantes</li>
+                     <li class="flex items-center gap-3 text-sm text-gray-300 font-bold"><span class="material-symbols-outlined text-[#f085aa] text-lg">check_circle</span> 400 Pontos Blindados</li>
+                  </ul>
+               </div>
+               <button class="w-full mt-auto py-4 border border-white/20 rounded-full font-black text-white hover:bg-white hover:text-black transition-all uppercase text-sm">Assinar Nível Elite</button>
+            </div>
+
+         </div>
      </div>
   </section>
 
@@ -602,56 +621,58 @@
          link.addEventListener('click', toggleMobileMenu);
       });
 
-      // How It Works Carousel Logic
-      const hwCarousel = document.getElementById('hw-carousel');
-      const hwPrev = document.getElementById('hw-prev');
-      const hwNext = document.getElementById('hw-next');
-      
-      if (hwCarousel) {
-         const scrollStep = () => {
-            const card = hwCarousel.querySelector('.bento-card');
-            return card ? card.offsetWidth + 24 : 350; // Largura do card + gap (24px)
-         };
+      // Generic Carousel Auto-Loop Logic
+      const setupCarousel = (idRoot) => {
+         const carousel = document.getElementById(`${idRoot}-carousel`);
+         const btnPrev = document.getElementById(`${idRoot}-prev`);
+         const btnNext = document.getElementById(`${idRoot}-next`);
+         
+         if (carousel) {
+            const scrollStep = () => {
+               const card = carousel.querySelector('.bento-card');
+               return card ? card.offsetWidth + 24 : 350;
+            };
 
-         const isAtEnd = () => {
-            const cards = hwCarousel.querySelectorAll('.bento-card');
-            if (!cards.length) return false;
-            const lastCard = cards[cards.length - 1];
-            // Since it's snap-center and has padding, the maximum possible scrollLeft
-            // is roughly the offset of the last card minus half the container width.
-            // A 50px tolerance guarantees we catch it when snapped.
-            return hwCarousel.scrollLeft >= (lastCard.offsetLeft - (hwCarousel.clientWidth / 2) - 50);
-         };
+            const isAtEnd = () => {
+               const cards = carousel.querySelectorAll('.bento-card');
+               if (!cards.length) return false;
+               const lastCard = cards[cards.length - 1];
+               return carousel.scrollLeft >= (lastCard.offsetLeft - (carousel.clientWidth / 2) - 50);
+            };
 
-         if (hwNext) {
-            hwNext.addEventListener('click', () => {
-               if (isAtEnd()) {
-                  hwCarousel.scrollTo({ left: 0, behavior: 'smooth' }); // Loop back
-               } else {
-                  hwCarousel.scrollBy({ left: scrollStep(), behavior: 'smooth' });
-               }
-            });
-         }
-
-         if (hwPrev) {
-            hwPrev.addEventListener('click', () => {
-               if (hwCarousel.scrollLeft <= 50) {
-                  hwCarousel.scrollTo({ left: hwCarousel.scrollWidth, behavior: 'smooth' }); // Loop end
-               } else {
-                  hwCarousel.scrollBy({ left: -scrollStep(), behavior: 'smooth' });
-               }
-            });
-         }
-
-         // Auto-play interval
-         setInterval(() => {
-            if (isAtEnd()) {
-               hwCarousel.scrollTo({ left: 0, behavior: 'smooth' });
-            } else {
-               hwCarousel.scrollBy({ left: scrollStep(), behavior: 'smooth' });
+            if (btnNext) {
+               btnNext.addEventListener('click', () => {
+                  if (isAtEnd()) {
+                     carousel.scrollTo({ left: 0, behavior: 'smooth' });
+                  } else {
+                     carousel.scrollBy({ left: scrollStep(), behavior: 'smooth' });
+                  }
+               });
             }
-         }, 3500);
-      }
+
+            if (btnPrev) {
+               btnPrev.addEventListener('click', () => {
+                  if (carousel.scrollLeft <= 50) {
+                     carousel.scrollTo({ left: carousel.scrollWidth, behavior: 'smooth' });
+                  } else {
+                     carousel.scrollBy({ left: -scrollStep(), behavior: 'smooth' });
+                  }
+               });
+            }
+
+            // Auto-play interval
+            setInterval(() => {
+               if (isAtEnd()) {
+                  carousel.scrollTo({ left: 0, behavior: 'smooth' });
+               } else {
+                  carousel.scrollBy({ left: scrollStep(), behavior: 'smooth' });
+               }
+            }, 3500);
+         }
+      };
+
+      setupCarousel('hw');
+      setupCarousel('planos');
     });
   </script>
 </body>
