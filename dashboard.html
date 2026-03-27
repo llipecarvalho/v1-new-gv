@@ -273,27 +273,133 @@
 
          <!-- TAB WALLET -->
          <div id="tab-wallet" class="tab-pane">
-            <h1 class="text-4xl font-black text-white uppercase tracking-tight mb-8">Minha <span class="text-gradient-rose">Carteira</span></h1>
-            <div class="glass-card rounded-[32px] p-8 mb-8">
-               <p class="text-gray-500 font-bold uppercase tracking-widest text-xs mb-2">Total Acumulado</p>
-               <h2 class="text-6xl font-black text-white">R$ 1.540,80</h2>
+            <h1 class="text-3xl lg:text-5xl font-black text-white uppercase tracking-tight mb-8">Minha <span class="text-gradient-rose">Carteira</span></h1>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+               <!-- BALANCE CARD -->
+               <div class="glass-card rounded-[40px] p-8 lg:p-10 flex flex-col justify-between">
+                  <div>
+                     <p class="text-gray-500 font-bold uppercase tracking-widest text-[10px] mb-2">Total Acumulado</p>
+                     <h2 class="text-5xl lg:text-6xl font-black text-white tracking-tighter mb-4">R$ 1.540,80</h2>
+                     <div class="text-green-500 text-[10px] font-black uppercase tracking-widest flex items-center gap-2">
+                        <span class="material-symbols-outlined text-[1rem]">arrow_upward</span> + R$ 80,00 esse mês
+                     </div>
+                  </div>
+                  <button class="mt-10 w-full py-4 bg-[#f085aa] text-black font-black uppercase tracking-widest text-xs rounded-2xl">Transferir Agora</button>
+               </div>
+
+               <!-- GOAL SELECTOR CARD (FEATURE B) -->
+               <div class="glass-card rounded-[40px] p-8 lg:p-10 border-l-4 border-[#f085aa]">
+                  <div class="flex items-center justify-between mb-6">
+                     <p class="text-gray-500 font-bold uppercase tracking-widest text-[10px]">Seu Próximo Objetivo</p>
+                     <span class="material-symbols-outlined text-[#f085aa]">track_changes</span>
+                  </div>
+                  
+                  <select class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm font-bold text-white focus:outline-none mb-6">
+                     <option>iPhone 15 Pro Max (62%)</option>
+                     <option>Viagem de Luxo - Milão (15%)</option>
+                     <option>Resgate de Saldo Full (100%)</option>
+                  </select>
+
+                  <div class="space-y-3">
+                     <div class="flex justify-between text-[10px] font-black uppercase tracking-widest">
+                        <span>Progresso de Resgate</span>
+                        <span class="text-[#f085aa]">62%</span>
+                     </div>
+                     <div class="w-full h-3 bg-white/5 rounded-full overflow-hidden border border-white/5 p-0.5">
+                        <div class="h-full bg-gradient-to-r from-[#320075] to-[#f085aa] rounded-full shadow-[0_0_15px_rgba(240,133,170,0.4)]" style="width: 62%"></div>
+                     </div>
+                     <p class="text-[9px] text-gray-400 font-medium italic">Faltam aprox. R$ 940,00 para este resgate.</p>
+                  </div>
+               </div>
             </div>
+
             <div class="space-y-4">
-               <h3 class="text-sm font-black text-gray-400 uppercase tracking-widest">Últimas Transações</h3>
-               <div class="glass-premium p-6 rounded-2xl flex justify-between items-center text-sm font-bold">
-                  <span>Assinatura Clube (Cashback)</span>
+               <h3 class="text-xs font-black text-gray-500 uppercase tracking-widest mb-6">[ HISTÓRICO RECENTE ]</h3>
+               <div class="glass-premium p-6 rounded-2xl flex justify-between items-center text-sm font-bold border-white/5">
+                  <div class="flex items-center gap-4">
+                     <span class="material-symbols-outlined text-green-500">add_circle</span>
+                     <span>Assinatura Clube (Cashback)</span>
+                  </div>
                   <span class="text-green-500">+ R$ 80,00</span>
+               </div>
+               <div class="glass-premium p-6 rounded-2xl flex justify-between items-center text-sm font-bold border-white/5 opacity-60">
+                  <div class="flex items-center gap-4">
+                     <span class="material-symbols-outlined text-green-500">group</span>
+                     <span>Comissão Amiga (Indicação)</span>
+                  </div>
+                  <span class="text-green-500">+ R$ 25,00</span>
                </div>
             </div>
          </div>
 
          <!-- TAB NETWORK -->
          <div id="tab-network" class="tab-pane">
-            <h1 class="text-4xl font-black text-white uppercase tracking-tight mb-8">Minha <span class="text-gradient-rose">Rede</span></h1>
-            <div class="glass-card rounded-[32px] p-8 mb-8 text-center">
-               <p class="text-gray-400 font-bold uppercase tracking-widest mb-4">Seu Link de Convite</p>
-               <div class="bg-white/5 p-4 rounded-xl border border-white/10 text-[#f085aa] font-black tracking-widest mb-6">clubeversiani.com/join/integrante-x</div>
-               <button class="px-8 py-4 bg-white text-black font-black uppercase tracking-widest rounded-xl">Copiar Link</button>
+            <h1 class="text-3xl lg:text-5xl font-black text-white uppercase tracking-tight mb-8">Minha <span class="text-gradient-rose">Rede</span></h1>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+               <!-- INVITE CARD -->
+               <div class="glass-card rounded-[40px] p-8 lg:p-10 text-center animate-fade-in">
+                  <p class="text-gray-500 font-bold uppercase tracking-widest text-[10px] mb-4">Seu Link de Convite</p>
+                  <div class="bg-white/5 p-5 rounded-2xl border border-white/10 text-[#f085aa] font-black tracking-widest mb-8 text-xs truncate">
+                     versianiclube.com/join/integrante-v1
+                  </div>
+                  <button class="w-full py-5 bg-white text-black font-black uppercase tracking-widest text-xs rounded-2xl hover:bg-[#f085aa] hover:text-white transition-all shadow-xl">Copiar Link Versiani</button>
+               </div>
+
+               <!-- LEVEL PROGRESS (FEATURE A) -->
+               <div class="glass-card rounded-[40px] p-8 lg:p-10 relative overflow-hidden">
+                  <div class="absolute -right-20 -top-20 w-40 h-40 bg-[#f085aa]/5 blur-[60px] rounded-full"></div>
+                  
+                  <div class="flex items-center justify-between mb-8">
+                     <div>
+                        <p class="text-[#f085aa] font-black uppercase tracking-widest text-[10px]">Nível Atual</p>
+                        <h3 class="text-2xl font-black text-white uppercase">TOP AFILIADA</h3>
+                     </div>
+                     <div class="w-14 h-14 bg-gradient-to-br from-[#f085aa] to-[#320075] rounded-2xl flex items-center justify-center text-white font-black">7/10</div>
+                  </div>
+
+                  <div class="space-y-4">
+                     <div class="flex justify-between text-[10px] font-black uppercase tracking-widest">
+                        <span>Progresso p/ Nível Diamante</span>
+                        <span class="text-white">70%</span>
+                     </div>
+                     <div class="w-full h-4 bg-white/5 rounded-full overflow-hidden border border-white/10 p-0.5">
+                        <div class="h-full bg-gradient-to-r from-[#320075] via-[#f085aa] to-[#ffffff] rounded-full shadow-[0_0_20px_rgba(240,133,170,0.5)]" style="width: 70%"></div>
+                     </div>
+                     <div class="p-4 bg-white/5 rounded-2xl border border-white/5 mt-4">
+                        <p class="text-[9px] font-bold text-gray-500 uppercase tracking-widest mb-1">PRÓXIMO BENEFÍCIO:</p>
+                        <p class="text-[11px] font-black text-white uppercase">Acesso Liberado ao Sorteio Exclusivo Mensal (Carro VIP)</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+            <div class="glass-premium p-8 rounded-[32px]">
+               <h3 class="text-xs font-black text-gray-500 uppercase tracking-widest mb-6">[ AMIGAS ATIVAS ]</h3>
+               <div class="overflow-x-auto no-scrollbar">
+                  <table class="w-full text-left">
+                     <thead>
+                        <tr class="text-[10px] text-gray-500 uppercase font-black border-b border-white/5">
+                           <th class="pb-4">Integrante</th>
+                           <th class="pb-4">Status</th>
+                           <th class="pb-4">Ganhos</th>
+                        </tr>
+                     </thead>
+                     <tbody class="text-xs font-bold text-white">
+                        <tr class="border-b border-white/5">
+                           <td class="py-4">Júlia Almeida</td>
+                           <td class="py-4"><span class="text-green-500">Ativo</span></td>
+                           <td class="py-4">R$ 25,00/mês</td>
+                        </tr>
+                        <tr class="border-b border-white/5 opacity-60">
+                           <td class="py-4">Mariana Souza</td>
+                           <td class="py-4"><span class="text-gray-500">Pendente</span></td>
+                           <td class="py-4">R$ 0,00</td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </div>
             </div>
          </div>
 
