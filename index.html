@@ -74,15 +74,7 @@
       <!-- Gradient Fade from Left -->
       <div class="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#050505] to-transparent z-20 pointer-events-none hidden lg:block"></div>
 
-      <!-- Slider Navigation (Left side center inside the image) -->
-      <div class="absolute inset-y-0 left-2 lg:-left-6 w-12 lg:w-16 z-30 flex flex-col justify-center gap-3 lg:gap-4 items-center transition-opacity duration-300 opacity-100 lg:opacity-0 lg:group-hover:opacity-100">
-         <button id="slider-prev" class="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-black/50 lg:bg-black/80 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-[#f085aa] hover:border-[#f085aa] hover:text-black transition-colors cursor-pointer shadow-2xl">
-            <span class="material-symbols-outlined text-[1.2rem] -mt-1">keyboard_arrow_up</span>
-         </button>
-         <button id="slider-next" class="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-black/50 lg:bg-black/80 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-[#f085aa] hover:border-[#f085aa] hover:text-black transition-colors cursor-pointer shadow-2xl">
-            <span class="material-symbols-outlined text-[1.2rem] mt-1">keyboard_arrow_down</span>
-         </button>
-      </div>
+      <!-- Slider is fully automatic without manual navigation arrows -->
 
       <!-- SLIDES -->
       <div id="slider-slides" class="absolute inset-0 w-full h-full overflow-hidden bg-[#111]">
@@ -92,13 +84,13 @@
             <img src="https://images.unsplash.com/photo-1584916201218-f4242ceb4809?q=80&w=1200&auto=format&fit=crop" alt="Bolsa Prada" class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-black/20 z-10 pointer-events-none"></div>
             
-            <div class="absolute bottom-16 left-12 right-12 lg:left-24 lg:right-24 z-20 flex flex-col items-start gap-4">
+            <div class="absolute bottom-12 left-6 right-6 md:bottom-16 md:left-12 md:right-12 lg:left-24 lg:right-24 z-20 flex flex-col items-start gap-4">
                <div class="bg-black/60 backdrop-blur-md border border-[#f085aa]/30 px-3 py-2 rounded-full flex items-center gap-2">
                   <span class="w-2 h-2 rounded-full bg-[#f085aa] animate-pulse"></span>
                   <span class="text-xs font-bold text-white uppercase tracking-wider">Sorteio em 15 Dias</span>
                </div>
-               <h3 class="text-5xl lg:text-7xl font-black text-white leading-tight uppercase tracking-tight">Prada<br>Galleria Bag</h3>
-               <p class="text-sm font-bold text-gray-300 uppercase tracking-[0.2em] bg-black/40 px-4 py-2 rounded-md backdrop-blur-sm">Prêmio da Cota</p>
+               <h3 class="text-4xl md:text-5xl lg:text-7xl font-black text-white leading-[1.05] uppercase tracking-tight break-words">Prada<br>Galleria Bag</h3>
+               <p class="text-xs md:text-sm font-bold text-gray-300 uppercase tracking-[0.2em] bg-black/40 px-4 py-2 rounded-md backdrop-blur-sm shadow-[0_4px_10px_rgba(0,0,0,0.5)]">Prêmio da Cota</p>
             </div>
          </div>
 
@@ -107,13 +99,13 @@
             <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=1200&auto=format&fit=crop" alt="Viagem para Paris" class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-black/20 z-10 pointer-events-none"></div>
             
-            <div class="absolute bottom-16 left-12 right-12 lg:left-24 lg:right-24 z-20 flex flex-col items-start gap-4">
+            <div class="absolute bottom-12 left-6 right-6 md:bottom-16 md:left-12 md:right-12 lg:left-24 lg:right-24 z-20 flex flex-col items-start gap-4">
                <div class="bg-black/60 backdrop-blur-md border border-[#f085aa]/30 px-3 py-2 rounded-full flex items-center gap-2">
                   <span class="w-2 h-2 rounded-full bg-[#f085aa] animate-pulse"></span>
                   <span class="text-xs font-bold text-white uppercase tracking-wider">Sorteio em 45 Dias</span>
                </div>
-               <h3 class="text-5xl lg:text-7xl font-black text-white leading-tight uppercase tracking-tight">Paris <br>(C/Acompanhante)</h3>
-               <p class="text-sm font-bold text-gray-300 uppercase tracking-[0.2em] bg-black/40 px-4 py-2 rounded-md backdrop-blur-sm">Grande Sorteio Anual</p>
+               <h3 class="text-4xl md:text-5xl lg:text-7xl font-black text-white leading-[1.05] uppercase tracking-tight break-words">Paris <br><span class="text-[1.8rem] md:text-4xl lg:text-5xl text-gray-200/[0.85] font-bold block mt-1">(C/ Acompanhante)</span></h3>
+               <p class="text-[10px] md:text-sm font-bold text-gray-300 uppercase tracking-[0.1em] md:tracking-[0.2em] bg-black/60 px-3 md:px-4 py-2 rounded-md backdrop-blur-md shadow-[0_4px_10px_rgba(0,0,0,0.5)]">Grande Sorteio Anual</p>
             </div>
          </div>
 
@@ -122,13 +114,13 @@
             <img src="https://images.unsplash.com/photo-1695048133142-1a20484d2569?q=80&w=1200&auto=format&fit=crop" alt="iPhone 16 Pro" class="w-full h-full object-cover" style="object-position: center;">
             <div class="absolute inset-0 bg-black/20 z-10 pointer-events-none"></div>
             
-            <div class="absolute bottom-16 left-12 right-12 lg:left-24 lg:right-24 z-20 flex flex-col items-start gap-4">
+            <div class="absolute bottom-12 left-6 right-6 md:bottom-16 md:left-12 md:right-12 lg:left-24 lg:right-24 z-20 flex flex-col items-start gap-4">
                <div class="bg-black/60 backdrop-blur-md border border-[#f085aa]/30 px-3 py-2 rounded-full flex items-center gap-2">
                   <span class="w-2 h-2 rounded-full bg-[#f085aa] animate-pulse"></span>
                   <span class="text-xs font-bold text-white uppercase tracking-wider">Sorteio em 2 Dias</span>
                </div>
-               <h3 class="text-5xl lg:text-7xl font-black text-white leading-tight uppercase tracking-tight">iPhone 16 <br>Pro Max</h3>
-               <p class="text-sm font-bold text-gray-300 uppercase tracking-[0.2em] bg-black/40 px-4 py-2 rounded-md backdrop-blur-sm">Loteria Relâmpago</p>
+               <h3 class="text-4xl md:text-5xl lg:text-7xl font-black text-white leading-[1.05] uppercase tracking-tight break-words">iPhone 16 <br>Pro Max</h3>
+               <p class="text-xs md:text-sm font-bold text-gray-300 uppercase tracking-[0.2em] bg-black/40 px-4 py-2 rounded-md backdrop-blur-sm shadow-[0_4px_10px_rgba(0,0,0,0.5)]">Loteria Relâmpago</p>
             </div>
          </div>
 
@@ -501,8 +493,6 @@
     // Zaiotto Style Hero Slider Logic
     document.addEventListener('DOMContentLoaded', () => {
       const slides = document.querySelectorAll('#slider-slides .slide');
-      const btnNext = document.getElementById('slider-next');
-      const btnPrev = document.getElementById('slider-prev');
       let currentSlide = 0;
   
       const updateSlider = () => {
@@ -517,22 +507,12 @@
         });
       };
   
-      if(btnNext && btnPrev && slides.length > 0) {
-        btnNext.addEventListener('click', () => {
-          currentSlide = (currentSlide + 1) % slides.length;
-          updateSlider();
-        });
-  
-        btnPrev.addEventListener('click', () => {
-          currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-          updateSlider();
-        });
-  
-        // Auto-play every 6 seconds
+      if(slides.length > 0) {
+        // Auto-play every 5 seconds
         setInterval(() => {
           currentSlide = (currentSlide + 1) % slides.length;
           updateSlider();
-        }, 6000);
+        }, 5000);
       }
 
       // FAQ Accordion Logic
