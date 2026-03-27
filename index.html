@@ -396,9 +396,12 @@
                <div>
                   <h3 class="text-2xl font-black text-white uppercase tracking-wide mb-2">Pilar</h3>
                   <p class="text-gray-400 text-sm font-medium h-12">O passe de entrada mínimo para participar.</p>
-                  <div class="my-8 flex items-end gap-2">
-                     <span class="text-5xl font-black text-white">R$20</span>
-                     <span class="text-gray-500 font-bold mb-1 uppercase text-sm">/mês</span>
+                  <div class="my-8 flex flex-col gap-1">
+                     <div class="flex items-end gap-2">
+                        <span class="text-4xl md:text-5xl font-black text-white">R$<span id="price-pilar">20</span></span>
+                        <span class="text-gray-500 font-bold mb-1 uppercase text-sm">/mês</span>
+                     </div>
+                     <span id="annual-info-pilar" class="text-[10px] text-[#f085aa] font-bold uppercase tracking-widest opacity-0 h-0 transition-all duration-300">Cobrado R$ 192 anualmente</span>
                   </div>
                   <ul class="space-y-4 mb-10">
                      <li class="flex items-center gap-3 text-sm text-gray-300 font-bold"><span class="material-symbols-outlined text-[#f085aa] text-lg">check_circle</span> 1 Cota</li>
@@ -416,9 +419,12 @@
                <div>
                   <h3 class="text-2xl font-black text-white uppercase tracking-wide mb-2">Essencial</h3>
                   <p class="text-gray-400 text-sm font-medium h-12">O equilíbrio perfeito de potência e custo.</p>
-                  <div class="my-8 flex items-end gap-2">
-                     <span class="text-6xl font-black text-white">R$80</span>
-                     <span class="text-gray-500 font-bold mb-1 uppercase text-sm">/mês</span>
+                  <div class="my-8 flex flex-col gap-1">
+                     <div class="flex items-end gap-2">
+                        <span class="text-5xl md:text-6xl font-black text-white">R$<span id="price-essencial">80</span></span>
+                        <span class="text-gray-500 font-bold mb-1 uppercase text-sm">/mês</span>
+                     </div>
+                     <span id="annual-info-essencial" class="text-[10px] text-[#f085aa] font-bold uppercase tracking-widest opacity-0 h-0 transition-all duration-300">Cobrado R$ 768 anualmente</span>
                   </div>
                   <ul class="space-y-4 mb-10">
                      <li class="flex items-center gap-3 text-sm text-white font-bold"><span class="material-symbols-outlined text-[#f085aa] text-lg">hotel_class</span> 5 Cotas <span class="text-gray-400 font-normal text-xs">(5x Chances)</span></li>
@@ -437,9 +443,12 @@
                      <span class="material-symbols-outlined text-gray-600">diamond</span>
                   </div>
                   <p class="text-gray-400 text-sm font-medium h-12">O máximo de chances para clientes VIP.</p>
-                  <div class="my-8 flex items-end gap-2">
-                     <span class="text-5xl font-black text-white">R$220</span>
-                     <span class="text-gray-500 font-bold mb-1 uppercase text-sm">/mês</span>
+                  <div class="my-8 flex flex-col gap-1">
+                     <div class="flex items-end gap-2">
+                        <span class="text-4xl md:text-5xl font-black text-white">R$<span id="price-elite">220</span></span>
+                        <span class="text-gray-500 font-bold mb-1 uppercase text-sm">/mês</span>
+                     </div>
+                     <span id="annual-info-elite" class="text-[10px] text-[#f085aa] font-bold uppercase tracking-widest opacity-0 h-0 transition-all duration-300">Cobrado R$ 2.112 anualmente</span>
                   </div>
                   <ul class="space-y-4 mb-10">
                      <li class="flex items-center gap-3 text-sm text-gray-300 font-bold"><span class="material-symbols-outlined text-[#f085aa] text-lg">check_circle</span> 20 Cotas Gigantes</li>
@@ -752,6 +761,56 @@
 
       setupCarousel('hw');
       setupCarousel('planos');
+
+      // Pricing Toggle Logic
+      const btnMensal = document.getElementById('btn-mensal');
+      const btnAnual = document.getElementById('btn-anual');
+      
+      const priceUpdate = (isAnnual) => {
+         const prices = {
+            pilar: isAnnual ? 16 : 20,
+            essencial: isAnnual ? 64 : 80,
+            elite: isAnnual ? 176 : 220
+         };
+
+         // Update Monthly Values
+         document.getElementById('price-pilar').textContent = prices.pilar;
+         document.getElementById('price-essencial').textContent = prices.essencial;
+         document.getElementById('price-elite').textContent = prices.elite;
+
+         // Toggle Annual Extra Info
+         const annualInfos = [
+            document.getElementById('annual-info-pilar'),
+            document.getElementById('annual-info-essencial'),
+            document.getElementById('annual-info-elite')
+         ];
+
+         annualInfos.forEach(info => {
+            if (isAnnual) {
+               info.classList.remove('opacity-0', 'h-0');
+               info.classList.add('opacity-100', 'h-4', 'mt-1');
+            } else {
+               info.classList.add('opacity-0', 'h-0');
+               info.classList.remove('opacity-100', 'h-4', 'mt-1');
+            }
+         });
+
+         // Update Button Styles
+         if (isAnnual) {
+            btnAnual.classList.add('bg-white', 'text-black');
+            btnAnual.classList.remove('text-gray-400');
+            btnMensal.classList.remove('bg-white', 'text-black');
+            btnMensal.classList.add('text-gray-400');
+         } else {
+            btnMensal.classList.add('bg-white', 'text-black');
+            btnMensal.classList.remove('text-gray-400');
+            btnAnual.classList.remove('bg-white', 'text-black');
+            btnAnual.classList.add('text-gray-400');
+         }
+      };
+
+      if(btnMensal) btnMensal.addEventListener('click', () => priceUpdate(false));
+      if(btnAnual) btnAnual.addEventListener('click', () => priceUpdate(true));
     });
   </script>
 </body>
