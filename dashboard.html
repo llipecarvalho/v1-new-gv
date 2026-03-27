@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Versiani. Dashboard Exclusivo</title>
+
+   <!-- Fonts & Icons -->
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet">
+   <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,200,0,0" />
+
+   <script src="https://cdn.tailwindcss.com"></script>
+
+   <style>
+      :root {
+         --v-rose: #f085aa;
+         --v-dark: #050505;
+         --v-purple: #320075;
+      }
+
+      body {
+         font-family: 'Outfit', sans-serif;
+         background-color: var(--v-dark);
+         color: white;
+         overflow-x: hidden;
+      }
+
+      .glass-premium {
+         background: rgba(255, 255, 255, 0.03);
+         backdrop-filter: blur(25px) saturate(180%);
+         -webkit-backdrop-filter: blur(25px) saturate(180%);
+         border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .glass-card {
+         background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01));
+         backdrop-filter: blur(15px);
+         border: 1px solid rgba(255, 255, 255, 0.08);
+         transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+      }
+
+      .glass-card:hover {
+         transform: translateY(-5px);
+         border-color: rgba(240, 133, 170, 0.3);
+         box-shadow: 0 20px 40px -10px rgba(240, 133, 170, 0.1);
+      }
+
+      .text-gradient-rose {
+         background: linear-gradient(to right, #ffffff, #f085aa);
+         -webkit-background-clip: text;
+         -webkit-text-fill-color: transparent;
+      }
+
+      .sidebar-item {
+         transition: all 0.3s ease;
+      }
+
+      .sidebar-item.active {
+         background: rgba(240, 133, 170, 0.1);
+         border-right: 3px solid var(--v-rose);
+         color: var(--v-rose);
+      }
+
+      /* Hide scrollbar for Chrome, Safari and Opera */
+      .no-scrollbar::-webkit-scrollbar {
+         display: none;
+      }
+
+      /* Floating Nav for Mobile */
+      .mobile-nav-pill {
+         position: fixed;
+         bottom: 24px;
+         left: 50%;
+         transform: translateX(-50%);
+         z-index: 100;
+         width: auto;
+         padding: 8px 16px;
+         border-radius: 999px;
+         background: rgba(10, 10, 10, 0.8);
+         backdrop-filter: blur(20px);
+         border: 1px solid rgba(255, 255, 255, 0.1);
+         display: flex;
+         gap: 24px;
+         box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+      }
+
+      .sidebar-link-hover:hover {
+         color: var(--v-rose);
+         background: rgba(255, 255, 255, 0.03);
+      }
+   </style>
+</head>
+
+<body class="min-h-screen flex bg-[#050505]">
+
+   <!-- DESKTOP SIDEBAR -->
+   <aside class="hidden lg:flex w-72 flex-col h-screen fixed left-0 top-0 border-r border-white/5 bg-[#080808] z-50">
+      <div class="p-8">
+         <a href="index.html" class="text-3xl font-black tracking-tighter text-white">Versiani<span class="text-[#f085aa]">.</span></a>
+      </div>
+      
+      <nav class="flex-1 px-4 py-8 space-y-2">
+         <a href="#" class="sidebar-item active flex items-center gap-4 px-6 py-4 rounded-xl font-bold text-sm tracking-widest uppercase">
+            <span class="material-symbols-outlined">dashboard</span> Dashboard
+         </a>
+         <a href="#" class="sidebar-item sidebar-link-hover flex items-center gap-4 px-6 py-4 rounded-xl font-bold text-sm tracking-widest uppercase text-gray-400">
+            <span class="material-symbols-outlined">account_balance_wallet</span> Carteira
+         </a>
+         <a href="#" class="sidebar-item sidebar-link-hover flex items-center gap-4 px-6 py-4 rounded-xl font-bold text-sm tracking-widest uppercase text-gray-400">
+            <span class="material-symbols-outlined">hub</span> Minha Rede
+         </a>
+         <a href="#" class="sidebar-item sidebar-link-hover flex items-center gap-4 px-6 py-4 rounded-xl font-bold text-sm tracking-widest uppercase text-gray-400">
+            <span class="material-symbols-outlined">confirmation_number</span> Meus Sorteios
+         </a>
+         <a href="#" class="sidebar-item sidebar-link-hover flex items-center gap-4 px-6 py-4 rounded-xl font-bold text-sm tracking-widest uppercase text-gray-400">
+            <span class="material-symbols-outlined">shopping_bag</span> Loja Partner
+         </a>
+      </nav>
+
+      <div class="p-8 border-t border-white/5">
+         <div class="flex items-center gap-4 px-4 py-3 bg-white/5 rounded-2xl">
+            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-[#f085aa] to-[#320075] flex items-center justify-center font-black text-xs">PV</div>
+            <div class="overflow-hidden">
+               <p class="text-[11px] font-black text-white truncate">PHILLIPE V.</p>
+               <p class="text-[9px] font-bold text-[#f085aa] uppercase tracking-widest">Plano Elite</p>
+            </div>
+            <button class="ml-auto text-gray-500 hover:text-white transition-colors">
+               <span class="material-symbols-outlined text-[1.2rem]">logout</span>
+            </button>
+         </div>
+      </div>
+   </aside>
+
+   <!-- MOBILE NAV PILL -->
+   <div class="lg:hidden mobile-nav-pill">
+      <a href="#" class="text-[#f085aa] flex flex-col items-center gap-1">
+         <span class="material-symbols-outlined">dashboard</span>
+      </a>
+      <a href="#" class="text-gray-500 flex flex-col items-center gap-1">
+         <span class="material-symbols-outlined">account_balance_wallet</span>
+      </a>
+      <a href="#" class="text-gray-500 flex flex-col items-center gap-1">
+         <span class="material-symbols-outlined">hub</span>
+      </a>
+      <a href="#" class="text-gray-500 flex flex-col items-center gap-1">
+         <span class="material-symbols-outlined">confirmation_number</span>
+      </a>
+      <a href="#" class="text-gray-500 flex flex-col items-center gap-1">
+         <span class="material-symbols-outlined">person</span>
+      </a>
+   </div>
+
+   <!-- MAIN CONTENT -->
+   <main class="flex-1 lg:ml-72 p-6 lg:p-12 mb-32 lg:mb-0">
+      
+      <!-- TOP HEADER (Mobile Logo & Notifications) -->
+      <div class="flex items-center justify-between lg:justify-end mb-10">
+         <div class="lg:hidden">
+            <span class="text-2xl font-black tracking-tighter text-white">Versiani<span class="text-[#f085aa]">.</span></span>
+         </div>
+         <div class="flex items-center gap-4 lg:gap-8">
+            <div class="hidden lg:flex flex-col text-right">
+               <p class="text-[10px] text-gray-500 font-black tracking-widest uppercase">Última atualização</p>
+               <p class="text-[11px] text-white font-bold uppercase tracking-widest">Hoje, 20:31</p>
+            </div>
+            <button class="w-12 h-12 glass-card rounded-2xl flex items-center justify-center text-gray-400 hover:text-white transition-all relative">
+               <span class="material-symbols-outlined">notifications</span>
+               <span class="absolute top-3 right-3 w-2 h-2 bg-[#f085aa] rounded-full border-2 border-[#050505]"></span>
+            </button>
+            <div class="lg:hidden w-12 h-12 rounded-2xl bg-gradient-to-br from-[#f085aa] to-[#320075] flex items-center justify-center font-black text-xs">PV</div>
+         </div>
+      </div>
+
+      <!-- WELCOME HERO -->
+      <div class="mb-10 lg:mb-16">
+         <h1 class="text-3xl lg:text-5xl font-black text-white uppercase tracking-tight mb-2">Painel de <span class="text-gradient-rose">Rede</span></h1>
+         <p class="text-sm lg:text-lg text-gray-400 font-medium tracking-wide">Bem-vinda de volta ao Clube, Phillipe.</p>
+      </div>
+
+      <!-- MAIN CARDS GRID (WALLET & STATS) -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 mb-12">
+         
+         <!-- WALLET CARD (LARGE) -->
+         <div class="lg:col-span-12 xl:col-span-8 p-10 lg:p-12 glass-card rounded-[40px] relative overflow-hidden flex flex-col justify-between min-h-[320px] lg:min-h-[380px]">
+            <div class="absolute top-[-50px] right-[-50px] w-96 h-96 bg-[#f085aa]/10 blur-[120px] rounded-full -z-10 animate-pulse"></div>
+            
+            <div class="space-y-4">
+               <span class="px-5 py-2 glass-premium rounded-full text-[10px] font-black uppercase tracking-[0.2em] text-[#f085aa]">Saldo Versiani</span>
+               <div class="flex items-baseline gap-4 mt-6">
+                  <span class="text-3xl lg:text-4xl font-black text-gray-500">R$</span>
+                  <span class="text-7xl lg:text-9xl font-black text-white tracking-tighter counter" data-value="1540">1.540,80</span>
+               </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row items-center gap-4 mt-10">
+               <button class="w-full sm:w-auto px-10 py-5 bg-[#f085aa] text-black font-black uppercase tracking-widest text-sm rounded-2xl hover:scale-105 transition-all shadow-[0_20px_40px_rgba(240,133,170,0.3)]">Resgatar Saldo</button>
+               <button class="w-full sm:w-auto px-10 py-5 glass-premium text-white font-black uppercase tracking-widest text-sm rounded-2xl hover:bg-white/5 transition-all">Historico Ouro</button>
+            </div>
+         </div>
+
+         <!-- QUICK STATS -->
+         <div class="lg:col-span-12 xl:col-span-4 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-1 gap-6 lg:gap-8">
+            <div class="p-8 glass-card rounded-[32px] flex flex-col justify-between">
+               <div class="w-12 h-12 bg-[#320075]/30 rounded-2xl flex items-center justify-center text-[#f085aa] mb-4">
+                  <span class="material-symbols-outlined">hub</span>
+               </div>
+               <div>
+                  <p class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-1">Amigas Invitadas</p>
+                  <p class="text-4xl font-black text-white">42</p>
+                  <p class="text-[10px] font-bold text-green-500 mt-2 uppercase tracking-widest">+12 esse mês</p>
+               </div>
+            </div>
+            <div class="p-8 glass-card rounded-[32px] flex flex-col justify-between">
+               <div class="w-12 h-12 bg-[#f085aa]/10 rounded-2xl flex items-center justify-center text-[#f085aa] mb-4">
+                  <span class="material-symbols-outlined">receipt_long</span>
+               </div>
+               <div>
+                  <p class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-1">Ganhos em PIX</p>
+                  <p class="text-4xl font-black text-white">R$ 840,00</p>
+                  <p class="text-[10px] font-bold text-gray-400 mt-2 uppercase tracking-widest">Próximo saque: Dia 05</p>
+               </div>
+            </div>
+         </div>
+
+      </div>
+
+      <!-- MY TICKETS SECTION -->
+      <section class="mb-12">
+         <div class="flex items-center justify-between mb-8">
+            <div>
+               <h2 class="text-2xl font-black text-white uppercase tracking-tight">Meus Sorteios Ativos</h2>
+               <p class="text-xs text-gray-500 font-bold uppercase tracking-widest">Sorteios da Semana</p>
+            </div>
+            <a href="#" class="text-[10px] font-black uppercase tracking-[0.2em] text-[#f085aa] hover:underline">Ver Todos</a>
+         </div>
+
+         <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8 no-scrollbar overflow-x-auto">
+            
+            <!-- TICKET CARD 1 -->
+            <div class="p-1 glass-premium rounded-[32px] min-w-[300px] group transition-all">
+               <div class="bg-[#0c0c0c] rounded-[31px] overflow-hidden">
+                  <div class="h-44 bg-gradient-to-br from-[#1d1a22] to-[#050505] relative p-6 flex flex-col justify-between">
+                     <span class="w-fit px-3 py-1.5 bg-[#f085aa]/20 border border-[#f085aa]/30 rounded-lg text-[9px] font-black uppercase text-[#f085aa] tracking-widest">Próximo Sorteio: 15h</span>
+                     <div>
+                        <p class="text-[10px] font-black text-gray-500 uppercase tracking-widest mb-1">Cota Essencial #412</p>
+                        <p class="text-xl font-black text-white uppercase leading-tight">iPhone 15 Pro Max <br> Titanium</p>
+                     </div>
+                     <div class="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_bottom_right,#f085aa20,transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                  </div>
+                  <div class="p-6 flex items-center justify-between border-t border-white/5">
+                     <div class="flex -space-x-3">
+                        <div class="w-8 h-8 rounded-full border-2 border-[#0c0c0c] bg-gray-800 flex items-center justify-center font-bold text-[10px]">42</div>
+                        <div class="w-8 h-8 rounded-full border-2 border-[#0c0c0c] bg-gray-800 flex items-center justify-center font-bold text-[10px]">19</div>
+                        <div class="w-8 h-8 rounded-full border-2 border-[#0c0c0c] bg-[#f085aa]/40 flex items-center justify-center font-bold text-[10px] text-white">+2</div>
+                     </div>
+                     <button class="text-[10px] font-black uppercase tracking-widest text-[#f085aa] flex items-center gap-2">Ver Números <span class="material-symbols-outlined text-[1rem]">arrow_forward</span></button>
+                  </div>
+               </div>
+            </div>
+
+            <!-- TICKET CARD 2 -->
+            <div class="p-1 glass-premium rounded-[32px] min-w-[300px] group transition-all">
+               <div class="bg-[#0c0c0c] rounded-[31px] overflow-hidden">
+                  <div class="h-44 bg-gradient-to-br from-[#1d1a22] to-[#050505] relative p-6 flex flex-col justify-between">
+                     <span class="w-fit px-3 py-1.5 bg-[#f085aa]/20 border border-[#f085aa]/30 rounded-lg text-[9px] font-black uppercase text-[#f085aa] tracking-widest">Sorteio Mensal</span>
+                     <div>
+                        <p class="text-[10px] font-black text-gray-500 uppercase tracking-widest mb-1">Cota Elite #021</p>
+                        <p class="text-xl font-black text-white uppercase leading-tight">Mercedes-Benz <br> G-Class Experience</p>
+                     </div>
+                  </div>
+                  <div class="p-6 flex items-center justify-between border-t border-white/5">
+                     <span class="text-[10px] font-bold text-gray-500 uppercase tracking-widest italic">Aguardando bilhetes...</span>
+                     <button class="px-5 py-2 glass-premium rounded-xl text-[9px] font-black uppercase text-white tracking-widest">Habilitar Agora</button>
+                  </div>
+               </div>
+            </div>
+
+            <!-- TICKET CARD 3 (EMPTY STATE / ADD) -->
+            <div class="p-8 border-2 border-dashed border-white/10 rounded-[32px] flex flex-col items-center justify-center gap-4 text-center group hover:border-[#f085aa]/30 transition-all cursor-pointer min-w-[300px]">
+               <div class="w-16 h-16 rounded-full bg-white/5 flex items-center justify-center text-gray-500 group-hover:bg-[#f085aa]/10 group-hover:text-[#f085aa] transition-all">
+                  <span class="material-symbols-outlined text-[2rem]">add_circle</span>
+               </div>
+               <div>
+                  <p class="text-sm font-black text-white uppercase tracking-widest">Novas Chances</p>
+                  <p class="text-[10px] font-bold text-gray-500 uppercase tracking-widest">Potencialize seu plano</p>
+               </div>
+            </div>
+
+         </div>
+      </section>
+
+   </main>
+
+   <!-- AMBIENT BG DECOR -->
+   <div class="fixed top-0 right-0 w-[50vw] h-[50vw] bg-[#f085aa]/5 blur-[150px] -z-20 pointer-events-none"></div>
+   <div class="fixed bottom-0 left-0 w-[40vw] h-[40vw] bg-[#320075]/10 blur-[150px] -z-20 pointer-events-none"></div>
+
+</body>
+
+</html>
