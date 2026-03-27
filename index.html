@@ -9,12 +9,62 @@
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/src/styles/main.css">
+  <style>
+    @keyframes float-blob {
+      0% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(30px, -50px) scale(1.1); }
+      66% { transform: translate(-20px, 20px) scale(0.9); }
+      100% { transform: translate(0, 0) scale(1); }
+    }
+    .animate-blob { animation: float-blob 15s infinite alternate ease-in-out; }
+    
+    .reveal-off {
+      opacity: 0;
+      transform: translateY(60px);
+      transition: all 2s cubic-bezier(0.22, 1, 0.36, 1);
+      pointer-events: none;
+    }
+    .reveal-on {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    @keyframes shine-sweep {
+      0% { left: -100%; }
+      20% { left: 100%; }
+      100% { left: 100%; }
+    }
+    .btn-shine { position: relative; overflow: hidden; }
+    .btn-shine::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(to right, transparent, rgba(255,255,255,0.4), transparent);
+      transform: skewX(-25deg);
+      animation: shine-sweep 4s infinite ease-in-out;
+    }
+
+    .pill-nav-glass {
+       background: rgba(0, 0, 0, 0.6);
+       backdrop-filter: blur(24px);
+       -webkit-backdrop-filter: blur(24px);
+    }
+  </style>
   <script type="module">
     import '/src/scripts/tailwind.config.js';
   </script>
   <script src="/src/scripts/app.js" type="module" defer></script>
 </head>
-<body class="dark-bg-base text-gray-200 antialiased overflow-x-hidden">
+<body class="dark-bg-base text-gray-200 antialiased overflow-x-hidden relative bg-black">
+   <!-- Ambient Background Blobs -->
+   <div class="fixed top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
+      <div class="absolute top-[10%] left-[-5%] w-[800px] h-[800px] bg-[#f085aa]/17 blur-[160px] rounded-full animate-blob"></div>
+      <div class="absolute bottom-[15%] right-[-10%] w-[1000px] h-[1000px] bg-[#320075]/17 blur-[190px] rounded-full animate-blob" style="animation-delay: -5s;"></div>
+   </div>
   
   <!-- PILL NAVBAR (Zaiotto Style) -->
   <div class="fixed top-6 w-full z-50 px-6 pointer-events-none flex justify-center">
@@ -28,7 +78,7 @@
         <a class="hover:text-white transition-colors" href="#planos">Benefícios</a>
       </div>
       <div class="flex items-center gap-2 pr-1 md:pr-0">
-         <button class="bg-[#f085aa] text-black px-4 md:px-6 py-2 md:py-2.5 rounded-full font-black text-xs md:text-sm hover:scale-105 hover:bg-white transition-all shadow-[0_0_20px_rgba(240,133,170,0.4)] pointer-events-auto">ASSINAR <span class="material-symbols-outlined align-middle text-[1rem] hidden lg:inline-flex">arrow_outward</span></button>
+         <button class="bg-[#f085aa] text-black px-4 md:px-6 py-2 md:py-2.5 rounded-full font-black text-xs md:text-sm hover:scale-105 hover:bg-white transition-all shadow-[0_0_20px_rgba(240,133,170,0.4)] pointer-events-auto btn-shine">ASSINAR <span class="material-symbols-outlined align-middle text-[1rem] hidden lg:inline-flex">arrow_outward</span></button>
          <button id="mobile-menu-btn" class="md:hidden text-white flex items-center justify-center p-1 ml-1 hover:text-[#f085aa] transition-colors cursor-pointer pointer-events-auto">
            <span class="material-symbols-outlined text-[1.75rem]">menu</span>
          </button>
@@ -188,7 +238,7 @@
          <div id="hw-carousel" class="flex md:grid md:grid-cols-2 lg:grid-cols-4 gap-6 overflow-x-auto md:overflow-visible snap-x md:snap-none snap-mandatory pb-8 pt-4 px-[18vw] sm:px-[calc(50%_-_160px)] md:px-6 md:max-w-7xl md:mx-auto scroll-smooth [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
             
             <!-- Card 1 -->
-            <div class="bento-card p-6 md:p-8 flex flex-col justify-end h-[380px] md:h-[420px] w-[70vw] sm:w-[320px] md:w-auto flex-shrink-0 snap-center md:snap-align-none group relative overflow-hidden bg-gradient-to-br from-white/5 to-transparent border border-white/5 hover:border-white/20 hover:shadow-[0_10px_40px_rgba(240,133,170,0.05)] transition-all duration-500">
+            <div class="bento-card p-6 md:p-8 flex flex-col justify-end h-[380px] md:h-[420px] w-[70vw] sm:w-[320px] md:w-auto flex-shrink-0 snap-center md:snap-align-none group relative overflow-hidden bg-gradient-to-br from-white/5 to-transparent border border-white/5 hover:border-white/20 hover:shadow-[0_10px_40px_rgba(240,133,170,0.05)] transition-all duration-500 reveal-off">
             <span class="absolute -top-4 -right-4 text-[8rem] font-black text-white/[0.03] leading-none transition-transform duration-700 group-hover:scale-110 pointer-events-none">01</span>
             
             <div class="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center border border-white/10 text-[#f085aa] shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] mb-auto relative z-10 transition-transform duration-500 group-hover:-translate-y-1">
@@ -201,7 +251,7 @@
             </div>
             
             <!-- Card 2 -->
-            <div class="bento-card p-6 md:p-8 flex flex-col justify-end h-[380px] md:h-[420px] w-[70vw] sm:w-[320px] md:w-auto flex-shrink-0 snap-center md:snap-align-none group relative overflow-hidden bg-gradient-to-br from-white/5 to-transparent border border-white/5 hover:border-white/20 hover:shadow-[0_10px_40px_rgba(240,133,170,0.05)] transition-all duration-500">
+            <div class="bento-card p-6 md:p-8 flex flex-col justify-end h-[380px] md:h-[420px] w-[70vw] sm:w-[320px] md:w-auto flex-shrink-0 snap-center md:snap-align-none group relative overflow-hidden bg-gradient-to-br from-white/5 to-transparent border border-white/5 hover:border-white/20 hover:shadow-[0_10px_40px_rgba(240,133,170,0.05)] transition-all duration-500 reveal-off">
             <span class="absolute -top-4 -right-4 text-[8rem] font-black text-white/[0.03] leading-none transition-transform duration-700 group-hover:scale-110 pointer-events-none">02</span>
             
             <div class="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center border border-white/10 text-[#f085aa] shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] mb-auto relative z-10 transition-transform duration-500 group-hover:-translate-y-1">
@@ -214,7 +264,7 @@
             </div>
 
             <!-- Card 3 -->
-            <div class="bento-card p-6 md:p-8 flex flex-col justify-end h-[380px] md:h-[420px] w-[70vw] sm:w-[320px] md:w-auto flex-shrink-0 snap-center md:snap-align-none group relative overflow-hidden bg-gradient-to-br from-white/5 to-transparent border border-white/5 hover:border-white/20 hover:shadow-[0_10px_40px_rgba(240,133,170,0.05)] transition-all duration-500">
+            <div class="bento-card p-6 md:p-8 flex flex-col justify-end h-[380px] md:h-[420px] w-[70vw] sm:w-[320px] md:w-auto flex-shrink-0 snap-center md:snap-align-none group relative overflow-hidden bg-gradient-to-br from-white/5 to-transparent border border-white/5 hover:border-white/20 hover:shadow-[0_10px_40px_rgba(240,133,170,0.05)] transition-all duration-500 reveal-off">
             <span class="absolute -top-4 -right-4 text-[8rem] font-black text-white/[0.03] leading-none transition-transform duration-700 group-hover:scale-110 pointer-events-none">03</span>
             
             <div class="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center border border-white/10 text-[#f085aa] shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] mb-auto relative z-10 transition-transform duration-500 group-hover:-translate-y-1">
@@ -227,7 +277,7 @@
             </div>
 
             <!-- Card 4 (Highlighted) -->
-            <div class="bento-card p-6 md:p-8 flex flex-col justify-end h-[380px] md:h-[420px] w-[70vw] sm:w-[320px] md:w-auto flex-shrink-0 snap-center md:snap-align-none group relative overflow-hidden bg-gradient-to-br from-[#1a0c24] to-[#050505] border border-[#f085aa]/20 hover:border-[#f085aa]/60 hover:shadow-[0_0_60px_rgba(240,133,170,0.15)] transition-all duration-500">
+            <div class="bento-card p-6 md:p-8 flex flex-col justify-end h-[380px] md:h-[420px] w-[70vw] sm:w-[320px] md:w-auto flex-shrink-0 snap-center md:snap-align-none group relative overflow-hidden bg-gradient-to-br from-[#1a0c24] to-[#050505] border border-[#f085aa]/20 hover:border-[#f085aa]/60 hover:shadow-[0_0_60px_rgba(240,133,170,0.15)] transition-all duration-500 reveal-off">
             <!-- Subtle Glow behind number -->
             <div class="absolute -top-10 -right-10 w-40 h-40 bg-[#f085aa] blur-[80px] opacity-20 pointer-events-none"></div>
             <span class="absolute -top-4 -right-4 text-[8rem] font-black text-[#f085aa]/[0.05] leading-none transition-transform duration-700 group-hover:scale-110 pointer-events-none z-0">04</span>
@@ -246,7 +296,7 @@
   </section>
 
   <!-- ECONOMY SHOWCASE (The Value Proposition) -->
-  <section class="py-10 md:py-12 px-6 md:px-8 border-b border-white/5 overflow-hidden relative">
+  <section class="py-10 md:py-12 px-6 md:px-8 border-b border-white/5 overflow-hidden relative reveal-off">
 
      <div class="max-w-7xl mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         <div>
@@ -313,7 +363,7 @@
         
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
            <!-- Member 1 -->
-           <div class="relative group aspect-[3/4] overflow-hidden rounded-2xl border border-white/5">
+           <div class="relative group aspect-[3/4] overflow-hidden rounded-2xl border border-white/5 reveal-off">
               <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500">
               <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
               <div class="absolute bottom-4 md:bottom-6 left-4 md:left-6 right-4 md:right-6">
@@ -322,7 +372,7 @@
               </div>
            </div>
            <!-- Member 2 -->
-           <div class="relative group aspect-[3/4] overflow-hidden rounded-2xl border border-white/5 lg:translate-y-8">
+           <div class="relative group aspect-[3/4] overflow-hidden rounded-2xl border border-white/5 lg:translate-y-8 reveal-off">
               <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500">
               <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
               <div class="absolute bottom-4 md:bottom-6 left-4 md:left-6 right-4 md:right-6">
@@ -331,7 +381,7 @@
               </div>
            </div>
            <!-- Member 3 -->
-           <div class="relative group aspect-[3/4] overflow-hidden rounded-2xl border border-white/5">
+           <div class="relative group aspect-[3/4] overflow-hidden rounded-2xl border border-white/5 reveal-off">
               <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500">
               <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
               <div class="absolute bottom-4 md:bottom-6 left-4 md:left-6 right-4 md:right-6">
@@ -340,7 +390,7 @@
               </div>
            </div>
            <!-- Member 4 -->
-           <div class="relative group aspect-[3/4] overflow-hidden rounded-2xl border border-white/5 lg:translate-y-8">
+           <div class="relative group aspect-[3/4] overflow-hidden rounded-2xl border border-white/5 lg:translate-y-8 reveal-off">
               <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500">
               <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
               <div class="absolute bottom-4 md:bottom-6 left-4 md:left-6 right-4 md:right-6">
@@ -353,7 +403,7 @@
    </section>
 
   <!-- PRICING TABLE (Dark Mode Tiers) -->
-  <section class="py-10 md:py-12 bg-[#0a0a0a] overflow-hidden" id="planos">
+  <section class="py-10 md:py-12 bg-[#0a0a0a] overflow-hidden reveal-off" id="planos">
      <!-- Container do Header -->
      <div class="max-w-7xl mx-auto px-6 md:px-8">
          <div class="flex flex-col mb-6 md:mb-8 gap-8 md:gap-20 relative w-full overflow-hidden md:overflow-visible items-center">
@@ -366,8 +416,8 @@
             <div class="w-full flex flex-col sm:flex-row items-center justify-center gap-6 z-20">
                <!-- Pricing Toggle -->
                <div class="bento-card flex items-center gap-1 sm:gap-4 p-1.5 md:p-2 rounded-full border border-white/20 bg-[#0a0a0a] shadow-[0_10px_40px_rgba(0,0,0,0.5)]">
-                  <button class="px-4 md:px-6 py-2 rounded-full bg-white text-black font-black text-xs md:text-sm uppercase cursor-pointer whitespace-nowrap" id="btn-mensal">Mensal</button>
-                  <button class="px-4 md:px-6 py-2 rounded-full text-gray-400 font-bold text-xs md:text-sm uppercase hover:text-white transition-colors cursor-pointer whitespace-nowrap" id="btn-anual">Anual <span class="text-[#f085aa] ml-1 text-[10px] md:text-xs">-20%</span></button>
+                  <button class="px-4 md:px-6 py-2 rounded-full bg-white text-black font-black text-xs md:text-sm uppercase cursor-pointer whitespace-nowrap transition-all" id="btn-mensal">Mensal</button>
+                  <button class="px-4 md:px-6 py-2 rounded-full text-gray-400 font-bold text-xs md:text-sm uppercase cursor-pointer whitespace-nowrap transition-all" id="btn-anual">Anual <span class="text-[#f085aa] ml-1 text-[10px] md:text-xs">-20%</span></button>
                </div>
 
                <!-- Navigation Arrows (Hidden Desktop) -->
@@ -392,7 +442,7 @@
          <div id="planos-carousel" class="flex md:grid md:grid-cols-3 gap-6 overflow-x-auto md:overflow-visible snap-x md:snap-none snap-mandatory pt-8 pb-12 px-[18vw] sm:px-[calc(50%_-_160px)] md:px-6 md:max-w-7xl md:mx-auto scroll-smooth [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
             
             <!-- Starter -->
-            <div class="bento-card p-10 flex flex-col justify-between hover:border-white/30 transition-all w-[75vw] sm:w-[320px] md:w-auto flex-shrink-0 snap-center md:snap-align-none min-h-[460px]">
+            <div class="bento-card p-10 flex flex-col justify-between hover:border-white/30 transition-all w-[75vw] sm:w-[320px] md:w-auto flex-shrink-0 snap-center md:snap-align-none min-h-[460px] reveal-off">
                <div>
                   <h3 class="text-2xl font-black text-white uppercase tracking-wide mb-2">Pilar</h3>
                   <p class="text-gray-400 text-sm font-medium h-12">O passe de entrada mínimo para participar.</p>
@@ -412,7 +462,7 @@
             </div>
 
             <!-- PRO (Highlighted) -->
-            <div class="bento-card p-10 flex flex-col justify-between border-[#f085aa]/50 bg-gradient-to-b from-[#1a0c24] to-transparent relative w-[75vw] sm:w-[320px] md:w-auto flex-shrink-0 snap-center md:snap-align-none min-h-[460px]">
+            <div class="bento-card p-10 flex flex-col justify-between border-[#f085aa]/50 bg-gradient-to-b from-[#1a0c24] to-transparent relative w-[75vw] sm:w-[320px] md:w-auto flex-shrink-0 snap-center md:snap-align-none min-h-[460px] reveal-off">
                <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#f085aa] text-black px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest shadow-[0_0_20px_rgba(240,133,170,0.5)] whitespace-nowrap z-10">
                   O Mais Usado
                </div>
@@ -436,7 +486,7 @@
             </div>
 
             <!-- VIP -->
-            <div class="bento-card p-10 flex flex-col justify-between hover:border-white/30 transition-all w-[75vw] sm:w-[320px] md:w-auto flex-shrink-0 snap-center md:snap-align-none min-h-[460px]">
+            <div class="bento-card p-10 flex flex-col justify-between hover:border-white/30 transition-all w-[75vw] sm:w-[320px] md:w-auto flex-shrink-0 snap-center md:snap-align-none min-h-[460px] reveal-off">
                <div>
                   <div class="flex justify-between items-center mb-2">
                      <h3 class="text-2xl font-black text-white uppercase tracking-wide">Elite</h3>
@@ -797,20 +847,29 @@
 
          // Update Button Styles
          if (isAnnual) {
-            btnAnual.classList.add('bg-white', 'text-black');
-            btnAnual.classList.remove('text-gray-400');
-            btnMensal.classList.remove('bg-white', 'text-black');
-            btnMensal.classList.add('text-gray-400');
+            btnAnual.className = "px-4 md:px-6 py-2 rounded-full bg-white text-black font-black text-xs md:text-sm uppercase cursor-pointer whitespace-nowrap transition-all";
+            btnMensal.className = "px-4 md:px-6 py-2 rounded-full text-gray-400 hover:text-white hover:bg-white/5 font-bold text-xs md:text-sm uppercase cursor-pointer whitespace-nowrap transition-all";
          } else {
-            btnMensal.classList.add('bg-white', 'text-black');
-            btnMensal.classList.remove('text-gray-400');
-            btnAnual.classList.remove('bg-white', 'text-black');
-            btnAnual.classList.add('text-gray-400');
+            btnMensal.className = "px-4 md:px-6 py-2 rounded-full bg-white text-black font-black text-xs md:text-sm uppercase cursor-pointer whitespace-nowrap transition-all";
+            btnAnual.className = "px-4 md:px-6 py-2 rounded-full text-gray-400 hover:text-white hover:bg-white/5 font-bold text-xs md:text-sm uppercase cursor-pointer whitespace-nowrap transition-all";
          }
       };
 
       if(btnMensal) btnMensal.addEventListener('click', () => priceUpdate(false));
       if(btnAnual) btnAnual.addEventListener('click', () => priceUpdate(true));
+
+      // Scroll Reveal Logic
+      const observerOptions = { threshold: 0.15 };
+      const observer = new IntersectionObserver((entries) => {
+         entries.forEach(entry => {
+            if (entry.isIntersecting) {
+               entry.target.classList.add('reveal-on');
+               entry.target.classList.remove('reveal-off');
+            }
+         });
+      }, observerOptions);
+
+      document.querySelectorAll('.reveal-off').forEach(el => observer.observe(el));
     });
   </script>
 </body>
