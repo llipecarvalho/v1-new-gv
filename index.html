@@ -176,62 +176,70 @@
         </div>
       </div>
 
-      <!-- Container do Carrossel (Esconde Scrollbar) -->
-      <div id="hw-carousel" class="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-8 pt-4 scroll-smooth [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
-        
-        <!-- Card 1 -->
-        <div class="bento-card p-6 md:p-8 flex flex-col justify-end h-[380px] md:h-[420px] w-[85vw] sm:w-[380px] lg:w-[400px] flex-shrink-0 snap-start group relative overflow-hidden bg-gradient-to-br from-white/5 to-transparent border border-white/5 hover:border-white/20 hover:shadow-[0_10px_40px_rgba(240,133,170,0.05)] transition-all duration-500">
-          <span class="absolute -top-4 -right-4 text-[8rem] font-black text-white/[0.03] leading-none transition-transform duration-700 group-hover:scale-110 pointer-events-none">01</span>
-          
-          <div class="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center border border-white/10 text-[#f085aa] shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] mb-auto relative z-10 transition-transform duration-500 group-hover:-translate-y-1">
-            <span class="material-symbols-outlined text-3xl font-light">shopping_cart_checkout</span>
-          </div>
-          <div class="relative z-10 mt-12 md:mt-0">
-             <h3 class="text-2xl font-black text-white mb-3 uppercase tracking-wide">Assine a Cota</h3>
-             <p class="text-sm text-gray-400 font-medium leading-relaxed">Você escolhe seu plano a partir de R$ 20. Sem burocracia, cancelamento em 1 clique.</p>
-          </div>
-        </div>
-        
-        <!-- Card 2 -->
-        <div class="bento-card p-6 md:p-8 flex flex-col justify-end h-[380px] md:h-[420px] w-[85vw] sm:w-[380px] lg:w-[400px] flex-shrink-0 snap-start group relative overflow-hidden bg-gradient-to-br from-white/5 to-transparent border border-white/5 hover:border-white/20 hover:shadow-[0_10px_40px_rgba(240,133,170,0.05)] transition-all duration-500">
-          <span class="absolute -top-4 -right-4 text-[8rem] font-black text-white/[0.03] leading-none transition-transform duration-700 group-hover:scale-110 pointer-events-none">02</span>
-          
-          <div class="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center border border-white/10 text-[#f085aa] shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] mb-auto relative z-10 transition-transform duration-500 group-hover:-translate-y-1">
-            <span class="material-symbols-outlined text-3xl font-light">account_balance_wallet</span>
-          </div>
-          <div class="relative z-10 mt-12 md:mt-0">
-             <h3 class="text-2xl font-black text-white mb-3 uppercase tracking-wide">R$ Vira Pontos</h3>
-             <p class="text-sm text-gray-400 font-medium leading-relaxed">Nenhum centavo é perdido. Os R$ 20 viram 20 pontos de saldo garantido todo mês.</p>
-          </div>
-        </div>
+      <!-- Wrapper do Carrossel Full-Bleed -->
+      <div class="relative w-[100vw] left-1/2 -ml-[50vw]">
+         <!-- Máscara de Blur Esquerda -->
+         <div class="absolute left-0 top-0 bottom-12 w-[15vw] sm:w-[calc(50%-160px)] bg-gradient-to-r from-[#050505] via-[#050505]/80 to-transparent backdrop-blur-[4px] z-20 pointer-events-none"></div>
+         <!-- Máscara de Blur Direita -->
+         <div class="absolute right-0 top-0 bottom-12 w-[15vw] sm:w-[calc(50%-160px)] bg-gradient-to-l from-[#050505] via-[#050505]/80 to-transparent backdrop-blur-[4px] z-20 pointer-events-none"></div>
 
-        <!-- Card 3 -->
-        <div class="bento-card p-6 md:p-8 flex flex-col justify-end h-[380px] md:h-[420px] w-[85vw] sm:w-[380px] lg:w-[400px] flex-shrink-0 snap-start group relative overflow-hidden bg-gradient-to-br from-white/5 to-transparent border border-white/5 hover:border-white/20 hover:shadow-[0_10px_40px_rgba(240,133,170,0.05)] transition-all duration-500">
-          <span class="absolute -top-4 -right-4 text-[8rem] font-black text-white/[0.03] leading-none transition-transform duration-700 group-hover:scale-110 pointer-events-none">03</span>
-          
-          <div class="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center border border-white/10 text-[#f085aa] shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] mb-auto relative z-10 transition-transform duration-500 group-hover:-translate-y-1">
-            <span class="material-symbols-outlined text-3xl font-light">stars</span>
-          </div>
-          <div class="relative z-10 mt-12 md:mt-0">
-             <h3 class="text-2xl font-black text-white mb-3 uppercase tracking-wide">Resgate Real</h3>
-             <p class="text-sm text-gray-400 font-medium leading-relaxed">Use seu saldo como dinheiro no carrinho de marcas Versiani. 20 pontos = 20 reais off.</p>
-          </div>
-        </div>
+         <!-- Container do Carrossel Centrado -->
+         <div id="hw-carousel" class="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-8 pt-4 px-[15vw] sm:px-[calc(50%-160px)] scroll-smooth [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+            
+            <!-- Card 1 -->
+            <div class="bento-card p-6 md:p-8 flex flex-col justify-end h-[380px] md:h-[420px] w-[70vw] sm:w-[320px] flex-shrink-0 snap-center group relative overflow-hidden bg-gradient-to-br from-white/5 to-transparent border border-white/5 hover:border-white/20 hover:shadow-[0_10px_40px_rgba(240,133,170,0.05)] transition-all duration-500">
+            <span class="absolute -top-4 -right-4 text-[8rem] font-black text-white/[0.03] leading-none transition-transform duration-700 group-hover:scale-110 pointer-events-none">01</span>
+            
+            <div class="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center border border-white/10 text-[#f085aa] shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] mb-auto relative z-10 transition-transform duration-500 group-hover:-translate-y-1">
+               <span class="material-symbols-outlined text-3xl font-light">shopping_cart_checkout</span>
+            </div>
+            <div class="relative z-10 mt-12 md:mt-0">
+               <h3 class="text-2xl font-black text-white mb-3 uppercase tracking-wide">Assine a Cota</h3>
+               <p class="text-sm text-gray-400 font-medium leading-relaxed">Você escolhe seu plano a partir de R$ 20. Sem burocracia, cancelamento em 1 clique.</p>
+            </div>
+            </div>
+            
+            <!-- Card 2 -->
+            <div class="bento-card p-6 md:p-8 flex flex-col justify-end h-[380px] md:h-[420px] w-[70vw] sm:w-[320px] flex-shrink-0 snap-center group relative overflow-hidden bg-gradient-to-br from-white/5 to-transparent border border-white/5 hover:border-white/20 hover:shadow-[0_10px_40px_rgba(240,133,170,0.05)] transition-all duration-500">
+            <span class="absolute -top-4 -right-4 text-[8rem] font-black text-white/[0.03] leading-none transition-transform duration-700 group-hover:scale-110 pointer-events-none">02</span>
+            
+            <div class="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center border border-white/10 text-[#f085aa] shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] mb-auto relative z-10 transition-transform duration-500 group-hover:-translate-y-1">
+               <span class="material-symbols-outlined text-3xl font-light">account_balance_wallet</span>
+            </div>
+            <div class="relative z-10 mt-12 md:mt-0">
+               <h3 class="text-2xl font-black text-white mb-3 uppercase tracking-wide">R$ Vira Pontos</h3>
+               <p class="text-sm text-gray-400 font-medium leading-relaxed">Nenhum centavo é perdido. R$ 20 viram 20 pontos de saldo garantido.</p>
+            </div>
+            </div>
 
-        <!-- Card 4 (Highlighted) -->
-        <div class="bento-card p-6 md:p-8 flex flex-col justify-end h-[380px] md:h-[420px] w-[85vw] sm:w-[380px] lg:w-[400px] flex-shrink-0 snap-start group relative overflow-hidden bg-gradient-to-br from-[#1a0c24] to-[#050505] border border-[#f085aa]/20 hover:border-[#f085aa]/60 hover:shadow-[0_0_60px_rgba(240,133,170,0.15)] transition-all duration-500">
-          <!-- Subtle Glow behind number -->
-          <div class="absolute -top-10 -right-10 w-40 h-40 bg-[#f085aa] blur-[80px] opacity-20 pointer-events-none"></div>
-          <span class="absolute -top-4 -right-4 text-[8rem] font-black text-[#f085aa]/[0.05] leading-none transition-transform duration-700 group-hover:scale-110 pointer-events-none z-0">04</span>
-          
-          <div class="w-14 h-14 rounded-2xl bg-[#f085aa] flex items-center justify-center border border-[#f085aa]/50 text-black shadow-[inset_0_1px_0_rgba(255,255,255,0.5)] mb-auto relative z-10 transition-transform duration-500 group-hover:-translate-y-1">
-            <span class="material-symbols-outlined text-3xl font-light">diamond</span>
-          </div>
-          <div class="relative z-10 mt-12 md:mt-0">
-             <h3 class="text-2xl font-black text-white mb-3 uppercase tracking-wide">Sorteio Vip</h3>
-             <p class="text-sm text-gray-400 font-medium leading-relaxed">Sua cota gera um Número da Sorte habilitado para a extração cega da Loteria Federal.</p>
-          </div>
-        </div>
+            <!-- Card 3 -->
+            <div class="bento-card p-6 md:p-8 flex flex-col justify-end h-[380px] md:h-[420px] w-[70vw] sm:w-[320px] flex-shrink-0 snap-center group relative overflow-hidden bg-gradient-to-br from-white/5 to-transparent border border-white/5 hover:border-white/20 hover:shadow-[0_10px_40px_rgba(240,133,170,0.05)] transition-all duration-500">
+            <span class="absolute -top-4 -right-4 text-[8rem] font-black text-white/[0.03] leading-none transition-transform duration-700 group-hover:scale-110 pointer-events-none">03</span>
+            
+            <div class="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center border border-white/10 text-[#f085aa] shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] mb-auto relative z-10 transition-transform duration-500 group-hover:-translate-y-1">
+               <span class="material-symbols-outlined text-3xl font-light">stars</span>
+            </div>
+            <div class="relative z-10 mt-12 md:mt-0">
+               <h3 class="text-2xl font-black text-white mb-3 uppercase tracking-wide">Resgate Real</h3>
+               <p class="text-sm text-gray-400 font-medium leading-relaxed">Use seu saldo no carrinho Versiani. 20 pontos = 20 reais off.</p>
+            </div>
+            </div>
+
+            <!-- Card 4 (Highlighted) -->
+            <div class="bento-card p-6 md:p-8 flex flex-col justify-end h-[380px] md:h-[420px] w-[70vw] sm:w-[320px] flex-shrink-0 snap-center group relative overflow-hidden bg-gradient-to-br from-[#1a0c24] to-[#050505] border border-[#f085aa]/20 hover:border-[#f085aa]/60 hover:shadow-[0_0_60px_rgba(240,133,170,0.15)] transition-all duration-500">
+            <!-- Subtle Glow behind number -->
+            <div class="absolute -top-10 -right-10 w-40 h-40 bg-[#f085aa] blur-[80px] opacity-20 pointer-events-none"></div>
+            <span class="absolute -top-4 -right-4 text-[8rem] font-black text-[#f085aa]/[0.05] leading-none transition-transform duration-700 group-hover:scale-110 pointer-events-none z-0">04</span>
+            
+            <div class="w-14 h-14 rounded-2xl bg-[#f085aa] flex items-center justify-center border border-[#f085aa]/50 text-black shadow-[inset_0_1px_0_rgba(255,255,255,0.5)] mb-auto relative z-10 transition-transform duration-500 group-hover:-translate-y-1">
+               <span class="material-symbols-outlined text-3xl font-light">diamond</span>
+            </div>
+            <div class="relative z-10 mt-12 md:mt-0">
+               <h3 class="text-2xl font-black text-white mb-3 uppercase tracking-wide">Sorteio Vip</h3>
+               <p class="text-sm text-gray-400 font-medium leading-relaxed">Sua cota gera um Número da Sorte habilitado para a extração cega da Loteria.</p>
+            </div>
+            </div>
+         </div>
       </div>
     </div>
   </section>
