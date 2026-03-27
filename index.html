@@ -180,9 +180,9 @@
     <!-- Wrapper do Carrossel Full-Bleed (Livre das limitações do Max-W) -->
     <div class="relative w-full">
          <!-- Máscara de Blur Esquerda -->
-         <div class="absolute left-0 top-0 bottom-12 w-[18vw] sm:w-[calc(50%_-_130px)] bg-[#050505]/60 backdrop-blur-[8px] z-20 pointer-events-none" style="-webkit-mask-image: linear-gradient(to right, black 20%, transparent 100%); mask-image: linear-gradient(to right, black 20%, transparent 100%);"></div>
+         <div class="absolute left-0 top-0 bottom-0 w-[18vw] sm:w-[calc(50%_-_130px)] bg-[#050505]/60 backdrop-blur-[8px] z-20 pointer-events-none" style="-webkit-mask-image: linear-gradient(to right, black 20%, transparent 100%); mask-image: linear-gradient(to right, black 20%, transparent 100%);"></div>
          <!-- Máscara de Blur Direita -->
-         <div class="absolute right-0 top-0 bottom-12 w-[18vw] sm:w-[calc(50%_-_130px)] bg-[#050505]/60 backdrop-blur-[8px] z-20 pointer-events-none" style="-webkit-mask-image: linear-gradient(to left, black 20%, transparent 100%); mask-image: linear-gradient(to left, black 20%, transparent 100%);"></div>
+         <div class="absolute right-0 top-0 bottom-0 w-[18vw] sm:w-[calc(50%_-_130px)] bg-[#050505]/60 backdrop-blur-[8px] z-20 pointer-events-none" style="-webkit-mask-image: linear-gradient(to left, black 20%, transparent 100%); mask-image: linear-gradient(to left, black 20%, transparent 100%);"></div>
 
          <!-- Container do Carrossel Centrado -->
          <div id="hw-carousel" class="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-8 pt-4 px-[18vw] sm:px-[calc(50%_-_160px)] scroll-smooth [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
@@ -613,9 +613,19 @@
             return card ? card.offsetWidth + 24 : 350; // Largura do card + gap (24px)
          };
 
+         const isAtEnd = () => {
+            const cards = hwCarousel.querySelectorAll('.bento-card');
+            if (!cards.length) return false;
+            const lastCard = cards[cards.length - 1];
+            // Since it's snap-center and has padding, the maximum possible scrollLeft
+            // is roughly the offset of the last card minus half the container width.
+            // A 50px tolerance guarantees we catch it when snapped.
+            return hwCarousel.scrollLeft >= (lastCard.offsetLeft - (hwCarousel.clientWidth / 2) - 50);
+         };
+
          if (hwNext) {
             hwNext.addEventListener('click', () => {
-               if (hwCarousel.scrollLeft + hwCarousel.clientWidth >= hwCarousel.scrollWidth - 10) {
+               if (isAtEnd()) {
                   hwCarousel.scrollTo({ left: 0, behavior: 'smooth' }); // Loop back
                } else {
                   hwCarousel.scrollBy({ left: scrollStep(), behavior: 'smooth' });
@@ -625,7 +635,7 @@
 
          if (hwPrev) {
             hwPrev.addEventListener('click', () => {
-               if (hwCarousel.scrollLeft <= 10) {
+               if (hwCarousel.scrollLeft <= 50) {
                   hwCarousel.scrollTo({ left: hwCarousel.scrollWidth, behavior: 'smooth' }); // Loop end
                } else {
                   hwCarousel.scrollBy({ left: -scrollStep(), behavior: 'smooth' });
@@ -635,7 +645,7 @@
 
          // Auto-play interval
          setInterval(() => {
-            if (hwCarousel.scrollLeft + hwCarousel.clientWidth >= hwCarousel.scrollWidth - 10) {
+            if (isAtEnd()) {
                hwCarousel.scrollTo({ left: 0, behavior: 'smooth' });
             } else {
                hwCarousel.scrollBy({ left: scrollStep(), behavior: 'smooth' });
