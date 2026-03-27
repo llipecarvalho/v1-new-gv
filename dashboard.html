@@ -90,9 +90,21 @@
          box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
       }
 
-      .sidebar-link-hover:hover {
-         color: var(--v-rose);
-         background: rgba(255, 255, 255, 0.03);
+      .tab-pane {
+         display: none;
+         opacity: 0;
+         transform: translateY(10px);
+         transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+      }
+
+      .tab-pane.active {
+         display: block;
+         opacity: 1;
+         transform: translateY(0);
+      }
+
+      .nav-link-active {
+         color: var(--v-rose) !important;
       }
    </style>
 </head>
@@ -106,31 +118,31 @@
       </div>
       
       <nav class="flex-1 px-4 py-8 space-y-2">
-         <a href="#" class="sidebar-item active flex items-center gap-4 px-6 py-4 rounded-xl font-bold text-sm tracking-widest uppercase">
+         <button onclick="showTab('home', this)" class="sidebar-item active flex w-full items-center gap-4 px-6 py-4 rounded-xl font-bold text-sm tracking-widest uppercase nav-btn">
             <span class="material-symbols-outlined">dashboard</span> Dashboard
-         </a>
-         <a href="#" class="sidebar-item sidebar-link-hover flex items-center gap-4 px-6 py-4 rounded-xl font-bold text-sm tracking-widest uppercase text-gray-400">
+         </button>
+         <button onclick="showTab('wallet', this)" class="sidebar-item sidebar-link-hover flex w-full items-center gap-4 px-6 py-4 rounded-xl font-bold text-sm tracking-widest uppercase text-gray-400 nav-btn">
             <span class="material-symbols-outlined">account_balance_wallet</span> Carteira
-         </a>
-         <a href="#" class="sidebar-item sidebar-link-hover flex items-center gap-4 px-6 py-4 rounded-xl font-bold text-sm tracking-widest uppercase text-gray-400">
+         </button>
+         <button onclick="showTab('network', this)" class="sidebar-item sidebar-link-hover flex w-full items-center gap-4 px-6 py-4 rounded-xl font-bold text-sm tracking-widest uppercase text-gray-400 nav-btn">
             <span class="material-symbols-outlined">hub</span> Minha Rede
-         </a>
-         <a href="#" class="sidebar-item sidebar-link-hover flex items-center gap-4 px-6 py-4 rounded-xl font-bold text-sm tracking-widest uppercase text-gray-400">
+         </button>
+         <button onclick="showTab('tickets', this)" class="sidebar-item sidebar-link-hover flex w-full items-center gap-4 px-6 py-4 rounded-xl font-bold text-sm tracking-widest uppercase text-gray-400 nav-btn">
             <span class="material-symbols-outlined">confirmation_number</span> Meus Sorteios
-         </a>
-         <a href="#" class="sidebar-item sidebar-link-hover flex items-center gap-4 px-6 py-4 rounded-xl font-bold text-sm tracking-widest uppercase text-gray-400">
+         </button>
+         <button onclick="showTab('shop', this)" class="sidebar-item sidebar-link-hover flex w-full items-center gap-4 px-6 py-4 rounded-xl font-bold text-sm tracking-widest uppercase text-gray-400 nav-btn">
             <span class="material-symbols-outlined">shopping_bag</span> Loja Partner
-         </a>
+         </button>
       </nav>
 
       <div class="p-8 border-t border-white/5">
          <div class="flex items-center gap-4 px-4 py-3 bg-white/5 rounded-2xl">
-            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-[#f085aa] to-[#320075] flex items-center justify-center font-black text-xs">PV</div>
+            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-[#f085aa] to-[#320075] flex items-center justify-center font-black text-xs text-white">V.</div>
             <div class="overflow-hidden">
-               <p class="text-[11px] font-black text-white truncate">PHILLIPE V.</p>
-               <p class="text-[9px] font-bold text-[#f085aa] uppercase tracking-widest">Plano Elite</p>
+               <p class="text-[11px] font-black text-white truncate uppercase">Integrante Elite</p>
+               <p class="text-[9px] font-bold text-[#f085aa] uppercase tracking-widest">Ativo</p>
             </div>
-            <button class="ml-auto text-gray-500 hover:text-white transition-colors">
+            <button onclick="window.location.href='index.html'" class="ml-auto text-gray-500 hover:text-white transition-colors">
                <span class="material-symbols-outlined text-[1.2rem]">logout</span>
             </button>
          </div>
@@ -139,167 +151,278 @@
 
    <!-- MOBILE NAV PILL -->
    <div class="lg:hidden mobile-nav-pill">
-      <a href="#" class="text-[#f085aa] flex flex-col items-center gap-1">
+      <button onclick="showTab('home', this)" class="text-[#f085aa] flex flex-col items-center gap-1 nav-btn-mobile">
          <span class="material-symbols-outlined">dashboard</span>
-      </a>
-      <a href="#" class="text-gray-500 flex flex-col items-center gap-1">
+      </button>
+      <button onclick="showTab('wallet', this)" class="text-gray-500 flex flex-col items-center gap-1 nav-btn-mobile">
          <span class="material-symbols-outlined">account_balance_wallet</span>
-      </a>
-      <a href="#" class="text-gray-500 flex flex-col items-center gap-1">
+      </button>
+      <button onclick="showTab('network', this)" class="text-gray-500 flex flex-col items-center gap-1 nav-btn-mobile">
          <span class="material-symbols-outlined">hub</span>
-      </a>
-      <a href="#" class="text-gray-500 flex flex-col items-center gap-1">
+      </button>
+      <button onclick="showTab('tickets', this)" class="text-gray-500 flex flex-col items-center gap-1 nav-btn-mobile">
          <span class="material-symbols-outlined">confirmation_number</span>
-      </a>
-      <a href="#" class="text-gray-500 flex flex-col items-center gap-1">
+      </button>
+      <button onclick="showTab('profile', this)" class="text-gray-500 flex flex-col items-center gap-1 nav-btn-mobile">
          <span class="material-symbols-outlined">person</span>
-      </a>
+      </button>
    </div>
 
    <!-- MAIN CONTENT -->
    <main class="flex-1 lg:ml-72 p-6 lg:p-12 mb-32 lg:mb-0">
       
-      <!-- TOP HEADER (Mobile Logo & Notifications) -->
+      <!-- TOP HEADER -->
       <div class="flex items-center justify-between lg:justify-end mb-10">
          <div class="lg:hidden">
             <span class="text-2xl font-black tracking-tighter text-white">Versiani<span class="text-[#f085aa]">.</span></span>
          </div>
          <div class="flex items-center gap-4 lg:gap-8">
             <div class="hidden lg:flex flex-col text-right">
-               <p class="text-[10px] text-gray-500 font-black tracking-widest uppercase">Última atualização</p>
-               <p class="text-[11px] text-white font-bold uppercase tracking-widest">Hoje, 20:31</p>
+               <p class="text-[10px] text-gray-500 font-black tracking-widest uppercase">Status do Fluxo</p>
+               <p class="text-[11px] text-[#f085aa] font-bold uppercase tracking-widest">Monitorando Sorteios</p>
             </div>
             <button class="w-12 h-12 glass-card rounded-2xl flex items-center justify-center text-gray-400 hover:text-white transition-all relative">
                <span class="material-symbols-outlined">notifications</span>
                <span class="absolute top-3 right-3 w-2 h-2 bg-[#f085aa] rounded-full border-2 border-[#050505]"></span>
             </button>
-            <div class="lg:hidden w-12 h-12 rounded-2xl bg-gradient-to-br from-[#f085aa] to-[#320075] flex items-center justify-center font-black text-xs">PV</div>
+            <div class="lg:hidden w-12 h-12 rounded-2xl bg-gradient-to-br from-[#f085aa] to-[#320075] flex items-center justify-center font-black text-xs">V.</div>
          </div>
       </div>
 
-      <!-- WELCOME HERO -->
-      <div class="mb-10 lg:mb-16">
-         <h1 class="text-3xl lg:text-5xl font-black text-white uppercase tracking-tight mb-2">Painel de <span class="text-gradient-rose">Rede</span></h1>
-         <p class="text-sm lg:text-lg text-gray-400 font-medium tracking-wide">Bem-vinda de volta ao Clube, Phillipe.</p>
-      </div>
+      <!-- TABS CONTAINER -->
+      <div id="tabs-content">
 
-      <!-- MAIN CARDS GRID (WALLET & STATS) -->
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 mb-12">
-         
-         <!-- WALLET CARD (LARGE) -->
-         <div class="lg:col-span-12 xl:col-span-8 p-10 lg:p-12 glass-card rounded-[40px] relative overflow-hidden flex flex-col justify-between min-h-[320px] lg:min-h-[380px]">
-            <div class="absolute top-[-50px] right-[-50px] w-96 h-96 bg-[#f085aa]/10 blur-[120px] rounded-full -z-10 animate-pulse"></div>
-            
+         <!-- TAB HOME (DASHBOARD) -->
+         <div id="tab-home" class="tab-pane active">
+            <div class="mb-10 lg:mb-16">
+               <h1 class="text-3xl lg:text-5xl font-black text-white uppercase tracking-tight mb-2">Painel de <span class="text-gradient-rose">Rede</span></h1>
+               <p class="text-sm lg:text-lg text-gray-400 font-medium tracking-wide">Bem-vinda de volta ao Clube.</p>
+            </div>
+
+            <!-- MAIN CARDS GRID -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 mb-12">
+               <!-- WALLET CARD (LARGE) -->
+               <div class="lg:col-span-12 xl:col-span-8 p-10 lg:p-12 glass-card rounded-[40px] relative overflow-hidden flex flex-col justify-between min-h-[320px] lg:min-h-[380px]">
+                  <div class="absolute top-[-50px] right-[-50px] w-96 h-96 bg-[#f085aa]/10 blur-[120px] rounded-full -z-10 animate-pulse"></div>
+                  <div class="space-y-4">
+                     <span class="px-5 py-2 glass-premium rounded-full text-[10px] font-black uppercase tracking-[0.2em] text-[#f085aa]">Saldo Versiani</span>
+                     <div class="flex items-baseline gap-4 mt-6">
+                        <span class="text-3xl lg:text-4xl font-black text-gray-500">R$</span>
+                        <span class="text-7xl lg:text-9xl font-black text-white tracking-tighter">1.540,80</span>
+                     </div>
+                  </div>
+                  <div class="flex flex-col sm:flex-row items-center gap-4 mt-10">
+                     <button class="w-full sm:w-auto px-10 py-5 bg-[#f085aa] text-black font-black uppercase tracking-widest text-sm rounded-2xl hover:scale-105 transition-all shadow-[0_20px_40px_rgba(240,133,170,0.3)]">Resgatar Saldo</button>
+                     <button class="w-full sm:w-auto px-10 py-5 glass-premium text-white font-black uppercase tracking-widest text-sm rounded-2xl hover:bg-white/5 transition-all" onclick="showTab('wallet')">Historico Ouro</button>
+                  </div>
+               </div>
+
+               <!-- QUICK STATS -->
+               <div class="lg:col-span-12 xl:col-span-4 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-1 gap-6 lg:gap-8">
+                  <div class="p-8 glass-card rounded-[32px] flex flex-col justify-between cursor-pointer" onclick="showTab('network')">
+                     <div class="w-12 h-12 bg-[#320075]/30 rounded-2xl flex items-center justify-center text-[#f085aa] mb-4">
+                        <span class="material-symbols-outlined">hub</span>
+                     </div>
+                     <div>
+                        <p class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-1">Amigas Invitadas</p>
+                        <p class="text-4xl font-black text-white">42</p>
+                        <p class="text-[10px] font-bold text-green-500 mt-2 uppercase tracking-widest">+12 esse mês</p>
+                     </div>
+                  </div>
+                  <div class="p-8 glass-card rounded-[32px] flex flex-col justify-between cursor-pointer" onclick="showTab('wallet')">
+                     <div class="w-12 h-12 bg-[#f085aa]/10 rounded-2xl flex items-center justify-center text-[#f085aa] mb-4">
+                        <span class="material-symbols-outlined">receipt_long</span>
+                     </div>
+                     <div>
+                        <p class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-1">Ganhos em PIX</p>
+                        <p class="text-4xl font-black text-white">R$ 840,00</p>
+                        <p class="text-[10px] font-bold text-gray-400 mt-2 uppercase tracking-widest">Próximo saque: Dia 05</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+            <!-- MY TICKETS SECTION -->
+            <section class="mb-12">
+               <div class="flex items-center justify-between mb-8">
+                  <div>
+                     <h2 class="text-2xl font-black text-white uppercase tracking-tight">Sorteios Ativos</h2>
+                  </div>
+                  <button onclick="showTab('tickets')" class="text-[10px] font-black uppercase tracking-[0.2em] text-[#f085aa] hover:underline">Ver Todos</button>
+               </div>
+               <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8 no-scrollbar overflow-x-auto">
+                  <!-- CARD MOCKUP -->
+                  <div class="p-1 glass-premium rounded-[32px] min-w-[300px] group transition-all">
+                     <div class="bg-[#0c0c0c] rounded-[31px] overflow-hidden">
+                        <div class="h-44 bg-gradient-to-br from-[#1d1a22] to-[#050505] relative p-6 flex flex-col justify-between">
+                           <span class="w-fit px-3 py-1.5 bg-[#f085aa]/20 border border-[#f085aa]/30 rounded-lg text-[9px] font-black uppercase text-[#f085aa] tracking-widest">Sorteio: 15h</span>
+                           <p class="text-xl font-black text-white uppercase leading-tight">iPhone 15 Pro Max</p>
+                        </div>
+                        <div class="p-6 flex items-center justify-between border-t border-white/5">
+                           <span class="text-[10px] font-bold text-gray-400">Ativo</span>
+                           <button class="text-[10px] font-black text-[#f085aa]">Ver Números</button>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </section>
+         </div>
+
+         <!-- TAB WALLET -->
+         <div id="tab-wallet" class="tab-pane">
+            <h1 class="text-4xl font-black text-white uppercase tracking-tight mb-8">Minha <span class="text-gradient-rose">Carteira</span></h1>
+            <div class="glass-card rounded-[32px] p-8 mb-8">
+               <p class="text-gray-500 font-bold uppercase tracking-widest text-xs mb-2">Total Acumulado</p>
+               <h2 class="text-6xl font-black text-white">R$ 1.540,80</h2>
+            </div>
             <div class="space-y-4">
-               <span class="px-5 py-2 glass-premium rounded-full text-[10px] font-black uppercase tracking-[0.2em] text-[#f085aa]">Saldo Versiani</span>
-               <div class="flex items-baseline gap-4 mt-6">
-                  <span class="text-3xl lg:text-4xl font-black text-gray-500">R$</span>
-                  <span class="text-7xl lg:text-9xl font-black text-white tracking-tighter counter" data-value="1540">1.540,80</span>
+               <h3 class="text-sm font-black text-gray-400 uppercase tracking-widest">Últimas Transações</h3>
+               <div class="glass-premium p-6 rounded-2xl flex justify-between items-center text-sm font-bold">
+                  <span>Assinatura Clube (Cashback)</span>
+                  <span class="text-green-500">+ R$ 80,00</span>
                </div>
-            </div>
-
-            <div class="flex flex-col sm:flex-row items-center gap-4 mt-10">
-               <button class="w-full sm:w-auto px-10 py-5 bg-[#f085aa] text-black font-black uppercase tracking-widest text-sm rounded-2xl hover:scale-105 transition-all shadow-[0_20px_40px_rgba(240,133,170,0.3)]">Resgatar Saldo</button>
-               <button class="w-full sm:w-auto px-10 py-5 glass-premium text-white font-black uppercase tracking-widest text-sm rounded-2xl hover:bg-white/5 transition-all">Historico Ouro</button>
             </div>
          </div>
 
-         <!-- QUICK STATS -->
-         <div class="lg:col-span-12 xl:col-span-4 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-1 gap-6 lg:gap-8">
-            <div class="p-8 glass-card rounded-[32px] flex flex-col justify-between">
-               <div class="w-12 h-12 bg-[#320075]/30 rounded-2xl flex items-center justify-center text-[#f085aa] mb-4">
-                  <span class="material-symbols-outlined">hub</span>
+         <!-- TAB NETWORK -->
+         <div id="tab-network" class="tab-pane">
+            <h1 class="text-4xl font-black text-white uppercase tracking-tight mb-8">Minha <span class="text-gradient-rose">Rede</span></h1>
+            <div class="glass-card rounded-[32px] p-8 mb-8 text-center">
+               <p class="text-gray-400 font-bold uppercase tracking-widest mb-4">Seu Link de Convite</p>
+               <div class="bg-white/5 p-4 rounded-xl border border-white/10 text-[#f085aa] font-black tracking-widest mb-6">clubeversiani.com/join/integrante-x</div>
+               <button class="px-8 py-4 bg-white text-black font-black uppercase tracking-widest rounded-xl">Copiar Link</button>
+            </div>
+         </div>
+
+         <!-- TAB PROFILE -->
+         <div id="tab-profile" class="tab-pane">
+            <div class="mb-10">
+               <h1 class="text-3xl lg:text-5xl font-black text-white uppercase tracking-tight mb-2">Meu <span class="text-gradient-rose">Perfil</span></h1>
+               <p class="text-sm lg:text-lg text-gray-400 font-medium tracking-wide">Gerencie sua segurança e ganhos.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+               
+               <!-- LEFT COLUMN: AVATAR & STATUS -->
+               <div class="lg:col-span-4 flex flex-col gap-6">
+                  <div class="glass-card p-10 rounded-[40px] flex flex-col items-center text-center">
+                     <div class="w-32 h-32 rounded-full bg-gradient-to-br from-[#f085aa] to-[#320075] flex items-center justify-center font-black text-4xl text-white mb-6 border-4 border-white/5 shadow-[0_20px_40px_rgba(240,133,170,0.2)]">V.</div>
+                     <h2 class="text-2xl font-black text-white uppercase tracking-tight">Integrante Elite</h2>
+                     <span class="mt-2 px-4 py-1.5 bg-green-500/20 text-green-500 text-[10px] font-black uppercase tracking-[0.2em] rounded-full border border-green-500/20">Assinatura Ativa</span>
+                  </div>
+
+                  <button onclick="window.location.href='index.html'" class="w-full p-6 glass-card rounded-3xl flex items-center justify-center gap-4 text-gray-400 hover:text-white hover:bg-red-500/10 hover:border-red-500/20 transition-all font-black uppercase tracking-widest text-xs group">
+                     <span class="material-symbols-outlined text-red-500 group-hover:scale-110 transition-transform">logout</span>
+                     Encerrar Sessão
+                  </button>
                </div>
-               <div>
-                  <p class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-1">Amigas Invitadas</p>
-                  <p class="text-4xl font-black text-white">42</p>
-                  <p class="text-[10px] font-bold text-green-500 mt-2 uppercase tracking-widest">+12 esse mês</p>
+
+               <!-- RIGHT COLUMN: SETTINGS -->
+               <div class="lg:col-span-8 space-y-6">
+                  
+                  <!-- ACCESS DATA -->
+                  <div class="glass-card p-8 lg:p-10 rounded-[40px]">
+                     <h3 class="text-sm font-black text-gray-500 uppercase tracking-[0.3em] mb-8">[ DADOS DE ACESSO ]</h3>
+                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div>
+                           <p class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2">E-mail Cadastrado</p>
+                           <p class="text-white font-bold tracking-wide">int***@versianiclube.com</p>
+                        </div>
+                        <div class="flex items-end">
+                           <button class="text-[10px] font-black uppercase tracking-widest text-[#f085aa] border-b border-[#f085aa]/30 pb-1 hover:border-[#f085aa] transition-all">Alterar Senha</button>
+                        </div>
+                     </div>
+                  </div>
+
+                  <!-- PIX WITHDRAWAL -->
+                  <div class="glass-card p-8 lg:p-10 rounded-[40px] border-l-4 border-[#f085aa]">
+                     <h3 class="text-sm font-black text-[#f085aa] uppercase tracking-[0.3em] mb-4">[ SEGURANÇA PIX ]</h3>
+                     <p class="text-xs text-gray-400 font-medium mb-8">Defina sua chave PIX para receber os 25% recorrentes de suas amigas convidadas.</p>
+                     <div class="flex flex-col sm:flex-row gap-4">
+                        <input type="text" placeholder="Sua Chave PIX (CPF, E-mail ou Celular)" class="flex-1 bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-sm font-bold text-white focus:outline-none focus:border-[#f085aa]/50 transition-all">
+                        <button class="px-8 py-4 bg-[#f085aa] text-black font-black uppercase tracking-widest text-xs rounded-2xl shadow-lg hover:scale-105 transition-all">Salvar Chave</button>
+                     </div>
+                  </div>
+
+                  <!-- SUBSCRIPTION INFO -->
+                  <div class="glass-card p-8 lg:p-10 rounded-[40px]">
+                     <div class="flex items-center justify-between">
+                        <div>
+                           <h3 class="text-sm font-black text-gray-500 uppercase tracking-[0.3em] mb-3">[ SUA ASSINATURA ]</h3>
+                           <p class="text-white font-bold tracking-wide">Plano Elite Anual <span class="text-[#f085aa]">VIP</span></p>
+                           <p class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mt-2">Próxima renovação: 12 Maio, 2026</p>
+                        </div>
+                        <button class="w-14 h-14 glass-premium rounded-2xl flex items-center justify-center text-gray-400 hover:text-white transition-all">
+                           <span class="material-symbols-outlined">settings</span>
+                        </button>
+                     </div>
+                  </div>
+
                </div>
             </div>
-            <div class="p-8 glass-card rounded-[32px] flex flex-col justify-between">
-               <div class="w-12 h-12 bg-[#f085aa]/10 rounded-2xl flex items-center justify-center text-[#f085aa] mb-4">
-                  <span class="material-symbols-outlined">receipt_long</span>
-               </div>
-               <div>
-                  <p class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-1">Ganhos em PIX</p>
-                  <p class="text-4xl font-black text-white">R$ 840,00</p>
-                  <p class="text-[10px] font-bold text-gray-400 mt-2 uppercase tracking-widest">Próximo saque: Dia 05</p>
+         </div>
+
+         <!-- TAB TICKETS -->
+         <div id="tab-tickets" class="tab-pane">
+            <h1 class="text-4xl font-black text-white uppercase tracking-tight mb-8">Meus <span class="text-gradient-rose">Números</span></h1>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+               <div class="glass-card p-6 rounded-2xl border-l-4 border-[#f085aa]">
+                  <p class="text-xs text-gray-500 font-black uppercase mb-2">Cota Essencial #321</p>
+                  <p class="text-white font-black text-2xl uppercase">94 - 12 - 08 - 44</p>
                </div>
             </div>
          </div>
 
       </div>
-
-      <!-- MY TICKETS SECTION -->
-      <section class="mb-12">
-         <div class="flex items-center justify-between mb-8">
-            <div>
-               <h2 class="text-2xl font-black text-white uppercase tracking-tight">Meus Sorteios Ativos</h2>
-               <p class="text-xs text-gray-500 font-bold uppercase tracking-widest">Sorteios da Semana</p>
-            </div>
-            <a href="#" class="text-[10px] font-black uppercase tracking-[0.2em] text-[#f085aa] hover:underline">Ver Todos</a>
-         </div>
-
-         <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8 no-scrollbar overflow-x-auto">
-            
-            <!-- TICKET CARD 1 -->
-            <div class="p-1 glass-premium rounded-[32px] min-w-[300px] group transition-all">
-               <div class="bg-[#0c0c0c] rounded-[31px] overflow-hidden">
-                  <div class="h-44 bg-gradient-to-br from-[#1d1a22] to-[#050505] relative p-6 flex flex-col justify-between">
-                     <span class="w-fit px-3 py-1.5 bg-[#f085aa]/20 border border-[#f085aa]/30 rounded-lg text-[9px] font-black uppercase text-[#f085aa] tracking-widest">Próximo Sorteio: 15h</span>
-                     <div>
-                        <p class="text-[10px] font-black text-gray-500 uppercase tracking-widest mb-1">Cota Essencial #412</p>
-                        <p class="text-xl font-black text-white uppercase leading-tight">iPhone 15 Pro Max <br> Titanium</p>
-                     </div>
-                     <div class="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_bottom_right,#f085aa20,transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                  </div>
-                  <div class="p-6 flex items-center justify-between border-t border-white/5">
-                     <div class="flex -space-x-3">
-                        <div class="w-8 h-8 rounded-full border-2 border-[#0c0c0c] bg-gray-800 flex items-center justify-center font-bold text-[10px]">42</div>
-                        <div class="w-8 h-8 rounded-full border-2 border-[#0c0c0c] bg-gray-800 flex items-center justify-center font-bold text-[10px]">19</div>
-                        <div class="w-8 h-8 rounded-full border-2 border-[#0c0c0c] bg-[#f085aa]/40 flex items-center justify-center font-bold text-[10px] text-white">+2</div>
-                     </div>
-                     <button class="text-[10px] font-black uppercase tracking-widest text-[#f085aa] flex items-center gap-2">Ver Números <span class="material-symbols-outlined text-[1rem]">arrow_forward</span></button>
-                  </div>
-               </div>
-            </div>
-
-            <!-- TICKET CARD 2 -->
-            <div class="p-1 glass-premium rounded-[32px] min-w-[300px] group transition-all">
-               <div class="bg-[#0c0c0c] rounded-[31px] overflow-hidden">
-                  <div class="h-44 bg-gradient-to-br from-[#1d1a22] to-[#050505] relative p-6 flex flex-col justify-between">
-                     <span class="w-fit px-3 py-1.5 bg-[#f085aa]/20 border border-[#f085aa]/30 rounded-lg text-[9px] font-black uppercase text-[#f085aa] tracking-widest">Sorteio Mensal</span>
-                     <div>
-                        <p class="text-[10px] font-black text-gray-500 uppercase tracking-widest mb-1">Cota Elite #021</p>
-                        <p class="text-xl font-black text-white uppercase leading-tight">Mercedes-Benz <br> G-Class Experience</p>
-                     </div>
-                  </div>
-                  <div class="p-6 flex items-center justify-between border-t border-white/5">
-                     <span class="text-[10px] font-bold text-gray-500 uppercase tracking-widest italic">Aguardando bilhetes...</span>
-                     <button class="px-5 py-2 glass-premium rounded-xl text-[9px] font-black uppercase text-white tracking-widest">Habilitar Agora</button>
-                  </div>
-               </div>
-            </div>
-
-            <!-- TICKET CARD 3 (EMPTY STATE / ADD) -->
-            <div class="p-8 border-2 border-dashed border-white/10 rounded-[32px] flex flex-col items-center justify-center gap-4 text-center group hover:border-[#f085aa]/30 transition-all cursor-pointer min-w-[300px]">
-               <div class="w-16 h-16 rounded-full bg-white/5 flex items-center justify-center text-gray-500 group-hover:bg-[#f085aa]/10 group-hover:text-[#f085aa] transition-all">
-                  <span class="material-symbols-outlined text-[2rem]">add_circle</span>
-               </div>
-               <div>
-                  <p class="text-sm font-black text-white uppercase tracking-widest">Novas Chances</p>
-                  <p class="text-[10px] font-bold text-gray-500 uppercase tracking-widest">Potencialize seu plano</p>
-               </div>
-            </div>
-
-         </div>
-      </section>
-
    </main>
+
+   <script>
+      function showTab(tabId, el) {
+         // Hide all panes
+         document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+         // Show selected pane
+         document.getElementById(`tab-${tabId}`).classList.add('active');
+
+         // Reset buttons (Desktop)
+         document.querySelectorAll('.nav-btn').forEach(b => {
+            b.classList.remove('active');
+            b.classList.add('text-gray-400');
+         });
+         
+         // Reset buttons (Mobile)
+         document.querySelectorAll('.nav-btn-mobile').forEach(b => {
+            b.classList.remove('text-[#f085aa]');
+            b.classList.add('text-gray-500');
+         });
+
+         if(el) {
+            if(el.classList.contains('nav-btn')) {
+               el.classList.add('active');
+               el.classList.remove('text-gray-400');
+            } else {
+               el.classList.add('text-[#f085aa]');
+               el.classList.remove('text-gray-500');
+            }
+         }
+         
+         window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+   </script>
+
 
    <!-- AMBIENT BG DECOR -->
    <div class="fixed top-0 right-0 w-[50vw] h-[50vw] bg-[#f085aa]/5 blur-[150px] -z-20 pointer-events-none"></div>
    <div class="fixed bottom-0 left-0 w-[40vw] h-[40vw] bg-[#320075]/10 blur-[150px] -z-20 pointer-events-none"></div>
+
+   <!-- CONCIERGE VIP (WHATSAPP SUPPORT) -->
+   <a href="https://wa.me/5500999999999" target="_blank" 
+      class="fixed bottom-28 lg:bottom-12 right-6 lg:right-12 z-[60] flex items-center gap-3 p-4 lg:px-6 lg:py-4 glass-premium rounded-full border-[#25D366]/30 hover:border-[#25D366] hover:bg-[#25D366]/10 transition-all group scale-100 hover:scale-105 active:scale-95 shadow-2xl">
+      <div class="w-8 h-8 lg:w-6 lg:h-6 flex items-center justify-center text-[#25D366]">
+         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+      </div>
+      <span class="hidden lg:block text-xs font-black uppercase tracking-widest text-white">Suporte Concierge VIP</span>
+      <div class="absolute -top-1 -right-1 w-3 h-3 bg-[#25D366] rounded-full border-2 border-[#050505] animate-pulse"></div>
+   </a>
 
 </body>
 
