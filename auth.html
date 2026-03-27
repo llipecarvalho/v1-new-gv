@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Clube Versiani — Área Exclusiva</title>
+   
+   <!-- Fonts & Icons -->
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,200,0,0" />
+   
+   <script src="https://cdn.tailwindcss.com"></script>
+   
+   <style>
+      :root {
+         --v-rose: #f085aa;
+         --v-dark: #050505;
+         --v-purple: #320075;
+      }
+
+      body {
+         font-family: 'Outfit', sans-serif;
+         background-color: var(--v-dark);
+         color: white;
+         overflow-x: hidden;
+      }
+
+      .animate-blob {
+         animation: blob 7s infinite;
+      }
+      @keyframes blob {
+         0% { transform: scale(1) translate(0px, 0px); opacity: 0.3; }
+         33% { transform: scale(1.1) translate(30px, -50px); opacity: 0.5; }
+         66% { transform: scale(0.9) translate(-20px, 20px); opacity: 0.2; }
+         100% { transform: scale(1) translate(0px, 0px); opacity: 0.3; }
+      }
+
+      .glass-premium {
+         background: rgba(255, 255, 255, 0.03);
+         backdrop-filter: blur(20px) saturate(180%);
+         -webkit-backdrop-filter: blur(20px) saturate(180%);
+         border: 1px solid rgba(255, 255, 255, 0.1);
+         box-shadow: 0 40px 100px -30px rgba(0,0,0,0.8);
+      }
+
+      .input-premium {
+         background: rgba(255, 255, 255, 0.05);
+         border: 1px solid rgba(255, 255, 255, 0.1);
+         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+         color: white;
+      }
+      .input-premium:focus {
+         background: rgba(240, 133, 170, 0.08); /* Rosa Versiani sutil */
+         border-color: var(--v-rose);
+         outline: none;
+         box-shadow: 0 0 20px rgba(240, 133, 170, 0.15);
+      }
+
+      .btn-rose-gradient {
+         background: linear-gradient(135deg, #f085aa, #d6648c);
+         box-shadow: 0 10px 30px -10px rgba(240, 133, 170, 0.4);
+         transition: all 0.4s ease;
+      }
+      .btn-rose-gradient:hover {
+         transform: translateY(-2px);
+         filter: brightness(1.1);
+         box-shadow: 0 15px 40px -10px rgba(240, 133, 170, 0.6);
+      }
+
+      /* Transitions for Toggle */
+      .hidden-form {
+         display: none !important;
+         opacity: 0;
+         transform: scale(0.95);
+      }
+
+      /* Custom scrollbar */
+      ::-webkit-scrollbar { width: 4px; }
+      ::-webkit-scrollbar-track { background: transparent; }
+      ::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.1); border-radius: 10px; }
+   </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4">
+
+   <!-- Ambient Blobs -->
+   <div class="fixed top-[-10%] left-[-10%] w-[60vw] h-[60vw] bg-[#f085aa]/15 blur-[120px] rounded-full animate-blob pointer-events-none -z-10"></div>
+   <div class="fixed bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] bg-[#320075]/20 blur-[150px] rounded-full animate-blob pointer-events-none -z-10" style="animation-delay: -5s;"></div>
+
+   <!-- Auth Section -->
+   <div class="w-full max-w-[480px] z-10">
+      
+      <!-- Top Logo & Return -->
+      <div class="text-center mb-8">
+         <a href="index.html" class="inline-flex items-center gap-2 text-gray-500 hover:text-white transition-colors mb-6 text-sm font-medium tracking-wide">
+            <span class="material-symbols-outlined text-lg">arrow_back</span>
+            VOLTAR AO INÍCIO
+         </a>
+         <div class="flex flex-col items-center">
+            <span class="text-xs font-black text-[#f085aa] uppercase tracking-[0.5em] mb-2">CLUB VERSANI</span>
+            <h1 id="auth-title" class="text-4xl font-black text-white uppercase tracking-tight">FAÇA SEU ACESSO</h1>
+         </div>
+      </div>
+
+      <!-- Main Glass Card -->
+      <div class="glass-premium rounded-3xl p-8 md:p-10 relative overflow-hidden">
+         
+         <!-- Decorator -->
+         <div class="absolute -top-20 -right-20 w-40 h-40 bg-[#f085aa]/10 blur-[80px] rounded-full"></div>
+
+         <!-- LOGIN FORM -->
+         <div id="login-form">
+            <form class="space-y-6">
+               <div class="space-y-2">
+                  <label class="text-xs font-bold text-gray-400 uppercase tracking-widest pl-1">Seu E-mail</label>
+                  <input type="email" placeholder="exemplo@gmail.com" class="w-full input-premium h-14 rounded-2xl px-5 text-white placeholder-white/20 font-medium">
+               </div>
+               
+               <div class="space-y-2">
+                  <div class="flex justify-between items-center px-1">
+                     <label class="text-xs font-bold text-gray-400 uppercase tracking-widest">Sua Senha</label>
+                     <a href="#" class="text-[10px] text-[#f085aa] font-black uppercase tracking-widest hover:underline">Esqueci a senha</a>
+                  </div>
+                  <input type="password" placeholder="••••••••" class="w-full input-premium h-14 rounded-2xl px-5 text-white placeholder-white/20 font-medium tracking-widest">
+               </div>
+
+               <div class="pt-2">
+                  <button type="button" class="w-full btn-rose-gradient h-16 rounded-2xl text-black font-black uppercase tracking-widest text-sm">Entrar no Clube</button>
+               </div>
+            </form>
+
+            <div class="mt-8 text-center">
+               <p class="text-gray-500 text-sm font-medium mb-1">Ainda não faz parte do clube?</p>
+               <button onclick="toggleAuth('signup')" class="text-[#f085aa] font-black uppercase tracking-widest text-xs hover:tracking-[0.15em] transition-all">Criar seu cadastro exclusivo</button>
+            </div>
+         </div>
+
+         <!-- SIGNUP FORM (Hidden by default) -->
+         <div id="signup-form" class="hidden-form">
+            <form class="space-y-5">
+               <div class="space-y-1.5">
+                  <label class="text-[10px] font-bold text-gray-500 uppercase tracking-widest pl-1">Nome Completo</label>
+                  <input type="text" placeholder="Como no seu CPF" class="w-full input-premium h-12 rounded-xl px-5 text-white placeholder-white/20 font-medium text-sm">
+               </div>
+
+               <div class="grid grid-cols-2 gap-4">
+                  <div class="space-y-1.5">
+                     <label class="text-[10px] font-bold text-gray-500 uppercase tracking-widest pl-1">Nascimento</label>
+                     <input type="date" class="w-full input-premium h-12 rounded-xl px-4 text-white opacity-40 focus:opacity-100 font-medium text-sm">
+                  </div>
+                  <div class="space-y-1.5">
+                     <label class="text-[10px] font-bold text-gray-500 uppercase tracking-widest pl-1">CPF</label>
+                     <input type="text" placeholder="000.000.000-00" class="w-full input-premium h-12 rounded-xl px-4 text-white placeholder-white/20 font-medium text-sm">
+                  </div>
+               </div>
+
+               <div class="space-y-1.5">
+                  <label class="text-[10px] font-bold text-gray-500 uppercase tracking-widest pl-1">E-mail de Cadastro</label>
+                  <input type="email" placeholder="Para receber os sorteios" class="w-full input-premium h-12 rounded-xl px-5 text-white placeholder-white/20 font-medium text-sm">
+               </div>
+
+               <div class="grid grid-cols-2 gap-4">
+                  <div class="space-y-1.5">
+                     <label class="text-[10px] font-bold text-gray-500 uppercase tracking-widest pl-1">Criar Senha</label>
+                     <input type="password" placeholder="••••••" class="w-full input-premium h-12 rounded-xl px-4 text-white placeholder-white/20 font-medium text-sm">
+                  </div>
+                  <div class="space-y-1.5">
+                     <label class="text-[10px] font-bold text-gray-500 uppercase tracking-widest pl-1">Confirmar</label>
+                     <input type="password" placeholder="••••••" class="w-full input-premium h-12 rounded-xl px-4 text-white placeholder-white/20 font-medium text-sm">
+                  </div>
+               </div>
+
+               <div class="pt-4">
+                  <button type="button" class="w-full btn-rose-gradient h-16 rounded-2xl text-black font-black uppercase tracking-widest text-sm shadow-[0_15px_40px_-10px_rgba(240,133,170,0.4)]">Finalizar Cadastro</button>
+               </div>
+            </form>
+
+            <div class="mt-8 text-center border-t border-white/5 pt-6">
+               <p class="text-gray-500 text-sm font-medium mb-1">Já possui uma conta?</p>
+               <button onclick="toggleAuth('login')" class="text-[#f085aa] font-black uppercase tracking-widest text-xs hover:tracking-[0.15em] transition-all">Fazer login agora</button>
+            </div>
+         </div>
+
+      </div>
+
+      <!-- Compliance/Security Footnote -->
+      <div class="mt-8 flex items-center justify-center gap-4 text-gray-600">
+         <div class="flex items-center gap-1.5 grayscale opacity-50">
+            <span class="material-symbols-outlined text-sm">lock</span>
+            <span class="text-[9px] font-bold uppercase tracking-widest">SSL Seguro</span>
+         </div>
+         <div class="w-px h-3 bg-white/5"></div>
+         <span class="text-[9px] font-bold uppercase tracking-widest opacity-50">Plataforma Elev-C</span>
+      </div>
+
+   </div>
+
+   <script>
+      function toggleAuth(mode) {
+         const loginForm = document.getElementById('login-form');
+         const signupForm = document.getElementById('signup-form');
+         const title = document.getElementById('auth-title');
+
+         if (mode === 'signup') {
+            loginForm.classList.add('hidden-form');
+            signupForm.classList.remove('hidden-form');
+            title.innerText = 'CRIAR CADASTRO';
+         } else {
+            signupForm.classList.add('hidden-form');
+            loginForm.classList.remove('hidden-form');
+            title.innerText = 'FAÇA SEU ACESSO';
+         }
+      }
+
+      // Check URL for initial mode
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.get('mode') === 'signup') {
+         toggleAuth('signup');
+      }
+   </script>
+</body>
+</html>
