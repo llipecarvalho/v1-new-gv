@@ -299,11 +299,18 @@
                      <span class="material-symbols-outlined text-[#f085aa]">track_changes</span>
                   </div>
                   
-                  <select class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm font-bold text-white focus:outline-none mb-6">
-                     <option>iPhone 15 Pro Max (62%)</option>
-                     <option>Viagem de Luxo - Milão (15%)</option>
-                     <option>Resgate de Saldo Full (100%)</option>
-                  </select>
+                  <!-- CUSTOM LUXURY SELECT -->
+                  <div class="relative mb-6">
+                     <button type="button" onclick="toggleDropdown('goal-select')" class="w-full bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-sm font-bold text-white flex items-center justify-between hover:border-white/20 transition-all group">
+                        <span id="current-goal">iPhone 15 Pro Max (62%)</span>
+                        <span id="goal-select-icon" class="material-symbols-outlined text-[#f085aa] transition-transform duration-300">expand_more</span>
+                     </button>
+                     <div id="goal-select" class="hidden absolute top-full left-0 w-full mt-2 bg-[#0c0c0c]/95 border border-white/10 rounded-2xl overflow-hidden z-[110] backdrop-blur-3xl shadow-[0_30px_60px_rgba(0,0,0,0.8)]">
+                        <div onclick="selectGoal('iPhone 15 Pro Max (62%)')" class="px-6 py-4 hover:bg-white/5 cursor-pointer text-sm font-bold text-white transition-all">iPhone 15 Pro Max (62%)</div>
+                        <div onclick="selectGoal('Viagem de Luxo - Milão (15%)')" class="px-6 py-4 hover:bg-white/5 cursor-pointer text-sm font-bold text-white transition-all border-t border-white/5">Viagem de Luxo - Milão (15%)</div>
+                        <div onclick="selectGoal('Resgate de Saldo Full (100%)')" class="px-6 py-4 hover:bg-white/5 cursor-pointer text-[#f085aa] font-black transition-all border-t border-white/5">Resgate de Saldo Full (100%)</div>
+                     </div>
+                  </div>
 
                   <div class="space-y-3">
                      <div class="flex justify-between text-[10px] font-black uppercase tracking-widest">
@@ -639,7 +646,7 @@
                         <span class="material-symbols-outlined text-4xl text-gray-500">lock_clock</span>
                      </div>
                      <div class="flex-1 text-center md:text-left">
-                        <p class="text-[10px] font-black text-gray-500 uppercase tracking-[0.3em] mb-2">Cota Pendente #042</p>
+                           <p class="text-[10px] font-black text-gray-500 uppercase tracking-[0.3em] mb-2">Cota Pendente #042</p>
                         <h3 class="text-3xl font-black text-gray-600 tracking-widest uppercase mb-4">XX • XX • XX • XX</h3>
                         <p class="text-[9px] text-[#f085aa] font-black uppercase tracking-widest animate-pulse">Aguardando Confirmação</p>
                      </div>
@@ -683,6 +690,33 @@
          }
          
          window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+
+      function toggleDropdown(id) {
+         const dropdown = document.getElementById(id);
+         const icon = document.getElementById(`${id}-icon`);
+         const isHidden = dropdown.classList.contains('hidden');
+         
+         // Close all other dropdowns if any
+         document.querySelectorAll('[id$="-select"]').forEach(d => {
+            if (d.id !== id) d.classList.add('hidden');
+         });
+
+         if (isHidden) {
+            dropdown.classList.remove('hidden');
+            if (icon) icon.style.transform = 'rotate(180deg)';
+         } else {
+            dropdown.classList.add('hidden');
+            if (icon) icon.style.transform = 'rotate(0deg)';
+         }
+      }
+
+      function selectGoal(text) {
+         const goalEl = document.getElementById('current-goal');
+         if (goalEl) goalEl.innerText = text;
+         toggleDropdown('goal-select');
+         fireSuccess('Objetivo Alterado', `Seu alvo agora é: ${text}`);
       }
 
       function fireSuccess(title, message) {
