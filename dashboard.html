@@ -4,7 +4,9 @@
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Versiani. Dashboard Exclusivo</title>
+    <title>Versiani. | Dashboard Exclusivo</title>
+    <meta name="description" content="Acesse seu painel corporativo Versiani para gerenciar cotas, resgates e indicações de elite.">
+    <meta name="robots" content="noindex, nofollow">
 
    <!-- Fonts & Icons -->
    <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -54,6 +56,7 @@
       .text-gradient-rose {
          background: linear-gradient(to right, #ffffff, #f085aa);
          -webkit-background-clip: text;
+         background-clip: text;
          -webkit-text-fill-color: transparent;
       }
 
@@ -117,20 +120,20 @@
          <a href="index.html" class="text-3xl font-black tracking-tighter text-white">Versiani<span class="text-[#f085aa]">.</span></a>
       </div>
       
-      <nav class="flex-1 px-4 py-8 space-y-2">
-         <button onclick="showTab('home', this)" class="sidebar-item active flex w-full items-center gap-4 px-6 py-4 rounded-xl font-bold text-sm tracking-widest uppercase nav-btn">
+      <nav class="flex-1 px-4 py-8 space-y-2" aria-label="Menu Lateral">
+         <button onclick="showTab('home', this)" class="sidebar-item active flex w-full items-center gap-4 px-6 py-4 rounded-xl font-bold text-sm tracking-widest uppercase nav-btn" aria-label="Ir para Dashboard">
             <span class="material-symbols-outlined">dashboard</span> Dashboard
          </button>
-         <button onclick="showTab('wallet', this)" class="sidebar-item sidebar-link-hover flex w-full items-center gap-4 px-6 py-4 rounded-xl font-bold text-sm tracking-widest uppercase text-gray-400 nav-btn">
+         <button onclick="showTab('wallet', this)" class="sidebar-item sidebar-link-hover flex w-full items-center gap-4 px-6 py-4 rounded-xl font-bold text-sm tracking-widest uppercase text-gray-400 nav-btn" aria-label="Ir para Carteira">
             <span class="material-symbols-outlined">account_balance_wallet</span> Carteira
          </button>
-         <button onclick="showTab('network', this)" class="sidebar-item sidebar-link-hover flex w-full items-center gap-4 px-6 py-4 rounded-xl font-bold text-sm tracking-widest uppercase text-gray-400 nav-btn">
+         <button onclick="showTab('network', this)" class="sidebar-item sidebar-link-hover flex w-full items-center gap-4 px-6 py-4 rounded-xl font-bold text-sm tracking-widest uppercase text-gray-400 nav-btn" aria-label="Ir para Minha Rede">
             <span class="material-symbols-outlined">hub</span> Minha Rede
          </button>
-         <button onclick="showTab('tickets', this)" class="sidebar-item sidebar-link-hover flex w-full items-center gap-4 px-6 py-4 rounded-xl font-bold text-sm tracking-widest uppercase text-gray-400 nav-btn">
+         <button onclick="showTab('tickets', this)" class="sidebar-item sidebar-link-hover flex w-full items-center gap-4 px-6 py-4 rounded-xl font-bold text-sm tracking-widest uppercase text-gray-400 nav-btn" aria-label="Ir para Meus Sorteios">
             <span class="material-symbols-outlined">confirmation_number</span> Meus Sorteios
          </button>
-         <button onclick="showTab('shop', this)" class="sidebar-item sidebar-link-hover flex w-full items-center gap-4 px-6 py-4 rounded-xl font-bold text-sm tracking-widest uppercase text-gray-400 nav-btn">
+         <button onclick="showTab('shop', this)" class="sidebar-item sidebar-link-hover flex w-full items-center gap-4 px-6 py-4 rounded-xl font-bold text-sm tracking-widest uppercase text-gray-400 nav-btn" aria-label="Ir para Loja Partner">
             <span class="material-symbols-outlined">shopping_bag</span> Loja Partner
          </button>
          <button onclick="showTab('profile', this)" class="sidebar-item sidebar-link-hover flex w-full items-center gap-4 px-6 py-4 rounded-xl font-bold text-sm tracking-widest uppercase text-gray-400 nav-btn">
@@ -442,7 +445,7 @@
                <!-- ITEM 1 -->
                <div class="w-full max-w-[340px] sm:max-w-md xl:max-w-none mx-auto glass-card rounded-[40px] overflow-hidden group">
                   <div class="h-64 relative overflow-hidden">
-                     <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&q=80&w=800" alt="Oxford Exclusive" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                     <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&q=80&w=800" alt="Nike Flyknit Versiani Elite - Disponível para Resgate" width="400" height="400" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                      <div class="absolute inset-0 bg-gradient-to-t from-[#050505] to-transparent"></div>
                      <span class="absolute top-6 left-6 px-3 py-1.5 bg-black/40 backdrop-blur-xl border border-white/10 rounded-lg text-[10px] font-black uppercase text-[#f085aa] tracking-widest">Versiani Collection</span>
                   </div>
@@ -461,7 +464,7 @@
                <!-- ITEM 2 -->
                <div class="w-full max-w-[340px] sm:max-w-md xl:max-w-none mx-auto glass-card rounded-[40px] overflow-hidden group">
                   <div class="h-64 relative overflow-hidden">
-                     <img src="https://images.unsplash.com/photo-1579586337278-3befd40fd17a?auto=format&fit=crop&q=80&w=800" alt="Versiani Smartwatch" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                     <img src="https://images.unsplash.com/photo-1579586337278-3befd40fd17a?auto=format&fit=crop&q=80&w=800" alt="Smartwatch Ultra Versiani - Resgate VIP" width="400" height="400" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                      <div class="absolute inset-0 bg-gradient-to-t from-[#050505] to-transparent"></div>
                      <span class="absolute top-6 left-6 px-3 py-1.5 bg-black/40 backdrop-blur-xl border border-white/10 rounded-lg text-[10px] font-black uppercase text-[#f085aa] tracking-widest">Versiani Tech</span>
                   </div>
@@ -480,7 +483,7 @@
                <!-- ITEM 3 -->
                <div class="w-full max-w-[340px] sm:max-w-md xl:max-w-none mx-auto glass-card rounded-[40px] overflow-hidden group">
                   <div class="h-64 relative overflow-hidden">
-                     <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=800" alt="Versiani Beauty" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                     <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=800" alt="Golden Day Spa Ritual - Experiência Exclusiva" width="400" height="400" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                      <div class="absolute inset-0 bg-gradient-to-t from-[#050505] to-transparent"></div>
                      <span class="absolute top-6 left-6 px-3 py-1.5 bg-black/40 backdrop-blur-xl border border-white/10 rounded-lg text-[10px] font-black uppercase text-[#f085aa] tracking-widest">Beauty Experience</span>
                   </div>
