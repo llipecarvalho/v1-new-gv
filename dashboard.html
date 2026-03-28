@@ -454,7 +454,7 @@
                <!-- ITEM 2 -->
                <div class="max-w-md mx-auto xl:max-w-none glass-card rounded-[40px] overflow-hidden group">
                   <div class="h-64 relative overflow-hidden">
-                     <img src="https://images.unsplash.com/photo-1546868889-4e0c66a57462?auto=format&fit=crop&q=80&w=800" alt="Smartwatch" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                     <img src="https://images.unsplash.com/photo-1579586337278-3befd40fd17a?auto=format&fit=crop&q=80&w=800" alt="Versiani Smartwatch" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                      <div class="absolute inset-0 bg-gradient-to-t from-[#050505] to-transparent"></div>
                      <span class="absolute top-6 left-6 px-3 py-1.5 glass-premium rounded-lg text-[10px] font-black uppercase text-[#f085aa] tracking-widest border-[#f085aa]/30">Versiani Tech</span>
                   </div>
@@ -473,7 +473,7 @@
                <!-- ITEM 3 -->
                <div class="max-w-md mx-auto xl:max-w-none glass-card rounded-[40px] overflow-hidden group">
                   <div class="h-64 relative overflow-hidden">
-                     <img src="https://images.unsplash.com/photo-1540555700478-4be289aefcf1?auto=format&fit=crop&q=80&w=800" alt="Spa Day" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                     <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=800" alt="Versiani Beauty" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                      <div class="absolute inset-0 bg-gradient-to-t from-[#050505] to-transparent"></div>
                      <span class="absolute top-6 left-6 px-3 py-1.5 glass-premium rounded-lg text-[10px] font-black uppercase text-[#f085aa] tracking-widest border-[#f085aa]/30">Beauty Experience</span>
                   </div>
@@ -494,66 +494,115 @@
 
          <!-- TAB PROFILE -->
          <div id="tab-profile" class="tab-pane">
-            <div class="mb-10">
-               <h1 class="text-3xl lg:text-5xl font-black text-white uppercase tracking-tight mb-2">Meu <span class="text-gradient-rose">Perfil</span></h1>
-               <p class="text-sm lg:text-lg text-gray-400 font-medium tracking-wide">Gerencie sua segurança e ganhos.</p>
+            <div class="mb-10 lg:mb-16">
+               <h1 class="text-3xl lg:text-5xl font-black text-white uppercase tracking-tight mb-2">Meu <span class="text-gradient-rose">Perfil & Segurança</span></h1>
+               <p class="text-sm lg:text-lg text-gray-400 font-medium tracking-wide">Gerencie seus dados e acesso VIP.</p>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
                
-               <!-- LEFT COLUMN: AVATAR & STATUS -->
-               <div class="lg:col-span-4 flex flex-col gap-6">
-                  <div class="glass-card p-10 rounded-[40px] flex flex-col items-center text-center">
-                     <div class="w-32 h-32 rounded-full bg-gradient-to-br from-[#f085aa] to-[#320075] flex items-center justify-center font-black text-4xl text-white mb-6 border-4 border-white/5 shadow-[0_20px_40px_rgba(240,133,170,0.2)]">V.</div>
+               <!-- LEFT COLUMN: AVATAR & QUICK STATS -->
+               <div class="lg:col-span-4 space-y-8">
+                  <div class="glass-card p-10 rounded-[40px] flex flex-col items-center text-center group relative overflow-hidden">
+                     <div class="relative w-36 h-36 mb-6">
+                        <div class="w-full h-full rounded-full bg-gradient-to-br from-[#f085aa] to-[#320075] flex items-center justify-center font-black text-5xl text-white border-4 border-white/5 shadow-2xl transition-transform group-hover:scale-105 duration-500">V.</div>
+                        <button class="absolute bottom-1 right-1 w-10 h-10 bg-white text-black rounded-full flex items-center justify-center border-4 border-[#050505] hover:bg-[#f085aa] hover:text-white transition-all">
+                           <span class="material-symbols-outlined text-[1.2rem]">photo_camera</span>
+                        </button>
+                     </div>
                      <h2 class="text-2xl font-black text-white uppercase tracking-tight">Integrante Elite</h2>
-                     <span class="mt-2 px-4 py-1.5 bg-green-500/20 text-green-500 text-[10px] font-black uppercase tracking-[0.2em] rounded-full border border-green-500/20">Assinatura Ativa</span>
+                     <span class="mt-2 px-4 py-1.5 bg-green-500/20 text-green-500 text-[10px] font-black uppercase tracking-[0.2em] rounded-full border border-green-500/20">Ativo • Premium</span>
+                     <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-[#f085aa]/5 blur-[60px] rounded-full"></div>
                   </div>
 
-                  <button onclick="window.location.href='index.html'" class="w-full p-6 glass-card rounded-3xl flex items-center justify-center gap-4 text-gray-400 hover:text-white hover:bg-red-500/10 hover:border-red-500/20 transition-all font-black uppercase tracking-widest text-xs group">
+                  <div class="glass-card p-8 rounded-[32px] border-l-4 border-amber-500/50">
+                     <p class="text-[10px] font-black text-gray-500 uppercase tracking-widest mb-4">[ SEU NÍVEL ]</p>
+                     <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-amber-500/20 flex items-center justify-center text-amber-500">
+                           <span class="material-symbols-outlined text-2xl">workspace_premium</span>
+                        </div>
+                        <div>
+                           <p class="text-white font-black uppercase text-sm">Nível Diamante</p>
+                           <p class="text-[9px] font-bold text-gray-500 uppercase tracking-widest mt-1">Benefícios Máximos Ativos</p>
+                        </div>
+                     </div>
+                  </div>
+
+                  <button onclick="window.location.href='index.html'" class="w-full p-6 glass-premium rounded-3xl flex items-center justify-center gap-4 text-gray-500 hover:text-white hover:bg-red-500/10 hover:border-red-500/20 transition-all font-black uppercase tracking-widest text-[10px] group">
                      <span class="material-symbols-outlined text-red-500 group-hover:scale-110 transition-transform">logout</span>
-                     Encerrar Sessão
+                     Encerrar Sessão Segura
                   </button>
                </div>
 
-               <!-- RIGHT COLUMN: SETTINGS -->
-               <div class="lg:col-span-8 space-y-6">
+               <!-- RIGHT COLUMN: FORMS -->
+               <div class="lg:col-span-8 space-y-8">
                   
-                  <!-- ACCESS DATA -->
+                  <!-- PERSONAL DATA -->
                   <div class="glass-card p-8 lg:p-10 rounded-[40px]">
-                     <h3 class="text-sm font-black text-gray-500 uppercase tracking-[0.3em] mb-8">[ DADOS DE ACESSO ]</h3>
-                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                     <h3 class="text-xs font-black text-[#f085aa] uppercase tracking-[0.3em] mb-8">[ DADOS PESSOAIS ]</h3>
+                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
                         <div>
-                           <p class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2">E-mail Cadastrado</p>
-                           <p class="text-white font-bold tracking-wide">int***@versianiclube.com</p>
+                           <label class="text-[9px] font-black text-gray-500 uppercase tracking-widest mb-2 block">Nome Completo</label>
+                           <input type="text" value="Integrante Elite" class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-sm font-bold text-white focus:outline-none focus:border-[#f085aa]/50 transition-all">
                         </div>
-                        <div class="flex items-end">
-                           <button class="text-[10px] font-black uppercase tracking-widest text-[#f085aa] border-b border-[#f085aa]/30 pb-1 hover:border-[#f085aa] transition-all">Alterar Senha</button>
+                        <div>
+                           <label class="text-[9px] font-black text-gray-500 uppercase tracking-widest mb-2 block">WhatsApp / Telefone</label>
+                           <input type="text" value="+55 (00) 99999-9999" class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-sm font-bold text-white focus:outline-none focus:border-[#f085aa]/50 transition-all">
+                        </div>
+                        <div class="md:col-span-2">
+                           <label class="text-[9px] font-black text-gray-500 uppercase tracking-widest mb-2 block">E-mail Cadastrado</label>
+                           <input type="email" value="integrante.elite@versianiclube.com" class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-sm font-bold text-white focus:outline-none focus:border-[#f085aa]/50 transition-all">
                         </div>
                      </div>
                   </div>
 
-                  <!-- PIX WITHDRAWAL -->
-                  <div class="glass-card p-8 lg:p-10 rounded-[40px] border-l-4 border-[#f085aa]">
-                     <h3 class="text-sm font-black text-[#f085aa] uppercase tracking-[0.3em] mb-4">[ SEGURANÇA PIX ]</h3>
-                     <p class="text-xs text-gray-400 font-medium mb-8">Defina sua chave PIX para receber os 25% recorrentes de suas amigas convidadas.</p>
-                     <div class="flex flex-col sm:flex-row gap-4">
-                        <input type="text" placeholder="Sua Chave PIX (CPF, E-mail ou Celular)" class="flex-1 bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-sm font-bold text-white focus:outline-none focus:border-[#f085aa]/50 transition-all">
-                        <button class="px-8 py-4 bg-[#f085aa] text-black font-black uppercase tracking-widest text-xs rounded-2xl shadow-lg hover:scale-105 transition-all">Salvar Chave</button>
+                  <!-- ADDRESS -->
+                  <div class="glass-card p-8 lg:p-10 rounded-[40px]">
+                     <h3 class="text-xs font-black text-gray-500 uppercase tracking-[0.3em] mb-8">[ ENDEREÇO DE ENTREGA ]</h3>
+                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+                        <div>
+                           <label class="text-[9px] font-black text-gray-500 uppercase tracking-widest mb-2 block">CEP</label>
+                           <input type="text" placeholder="00000-000" class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-sm font-bold text-white focus:outline-none focus:border-[#f085aa]/50 transition-all">
+                        </div>
+                        <div class="md:col-span-2">
+                           <label class="text-[9px] font-black text-gray-500 uppercase tracking-widest mb-2 block">Endereço / Rua</label>
+                           <input type="text" placeholder="Rua, Avenida..." class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-sm font-bold text-white focus:outline-none focus:border-[#f085aa]/50 transition-all">
+                        </div>
+                        <div>
+                           <label class="text-[9px] font-black text-gray-500 uppercase tracking-widest mb-2 block">Número</label>
+                           <input type="text" placeholder="123" class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-sm font-bold text-white focus:outline-none focus:border-[#f085aa]/50 transition-all">
+                        </div>
+                        <div class="md:col-span-2">
+                           <label class="text-[9px] font-black text-gray-500 uppercase tracking-widest mb-2 block">Informaçao Adicional</label>
+                           <input type="text" placeholder="Apto, Bloco..." class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-sm font-bold text-white focus:outline-none focus:border-[#f085aa]/50 transition-all">
+                        </div>
                      </div>
                   </div>
 
-                  <!-- SUBSCRIPTION INFO -->
-                  <div class="glass-card p-8 lg:p-10 rounded-[40px]">
-                     <div class="flex items-center justify-between">
-                        <div>
-                           <h3 class="text-sm font-black text-gray-500 uppercase tracking-[0.3em] mb-3">[ SUA ASSINATURA ]</h3>
-                           <p class="text-white font-bold tracking-wide">Plano Elite Anual <span class="text-[#f085aa]">VIP</span></p>
-                           <p class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mt-2">Próxima renovação: 12 Maio, 2026</p>
+                  <!-- SECURITY / PASSWORD -->
+                  <div class="glass-card p-8 lg:p-10 rounded-[40px] border-l-4 border-red-500/40">
+                     <h3 class="text-xs font-black text-red-500 uppercase tracking-[0.3em] mb-8">[ ALTERAR SENHA ]</h3>
+                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+                        <div class="md:col-span-2">
+                           <label class="text-[9px] font-black text-gray-500 uppercase tracking-widest mb-2 block">Senha Atual</label>
+                           <input type="password" placeholder="••••••••" class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-sm font-bold text-white focus:outline-none focus:border-[#f085aa]/50 transition-all">
                         </div>
-                        <button class="w-14 h-14 glass-premium rounded-2xl flex items-center justify-center text-gray-400 hover:text-white transition-all">
-                           <span class="material-symbols-outlined">settings</span>
-                        </button>
+                        <div>
+                           <label class="text-[9px] font-black text-gray-500 uppercase tracking-widest mb-2 block">Nova Senha</label>
+                           <input type="password" placeholder="••••••••" class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-sm font-bold text-white focus:outline-none focus:border-[#f085aa]/50 transition-all">
+                        </div>
+                        <div>
+                           <label class="text-[9px] font-black text-gray-500 uppercase tracking-widest mb-2 block">Confirmar Nova Senha</label>
+                           <input type="password" placeholder="••••••••" class="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-sm font-bold text-white focus:outline-none focus:border-[#f085aa]/50 transition-all">
+                        </div>
                      </div>
+                  </div>
+
+                  <div class="flex flex-col sm:flex-row gap-6 items-center">
+                     <button class="w-full sm:w-auto px-12 py-5 bg-[#f085aa] text-black font-black uppercase tracking-[0.2em] text-xs rounded-2xl hover:scale-105 transition-all shadow-2xl">
+                        Salvar Alterações VIP
+                     </button>
+                     <p class="text-[9px] text-gray-500 font-bold uppercase tracking-widest hidden sm:block">Sua conexão é criptografada e segura <span class="text-green-500">AES-256</span></p>
                   </div>
 
                </div>
