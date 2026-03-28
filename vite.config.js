@@ -1,8 +1,15 @@
 import { defineConfig } from 'vite';
+import { resolve } from 'path';
 
 export default defineConfig({
-  server: {
-    host: '0.0.0.0',
-    port: 5173,
+  build: {
+    rollupOptions: {
+      input: {
+        main: resolve(__dirname, 'index.html'),
+        auth: resolve(__dirname, 'auth.html'),
+        dashboard: resolve(__dirname, 'dashboard.html'),
+      },
+    },
   },
+  server: { host: '0.0.0.0', port: 5173 },
 });
