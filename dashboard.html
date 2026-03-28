@@ -255,19 +255,22 @@
                   <button onclick="showTab('tickets')" class="text-[10px] font-black uppercase tracking-[0.2em] text-[#f085aa] hover:underline">Ver Todos</button>
                </div>
                <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8 no-scrollbar overflow-x-auto">
-                  <!-- CARD MOCKUP -->
-                  <div class="p-1 glass-premium rounded-[32px] min-w-[300px] group transition-all">
-                     <div class="bg-[#0c0c0c] rounded-[31px] overflow-hidden">
-                        <div class="h-44 bg-gradient-to-br from-[#1d1a22] to-[#050505] relative p-6 flex flex-col justify-between">
-                           <span class="w-fit px-3 py-1.5 bg-[#f085aa]/20 border border-[#f085aa]/30 rounded-lg text-[9px] font-black uppercase text-[#f085aa] tracking-widest">Sorteio: 15h</span>
-                           <p class="text-xl font-black text-white uppercase leading-tight">iPhone 15 Pro Max</p>
-                        </div>
-                        <div class="p-6 flex items-center justify-between border-t border-white/5">
-                           <span class="text-[10px] font-bold text-gray-400">Ativo</span>
-                           <button class="text-[10px] font-black text-[#f085aa]">Ver Números</button>
-                        </div>
-                     </div>
-                  </div>
+                   <!-- CARD MOCKUP WITH IMAGE -->
+                   <div class="p-1 glass-premium rounded-[32px] min-w-[300px] flex-1 group transition-all">
+                      <div class="bg-[#0c0c0c] rounded-[31px] overflow-hidden relative">
+                         <div class="h-44 relative p-6 flex flex-col justify-between">
+                            <img src="https://images.unsplash.com/photo-1696446701796-da61225697cc?auto=format&fit=crop&q=80&w=800" alt="iPhone 15 giveaway" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/40 to-transparent"></div>
+                            
+                            <span class="relative z-10 w-fit px-3 py-1.5 bg-[#f085aa]/20 border border-[#f085aa]/30 rounded-lg text-[9px] font-black uppercase text-[#f085aa] tracking-widest">Sorteio: 15h</span>
+                            <p class="relative z-10 text-xl font-black text-white uppercase leading-tight">iPhone 15 Pro Max <br> Titanium</p>
+                         </div>
+                         <div class="p-6 flex items-center justify-between border-t border-white/5 relative z-10">
+                            <span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Ativo</span>
+                            <button onclick="showTab('tickets')" class="text-[10px] font-black text-[#f085aa] hover:underline uppercase tracking-widest">Ver Números</button>
+                         </div>
+                      </div>
+                   </div>
                </div>
             </section>
          </div>
@@ -559,12 +562,41 @@
 
          <!-- TAB TICKETS -->
          <div id="tab-tickets" class="tab-pane">
-            <h1 class="text-4xl font-black text-white uppercase tracking-tight mb-8">Meus <span class="text-gradient-rose">Números</span></h1>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-               <div class="glass-card p-6 rounded-2xl border-l-4 border-[#f085aa]">
-                  <p class="text-xs text-gray-500 font-black uppercase mb-2">Cota Essencial #321</p>
-                  <p class="text-white font-black text-2xl uppercase">94 - 12 - 08 - 44</p>
+            <h1 class="text-3xl lg:text-5xl font-black text-white uppercase tracking-tight mb-8">Meus <span class="text-gradient-rose">Números</span></h1>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+               
+               <!-- TICKET 1 -->
+               <div class="glass-card rounded-[40px] overflow-hidden group border-l-4 border-[#f085aa]">
+                  <div class="p-8 lg:p-10 flex flex-col md:flex-row gap-8 items-center">
+                     <div class="w-24 h-24 rounded-full bg-gradient-to-br from-[#f085aa]/20 to-[#320075]/20 flex items-center justify-center border border-[#f085aa]/30">
+                        <span class="material-symbols-outlined text-4xl text-[#f085aa]">confirmation_number</span>
+                     </div>
+                     <div class="flex-1 text-center md:text-left">
+                        <p class="text-[10px] font-black text-gray-500 uppercase tracking-[0.3em] mb-2">Cota Essencial #321</p>
+                        <h3 class="text-3xl font-black text-white tracking-widest uppercase mb-4">94 • 12 • 08 • 44</h3>
+                        <div class="flex flex-wrap items-center justify-center md:justify-start gap-4">
+                           <span class="px-3 py-1 bg-green-500/10 text-green-500 rounded-lg text-[9px] font-black uppercase border border-green-500/20">Sorteio Próximo</span>
+                           <span class="text-gray-500 text-[10px] font-bold">Gerado em: 12/03/2026</span>
+                        </div>
+                     </div>
+                  </div>
                </div>
+
+               <!-- TICKET 2 -->
+               <div class="glass-card rounded-[40px] overflow-hidden group border-l-4 border-[#320075]">
+                  <div class="p-8 lg:p-10 flex flex-col md:flex-row gap-8 items-center opacity-60">
+                     <div class="w-24 h-24 rounded-full bg-gradient-to-br from-white/5 to-transparent flex items-center justify-center border border-white/10">
+                        <span class="material-symbols-outlined text-4xl text-gray-500">lock_clock</span>
+                     </div>
+                     <div class="flex-1 text-center md:text-left">
+                        <p class="text-[10px] font-black text-gray-500 uppercase tracking-[0.3em] mb-2">Cota Pendente #042</p>
+                        <h3 class="text-3xl font-black text-gray-600 tracking-widest uppercase mb-4">XX • XX • XX • XX</h3>
+                        <p class="text-[9px] text-[#f085aa] font-black uppercase tracking-widest animate-pulse">Aguardando Confirmação</p>
+                     </div>
+                  </div>
+               </div>
+
             </div>
          </div>
 
