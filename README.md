@@ -51,14 +51,6 @@ O projeto consiste em uma infraestrutura Web moderna e ultra-veloz, composta por
 
 ---
 
-## 🏃 Como Rodar Localmente
-
-1.  Clone o repositório
-2.  `npm install`
-3.  `npm run dev`
-
----
-
 ## 📜 Documentação Técnica
 Para detalhes profundos sobre a arquitetura e fluxos de dados, consulte o [DOCUMENTATION.md](DOCUMENTATION.md).
 
