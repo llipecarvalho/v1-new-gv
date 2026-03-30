@@ -4,9 +4,9 @@
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Versiani. | Dashboard Exclusivo</title>
-    <meta name="description" content="Acesse seu painel corporativo Versiani para gerenciar cotas, resgates e indicações de elite.">
-    <meta name="robots" content="noindex, nofollow">
+   <title>Versiani. | Dashboard Exclusivo</title>
+   <meta name="description" content="Acesse seu painel corporativo Versiani para gerenciar cotas, resgates e indicações de elite.">
+   <meta name="robots" content="noindex, nofollow">
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
    <!-- Fonts & Icons -->
@@ -113,7 +113,7 @@
    </style>
 </head>
 
-<body class="min-h-screen flex bg-[#050505]">
+<body class="min-h-screen flex flex-col bg-[#050505] overflow-x-hidden w-full m-0 p-0">
 
    <!-- DESKTOP SIDEBAR -->
    <aside class="hidden lg:flex w-72 flex-col h-screen fixed left-0 top-0 border-r border-white/5 bg-[#080808] z-50">
@@ -176,8 +176,8 @@
    </div>
 
    <!-- MAIN CONTENT -->
-   <main class="flex-1 lg:ml-72 mb-32 lg:mb-0">
-      <div class="max-w-7xl mx-auto px-6 lg:px-12 w-full">
+   <main class="flex-1 ml-0 lg:ml-72 mb-32 lg:mb-0 w-full max-w-full overflow-x-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 w-full overflow-x-hidden">
          
          <!-- TOP HEADER -->
          <div class="flex items-center justify-between lg:justify-end py-10">
@@ -203,7 +203,7 @@
          <!-- TAB HOME (DASHBOARD) -->
          <div id="tab-home" class="tab-pane active">
             <div class="mb-10 lg:mb-16">
-               <h1 class="text-3xl lg:text-5xl font-black text-white uppercase tracking-tight mb-2">Painel de <span class="text-gradient-rose">Rede</span></h1>
+               <h1 class="text-xl lg:text-5xl font-black text-white uppercase tracking-tight mb-2">Painel de <span class="text-gradient-rose">Rede</span></h1>
                <p class="text-sm lg:text-lg text-gray-400 font-medium tracking-wide">Bem-vinda de volta ao Clube.</p>
             </div>
 
@@ -216,7 +216,7 @@
                      <span class="px-5 py-2 glass-premium rounded-full text-[10px] font-black uppercase tracking-[0.2em] text-[#f085aa]">Saldo Versiani</span>
                      <div class="flex items-baseline gap-4 mt-6">
                         <span class="text-3xl lg:text-4xl font-black text-gray-500">R$</span>
-                        <span class="text-7xl lg:text-9xl font-black text-white tracking-tighter">1.540,80</span>
+                        <span class="text-3xl lg:text-9xl font-black text-white tracking-tighter">1.540,80</span>
                      </div>
                   </div>
                   <div class="flex flex-col sm:flex-row items-center gap-4 mt-10">
@@ -226,7 +226,7 @@
                </div>
 
                <!-- QUICK STATS -->
-               <div class="lg:col-span-12 xl:col-span-4 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-1 gap-6 lg:gap-8">
+               <div class="lg:col-span-12 xl:col-span-4 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-1 justify-items-center gap-6 lg:gap-8">
                   <div class="p-8 glass-card rounded-[32px] flex flex-col justify-between cursor-pointer" onclick="showTab('network')">
                      <div class="w-12 h-12 bg-[#320075]/30 rounded-2xl flex items-center justify-center text-[#f085aa] mb-4">
                         <span class="material-symbols-outlined">hub</span>
@@ -422,12 +422,12 @@
          <div id="tab-shop" class="tab-pane">
             <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
                <div>
-                  <h1 class="text-3xl lg:text-5xl font-black text-white uppercase tracking-tight mb-2">Loja <span class="text-gradient-rose">Partner</span></h1>
+                  <h1 class="text-xl lg:text-5xl font-black text-white uppercase tracking-tight mb-2">Loja <span class="text-gradient-rose">Partner</span></h1>
                   <p class="text-sm lg:text-lg text-gray-400 font-medium tracking-wide">Troque seu saldo por experiências de luxo.</p>
                </div>
                <div class="px-6 py-3 glass-premium border-[#f085aa]/20 rounded-2xl flex items-center gap-4">
                   <span class="text-[10px] font-black uppercase text-gray-500">Saldo Disponível:</span>
-                  <span class="text-white font-black tracking-widest uppercase">R$ 1.540,80</span>
+                  <span class="text-white font-black tracking-widest uppercase text-sm sm:text-base">R$ 1.540,80</span>
                </div>
             </div>
 
@@ -441,7 +441,7 @@
             </div>
 
             <!-- PRODUCT GRID -->
-            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 mb-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 justify-items-center gap-8 mb-12">
                
                <!-- ITEM 1 -->
                <div class="w-full max-w-[340px] sm:max-w-md xl:max-w-none mx-auto glass-card rounded-[40px] overflow-hidden group">
@@ -622,9 +622,9 @@
 
          <!-- TAB TICKETS -->
          <div id="tab-tickets" class="tab-pane">
-            <h1 class="text-3xl lg:text-5xl font-black text-white uppercase tracking-tight mb-8">Meus <span class="text-gradient-rose">Números</span></h1>
+            <h1 class="text-xl lg:text-5xl font-black text-white uppercase tracking-tight mb-8">Meus <span class="text-gradient-rose">Números</span></h1>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 justify-items-center gap-8">
                
                <!-- TICKET 1 -->
                <div class="glass-card rounded-[40px] overflow-hidden group border-l-4 border-[#f085aa]">
@@ -634,7 +634,7 @@
                      </div>
                      <div class="flex-1 text-center md:text-left">
                         <p class="text-[10px] font-black text-gray-500 uppercase tracking-[0.3em] mb-2">Cota Essencial #321</p>
-                        <h3 class="text-3xl font-black text-white tracking-widest uppercase mb-4">94 • 12 • 08 • 44</h3>
+                        <h3 class="text-xl sm:text-3xl font-black text-white tracking-widest uppercase mb-4">94 • 12 • 08 • 44</h3>
                         <div class="flex flex-wrap items-center justify-center md:justify-start gap-4">
                            <span class="px-3 py-1 bg-green-500/10 text-green-500 rounded-lg text-[9px] font-black uppercase border border-green-500/20">Sorteio Próximo</span>
                            <span class="text-gray-500 text-[10px] font-bold">Gerado em: 12/03/2026</span>
