@@ -185,7 +185,7 @@
             style="animation-delay: -5s;"></div>
       </div>
 
-      <div class="w-full z-50 px-3 md:px-6 pt-6 pointer-events-none flex justify-center">
+      <div class="absolute top-6 left-0 w-full z-50 px-3 md:px-6 pointer-events-none flex justify-center">
          <nav
             class="pill-nav-glass pointer-events-auto rounded-full px-1.5 md:px-2 py-1.5 md:py-2 flex items-center justify-between shadow-2xl w-full max-w-5xl border border-white/10 relative overflow-hidden h-14 md:h-20"
             aria-label="Navegação Principal">
@@ -250,7 +250,7 @@
 
       <!-- SPLIT SCREEN HERO: ZAIOTTO MASSIVE STYLE -->
       <header
-         class="relative min-h-[85vh] lg:min-h-[90vh] flex flex-col lg:flex-row border-b border-white/5 bg-[#050505]">
+         class="relative min-h-[85vh] lg:min-h-[90vh] flex flex-col lg:flex-row bg-[#050505]">
 
          <!-- Right Side: Massive Image Slider (Full Height / Edge to Edge Zaiotto Style) -->
          <div class="w-full lg:w-1/2 relative min-h-[50vh] lg:min-h-full flex-grow group order-1 lg:order-2"
@@ -275,12 +275,7 @@
                   <div class="absolute inset-0 bg-black/20 z-10 pointer-events-none"></div>
 
                   <div
-                     class="absolute bottom-0 left-0 w-full z-20 p-6 md:p-10 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
-                     <div class="flex items-center gap-3 mb-2">
-                        <span class="w-2 h-2 rounded-full bg-[#f085aa] animate-pulse"></span>
-                        <span class="text-[0.65rem] font-black text-[#f085aa] uppercase tracking-[0.3em]">Prêmio
-                           Versiani</span>
-                     </div>
+                     class="absolute inset-0 w-full z-20 p-6 md:p-10 flex items-end bg-gradient-to-t from-black/75 via-black/35 to-transparent">
                      <h3 class="text-2xl md:text-4xl font-black text-white uppercase tracking-tighter">Prada Galleria
                         Bag</h3>
                   </div>
@@ -295,12 +290,7 @@
                   <div class="absolute inset-0 bg-black/20 z-10 pointer-events-none"></div>
 
                   <div
-                     class="absolute bottom-0 left-0 w-full z-20 p-6 md:p-10 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
-                     <div class="flex items-center gap-3 mb-2">
-                        <span class="w-2 h-2 rounded-full bg-[#f085aa] animate-pulse"></span>
-                        <span class="text-[0.65rem] font-black text-[#f085aa] uppercase tracking-[0.3em]">Prêmio
-                           Versiani</span>
-                     </div>
+                     class="absolute inset-0 w-full z-20 p-6 md:p-10 flex items-end bg-gradient-to-t from-black/75 via-black/35 to-transparent">
                      <h3 class="text-2xl md:text-4xl font-black text-white uppercase tracking-tighter">Viagem para Paris
                      </h3>
                   </div>
@@ -315,17 +305,20 @@
                   <div class="absolute inset-0 bg-black/20 z-10 pointer-events-none"></div>
 
                   <div
-                     class="absolute bottom-0 left-0 w-full z-20 p-6 md:p-10 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
-                     <div class="flex items-center gap-3 mb-2">
-                        <span class="w-2 h-2 rounded-full bg-[#f085aa] animate-pulse"></span>
-                        <span class="text-[0.65rem] font-black text-[#f085aa] uppercase tracking-[0.3em]">Prêmio
-                           Versiani</span>
-                     </div>
+                     class="absolute inset-0 w-full z-20 p-6 md:p-10 flex items-end bg-gradient-to-t from-black/75 via-black/35 to-transparent">
                      <h3 class="text-2xl md:text-4xl font-black text-white uppercase tracking-tighter">iPhone 16 Pro Max
                      </h3>
                   </div>
                </div>
 
+            </div>
+            <!-- Mobile blob over image -->
+            <div
+               class="absolute lg:hidden top-[84%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120vw] h-[120vw] bg-[#f085aa]/14 blur-[120px] rounded-full z-20 pointer-events-none animate-blob">
+            </div>
+            <!-- Seam Mask on image -->
+            <div
+               class="absolute inset-x-0 bottom-0 h-48 md:h-44 bg-gradient-to-t from-[#050505] via-[#050505]/96 to-transparent z-30 pointer-events-none">
             </div>
          </div>
 
@@ -334,7 +327,7 @@
             class="w-full lg:w-1/2 flex flex-col justify-center items-center text-center lg:items-start lg:text-left px-6 md:px-12 lg:px-20 xl:px-32 pt-8 pb-8 lg:pt-28 lg:pb-16 z-10 relative overflow-hidden order-2 lg:order-1">
             <!-- Mobile Hero Blob -->
             <div
-               class="absolute lg:hidden top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120vw] h-[120vw] bg-[#f085aa]/15 blur-[120px] rounded-full z-0 pointer-events-none animate-blob">
+               class="absolute lg:hidden top-[38%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120vw] h-[120vw] bg-[#f085aa]/15 blur-[120px] rounded-full z-0 pointer-events-none animate-blob">
             </div>
             <div class="space-y-6 max-w-2xl relative z-10">
                <h1
@@ -824,17 +817,6 @@
          aria-hidden="true"></div>
 
       <div class="max-w-7xl mx-auto flex flex-col items-center text-center mb-12 md:mb-32 relative z-10">
-
-         <div
-            class="flex items-center gap-3 mb-8 bg-white/5 border border-white/10 py-2.5 px-5 rounded-full backdrop-blur-md shadow-[0_0_30px_rgba(0,0,0,0.5)]">
-            <span class="relative flex h-3 w-3">
-               <span
-                  class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#f085aa] opacity-75"></span>
-               <span class="relative inline-flex rounded-full h-3 w-3 bg-[#f085aa] shadow-[0_0_10px_#f085aa]"></span>
-            </span>
-            <span class="text-[10px] md:text-xs font-black text-white uppercase tracking-[0.2em]">Últimas 14 Cotas
-               Escenciais Livres</span>
-         </div>
 
          <h2
             class="text-5xl md:text-[8vw] lg:text-[9.5vw] font-black text-white uppercase tracking-tight leading-[0.95] mb-8 drop-shadow-2xl">
