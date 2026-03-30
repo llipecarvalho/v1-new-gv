@@ -360,29 +360,25 @@
       </div>
 
       <!-- HOW IT WORKS: BENTO GRID -->
-      <section class="py-10 md:py-16 border-b border-white/5 bg-[#060606] relative overflow-x-clip overflow-y-visible"
+      <section class="py-20 md:py-32 border-b border-white/5 bg-[#050505] relative overflow-hidden"
          id="como-funciona">
-         <div class="absolute inset-0 z-0 pointer-events-none bg-gradient-to-b from-[#0b0710]/55 via-transparent to-[#08060c]/40"></div>
-         <!-- Ambient Atmosphere (Breathing Blobs) - Moved to Section Level for Infinite Bleed -->
-         <div
-            class="absolute top-1/2 left-1/4 w-[60vw] h-[60vw] bg-[#f085aa]/15 blur-[150px] rounded-full -translate-y-1/2 z-0 animate-blob pointer-events-none">
+         <!-- Ambient Atmosphere (Breathing Blobs and Gradients) -->
+         <div class="absolute inset-0 -z-10 pointer-events-none overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-b from-[#0b0710] via-transparent to-[#08060c] opacity-80"></div>
+            <div
+               class="absolute -top-[20%] -left-[10%] w-[70vw] h-[70vw] bg-[#f085aa]/15 blur-[160px] rounded-full animate-blob">
+            </div>
+            <div
+               class="absolute top-[20%] -right-[15%] w-[60vw] h-[60vw] bg-[#320075]/20 blur-[180px] rounded-full animate-blob"
+               style="animation-delay: -7s;"></div>
+            <div
+               class="absolute -bottom-[10%] left-[15%] w-[50vw] h-[50vw] bg-[#f085aa]/10 blur-[140px] rounded-full animate-blob"
+               style="animation-delay: -12s;"></div>
+            <!-- Grain Texture Overlay -->
+            <div class="absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-overlay" 
+               style="background-image: url('data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.65\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E');"></div>
          </div>
-         <div
-            class="absolute bottom-0 right-1/4 w-[50vw] h-[50vw] bg-[#320075]/10 blur-[180px] rounded-full z-0 animate-blob pointer-events-none"
-            style="animation-delay: -5s;"></div>
-         <div
-            class="absolute lg:hidden -top-20 left-[-22%] w-[72vw] h-[72vw] bg-[#f085aa]/20 blur-[120px] rounded-full z-0 pointer-events-none">
-         </div>
-         <div
-            class="absolute lg:hidden top-[36%] right-[-26%] w-[78vw] h-[78vw] bg-[#320075]/22 blur-[140px] rounded-full z-0 pointer-events-none">
-         </div>
-         <div
-            class="absolute lg:hidden bottom-[-14%] left-[-18%] w-[84vw] h-[84vw] bg-[#f085aa]/22 blur-[150px] rounded-full z-0 pointer-events-none">
-         </div>
-         <div
-            class="absolute lg:hidden inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#07060a]/85 to-transparent z-0 pointer-events-none">
-         </div>
-         <div class="max-w-7xl mx-auto px-6 md:relative z-30">
+         <div class="max-w-7xl mx-auto px-6 relative z-10">
             <div class="flex items-end justify-between mb-8 gap-6">
                <div class="space-y-4">
                   <span class="text-xs font-black text-[#f085aa] uppercase tracking-[0.3em]">[ SUA ENTRADA NESSE
@@ -492,16 +488,19 @@
       </section>
 
       <!-- DREAM BRIDGE -->
-      <section class="py-10 md:py-14 px-6 border-b border-white/5 bg-[#070707] reveal-off relative overflow-hidden">
-         <div class="absolute inset-0 z-0 pointer-events-none bg-gradient-to-b from-[#100713]/45 via-transparent to-[#09070d]/50"></div>
-         <div
-            class="absolute lg:hidden -top-20 right-[-24%] w-[78vw] h-[78vw] bg-[#f085aa]/20 blur-[130px] rounded-full z-0 pointer-events-none">
-         </div>
-         <div
-            class="absolute lg:hidden bottom-[-18%] left-[-22%] w-[86vw] h-[86vw] bg-[#320075]/22 blur-[150px] rounded-full z-0 pointer-events-none">
-         </div>
-         <div
-            class="absolute lg:hidden inset-x-0 top-0 h-20 bg-gradient-to-b from-[#0b0810]/75 to-transparent z-0 pointer-events-none">
+      <section class="py-20 md:py-32 px-6 border-b border-white/5 bg-[#050505] reveal-off relative overflow-hidden">
+         <!-- Atmospheric Depth -->
+         <div class="absolute inset-0 -z-10 pointer-events-none overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-b from-[#08060c] via-[#050505] to-[#0a0a0a]"></div>
+            <div
+               class="absolute top-1/4 left-1/2 -translate-x-1/2 w-full h-[500px] bg-[#f085aa]/5 blur-[120px] rounded-full pointer-events-none">
+            </div>
+            <div
+               class="absolute -bottom-[20%] -right-[10%] w-[60vw] h-[60vw] bg-[#320075]/15 blur-[180px] rounded-full animate-blob">
+            </div>
+            <div
+               class="absolute -top-[10%] -left-[10%] w-[50vw] h-[50vw] bg-[#f085aa]/10 blur-[140px] rounded-full animate-blob"
+               style="animation-delay: -4s;"></div>
          </div>
          <div class="max-w-7xl mx-auto relative z-10">
             <div
