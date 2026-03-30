@@ -30,14 +30,15 @@ O projeto consiste em uma infraestrutura Web moderna e ultra-veloz, composta por
 ## 📁 Estrutura de Diretórios
 
 ```bash
-├── index.html          # Portal PrincipalVersiani
+├── index.html          # Portal Principal Versiani
 ├── dashboard.html      # Central do Integrante VIP
 ├── auth.html           # Gateway de Autenticação (Login/Signup)
 ├── favicon.svg         # Identidade Visual "V." Oficial
 ├── src/
 │   ├── styles/         # Glassmorphism & Tokens de Design
 │   └── scripts/        # Lógica de Gamificação e Tabs
-└── public/             # Ativos e Media Assets
+├── vite.config.js      # Entradas multi-page (index/auth/dashboard)
+└── render.yaml         # Deploy estático na Render
 ```
 
 ---
