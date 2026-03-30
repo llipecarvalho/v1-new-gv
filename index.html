@@ -188,7 +188,7 @@
             style="animation-delay: -5s;"></div>
       </div>
 
-      <div class="fixed top-6 w-full z-50 px-3 md:px-6 pointer-events-none flex justify-center">
+      <div class="w-full z-50 px-3 md:px-6 pt-6 pointer-events-none flex justify-center">
          <nav
             class="pill-nav-glass pointer-events-auto rounded-full px-1.5 md:px-2 py-1.5 md:py-2 flex items-center justify-between shadow-2xl w-full max-w-5xl border border-white/10 relative overflow-hidden h-14 md:h-20"
             aria-label="Navegação Principal">
@@ -214,21 +214,14 @@
                </div>
             </div>
 
-            <!-- RIGHT: Large Action Pills (Responsive Sizes) -->
-            <div class="flex items-center gap-1.5 md:gap-4 pr-1 md:pr-4 flex-shrink-0">
-               <!-- Secondary Responsive Pill: Member Area -->
+            <!-- RIGHT: Login -->
+            <div class="flex items-center pr-1 md:pr-4 flex-shrink-0">
                <button onclick="openAuthModal('login')"
                   class="px-3 md:px-7 py-2 md:py-3.5 rounded-full border border-white/10 bg-white/5 text-[8px] md:text-[11px] font-black uppercase tracking-[0.2em] text-gray-300 hover:bg-white/10 transition-all cursor-pointer whitespace-nowrap"
                   aria-label="Entrar">
                   <span class="md:hidden">Entrar</span>
                   <span class="hidden md:inline">Área de Membros</span>
                </button>
-
-               <!-- Main Responsive Pill: Assinar -->
-               <button onclick="openAuthModal('signup')"
-                  class="bg-[#f085aa] text-black px-4 md:px-7 py-2 md:py-3.5 rounded-full font-black text-[9px] md:text-sm hover:scale-105 hover:bg-white transition-all shadow-[0_10px_30px_rgba(240,133,170,0.4)] pointer-events-auto btn-shine flex items-center justify-center gap-1 md:gap-2 cursor-pointer whitespace-nowrap"
-                  aria-label="Assinar Agora">ASSINAR <span
-                     class="material-symbols-outlined align-middle text-[1.2rem] hidden lg:inline-flex">arrow_outward</span></button>
             </div>
 
          </nav>
@@ -351,7 +344,7 @@
                   class="text-[2.8rem] sm:text-5xl md:text-7xl lg:text-[5.5rem] font-black text-white leading-[0.9] tracking-tighter uppercase break-words hyphens-auto">
                   Acesse o <span class="text-gradient-rose">luxo.</span>
                </h1>
-               <p class="text-base md:text-lg text-gray-300 font-medium leading-relaxed">
+               <p class="text-base text-gray-300 font-medium leading-relaxed">
                   Você merece fazer parte desse universo. <br> Assine e faça parte do Clube Versiani.
                </p>
             </div>
@@ -390,7 +383,7 @@
                <div class="space-y-4">
                   <span class="text-xs font-black text-[#f085aa] uppercase tracking-[0.3em]">[ SUA ENTRADA NESSE
                      UNIVERSO ]</span>
-                  <h2 class="text-3xl md:text-6xl font-black text-white tracking-tight leading-tight">Como Funciona</h2>
+                  <h2 class="text-[22px] font-black text-white uppercase tracking-tight leading-tight">Como Funciona</h2>
                </div>
                <!-- Setas de navegação (Ocultas no mobile se o espaço apertar, mas os usuários podem fazer scroll via touch tranquilamente) -->
                <div class="hidden sm:flex md:hidden gap-3 relative z-10">
@@ -498,25 +491,46 @@
       <section class="py-10 md:py-14 px-6 border-b border-white/5 bg-[#070707] reveal-off">
          <div class="max-w-7xl mx-auto">
             <div
-               class="bento-card glass-premium p-8 md:p-12 relative overflow-hidden bg-gradient-to-br from-white/5 via-black/70 to-black/90 border border-white/10 border-t-white/20">
+               class="bento-card glass-premium p-8 md:p-12 relative overflow-hidden bg-gradient-to-br from-white/5 via-black/70 to-black/90 border border-white/10 border-t-white/20 max-w-4xl">
                <div
                   class="absolute -top-24 -right-24 w-[320px] h-[320px] bg-[#f085aa]/15 blur-[100px] rounded-full pointer-events-none">
                </div>
-
-               <span class="text-xs font-black text-[#f085aa] uppercase tracking-[0.3em] mb-5 block">[ DESEJO REAL ]</span>
-               <h2 class="text-2xl md:text-5xl font-black text-white tracking-tight leading-tight mb-8 max-w-4xl">
-                  Não é um prêmio qualquer. É o tipo de sonho que já vive no seu imaginário.
+               <span class="text-xs font-black text-[#f085aa] uppercase tracking-[0.3em] mb-6 block">[ DESEJO REAL ]</span>
+               <h2 class="text-[22px] font-black text-white uppercase tracking-tight leading-tight mb-8">
+                  NÃO É UM PRÊMIO QUALQUER. É O TIPO DE SONHO QUE JÁ VIVE NO SEU IMAGINÁRIO.
                </h2>
 
-               <div class="space-y-3 mb-8">
-                  <p class="text-lg md:text-2xl font-bold text-white leading-tight">A bolsa que você salvou.</p>
-                  <p class="text-lg md:text-2xl font-bold text-white leading-tight">A viagem que você adia.</p>
-                  <p class="text-lg md:text-2xl font-bold text-white leading-tight">O item que você vê no feed e pensa:
-                     <span class="text-[#f085aa]">“um dia”.</span>
-                  </p>
+               <p class="text-base text-gray-400 font-medium leading-relaxed mb-10 max-w-3xl">
+                  A bolsa que você salvou. A viagem que você adia. O item que você vê no feed e pensa “um dia”.
+               </p>
+
+               <div class="space-y-5">
+                  <div class="flex items-start gap-4">
+                     <div
+                        class="w-10 h-10 rounded-full border border-[#f085aa]/40 bg-[#f085aa]/10 flex items-center justify-center text-[#f085aa] mt-0.5">
+                        <span class="material-symbols-outlined text-[1.1rem]">diamond</span>
+                     </div>
+                     <p class="text-base font-black text-white leading-tight">A bolsa que você salvou.</p>
+                  </div>
+                  <div class="flex items-start gap-4">
+                     <div
+                        class="w-10 h-10 rounded-full border border-[#f085aa]/40 bg-[#f085aa]/10 flex items-center justify-center text-[#f085aa] mt-0.5">
+                        <span class="material-symbols-outlined text-[1.1rem]">flight_takeoff</span>
+                     </div>
+                     <p class="text-base font-black text-white leading-tight">A viagem que você adia.</p>
+                  </div>
+                  <div class="flex items-start gap-4">
+                     <div
+                        class="w-10 h-10 rounded-full border border-[#f085aa]/40 bg-[#f085aa]/10 flex items-center justify-center text-[#f085aa] mt-0.5">
+                        <span class="material-symbols-outlined text-[1.1rem]">favorite</span>
+                     </div>
+                     <p class="text-base font-black text-white leading-tight">O item que você vê no feed e pensa:
+                        <span class="text-[#f085aa]">“um dia”.</span>
+                     </p>
+                  </div>
                </div>
 
-               <p class="text-base md:text-xl text-gray-300 font-medium leading-relaxed max-w-4xl">
+               <p class="text-base text-gray-300 font-medium leading-relaxed mt-10 pt-6 border-t border-white/10 max-w-3xl">
                   O Clube Versiani existe para aproximar você desse desejo.
                </p>
             </div>
@@ -529,9 +543,12 @@
          <div class="max-w-7xl mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
                <span class="text-[10px] md:text-xs font-black text-[#f085aa] uppercase tracking-[0.2em] md:tracking-[0.3em] mb-4 block whitespace-nowrap">[ ACESSO AO UNIVERSO VERSIANI ]</span>
-               <h2 class="text-3xl md:text-6xl font-black text-white tracking-tight leading-tight mb-8">Um valor
-                  pequeno. Um acesso ao extraordinário.</h2>
-               <p class="text-xl text-gray-400 font-medium leading-relaxed mb-8">
+               <h2 class="text-[22px] font-black text-white uppercase tracking-tight leading-tight mb-8">
+                  <span class="block whitespace-nowrap">Um valor pequeno.</span>
+                  <span class="block whitespace-nowrap">Um acesso ao</span>
+                  <span class="block whitespace-nowrap">extraordinário.</span>
+               </h2>
+               <p class="text-base text-gray-400 font-medium leading-relaxed mb-8">
                   No Clube Versiani, você se aproxima dos prêmios de luxo mais desejados e ainda transforma sua
                   assinatura em benefícios, descontos e experiências no universo Versiani.
                </p>
@@ -603,7 +620,7 @@
                   </div>
                </div>
 
-               <p class="text-base md:text-lg text-gray-300 font-medium leading-relaxed">
+               <p class="text-base text-gray-300 font-medium leading-relaxed">
                   Resgate seus pontos e aproveite vantagens nos produtos mais desejados da marca.
                </p>
             </div>
@@ -644,7 +661,7 @@
          <div class="max-w-7xl mx-auto">
             <div class="text-center mb-16 md:mb-20 space-y-4">
                <span class="text-xs font-black text-gray-500 uppercase tracking-[0.3em]">[ TRUSTED MEMBERS ]</span>
-               <h2 class="text-3xl md:text-6xl font-black text-white uppercase tracking-tight leading-tight">Elas
+               <h2 class="text-[22px] font-black text-white uppercase tracking-tight leading-tight">Elas
                   Ousaram.<br>Elas Ganharam.</h2>
             </div>
 
@@ -717,7 +734,7 @@
                   <span class="text-xs font-black text-gray-400 uppercase tracking-[0.3em] block mb-6 md:mb-10">[
                      SELECIONE SUAS CHANCES ]</span>
                   <h2
-                     class="text-3xl md:text-6xl font-black text-white uppercase tracking-tight leading-tight opacity-90 text-center">
+                     class="text-[22px] font-black text-white uppercase tracking-tight leading-tight opacity-90 text-center">
                      Qual o Seu Nível de Experiência?</h2>
                </div>
 
@@ -880,11 +897,11 @@
                <span class="text-xs font-black text-[#f085aa] uppercase tracking-[0.3em] block mb-4">[ PARCERIA DE
                   SUCESSO ]</span>
                <h2
-                  class="text-[1.2rem] md:text-6xl font-black text-white uppercase tracking-tighter leading-[0.95] mb-8">
-                  Convide <span class="text-rose">Amigas</span> e fature <br>
-                  <span class="block mt-1 md:mt-2 text-[1.65rem] md:text-[5.25rem] leading-none">25% Recorrente.</span>
+                  class="text-[22px] font-black text-white uppercase tracking-tight leading-tight mb-8">
+                  <span class="block whitespace-nowrap">Convide <span class="text-rose">Amigas</span> e</span>
+                  <span class="block whitespace-nowrap text-[22px]">Fature 25% Recorrente.</span>
                </h2>
-               <p class="text-gray-400 font-medium mb-8 leading-relaxed">
+               <p class="text-base text-gray-400 font-medium mb-8 leading-relaxed">
                   Sendo uma integrante ativa do Clube, você tem acesso ao seu próprio painel de rede. Cada amiga que
                   assina o clube pelo seu link garante a você 25% do valor da assinatura em dinheiro, todos os meses.
                </p>
@@ -1015,7 +1032,7 @@
                class="text-gradient-rose drop-shadow-[0_0_40px_rgba(240,133,170,0.3)]">Clube.</span>
          </h2>
 
-         <p class="text-sm md:text-xl text-gray-400 max-w-2xl font-medium mb-12">O único ecossistema de beleza da
+         <p class="text-base text-gray-400 max-w-2xl font-medium mb-12">O único ecossistema de beleza da
             internet que te coroa com prêmios de altíssimo luxo pagando apenas o valor de um ticket.</p>
 
          <div class="flex flex-col items-center gap-8 w-full">
