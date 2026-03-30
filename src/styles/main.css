@@ -108,6 +108,18 @@ body { font-family: 'Manrope', sans-serif; background-color: #fef7ff;}
   100% { box-shadow: 0 0 0 0 rgba(240, 133, 170, 0); }
 }
 
+/* Mobile Optimization for 360x800 */
+@media (max-width: 767px) {
+  header {
+    min-height: auto !important;
+    height: calc(100vh - 80px); /* Adjust for nav and footer visibility */
+    max-height: 720px;
+  }
+  #zaiotto-slider {
+    min-height: 45vh !important;
+  }
+}
+
 /* Nav & Footer */
 .nav-link { color: rgba(29, 26, 34, 0.7); font-weight: 700; transition: color .2s ease; }
 .nav-link:hover { color: #320075; }
