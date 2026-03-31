@@ -411,13 +411,13 @@
          <!-- Wrapper do Carrossel Full-Bleed (Livre das limitações do Max-W) -->
          <div class="relative w-full group/hw">
              <!-- Setas Laterais (Somente Mobile/Tablet) -->
-             <div class="absolute inset-y-0 left-2 md:hidden z-[60] flex items-center">
+             <div id="hw-prev-btn" class="absolute inset-y-0 left-2 md:hidden z-[60] flex items-center opacity-0 pointer-events-none transition-opacity duration-300">
                 <button onclick="document.getElementById('hw-carousel').scrollBy({left: -320, behavior: 'smooth'})"
                    class="w-10 h-10 rounded-full border border-white/20 bg-black/40 backdrop-blur-md flex items-center justify-center text-white transition-all cursor-pointer shadow-2xl active:scale-90">
                    <span class="material-symbols-outlined text-[1.2rem]">arrow_back</span>
                 </button>
              </div>
-             <div class="absolute inset-y-0 right-2 md:hidden z-[60] flex items-center">
+             <div id="hw-next-btn" class="absolute inset-y-0 right-2 md:hidden z-[60] flex items-center transition-opacity duration-300">
                 <button onclick="document.getElementById('hw-carousel').scrollBy({left: 320, behavior: 'smooth'})"
                    class="w-10 h-10 rounded-full border border-white/20 bg-black/40 backdrop-blur-md flex items-center justify-center text-white transition-all cursor-pointer shadow-2xl active:scale-90">
                    <span class="material-symbols-outlined text-[1.2rem]">arrow_forward</span>
@@ -618,13 +618,13 @@
                   </div>
                 <div class="relative w-full group/eco">
                    <!-- Setas Laterais (Somente Mobile/Tablet) -->
-                   <div class="absolute inset-y-0 left-[-2vw] md:hidden z-[60] flex items-center">
+                   <div id="eco-prev-btn" class="absolute inset-y-0 left-[-2vw] md:hidden z-[60] flex items-center opacity-0 pointer-events-none transition-opacity duration-300">
                       <button onclick="document.getElementById('eco-carousel').scrollBy({left: -320, behavior: 'smooth'})"
                          class="w-10 h-10 rounded-full border border-white/10 bg-black/40 backdrop-blur-md flex items-center justify-center text-white shadow-2xl active:scale-90">
                          <span class="material-symbols-outlined text-[1.1rem]">arrow_back</span>
                       </button>
                    </div>
-                   <div class="absolute inset-y-0 right-[-2vw] md:hidden z-[60] flex items-center">
+                   <div id="eco-next-btn" class="absolute inset-y-0 right-[-2vw] md:hidden z-[60] flex items-center transition-opacity duration-300">
                       <button onclick="document.getElementById('eco-carousel').scrollBy({left: 320, behavior: 'smooth'})"
                          class="w-10 h-10 rounded-full border border-white/10 bg-black/40 backdrop-blur-md flex items-center justify-center text-white shadow-2xl active:scale-90">
                          <span class="material-symbols-outlined text-[1.1rem]">arrow_forward</span>
@@ -1235,7 +1235,7 @@
                   const cards = carousel.querySelectorAll('.bento-card');
                   if (!cards.length) return false;
                   const lastCard = cards[cards.length - 1];
-                  return carousel.scrollLeft >= (lastCard.offsetLeft - (carousel.clientWidth / 2) - 50);
+                  return carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 80;
                };
 
                if (btnNext) {
@@ -1258,7 +1258,30 @@
                   });
                }
 
-               // Auto-play interval removed - manual swipe only on mobile
+                const updateArrowVisibility = () => {
+                   const prevBtn = document.getElementById(`${idRoot}-prev-btn`);
+                   const nextBtn = document.getElementById(`${idRoot}-next-btn`);
+                   if (prevBtn) {
+                      if (carousel.scrollLeft <= 50) {
+                         prevBtn.classList.add('opacity-0', 'pointer-events-none');
+                      } else {
+                         prevBtn.classList.remove('opacity-0', 'pointer-events-none');
+                      }
+                   }
+                   if (nextBtn) {
+                      const atEnd = carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 80;
+                      if (atEnd) {
+                         nextBtn.classList.add('opacity-0', 'pointer-events-none');
+                      } else {
+                         nextBtn.classList.remove('opacity-0', 'pointer-events-none');
+                      }
+                   }
+                };
+
+                carousel.addEventListener('scroll', updateArrowVisibility);
+                window.addEventListener('resize', updateArrowVisibility);
+                // Initial check
+                setTimeout(updateArrowVisibility, 300);
             }
          };
 
