@@ -1,0 +1,127 @@
+html { scroll-behavior: smooth; }
+body { font-family: 'Manrope', sans-serif; background-color: #fef7ff;}
+
+.material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+.symbol-fill { font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+
+/* Custom High-Reward Esthetics */
+.glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.luxury-gradient-bg {
+  background: linear-gradient(135deg, #320075 0%, #6e1c3f 50%, #c5a059 100%);
+}
+
+.luxury-gradient-text {
+  background: linear-gradient(135deg, #320075 0%, #c5a059 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* --- V2 DARK PREMIUM CLASSES --- */
+
+.dark-bg-base {
+  background-color: #050505;
+  background-image: radial-gradient(circle at 15% 50%, rgba(50, 0, 117, 0.1), transparent 25%),
+                    radial-gradient(circle at 85% 30%, rgba(197, 160, 89, 0.05), transparent 25%);
+}
+
+.bento-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-radius: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.bento-card:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transform: translateY(-4px);
+}
+
+.text-gradient-rose {
+  background: linear-gradient(135deg, #c5a059 0%, #ffb0c9 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.pill-nav-glass {
+  background: rgba(10, 10, 10, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 20s linear infinite;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.faq-panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out, opacity 0.4s ease-out;
+  opacity: 0;
+}
+
+.faq-panel.active {
+  max-height: 500px; /* arbitrary large value */
+  opacity: 1;
+}
+
+.vip-gradient {
+  background: linear-gradient(135deg, #1d1a22 0%, #4a4452 100%);
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 2s infinite;
+}
+
+@keyframes pulseGlow {
+  0% { box-shadow: 0 0 0 0 rgba(197, 160, 89, 0.7); }
+  70% { box-shadow: 0 0 0 15px rgba(197, 160, 89, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(197, 160, 89, 0); }
+}
+
+/* Mobile Optimization for 360x800 */
+@media (max-width: 767px) {
+  header {
+    min-height: auto !important;
+    height: calc(100vh - 80px); /* Adjust for nav and footer visibility */
+    max-height: 720px;
+  }
+  #zaiotto-slider {
+    min-height: 45vh !important;
+  }
+}
+
+/* Nav & Footer */
+.nav-link { color: rgba(29, 26, 34, 0.7); font-weight: 700; transition: color .2s ease; }
+.nav-link:hover { color: #320075; }
+.footer-link { color: rgba(29, 26, 34, 0.6); font-size: .875rem; transition: color .2s ease; }
+.footer-link:hover { color: #320075; }

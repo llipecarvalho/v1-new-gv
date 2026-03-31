@@ -15,8 +15,13 @@
       rel="stylesheet">
    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
       rel="stylesheet">
-   <link rel="stylesheet" href="/src/styles/main.css">
+   <link rel="stylesheet" href="/src/styles/mainv3.css">
    <style>
+      :root {
+         --cream-theme: #FAF7F2;
+      }
+      body { background-color: var(--cream-theme); color: #1a1a1a; }
+      .bg-black { background-color: var(--cream-theme) !important; }
       @keyframes float-blob {
          0% {
             transform: translate(0, 0) scale(1);
@@ -93,13 +98,16 @@
       }
 
       .pill-nav-glass {
-         background: rgba(0, 0, 0, 0.6);
+         background: rgba(255, 255, 255, 0.8);
          backdrop-filter: blur(24px);
          -webkit-backdrop-filter: blur(24px);
       }
 
-      .text-gradient-rose {
-         color: #f085aa;
+      .text-gradient-accent {
+         background: linear-gradient(135deg, var(--terra) 0%, var(--gold) 100%);
+         -webkit-background-clip: text;
+         -webkit-text-fill-color: transparent;
+         background-clip: text;
       }
 
       .glass-premium {
@@ -153,10 +161,10 @@
       }
 
       .input-premium:focus {
-         background: rgba(240, 133, 170, 0.08);
-         border-color: #f085aa;
+         background: rgba(184, 98, 42, 0.08);
+         border-color: var(--terra);
          outline: none;
-         box-shadow: 0 0 20px rgba(240, 133, 170, 0.15);
+         box-shadow: 0 0 20px rgba(184, 98, 42, 0.15);
       }
 
       .auth-form-step {
@@ -185,53 +193,53 @@
    <script src="/src/scripts/app.js" type="module" defer></script>
 </head>
 
-<body class="dark-bg-base text-gray-200 antialiased overflow-x-hidden relative bg-black">
+<body class="antialiased overflow-x-hidden relative bg-[var(--cream)] text-[var(--text-dark)]">
    <main id="main-content">
       <!-- Ambient Background Blobs -->
       <div class="fixed top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0 hidden lg:block">
          <div
-            class="absolute top-[10%] left-[-5%] w-[800px] h-[800px] bg-[#f085aa]/17 blur-[160px] rounded-full animate-blob">
+            class="absolute top-[10%] left-[-5%] w-[800px] h-[800px] bg-[var(--terra)]/17 blur-[160px] rounded-full animate-blob">
          </div>
          <div
-            class="absolute bottom-[15%] right-[-10%] w-[1000px] h-[1000px] bg-[#320075]/17 blur-[190px] rounded-full animate-blob"
+            class="absolute bottom-[15%] right-[-10%] w-[1000px] h-[1000px] bg-[var(--espresso)]/17 blur-[190px] rounded-full animate-blob"
             style="animation-delay: -5s;"></div>
       </div>
 
       <div class="absolute top-6 left-0 w-full z-50 px-3 md:px-6 pointer-events-none flex justify-center">
          <nav
-            class="pill-nav-glass pointer-events-auto rounded-full px-1.5 md:px-2 py-1.5 md:py-2 flex items-center justify-between shadow-2xl w-full max-w-5xl border border-white/10 relative overflow-hidden h-14 md:h-20"
+            class="pill-nav-glass pointer-events-auto rounded-full px-1.5 md:px-2 py-1.5 md:py-2 flex items-center justify-between shadow-2xl w-full max-w-5xl border border-[var(--sand-deep)] relative overflow-hidden h-14 md:h-20"
             aria-label="Navegação Principal">
 
             <!-- LEFT: Hamburger + Logo Grouped -->
             <div class="flex items-center gap-1 md:gap-4 pl-1 md:pl-4 flex-shrink-0">
                <button id="mobile-menu-btn"
-                  class="md:hidden text-white flex items-center justify-center p-1 hover:text-[#f085aa] transition-colors cursor-pointer pointer-events-auto"
+                  class="md:hidden text-[var(--text-dark)] flex items-center justify-center p-1 hover:text-[var(--terra)] transition-colors cursor-pointer pointer-events-auto"
                   aria-label="Abrir menu mobile">
                   <span class="material-symbols-outlined text-[1.5rem]">menu</span>
                </button>
 
                <div class="flex flex-col md:flex-row md:items-center gap-2 md:gap-4">
-                  <span class="text-lg md:text-3xl font-black text-white tracking-tighter">Versiani<span
-                        class="text-[#f085aa]">.</span></span>
+                  <span class="text-lg md:text-3xl font-black text-[var(--text-dark)] tracking-tighter">Versiani<span
+                        class="text-[var(--terra)]">.</span></span>
 
                   <!-- Desktop Links (Hidden on Mobile) -->
                   <div
-                     class="hidden md:flex items-center gap-6 text-[11px] font-black uppercase tracking-[0.2em] text-gray-400 ml-4">
-                     <a class="hover:text-white transition-colors" href="#como-funciona">Funcionamento</a>
-                     <a class="hover:text-white transition-colors" href="#planos">Benefícios</a>
+                     class="hidden md:flex items-center gap-6 text-[11px] font-black uppercase tracking-[0.2em] text-[var(--text-mid)] ml-4">
+                     <a class="hover:text-[var(--text-dark)] transition-colors" href="#como-funciona">Funcionamento</a>
+                     <a class="hover:text-[var(--text-dark)] transition-colors" href="#planos">Benefícios</a>
                   </div>
                </div>
             </div>
 
             <!-- RIGHT: Login & Theme -->
             <div class="flex items-center gap-2 md:gap-4 pr-1 md:pr-4 flex-shrink-0">
-               <a href="indexv3.html" 
-                  class="px-3 md:px-6 py-2 md:py-3.5 rounded-full bg-[#FAF7F2] text-[#19100A] text-[8px] md:text-[11px] font-black uppercase tracking-[0.2em] hover:bg-[#B8622A] hover:text-white transition-all cursor-pointer whitespace-nowrap border border-[#B8622A]/20 shadow-[0_0_20px_rgba(184,98,42,0.2)]">
-                  Versão 2
+               <a href="index.html" 
+                  class="px-3 md:px-6 py-2 md:py-3.5 rounded-full bg-[var(--espresso)] text-white text-[8px] md:text-[11px] font-black uppercase tracking-[0.2em] hover:bg-black transition-all cursor-pointer whitespace-nowrap border border-white/10 shadow-lg">
+                  Versão 1
                </a>
                
                <button onclick="openAuthModal('login')"
-                  class="px-3 md:px-7 py-2 md:py-3.5 rounded-full border border-white/10 bg-white/5 text-[8px] md:text-[11px] font-black uppercase tracking-[0.2em] text-gray-400 hover:bg-white/10 transition-all cursor-pointer whitespace-nowrap"
+                  class="px-3 md:px-7 py-2 md:py-3.5 rounded-full bg-[var(--terra)] text-[8px] md:text-[11px] font-black uppercase tracking-[0.2em] text-black hover:bg-[var(--espresso)] hover:text-white transition-all cursor-pointer whitespace-nowrap"
                   aria-label="Entrar">
                   <span class="md:hidden">Entrar</span>
                   <span class="hidden md:inline">Área de Membros</span>
@@ -245,13 +253,13 @@
       <div id="mobile-menu"
          class="fixed inset-0 bg-black/95 backdrop-blur-xl z-[100] flex flex-col items-center justify-center gap-10 opacity-0 pointer-events-none transition-all duration-300">
          <button id="close-menu-btn"
-            class="absolute top-8 right-8 text-white p-2 hover:text-[#f085aa] transition-colors cursor-pointer">
+            class="absolute top-8 right-8 text-white p-2 hover:text-[var(--terra)] transition-colors cursor-pointer">
             <span class="material-symbols-outlined text-4xl">close</span>
          </button>
 
          <div class="text-center mb-4">
             <span class="text-4xl font-black text-white tracking-tighter">Versiani<span
-                  class="text-[#f085aa]">.</span></span>
+                  class="text-[var(--terra)]">.</span></span>
          </div>
          <nav class="flex flex-col items-center gap-8">
             <a class="mobile-link text-2xl font-black text-gray-300 hover:text-white uppercase tracking-widest transition-colors"
@@ -261,13 +269,13 @@
          </nav>
 
          <button onclick="openAuthModal('signup')"
-            class="mobile-link mt-8 bg-[#f085aa] text-black px-12 py-4 rounded-full font-black text-lg uppercase hover:scale-105 hover:bg-white transition-all shadow-[0_0_30px_rgba(240,133,170,0.4)] cursor-pointer text-center">ASSINE
+            class="mobile-link mt-8 bg-[var(--terra)] text-black px-12 py-4 rounded-full font-black text-lg uppercase hover:scale-105 hover:bg-white transition-all shadow-[0_0_30px_rgba(240,133,170,0.4)] cursor-pointer text-center">ASSINE
             AGORA</button>
       </div>
 
       <!-- SPLIT SCREEN HERO: ZAIOTTO MASSIVE STYLE -->
       <header
-         class="relative min-h-[85vh] lg:min-h-[90vh] flex flex-col lg:flex-row bg-[#050505]">
+         class="relative min-h-[85vh] lg:min-h-[90vh] flex flex-col lg:flex-row bg-[var(--cream)]">
 
          <!-- Right Side: Massive Image Slider (Full Height / Edge to Edge Zaiotto Style) -->
          <div class="w-full lg:w-1/2 relative min-h-[50vh] lg:min-h-full flex-grow group order-1 lg:order-2"
@@ -275,7 +283,7 @@
 
             <!-- Gradient Fade from Left -->
             <div
-               class="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#050505] to-transparent z-20 pointer-events-none hidden lg:block">
+               class="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[var(--cream)] to-transparent z-20 pointer-events-none hidden lg:block">
             </div>
 
             <!-- Slider is fully automatic without manual navigation arrows -->
@@ -291,7 +299,7 @@
                      class="w-full h-full object-cover">
                   <div class="absolute inset-0 bg-black/20 z-10 pointer-events-none"></div>
                   <div
-                     class="absolute lg:hidden inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#050505] via-[#050505]/70 to-transparent z-20 pointer-events-none">
+                     class="absolute lg:hidden inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[var(--cream)] via-[var(--cream)]/70 to-transparent z-20 pointer-events-none">
                   </div>
 
                   <div
@@ -309,7 +317,7 @@
                      class="w-full h-full object-cover">
                   <div class="absolute inset-0 bg-black/20 z-10 pointer-events-none"></div>
                   <div
-                     class="absolute lg:hidden inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#050505] via-[#050505]/70 to-transparent z-20 pointer-events-none">
+                     class="absolute lg:hidden inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[var(--cream)] via-[var(--cream)]/70 to-transparent z-20 pointer-events-none">
                   </div>
 
                   <div
@@ -327,7 +335,7 @@
                      class="w-full h-full object-cover" style="object-position: center;">
                   <div class="absolute inset-0 bg-black/20 z-10 pointer-events-none"></div>
                   <div
-                     class="absolute lg:hidden inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#050505] via-[#050505]/70 to-transparent z-20 pointer-events-none">
+                     class="absolute lg:hidden inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[var(--cream)] via-[var(--cream)]/70 to-transparent z-20 pointer-events-none">
                   </div>
 
                   <div
@@ -346,10 +354,10 @@
             
             <div class="space-y-6 max-w-2xl relative z-10">
                <h1
-                  class="text-[2.8rem] sm:text-5xl md:text-7xl lg:text-[5.5rem] font-black text-white leading-[0.9] tracking-tighter uppercase break-words hyphens-auto">
-                  Acesse o <span class="text-gradient-rose">luxo.</span>
+                  class="text-[2.8rem] sm:text-5xl md:text-7xl lg:text-[5.5rem] font-black text-[var(--text-dark)] leading-[0.9] tracking-tighter uppercase break-words hyphens-auto">
+                  Acesse o <span class="text-gradient-accent">luxo.</span>
                </h1>
-               <p class="text-base text-gray-300 font-medium leading-relaxed">
+               <p class="text-base text-[var(--text-mid)] font-medium leading-relaxed">
                   Você merece fazer parte desse universo. <br> Assine e faça parte do Clube Versiani.
                </p>
             </div>
@@ -359,7 +367,7 @@
       </header>
 
       <!-- INFINITE MARQUEE TICKER -->
-      <div class="w-full overflow-hidden bg-[#f085aa] text-black py-4 border-y border-white/10 whitespace-nowrap">
+      <div class="w-full overflow-hidden bg-[var(--terra)] text-black py-4 border-y border-[var(--sand-deep)] whitespace-nowrap">
          <div class="animate-marquee text-sm font-black uppercase tracking-[0.2em] inline-block">
             <span class="mx-8">★ Oportunidades de ganhar itens de desejo</span>
             <span class="mx-8">★ Benefícios nas marcas Versiani</span>
@@ -374,19 +382,19 @@
       </div>
 
       <!-- HOW IT WORKS: BENTO GRID -->
-      <section class="py-20 md:py-32 border-b border-white/5 bg-[#050505] relative overflow-hidden"
+      <section class="py-20 md:py-32 border-b border-[var(--sand-deep)] bg-[var(--cream)] relative overflow-hidden"
          id="como-funciona">
          <!-- Ambient Atmosphere (Breathing Blobs and Gradients) -->
          <div class="absolute inset-0 -z-10 pointer-events-none overflow-hidden">
-            <div class="absolute inset-0 bg-gradient-to-b from-[#0b0710] via-transparent to-[#08060c] opacity-80"></div>
+            <div class="absolute inset-0 bg-gradient-to-b from-[var(--sand)] via-transparent to-[var(--cream)] opacity-80"></div>
             <div
-               class="absolute -top-[20%] -left-[10%] w-[70vw] h-[70vw] bg-[#f085aa]/15 blur-[160px] rounded-full animate-blob">
+               class="absolute -top-[20%] -left-[10%] w-[70vw] h-[70vw] bg-[var(--terra)]/15 blur-[160px] rounded-full animate-blob">
             </div>
             <div
-               class="absolute top-[20%] -right-[15%] w-[60vw] h-[60vw] bg-[#320075]/20 blur-[180px] rounded-full animate-blob"
+               class="absolute top-[20%] -right-[15%] w-[60vw] h-[60vw] bg-[var(--espresso)]/20 blur-[180px] rounded-full animate-blob"
                style="animation-delay: -7s;"></div>
             <div
-               class="absolute -bottom-[10%] left-[15%] w-[50vw] h-[50vw] bg-[#f085aa]/10 blur-[140px] rounded-full animate-blob"
+               class="absolute -bottom-[10%] left-[15%] w-[50vw] h-[50vw] bg-[var(--terra)]/10 blur-[140px] rounded-full animate-blob"
                style="animation-delay: -12s;"></div>
             <!-- Grain Texture Overlay -->
             <div class="absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-overlay" 
@@ -395,18 +403,18 @@
          <div class="max-w-7xl mx-auto px-6 relative z-10">
             <div class="flex items-end justify-between mb-8 gap-6">
                <div class="space-y-4">
-                  <span class="text-xs font-black text-[#f085aa] uppercase tracking-[0.3em]">[ SUA ENTRADA NESSE
+                  <span class="text-xs font-black text-[var(--terra)] uppercase tracking-[0.3em]">[ SUA ENTRADA NESSE
                      UNIVERSO ]</span>
-                  <h2 class="text-[22px] font-black text-white uppercase tracking-tight leading-tight">Como Funciona</h2>
+                  <h2 class="text-[22px] font-black text-[var(--text-dark)] uppercase tracking-tight leading-tight">Como Funciona</h2>
                </div>
                <!-- Setas de navegação (Ocultas no mobile se o espaço apertar, mas os usuários podem fazer scroll via touch tranquilamente) -->
                <div class="hidden gap-3 relative z-10">
                   <button id="hw-prev"
-                     class="w-12 h-12 rounded-full border border-white/20 bg-white/5 flex items-center justify-center text-white hover:bg-[#f085aa] hover:text-black hover:border-[#f085aa] transition-colors cursor-pointer">
+                     class="w-12 h-12 rounded-full bg-[var(--terra)] flex items-center justify-center text-black hover:bg-[var(--espresso)] hover:text-white transition-colors cursor-pointer">
                      <span class="material-symbols-outlined">arrow_back</span>
                   </button>
                   <button id="hw-next"
-                     class="w-12 h-12 rounded-full border border-white/20 bg-white/5 flex items-center justify-center text-white hover:bg-[#f085aa] hover:text-black hover:border-[#f085aa] transition-colors cursor-pointer">
+                     class="w-12 h-12 rounded-full bg-[var(--terra)] flex items-center justify-center text-black hover:bg-[var(--espresso)] hover:text-white transition-colors cursor-pointer">
                      <span class="material-symbols-outlined">arrow_forward</span>
                   </button>
                </div>
@@ -418,24 +426,24 @@
              <!-- Setas Laterais (Somente Mobile/Tablet) -->
              <div id="hw-prev-btn" class="absolute inset-y-0 left-2 md:hidden z-[60] flex items-center opacity-0 pointer-events-none transition-opacity duration-300">
                 <button onclick="document.getElementById('hw-carousel').scrollBy({left: -320, behavior: 'smooth'})"
-                   class="w-10 h-10 rounded-full border border-white/20 bg-black/40 backdrop-blur-md flex items-center justify-center text-white transition-all cursor-pointer shadow-2xl active:scale-90">
+                   class="w-10 h-10 rounded-full bg-[var(--terra)] flex items-center justify-center text-black transition-all cursor-pointer shadow-2xl active:scale-90">
                    <span class="material-symbols-outlined text-[1.2rem]">arrow_back</span>
                 </button>
              </div>
              <div id="hw-next-btn" class="absolute inset-y-0 right-2 md:hidden z-[60] flex items-center transition-opacity duration-300">
                 <button onclick="document.getElementById('hw-carousel').scrollBy({left: 320, behavior: 'smooth'})"
-                   class="w-10 h-10 rounded-full border border-white/20 bg-black/40 backdrop-blur-md flex items-center justify-center text-white transition-all cursor-pointer shadow-2xl active:scale-90">
+                   class="w-10 h-10 rounded-full bg-[var(--terra)] flex items-center justify-center text-black transition-all cursor-pointer shadow-2xl active:scale-90">
                    <span class="material-symbols-outlined text-[1.2rem]">arrow_forward</span>
                 </button>
              </div>
 
              <!-- Máscara de Profundidade Esquerda (Atrás dos Cards) -->
              <div
-                class="absolute left-0 top-0 bottom-0 w-[15vw] bg-gradient-to-r from-[#050505] to-transparent z-10 pointer-events-none md:hidden">
+                class="absolute left-0 top-0 bottom-0 w-[15vw] bg-gradient-to-r from-[var(--cream)] to-transparent z-10 pointer-events-none md:hidden">
              </div>
              <!-- Máscara de Profundidade Direita (Atrás dos Cards) -->
              <div
-                class="absolute right-0 top-0 bottom-0 w-[15vw] bg-gradient-to-l from-[#050505] to-transparent z-10 pointer-events-none md:hidden">
+                class="absolute right-0 top-0 bottom-0 w-[15vw] bg-gradient-to-l from-[var(--cream)] to-transparent z-10 pointer-events-none md:hidden">
              </div>
 
             <!-- Container do Carrossel Centrado -->
@@ -444,69 +452,78 @@
 
                <!-- Card 1 -->
                <div
-                  class="bento-card glass-premium p-6 md:p-7 flex flex-col h-[280px] md:h-[300px] w-[76vw] sm:w-[300px] md:w-auto flex-shrink-0 snap-center md:snap-align-none group relative overflow-hidden bg-gradient-to-br from-white/8 to-transparent border border-white/10 border-t-white/30 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] hover:border-[#f085aa]/50 hover:shadow-[0_45px_100px_-20px_rgba(0,0,0,0.8),0_0_30px_rgba(240,133,170,0.15)] hover:-translate-y-2 transition-all duration-700 reveal-off">
+                  class="bento-card glass-premium p-6 md:p-7 flex flex-col h-[280px] md:h-[300px] w-[76vw] sm:w-[300px] md:w-auto flex-shrink-0 snap-center md:snap-align-none group relative overflow-hidden bg-white border border-[var(--sand-deep)] shadow-[0_10px_40px_-10px_rgba(184,98,42,0.1)] hover:border-[var(--terra)]/30 hover:shadow-[0_45px_100px_-20px_rgba(184,98,42,0.15)] hover:-translate-y-2 transition-all duration-700 reveal-off">
+                  
+                  <!-- Terracotta Glow Behind -->
+                  <div class="absolute -top-20 -left-20 w-40 h-40 bg-[var(--terra)]/10 blur-[80px] rounded-full pointer-events-none -z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                   <span
                      class="absolute -top-4 -right-4 text-[8rem] font-black text-white/[0.03] leading-none transition-transform duration-700 group-hover:scale-110 pointer-events-none z-0">01</span>
 
                   <div class="relative z-10">
                      <div
-                        class="absolute inset-0 bg-[#f085aa]/20 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+                        class="absolute inset-0 bg-[var(--terra)]/20 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700">
                      </div>
                      <div
-                        class="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center border border-white/10 text-[#f085aa] shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] relative z-10 transition-transform duration-500 group-hover:-translate-y-1">
+                        class="w-14 h-14 rounded-2xl bg-[var(--sand)] flex items-center justify-center border border-[var(--sand-deep)] text-[var(--terra)] relative z-10 transition-transform duration-500 group-hover:-translate-y-1">
                         <span class="material-symbols-outlined text-3xl font-light">shopping_cart_checkout</span>
                      </div>
                   </div>
                   <div class="relative z-10 mt-6 flex-1 flex flex-col justify-start">
-                     <h3 class="text-xl md:text-2xl font-black text-white mb-3 tracking-tight">Você ativa sua
+                     <h3 class="text-xl md:text-2xl font-black text-[var(--text-dark)] mb-3 tracking-tight">Você ativa sua
                         assinatura</h3>
-                     <p class="text-sm text-gray-300 font-medium leading-relaxed">Entra no Clube Versiani por R$20 ao
+                     <p class="text-sm text-[var(--text-mid)] font-medium leading-relaxed">Entra no Clube Versiani por R$20 ao
                         mês e já passa a fazer parte desse universo. Sem fidelidade mínima.</p>
                   </div>
                </div>
 
                <!-- Card 2 -->
                <div
-                  class="bento-card glass-premium p-6 md:p-7 flex flex-col h-[280px] md:h-[300px] w-[76vw] sm:w-[300px] md:w-auto flex-shrink-0 snap-center md:snap-align-none group relative overflow-hidden bg-gradient-to-br from-white/8 to-transparent border border-white/10 border-t-white/30 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] hover:border-[#f085aa]/50 hover:shadow-[0_45px_100px_-20px_rgba(0,0,0,0.8),0_0_30px_rgba(240,133,170,0.15)] hover:-translate-y-2 transition-all duration-700 reveal-off">
+                  class="bento-card glass-premium p-6 md:p-7 flex flex-col h-[280px] md:h-[300px] w-[76vw] sm:w-[300px] md:w-auto flex-shrink-0 snap-center md:snap-align-none group relative overflow-hidden bg-white border border-[var(--sand-deep)] shadow-[0_10px_40px_-10px_rgba(184,98,42,0.1)] hover:border-[var(--terra)]/30 hover:shadow-[0_45px_100px_-20px_rgba(184,98,42,0.15)] hover:-translate-y-2 transition-all duration-700 reveal-off">
+                  
+                  <!-- Terracotta Glow Behind -->
+                  <div class="absolute -top-20 -left-20 w-40 h-40 bg-[var(--terra)]/10 blur-[80px] rounded-full pointer-events-none -z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                   <span
                      class="absolute -top-4 -right-4 text-[8rem] font-black text-white/[0.03] leading-none transition-transform duration-700 group-hover:scale-110 pointer-events-none z-0">02</span>
 
                   <div class="relative z-10">
                      <div
-                        class="absolute inset-0 bg-[#f085aa]/20 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+                        class="absolute inset-0 bg-[var(--terra)]/20 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700">
                      </div>
                      <div
-                        class="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center border border-white/10 text-[#f085aa] shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] relative z-10 transition-transform duration-500 group-hover:-translate-y-1">
+                        class="w-14 h-14 rounded-2xl bg-[var(--sand)] flex items-center justify-center border border-[var(--sand-deep)] text-[var(--terra)] relative z-10 transition-transform duration-500 group-hover:-translate-y-1">
                         <span class="material-symbols-outlined text-3xl font-light">account_balance_wallet</span>
                      </div>
                   </div>
                   <div class="relative z-10 mt-6 flex-1 flex flex-col justify-start">
-                     <h3 class="text-xl md:text-2xl font-black text-white mb-3 tracking-tight">Concorra ao prêmio do
+                     <h3 class="text-xl md:text-2xl font-black text-[var(--text-dark)] mb-3 tracking-tight">Concorra ao prêmio do
                         mês</h3>
-                     <p class="text-sm text-gray-300 font-medium leading-relaxed">A cada assinatura ativa, você recebe
+                     <p class="text-sm text-[var(--text-mid)] font-medium leading-relaxed">A cada assinatura ativa, você recebe
                         1 chance no prêmio do mês e soma 20 pontos.</p>
                   </div>
                </div>
 
                <!-- Card 3 -->
                <div
-                  class="bento-card glass-premium p-6 md:p-7 flex flex-col h-[280px] md:h-[300px] w-[76vw] sm:w-[300px] md:w-auto flex-shrink-0 snap-center md:snap-align-none group relative overflow-hidden bg-gradient-to-br from-white/8 to-transparent border border-white/10 border-t-white/30 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] hover:border-[#f085aa]/50 hover:shadow-[0_45px_100px_-20px_rgba(0,0,0,0.8),0_0_30px_rgba(240,133,170,0.15)] hover:-translate-y-2 transition-all duration-700 reveal-off">
+                  class="bento-card glass-premium p-6 md:p-7 flex flex-col h-[280px] md:h-[300px] w-[76vw] sm:w-[300px] md:w-auto flex-shrink-0 snap-center md:snap-align-none group relative overflow-hidden bg-white border border-[var(--sand-deep)] shadow-[0_10px_40px_-10px_rgba(184,98,42,0.1)] hover:border-[var(--terra)]/30 hover:shadow-[0_45px_100px_-20px_rgba(184,98,42,0.15)] hover:-translate-y-2 transition-all duration-700 reveal-off">
+                  
+                  <!-- Terracotta Glow Behind -->
+                  <div class="absolute -top-20 -left-20 w-40 h-40 bg-[var(--terra)]/10 blur-[80px] rounded-full pointer-events-none -z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                   <span
                      class="absolute -top-4 -right-4 text-[8rem] font-black text-white/[0.03] leading-none transition-transform duration-700 group-hover:scale-110 pointer-events-none z-0">03</span>
 
                   <div class="relative z-10">
                      <div
-                        class="absolute inset-0 bg-[#f085aa]/20 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+                        class="absolute inset-0 bg-[var(--terra)]/20 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700">
                      </div>
                      <div
-                        class="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center border border-white/10 text-[#f085aa] shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] relative z-10 transition-transform duration-500 group-hover:-translate-y-1">
+                        class="w-14 h-14 rounded-2xl bg-[var(--sand)] flex items-center justify-center border border-[var(--sand-deep)] text-[var(--terra)] relative z-10 transition-transform duration-500 group-hover:-translate-y-1">
                         <span class="material-symbols-outlined text-3xl font-light">stars</span>
                      </div>
                   </div>
                   <div class="relative z-10 mt-6 flex-1 flex flex-col justify-start">
-                     <h3 class="text-xl md:text-2xl font-black text-white mb-3 tracking-tight">Nenhum centavo é
+                     <h3 class="text-xl md:text-2xl font-black text-[var(--text-dark)] mb-3 tracking-tight">Nenhum centavo é
                         perdido</h3>
-                     <p class="text-sm text-gray-300 font-medium leading-relaxed">Os pontos podem ser trocados por
+                     <p class="text-sm text-[var(--text-mid)] font-medium leading-relaxed">Os pontos podem ser trocados por
                         benefícios ou descontos nas marcas Versiani.</p>
                   </div>
                </div>
@@ -516,62 +533,62 @@
       </section>
 
       <!-- DREAM BRIDGE -->
-      <section class="py-20 md:py-32 px-6 border-b border-white/5 bg-[#050505] reveal-off relative overflow-hidden">
+      <section class="py-20 md:py-32 px-6 border-b border-[var(--sand-deep)]/50 bg-[var(--cream)] reveal-off relative overflow-hidden">
          <!-- Atmospheric Depth -->
          <div class="absolute inset-0 -z-10 pointer-events-none overflow-hidden">
-            <div class="absolute inset-0 bg-gradient-to-b from-[#08060c] via-[#050505] to-[#0a0a0a]"></div>
+            <div class="absolute inset-0 bg-gradient-to-b from-[var(--sand)] via-[var(--cream)] to-[var(--sand)]"></div>
             <div
-               class="absolute top-1/4 left-1/2 -translate-x-1/2 w-full h-[500px] bg-[#f085aa]/5 blur-[120px] rounded-full pointer-events-none">
+               class="absolute top-1/4 left-1/2 -translate-x-1/2 w-full h-[500px] bg-[var(--terra)]/5 blur-[120px] rounded-full pointer-events-none">
             </div>
             <div
-               class="absolute -bottom-[20%] -right-[10%] w-[60vw] h-[60vw] bg-[#320075]/15 blur-[180px] rounded-full animate-blob">
+               class="absolute -bottom-[20%] -right-[10%] w-[60vw] h-[60vw] bg-[var(--espresso)]/15 blur-[180px] rounded-full animate-blob">
             </div>
             <div
-               class="absolute -top-[10%] -left-[10%] w-[50vw] h-[50vw] bg-[#f085aa]/10 blur-[140px] rounded-full animate-blob"
+               class="absolute -top-[10%] -left-[10%] w-[50vw] h-[50vw] bg-[var(--terra)]/10 blur-[140px] rounded-full animate-blob"
                style="animation-delay: -4s;"></div>
          </div>
          <div class="max-w-7xl mx-auto relative z-10">
             <div
-               class="bento-card glass-premium p-8 md:p-12 relative overflow-hidden bg-gradient-to-br from-white/5 via-black/70 to-black/90 border border-white/10 border-t-white/20 max-w-4xl">
+               class="bento-card glass-premium p-8 md:p-12 relative overflow-hidden bg-white border border-[var(--sand-deep)] shadow-2xl max-w-4xl">
                <div
-                  class="absolute -top-24 -right-24 w-[320px] h-[320px] bg-[#f085aa]/15 blur-[100px] rounded-full pointer-events-none">
+                  class="absolute -top-24 -right-24 w-[320px] h-[320px] bg-[var(--terra)]/15 blur-[100px] rounded-full pointer-events-none">
                </div>
-               <span class="text-xs font-black text-[#f085aa] uppercase tracking-[0.3em] mb-6 block">[ DESEJO REAL ]</span>
+               <span class="text-xs font-black text-[var(--terra)] uppercase tracking-[0.3em] mb-6 block">[ DESEJO REAL ]</span>
                <div class="mb-10">
-                  <h2 class="text-3xl md:text-5xl font-black text-white uppercase tracking-tight leading-tight mb-4">
+                  <h2 class="text-3xl md:text-5xl font-black text-[var(--text-dark)] uppercase tracking-tight leading-tight mb-4">
                      NÃO É UM PRÊMIO QUALQUER.
                   </h2>
-                  <p class="text-lg md:text-xl text-gray-400 font-medium tracking-tight">É o tipo de sonho que já vive no seu imaginário.</p>
+                  <p class="text-lg md:text-xl text-[var(--text-mid)] font-medium tracking-tight">É o tipo de sonho que já vive no seu imaginário.</p>
                </div>
 
                <div class="space-y-6">
                   <div class="flex items-center gap-4 group/item transition-all duration-300">
                      <div
-                        class="w-12 h-12 flex-shrink-0 rounded-full border border-[#f085aa]/40 bg-[#f085aa]/10 flex items-center justify-center text-[#f085aa] shadow-[0_0_15px_rgba(240,133,170,0.1)] group-hover/item:scale-110 transition-transform">
+                        class="w-12 h-12 flex-shrink-0 rounded-full border border-[var(--terra)]/40 bg-[var(--terra)]/10 flex items-center justify-center text-[var(--terra)] shadow-[0_0_15px_rgba(240,133,170,0.1)] group-hover/item:scale-110 transition-transform">
                         <span class="material-symbols-outlined text-[1.3rem]">favorite</span>
                      </div>
-                     <p class="text-base font-bold text-white leading-tight">A bolsa que você salvou.</p>
+                     <p class="text-base font-bold text-[var(--text-dark)] leading-tight">A bolsa que você salvou.</p>
                   </div>
                   <div class="flex items-center gap-4 group/item transition-all duration-300">
                      <div
-                        class="w-12 h-12 flex-shrink-0 rounded-full border border-[#f085aa]/40 bg-[#f085aa]/10 flex items-center justify-center text-[#f085aa] shadow-[0_0_15px_rgba(240,133,170,0.1)] group-hover/item:scale-110 transition-transform">
+                        class="w-12 h-12 flex-shrink-0 rounded-full border border-[var(--terra)]/40 bg-[var(--terra)]/10 flex items-center justify-center text-[var(--terra)] shadow-[0_0_15px_rgba(240,133,170,0.1)] group-hover/item:scale-110 transition-transform">
                         <span class="material-symbols-outlined text-[1.3rem]">flight_takeoff</span>
                      </div>
-                     <p class="text-base font-bold text-white leading-tight">A viagem que você adia.</p>
+                     <p class="text-base font-bold text-[var(--text-dark)] leading-tight">A viagem que você adia.</p>
                   </div>
                   <div class="flex items-center gap-4 group/item transition-all duration-300">
                      <div
-                        class="w-12 h-12 flex-shrink-0 rounded-full border border-[#f085aa]/40 bg-[#f085aa]/10 flex items-center justify-center text-[#f085aa] shadow-[0_0_15px_rgba(240,133,170,0.1)] group-hover/item:scale-110 transition-transform">
+                        class="w-12 h-12 flex-shrink-0 rounded-full border border-[var(--terra)]/40 bg-[var(--terra)]/10 flex items-center justify-center text-[var(--terra)] shadow-[0_0_15px_rgba(240,133,170,0.1)] group-hover/item:scale-110 transition-transform">
                         <span class="material-symbols-outlined text-[1.3rem]">diamond</span>
                      </div>
-                     <p class="text-base font-bold text-white leading-tight">O item que você vê no feed e pensa:
-                        <span class="text-[#f085aa]">“um dia”.</span>
+                     <p class="text-base font-bold text-[var(--text-dark)] leading-tight">O item que você vê no feed e pensa:
+                        <span class="text-[var(--terra)]">“um dia”.</span>
                      </p>
                   </div>
                </div>
 
-               <div class="mt-12 pt-8 border-t border-white/10">
-                  <p class="text-xl md:text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#f085aa] to-white leading-tight max-w-2xl">
+               <div class="mt-12 pt-8 border-t border-[var(--sand-deep)]">
+                  <p class="text-xl md:text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[var(--terra)] to-[var(--text-dark)] leading-tight max-w-2xl">
                      O Clube Versiani existe para aproximar você desse desejo.
                   </p>
                </div>
@@ -580,30 +597,30 @@
       </section>
 
       <!-- ECONOMY SHOWCASE (The Value Proposition) -->
-      <section class="py-10 md:py-12 px-6 md:border-b border-white/5 overflow-hidden relative bg-[#070707] reveal-off">
-         <div class="absolute inset-0 z-0 pointer-events-none bg-gradient-to-b from-[#0f0712]/45 via-transparent to-[#08060b]/55"></div>
+      <section class="py-10 md:py-12 px-6 md:border-b border-[var(--sand-deep)] overflow-hidden relative bg-[var(--cream)] reveal-off">
+         <div class="absolute inset-0 z-0 pointer-events-none bg-gradient-to-b from-[var(--cream)] via-transparent to-[var(--sand)]/30"></div>
          <div
-            class="absolute lg:hidden -top-20 right-[-28%] w-[80vw] h-[80vw] bg-[#f085aa]/18 blur-[130px] rounded-full z-0 pointer-events-none">
+            class="absolute lg:hidden -top-20 right-[-28%] w-[80vw] h-[80vw] bg-[var(--terra)]/18 blur-[130px] rounded-full z-0 pointer-events-none">
          </div>
          <div
-            class="absolute lg:hidden bottom-[-12%] left-[-20%] w-[74vw] h-[74vw] bg-[#320075]/20 blur-[140px] rounded-full z-0 pointer-events-none">
+            class="absolute lg:hidden bottom-[-12%] left-[-20%] w-[74vw] h-[74vw] bg-[var(--espresso)]/20 blur-[140px] rounded-full z-0 pointer-events-none">
          </div>
          <div
-            class="absolute lg:hidden top-[34%] left-[-20%] w-[76vw] h-[76vw] bg-[#f085aa]/18 blur-[130px] rounded-full z-0 pointer-events-none">
+            class="absolute lg:hidden top-[34%] left-[-20%] w-[76vw] h-[76vw] bg-[var(--terra)]/18 blur-[130px] rounded-full z-0 pointer-events-none">
          </div>
          <div
-            class="absolute lg:hidden inset-x-0 top-0 h-20 bg-gradient-to-b from-[#09070d]/80 to-transparent z-0 pointer-events-none">
+            class="absolute lg:hidden inset-x-0 top-0 h-20 bg-gradient-to-b from-[var(--sand)]/80 to-transparent z-0 pointer-events-none">
          </div>
 
          <div class="max-w-7xl mx-auto relative z-10">
             <div>
-               <span class="text-[10px] md:text-xs font-black text-[#f085aa] uppercase tracking-[0.2em] md:tracking-[0.3em] mb-4 block whitespace-nowrap">[ ACESSO AO UNIVERSO VERSIANI ]</span>
-               <h2 class="text-[22px] font-black text-white uppercase tracking-tight leading-tight mb-8">
+               <span class="text-[10px] md:text-xs font-black text-[var(--terra)] uppercase tracking-[0.2em] md:tracking-[0.3em] mb-4 block whitespace-nowrap">[ ACESSO AO UNIVERSO VERSIANI ]</span>
+               <h2 class="text-[22px] font-black text-[var(--text-dark)] uppercase tracking-tight leading-tight mb-8">
                   <span class="block whitespace-nowrap">Um valor pequeno.</span>
                   <span class="block whitespace-nowrap">Um acesso ao</span>
                   <span class="block whitespace-nowrap">extraordinário.</span>
                </h2>
-               <p class="text-base text-gray-400 font-medium leading-relaxed mb-8">
+               <p class="text-base text-[var(--text-mid)] font-medium leading-relaxed mb-8">
                   No Clube Versiani, você se aproxima dos prêmios de luxo mais desejados e ainda transforma sua
                   assinatura em benefícios, descontos e experiências no universo Versiani.
                </p>
@@ -612,11 +629,11 @@
                   <div class="flex justify-end mb-4">
                <div class="hidden md:hidden gap-3 relative z-10">
                   <button id="eco-prev"
-                     class="w-10 h-10 rounded-full border border-white/20 bg-white/5 flex items-center justify-center text-white hover:bg-[#f085aa] hover:text-black hover:border-[#f085aa] transition-colors cursor-pointer">
+                     class="w-10 h-10 rounded-full border border-white/20 bg-white/5 flex items-center justify-center text-white hover:bg-[var(--terra)] hover:text-black hover:border-[var(--terra)] transition-colors cursor-pointer">
                      <span class="material-symbols-outlined text-[1.1rem]">arrow_back</span>
                   </button>
                   <button id="eco-next"
-                     class="w-10 h-10 rounded-full border border-white/20 bg-white/5 flex items-center justify-center text-white hover:bg-[#f085aa] hover:text-black hover:border-[#f085aa] transition-colors cursor-pointer">
+                     class="w-10 h-10 rounded-full border border-white/20 bg-white/5 flex items-center justify-center text-white hover:bg-[var(--terra)] hover:text-black hover:border-[var(--terra)] transition-colors cursor-pointer">
                      <span class="material-symbols-outlined text-[1.1rem]">arrow_forward</span>
                   </button>
                </div>
@@ -625,13 +642,13 @@
                    <!-- Setas Laterais (Somente Mobile/Tablet) -->
                    <div id="eco-prev-btn" class="absolute inset-y-0 left-[-2vw] md:hidden z-[60] flex items-center opacity-0 pointer-events-none transition-opacity duration-300">
                       <button onclick="document.getElementById('eco-carousel').scrollBy({left: -320, behavior: 'smooth'})"
-                         class="w-10 h-10 rounded-full border border-white/10 bg-black/40 backdrop-blur-md flex items-center justify-center text-white shadow-2xl active:scale-90">
+                         class="w-10 h-10 rounded-full border border-[var(--sand-deep)] bg-[var(--sand)]/40 backdrop-blur-md flex items-center justify-center text-white shadow-2xl active:scale-90">
                          <span class="material-symbols-outlined text-[1.1rem]">arrow_back</span>
                       </button>
                    </div>
                    <div id="eco-next-btn" class="absolute inset-y-0 right-[-2vw] md:hidden z-[60] flex items-center transition-opacity duration-300">
                       <button onclick="document.getElementById('eco-carousel').scrollBy({left: 320, behavior: 'smooth'})"
-                         class="w-10 h-10 rounded-full border border-white/10 bg-black/40 backdrop-blur-md flex items-center justify-center text-white shadow-2xl active:scale-90">
+                         class="w-10 h-10 rounded-full border border-[var(--sand-deep)] bg-[var(--sand)]/40 backdrop-blur-md flex items-center justify-center text-white shadow-2xl active:scale-90">
                          <span class="material-symbols-outlined text-[1.1rem]">arrow_forward</span>
                       </button>
                    </div>
@@ -639,43 +656,43 @@
                    <div id="eco-carousel"
                       class="flex md:grid md:grid-cols-3 gap-4 overflow-x-auto overflow-y-hidden md:overflow-visible snap-x md:snap-none snap-mandatory scroll-smooth [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] px-[6vw] sm:px-0 relative z-10">
                      <div
-                        class="bento-card h-[190px] p-4 rounded-2xl border border-white/10 bg-white/5 w-[78vw] sm:w-[300px] md:w-auto flex-shrink-0 snap-center group relative overflow-hidden shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] hover:border-[#f085aa]/40 hover:shadow-[0_30px_70px_-20px_rgba(0,0,0,0.8),0_0_20px_rgba(240,133,170,0.12)] transition-all duration-500">
+                        class="bento-card h-[190px] p-4 rounded-2xl border border-[var(--sand-deep)] bg-white w-[78vw] sm:w-[300px] md:w-auto flex-shrink-0 snap-center group relative overflow-hidden shadow-lg hover:border-[var(--terra)]/40 hover:shadow-2xl transition-all duration-500">
                         <img src="https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?q=80&w=800&auto=format&fit=crop"
                            alt="Prêmios desejados Versiani" loading="lazy"
-                           class="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:opacity-90 group-hover:scale-110 transition-all duration-700">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent"></div>
+                           class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 group-hover:scale-110 transition-all duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[var(--cream)]/80 via-transparent to-transparent"></div>
                         <span
-                           class="absolute -top-2 -right-2 text-[5rem] font-black text-white/[0.04] leading-none transition-transform duration-700 group-hover:scale-110 pointer-events-none z-10">01</span>
+                           class="absolute -top-2 -right-2 text-[5rem] font-black text-[var(--terra)] opacity-[0.05] leading-none transition-transform duration-700 group-hover:scale-110 pointer-events-none z-10">01</span>
                          <div class="relative z-20 h-full flex flex-col justify-end">
-                            <p class="text-sm font-black text-white uppercase tracking-wide">Prêmios desejados</p>
+                            <p class="text-sm font-black text-[var(--text-dark)] uppercase tracking-wide">Prêmios desejados</p>
                          </div>
                      </div>
                      <div
-                        class="bento-card h-[190px] p-4 rounded-2xl border border-white/10 bg-white/5 w-[78vw] sm:w-[300px] md:w-auto flex-shrink-0 snap-center group relative overflow-hidden shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] hover:border-[#f085aa]/40 hover:shadow-[0_30px_70px_-20px_rgba(0,0,0,0.8),0_0_20px_rgba(240,133,170,0.12)] transition-all duration-500">
+                        class="bento-card h-[190px] p-4 rounded-2xl border border-[var(--sand-deep)] bg-white w-[78vw] sm:w-[300px] md:w-auto flex-shrink-0 snap-center group relative overflow-hidden shadow-lg hover:border-[var(--terra)]/40 hover:shadow-2xl transition-all duration-500">
                         <img src="https://images.unsplash.com/photo-1553729459-efe14ef6055d?q=80&w=800&auto=format&fit=crop"
                            alt="20 pontos por assinatura no Clube Versiani" loading="lazy"
-                           class="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:opacity-90 group-hover:scale-110 transition-all duration-700">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent"></div>
+                           class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 group-hover:scale-110 transition-all duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[var(--cream)]/80 via-transparent to-transparent"></div>
                         <span
-                           class="absolute -top-2 -right-2 text-[5rem] font-black text-white/[0.04] leading-none transition-transform duration-700 group-hover:scale-110 pointer-events-none z-10">02</span>
+                           class="absolute -top-2 -right-2 text-[5rem] font-black text-[var(--terra)] opacity-[0.05] leading-none transition-transform duration-700 group-hover:scale-110 pointer-events-none z-10">02</span>
                          <div class="relative z-20 h-full flex flex-col justify-end">
-                            <p class="text-sm font-black text-white uppercase tracking-wide">20 pontos por assinatura</p>
+                            <p class="text-sm font-black text-[var(--text-dark)] uppercase tracking-wide">20 pontos por assinatura</p>
                          </div>
                      </div>
                      <div
-                        class="bento-card h-[190px] p-4 rounded-2xl border border-white/10 bg-white/5 w-[78vw] sm:w-[300px] md:w-auto flex-shrink-0 snap-center group relative overflow-hidden shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] hover:border-[#f085aa]/40 hover:shadow-[0_30px_70px_-20px_rgba(0,0,0,0.8),0_0_20px_rgba(240,133,170,0.12)] transition-all duration-500">
+                        class="bento-card h-[190px] p-4 rounded-2xl border border-[var(--sand-deep)] bg-white w-[78vw] sm:w-[300px] md:w-auto flex-shrink-0 snap-center group relative overflow-hidden shadow-lg hover:border-[var(--terra)]/40 hover:shadow-2xl transition-all duration-500">
                         <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=800&auto=format&fit=crop"
                            alt="Benefícios nas marcas Versiani Skin e Swim" loading="lazy"
-                           class="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:opacity-90 group-hover:scale-110 transition-all duration-700">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent"></div>
+                           class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 group-hover:scale-110 transition-all duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[var(--cream)]/80 via-transparent to-transparent"></div>
                         <span
-                           class="absolute -top-2 -right-2 text-[5rem] font-black text-white/[0.04] leading-none transition-transform duration-700 group-hover:scale-110 pointer-events-none z-10">03</span>
+                           class="absolute -top-2 -right-2 text-[5rem] font-black text-[var(--terra)] opacity-[0.05] leading-none transition-transform duration-700 group-hover:scale-110 pointer-events-none z-10">03</span>
                          <div class="relative z-20 h-full flex flex-col justify-end">
-                            <p class="text-sm font-black text-white uppercase tracking-wide">Benefícios nas marcas
+                            <p class="text-sm font-black text-[var(--text-dark)] uppercase tracking-wide">Benefícios nas marcas
                                <a href="https://versianiskin.com/" target="_blank" rel="noopener noreferrer"
-                                  class="text-[#f085aa] hover:text-white transition-colors">Skin</a> +
+                                  class="text-[var(--terra)] hover:text-[var(--text-dark)] transition-colors">Skin</a> +
                                <a href="https://versianiswim.com.br/" target="_blank" rel="noopener noreferrer"
-                                  class="text-[#f085aa] hover:text-white transition-colors">Swim</a></p>
+                                  class="text-[var(--terra)] hover:text-[var(--text-dark)] transition-colors">Swim</a></p>
                          </div>
                      </div>
                   </div>
@@ -689,17 +706,17 @@
       </section>
 
       <!-- SOCIAL PROOF / WALL OF LOVE -->
-      <section class="py-10 md:py-16 px-6 md:border-b border-white/5 bg-[#080808] relative overflow-hidden">
+      <section class="py-10 md:py-16 px-6 md:border-b border-[var(--sand-deep)]/50 bg-[var(--cream)] relative overflow-hidden">
          <div
-            class="absolute lg:hidden top-[-8%] left-[-24%] w-[72vw] h-[72vw] bg-[#f085aa]/16 blur-[120px] rounded-full z-0 pointer-events-none">
+            class="absolute lg:hidden top-[-8%] left-[-24%] w-[72vw] h-[72vw] bg-[var(--terra)]/16 blur-[120px] rounded-full z-0 pointer-events-none">
          </div>
          <div
-            class="absolute lg:hidden bottom-[-10%] right-[-24%] w-[78vw] h-[78vw] bg-[#320075]/18 blur-[130px] rounded-full z-0 pointer-events-none">
+            class="absolute lg:hidden bottom-[-10%] right-[-24%] w-[78vw] h-[78vw] bg-[var(--espresso)]/18 blur-[130px] rounded-full z-0 pointer-events-none">
          </div>
          <div class="max-w-7xl mx-auto relative z-10">
             <div class="text-center mb-16 md:mb-20 space-y-4">
-               <span class="text-xs font-black text-[#f085aa] uppercase tracking-[0.3em] mb-4 block">[ QUEM JÁ VIVEU ISSO ]</span>
-               <h2 class="text-3xl md:text-5xl font-black text-white uppercase tracking-tight leading-tight mb-6">
+               <span class="text-xs font-black text-[var(--terra)] uppercase tracking-[0.3em] mb-4 block">[ QUEM JÁ VIVEU ISSO ]</span>
+               <h2 class="text-3xl md:text-5xl font-black text-[var(--text-dark)] uppercase tracking-tight leading-tight mb-6">
                   Elas entraram. Elas ganharam.
                </h2>
                <p class="text-base md:text-lg text-gray-400 font-medium max-w-2xl mx-auto leading-relaxed">
@@ -708,52 +725,52 @@
             </div>
 
             <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
-               <div class="relative group aspect-[3/4] overflow-hidden rounded-2xl border border-white/5 reveal-off">
+               <div class="relative group aspect-[3/4] overflow-hidden rounded-2xl border border-[var(--sand-deep)]/50 reveal-off">
                   <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400&auto=format&fit=crop"
                      alt="Camila R. - Membro Versiani" width="400" height="533" loading="lazy"
                      class="w-full h-full object-cover grayscale-reveal group-hover:scale-110 transition-all duration-700">
                   <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
                   <div class="absolute bottom-4 md:bottom-6 left-4 md:left-6 right-4 md:right-6">
-                     <p class="text-[10px] md:text-xs text-[#f085aa] font-bold uppercase tracking-widest mb-1">Resgatou
+                     <p class="text-[10px] md:text-xs text-[var(--terra)] font-bold uppercase tracking-widest mb-1">Resgatou
                         R$ 500 em descontos</p>
                      <h4 class="text-white font-black text-sm md:text-lg">Camila R.</h4>
                   </div>
                </div>
                <div
-                  class="relative group aspect-[3/4] overflow-hidden rounded-2xl border border-white/5 lg:translate-y-8 reveal-off">
+                  class="relative group aspect-[3/4] overflow-hidden rounded-2xl border border-[var(--sand-deep)]/50 lg:translate-y-8 reveal-off">
                   <img
                      src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=400&auto=format&fit=crop"
                      alt="Juliana M. - Membro Versiani" width="400" height="533" loading="lazy"
                      class="w-full h-full object-cover grayscale-reveal group-hover:scale-110 transition-all duration-700">
                   <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
                   <div class="absolute bottom-4 md:bottom-6 left-4 md:left-6 right-4 md:right-6">
-                     <p class="text-[10px] md:text-xs text-[#f085aa] font-bold uppercase tracking-widest mb-1">Recebeu produtos Versiani Skin</p>
+                     <p class="text-[10px] md:text-xs text-[var(--terra)] font-bold uppercase tracking-widest mb-1">Recebeu produtos Versiani Skin</p>
                      <h4 class="text-white font-black text-sm md:text-lg">Juliana M.</h4>
                   </div>
                </div>
                <!-- Member 3 -->
-               <div class="relative group aspect-[3/4] overflow-hidden rounded-2xl border border-white/5 reveal-off">
+               <div class="relative group aspect-[3/4] overflow-hidden rounded-2xl border border-[var(--sand-deep)]/50 reveal-off">
                   <img
                      src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=400&auto=format&fit=crop"
                      alt="Marina S. - Membro Versiani" width="400" height="533" loading="lazy"
                      class="w-full h-full object-cover grayscale-reveal group-hover:scale-110 transition-all duration-700">
                   <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
                   <div class="absolute bottom-4 md:bottom-6 left-4 md:left-6 right-4 md:right-6">
-                     <p class="text-[10px] md:text-xs text-[#f085aa] font-bold uppercase tracking-widest mb-1">Ganhou
+                     <p class="text-[10px] md:text-xs text-[var(--terra)] font-bold uppercase tracking-widest mb-1">Ganhou
                         Prada</p>
                      <h4 class="text-white font-black text-sm md:text-lg">Marina S.</h4>
                   </div>
                </div>
                <!-- Member 4 -->
                <div
-                  class="relative group aspect-[3/4] overflow-hidden rounded-2xl border border-white/5 lg:translate-y-8 reveal-off">
+                  class="relative group aspect-[3/4] overflow-hidden rounded-2xl border border-[var(--sand-deep)]/50 lg:translate-y-8 reveal-off">
                   <img
                      src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=400&auto=format&fit=crop"
                      alt="Fernanda A. - Membro Versiani" width="400" height="533" loading="lazy"
                      class="w-full h-full object-cover grayscale-reveal group-hover:scale-110 transition-all duration-700">
                   <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
                   <div class="absolute bottom-4 md:bottom-6 left-4 md:left-6 right-4 md:right-6">
-                     <p class="text-[10px] md:text-xs text-[#f085aa] font-bold uppercase tracking-widest mb-1">Resgatou
+                     <p class="text-[10px] md:text-xs text-[var(--terra)] font-bold uppercase tracking-widest mb-1">Resgatou
                         R$ 500 em descontos</p>
                      <h4 class="text-white font-black text-sm md:text-lg">Fernanda A.</h4>
                   </div>
@@ -763,12 +780,12 @@
       </section>
 
       <!-- PRICING TABLE (Dark Mode Tiers) -->
-      <section class="py-10 md:py-16 bg-[#0a0a0a] overflow-hidden relative reveal-off" id="planos">
+      <section class="py-10 md:py-16 bg-[var(--cream)] overflow-hidden relative reveal-off" id="planos">
          <div
-            class="absolute lg:hidden -top-16 right-[-26%] w-[74vw] h-[74vw] bg-[#f085aa]/16 blur-[120px] rounded-full z-0 pointer-events-none">
+            class="absolute lg:hidden -top-16 right-[-26%] w-[74vw] h-[74vw] bg-[var(--terra)]/16 blur-[120px] rounded-full z-0 pointer-events-none">
          </div>
          <div
-            class="absolute lg:hidden bottom-[-14%] left-[-18%] w-[76vw] h-[76vw] bg-[#320075]/20 blur-[140px] rounded-full z-0 pointer-events-none">
+            class="absolute lg:hidden bottom-[-14%] left-[-18%] w-[76vw] h-[76vw] bg-[var(--espresso)]/20 blur-[140px] rounded-full z-0 pointer-events-none">
          </div>
          <!-- Container do Header -->
          <div class="max-w-7xl mx-auto px-6 md:px-8 relative z-10">
@@ -776,10 +793,10 @@
                class="flex flex-col mb-6 md:mb-8 gap-8 md:gap-20 relative w-full overflow-hidden md:overflow-visible items-center">
 
                <div class="w-full flex flex-col items-center z-0 text-center">
-                  <span class="text-xs font-black text-gray-400 uppercase tracking-[0.3em] block mb-6 md:mb-10">[
+                  <span class="text-xs font-black text-[var(--terra)] uppercase tracking-[0.3em] block mb-6 md:mb-10">[
                      SUA ENTRADA NO CLUBE ]</span>
                   <h2
-                     class="text-[22px] font-black text-white uppercase tracking-tight leading-tight opacity-90 text-center">
+                     class="text-[22px] font-black text-[var(--text-dark)] uppercase tracking-tight leading-tight opacity-90 text-center">
                      Comece com R$ 20</h2>
                </div>
 
@@ -789,11 +806,11 @@
          <!-- Wrapper do Carrossel Full-Bleed -->
          <div class="relative w-full">
             <div
-               class="absolute left-0 top-0 bottom-0 w-[18vw] sm:w-[calc(50%_-_130px)] bg-[#0a0a0a]/60 backdrop-blur-[8px] z-20 pointer-events-none md:hidden"
+               class="absolute left-0 top-0 bottom-0 w-[18vw] sm:w-[calc(50%_-_130px)] bg-[var(--cream)]/60 backdrop-blur-[8px] z-20 pointer-events-none md:hidden"
                style="-webkit-mask-image: linear-gradient(to right, black 20%, transparent 100%); mask-image: linear-gradient(to right, black 20%, transparent 100%);">
             </div>
             <div
-               class="absolute right-0 top-0 bottom-0 w-[18vw] sm:w-[calc(50%_-_130px)] bg-[#0a0a0a]/60 backdrop-blur-[8px] z-20 pointer-events-none md:hidden"
+               class="absolute right-0 top-0 bottom-0 w-[18vw] sm:w-[calc(50%_-_130px)] bg-[var(--cream)]/60 backdrop-blur-[8px] z-20 pointer-events-none md:hidden"
                style="-webkit-mask-image: linear-gradient(to left, black 20%, transparent 100%); mask-image: linear-gradient(to left, black 20%, transparent 100%);">
             </div>
 
@@ -802,29 +819,29 @@
 
                <!-- Starter -->
                <div
-                  class="bento-card p-10 flex flex-col justify-between bg-gradient-to-br from-white/10 to-transparent backdrop-blur-xl backdrop-saturate-[180%] border border-white/20 border-t-white/40 hover:border-white/40 hover:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.7)] transition-all w-[75vw] sm:w-[320px] md:w-auto flex-shrink-0 snap-center md:snap-align-none min-h-[460px] reveal-off">
+                  class="bento-card p-10 flex flex-col justify-between bg-white border border-[var(--sand-deep)] hover:border-[var(--terra)]/30 shadow-2xl transition-all w-[75vw] sm:w-[320px] md:w-auto flex-shrink-0 snap-center md:snap-align-none min-h-[460px] reveal-off">
                   <div>
-                     <h3 class="text-2xl font-black text-white uppercase tracking-wide mb-2">Entrada</h3>
-                     <p class="text-gray-300 text-sm font-medium h-12">Comece com R$ 20 e entre no Clube Versiani.</p>
+                     <h3 class="text-2xl font-black text-[var(--text-dark)] uppercase tracking-wide mb-2">Entrada</h3>
+                     <p class="text-[var(--text-mid)] text-sm font-medium h-12">Comece com R$ 20 e entre no Clube Versiani.</p>
                      <div class="my-8 flex flex-col gap-1">
                         <div class="flex items-end gap-2">
-                           <span class="text-4xl md:text-5xl font-black text-white">R$<span
+                           <span class="text-4xl md:text-5xl font-black text-[var(--text-dark)]">R$<span
                                  id="price-pilar">20</span></span>
-                           <span class="text-gray-500 font-bold mb-1 uppercase text-sm">/mês</span>
+                           <span class="text-[var(--text-light)] font-bold mb-1 uppercase text-sm">/mês</span>
                         </div>
                         <span id="annual-info-pilar"
-                           class="text-[10px] text-[#f085aa] font-bold uppercase tracking-widest opacity-0 h-0 transition-all duration-300">Cobrado
+                           class="text-[10px] text-[var(--terra)] font-bold uppercase tracking-widest opacity-0 h-0 transition-all duration-300">Cobrado
                            R$ 192 anualmente</span>
                      </div>
                      <ul class="space-y-4 mb-10">
                          <li class="flex items-center gap-3 text-sm text-gray-300 font-bold"><span
-                               class="material-symbols-outlined text-[#f085aa] text-lg">check_circle</span> 1 número da sorte</li>
+                               class="material-symbols-outlined text-[var(--terra)] text-lg">check_circle</span> 1 número da sorte</li>
                          <li class="flex items-center gap-3 text-sm text-gray-300 font-bold"><span
-                               class="material-symbols-outlined text-[#f085aa] text-lg">check_circle</span> Acesso ao ecossistema de benefícios</li>
+                               class="material-symbols-outlined text-[var(--terra)] text-lg">check_circle</span> Acesso ao ecossistema de benefícios</li>
                          <li class="flex items-center gap-3 text-sm text-gray-300 font-bold"><span
-                               class="material-symbols-outlined text-[#f085aa] text-lg">check_circle</span> Descontos exclusivos</li>
+                               class="material-symbols-outlined text-[var(--terra)] text-lg">check_circle</span> Descontos exclusivos</li>
                          <li class="flex items-center gap-3 text-sm text-gray-300 font-bold"><span
-                               class="material-symbols-outlined text-[#f085aa] text-lg">check_circle</span> 20 Pontos
+                               class="material-symbols-outlined text-[var(--terra)] text-lg">check_circle</span> 20 Pontos
                             todo mês</li>
                       </ul>
                   </div>
@@ -838,64 +855,64 @@
       </section>
 
       <!-- FAQ ACCORDION -->
-      <section class="py-10 md:py-16 px-6 md:border-b border-white/5 bg-[#050505] relative overflow-hidden" id="faq">
+      <section class="py-10 md:py-16 px-6 md:border-b border-[var(--sand-deep)]/50 bg-[var(--cream)] relative overflow-hidden" id="faq">
          <div
-            class="absolute lg:hidden -top-20 left-[-24%] w-[72vw] h-[72vw] bg-[#f085aa]/15 blur-[120px] rounded-full z-0 pointer-events-none">
+            class="absolute lg:hidden -top-20 left-[-24%] w-[72vw] h-[72vw] bg-[var(--terra)]/15 blur-[120px] rounded-full z-0 pointer-events-none">
          </div>
          <div
-            class="absolute lg:hidden bottom-[-14%] right-[-22%] w-[78vw] h-[78vw] bg-[#320075]/18 blur-[140px] rounded-full z-0 pointer-events-none">
+            class="absolute lg:hidden bottom-[-14%] right-[-22%] w-[78vw] h-[78vw] bg-[var(--espresso)]/18 blur-[140px] rounded-full z-0 pointer-events-none">
          </div>
          <div class="max-w-3xl mx-auto mt-4 relative z-10">
             <div class="text-center mb-16 space-y-4">
                <span class="text-xs font-black text-gray-500 uppercase tracking-[0.3em]">[ TRANSPARÊNCIA TOTAL ]</span>
-               <h2 class="text-3xl md:text-6xl font-black text-white uppercase tracking-tight leading-tight">Dúvidas
+               <h2 class="text-3xl md:text-6xl font-black text-[var(--text-dark)] uppercase tracking-tight leading-tight">Dúvidas
                   Frequentes</h2>
             </div>
 
             <div class="space-y-4 text-left">
                <!-- FAQ 1 -->
-               <div class="border-b border-white/10 pb-4">
+               <div class="border-b border-[var(--sand-deep)] pb-4">
                   <button
                      class="faq-toggle w-full flex justify-between items-center py-4 text-left group cursor-pointer focus:outline-none">
                      <h4
-                        class="text-base md:text-lg font-bold text-white uppercase tracking-wide group-hover:text-[#f085aa] transition-colors pr-4">
+                        class="text-base md:text-lg font-bold text-[var(--text-dark)] uppercase tracking-wide group-hover:text-[var(--terra)] transition-colors pr-4">
                         1. Como funciona o resgate de descontos nas lojas?</h4>
                      <span
-                        class="material-symbols-outlined text-white transition-transform duration-300 transform group-hover:text-[#f085aa]">expand_more</span>
+                        class="material-symbols-outlined text-[var(--text-dark)] transition-transform duration-300 transform group-hover:text-[var(--terra)]">expand_more</span>
                   </button>
-                  <div class="faq-panel text-gray-400 text-sm leading-relaxed pr-8">
+                  <div class="faq-panel text-[var(--text-mid)] text-sm leading-relaxed pr-8">
                      <div class="pt-2 pb-6">De acordo com seu plano, seus R$ são convertidos em pontos. Basta acessar a
                         loja de parcerias da Versiani e aplicar seus pontos no carrinho de compras. 1 Ponto equivale a
                         R$1 de desconto real.</div>
                   </div>
                </div>
                <!-- FAQ 2 -->
-               <div class="border-b border-white/10 pb-4">
+               <div class="border-b border-[var(--sand-deep)] pb-4">
                   <button
                      class="faq-toggle w-full flex justify-between items-center py-4 text-left group cursor-pointer focus:outline-none">
                      <h4
-                        class="text-base md:text-lg font-bold text-white uppercase tracking-wide group-hover:text-[#f085aa] transition-colors pr-4">
+                        class="text-base md:text-lg font-bold text-[var(--text-dark)] uppercase tracking-wide group-hover:text-[var(--terra)] transition-colors pr-4">
                         2. O sorteio é legalizado?</h4>
                      <span
-                        class="material-symbols-outlined text-white transition-transform duration-300 transform group-hover:text-[#f085aa]">expand_more</span>
+                        class="material-symbols-outlined text-[var(--text-dark)] transition-transform duration-300 transform group-hover:text-[var(--terra)]">expand_more</span>
                   </button>
-                  <div class="faq-panel text-gray-400 text-sm leading-relaxed pr-8">
+                  <div class="faq-panel text-[var(--text-mid)] text-sm leading-relaxed pr-8">
                      <div class="pt-2 pb-6">100% regulamentado. Trabalhamos exclusivamente utilizando as extrações
                         oficiais da Loteria Federal (CEF) sob autorização dos órgãos competentes, garantindo
                         transparência máxima e lisura.</div>
                   </div>
                </div>
                <!-- FAQ 3 -->
-               <div class="border-b border-white/10 pb-4">
+               <div class="border-b border-[var(--sand-deep)] pb-4">
                   <button
                      class="faq-toggle w-full flex justify-between items-center py-4 text-left group cursor-pointer focus:outline-none">
                      <h4
-                        class="text-base md:text-lg font-bold text-white uppercase tracking-wide group-hover:text-[#f085aa] transition-colors pr-4">
+                        class="text-base md:text-lg font-bold text-[var(--text-dark)] uppercase tracking-wide group-hover:text-[var(--terra)] transition-colors pr-4">
                         3. Posso cancelar minha assinatura a qualquer momento?</h4>
                      <span
-                        class="material-symbols-outlined text-white transition-transform duration-300 transform group-hover:text-[#f085aa]">expand_more</span>
+                        class="material-symbols-outlined text-[var(--text-dark)] transition-transform duration-300 transform group-hover:text-[var(--terra)]">expand_more</span>
                   </button>
-                  <div class="faq-panel text-gray-400 text-sm leading-relaxed pr-8">
+                  <div class="faq-panel text-[var(--text-mid)] text-sm leading-relaxed pr-8">
                      <div class="pt-2 pb-6">Sim. O cancelamento para planos mensais pode ser feito com 1 botão através
                         do seu painel corporativo, sem burocracia, sem fidelidade e sem retenção de dados.</div>
                   </div>
@@ -904,18 +921,18 @@
    </main>
 
    <footer
-      class="bg-[#050505] pt-10 md:pt-24 pb-48 lg:pb-6 border-t border-white/10 px-6 md:relative overflow-hidden">
+      class="bg-[var(--cream)] pt-10 md:pt-24 pb-48 lg:pb-6 border-t border-[var(--sand-deep)] px-6 md:relative overflow-hidden">
       <!-- Massive Glow Behind CTA -->
       <div
-         class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] md:w-[800px] md:h-[400px] bg-[#f085aa]/15 blur-[120px] rounded-full pointer-events-none"
+         class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] md:w-[800px] md:h-[400px] bg-[var(--terra)]/15 blur-[120px] rounded-full pointer-events-none"
          aria-hidden="true"></div>
 
       <div class="max-w-7xl mx-auto flex flex-col items-center text-center mb-12 md:mb-32 relative z-10">
 
          <h2
-            class="text-5xl md:text-[8vw] lg:text-[9.5vw] font-black text-white uppercase tracking-tight leading-[0.95] mb-8 drop-shadow-2xl">
+            class="text-5xl md:text-[8vw] lg:text-[9.5vw] font-black text-[var(--text-dark)] uppercase tracking-tight leading-[0.95] mb-8 drop-shadow-2xl">
             Entre Para <br> o <span
-               class="text-gradient-rose drop-shadow-[0_0_40px_rgba(240,133,170,0.3)]">Clube.</span>
+               class="text-gradient-accent drop-shadow-[0_0_40px_rgba(184, 98, 42, 0.3)]">Clube.</span>
          </h2>
 
          <p class="text-base text-gray-400 max-w-2xl font-medium mb-12">O único ecossistema de beleza da
@@ -923,7 +940,7 @@
 
          <div class="flex flex-col items-center gap-8 w-full">
             <button onclick="openAuthModal('signup')"
-               class="bg-white text-black px-7 py-5 md:px-12 md:py-6 w-full max-w-md md:w-auto rounded-full text-base md:text-xl font-black uppercase hover:-translate-y-1 hover:bg-[#f085aa] hover:text-white transition-all duration-300 shadow-[0_20px_50px_rgba(240,133,170,0.15)] hover:shadow-[0_30px_60px_rgba(240,133,170,0.3)] flex items-center justify-center gap-4 group cursor-pointer whitespace-nowrap">
+               class="bg-white text-black px-7 py-5 md:px-12 md:py-6 w-full max-w-md md:w-auto rounded-full text-base md:text-xl font-black uppercase hover:-translate-y-1 hover:bg-[var(--terra)] hover:text-white transition-all duration-300 shadow-[0_20px_50px_rgba(184, 98, 42, 0.15)] hover:shadow-[0_30px_60px_rgba(184, 98, 42, 0.3)] flex items-center justify-center gap-4 group cursor-pointer whitespace-nowrap">
                Garantir Primeira Cota
                <span
                   class="material-symbols-outlined text-[1.5rem] transition-transform duration-300 group-hover:translate-x-2">arrow_forward</span>
@@ -933,42 +950,42 @@
                <!-- Avatars Facepile (Social Proof) -->
                <div class="flex -space-x-3 isolate">
                   <img
-                     class="w-10 h-10 md:w-8 md:h-8 rounded-full border-2 border-[#050505] object-cover relative z-[4]"
+                     class="w-10 h-10 md:w-8 md:h-8 rounded-full border-2 border-[var(--cream)] object-cover relative z-[4]"
                      src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=100&auto=format&fit=crop">
                   <img
-                     class="w-10 h-10 md:w-8 md:h-8 rounded-full border-2 border-[#050505] object-cover relative z-[3]"
+                     class="w-10 h-10 md:w-8 md:h-8 rounded-full border-2 border-[var(--cream)] object-cover relative z-[3]"
                      src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=100&auto=format&fit=crop">
                   <img
-                     class="w-10 h-10 md:w-8 md:h-8 rounded-full border-2 border-[#050505] object-cover relative z-[2]"
+                     class="w-10 h-10 md:w-8 md:h-8 rounded-full border-2 border-[var(--cream)] object-cover relative z-[2]"
                      src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=100&auto=format&fit=crop">
                   <img
-                     class="w-10 h-10 md:w-8 md:h-8 rounded-full border-2 border-[#050505] object-cover relative z-[1]"
+                     class="w-10 h-10 md:w-8 md:h-8 rounded-full border-2 border-[var(--cream)] object-cover relative z-[1]"
                      src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=100&auto=format&fit=crop">
                   <div
-                     class="w-10 h-10 md:w-8 md:h-8 rounded-full border-2 border-[#050505] bg-[#111] flex items-center justify-center text-[8px] font-black text-gray-300 uppercase relative z-[0]">
+                     class="w-10 h-10 md:w-8 md:h-8 rounded-full border-2 border-[var(--cream)] bg-[#111] flex items-center justify-center text-[8px] font-black text-gray-300 uppercase relative z-[0]">
                      +5k</div>
                </div>
                <div class="hidden sm:block w-px h-6 bg-white/10"></div>
                <div
                   class="flex items-center gap-2 text-[10px] md:text-xs text-gray-400 font-bold uppercase tracking-widest mt-2 sm:mt-0">
-                  <span class="material-symbols-outlined text-[#f085aa] text-base md:text-lg">gpp_good</span> Compra
+                  <span class="material-symbols-outlined text-[var(--terra)] text-base md:text-lg">gpp_good</span> Compra
                   100% Blindada
                </div>
             </div>
          </div>
       </div>
 
-      <div class="max-w-7xl mx-auto border-t border-white/10 pt-6 md:pt-10">
+      <div class="max-w-7xl mx-auto border-t border-[var(--sand-deep)] pt-6 md:pt-10">
          <div class="flex flex-col lg:flex-row justify-between items-center gap-8 text-center lg:text-left">
             <!-- Logo & Legal Text Joint Wrapper -->
             <div class="flex flex-col lg:flex-row items-center gap-4 lg:gap-8 flex-1">
                <div class="flex items-center gap-3 shrink-0">
-                  <span class="text-2xl font-black text-white tracking-tighter">Versiani<span
-                        class="text-[#f085aa]">.</span></span>
-                  <span class="text-white/30 text-xl font-light">+</span>
+                  <span class="text-2xl font-black text-[var(--text-dark)] tracking-tighter">Versiani<span
+                        class="text-[var(--terra)]">.</span></span>
+                  <span class="text-[var(--text-dark)]/30 text-xl font-light">+</span>
                   <a href="https://www.elev-c.com" target="_blank" class="hover:opacity-60 transition-opacity">
                      <img src="https://elev-c.com/wp-content/uploads/2024/10/Elevlogo.svg" alt="Elev-C"
-                        class="h-5 md:h-[22px] brightness-0 invert">
+                        class="h-5 md:h-[22px] brightness-0">
                   </a>
                </div>
 
@@ -993,10 +1010,10 @@
 
    <!-- STICKY FOOTER CTA (Mobile Conversion) -->
    <div
-      class="fixed bottom-0 left-0 w-full z-[80] px-4 pb-6 pt-10 pointer-events-none lg:hidden bg-gradient-to-t from-black via-black/80 to-transparent">
+      class="fixed bottom-0 left-0 w-full z-[80] px-4 pb-6 pt-10 pointer-events-none lg:hidden bg-gradient-to-t from-[var(--cream)] via-[var(--cream)]/80 to-transparent">
       <div class="max-w-[340px] mx-auto pointer-events-auto">
          <button onclick="openAuthModal('signup')"
-            class="w-full bg-[#f085aa] text-black py-4 rounded-full font-black uppercase shadow-[0_20px_60px_-10px_rgba(240,133,170,0.8)] hover:bg-white hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 flex items-center justify-center gap-2">
+            class="w-full bg-[var(--terra)] text-black py-4 rounded-full font-black uppercase shadow-[0_20px_60px_-10px_rgba(184,98,42,0.4)] hover:bg-white hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 flex items-center justify-center gap-2">
             <span class="text-base tracking-tight">Assinar Agora</span>
             <span class="opacity-20 text-3xl font-light">|</span>
             <span class="text-3xl tracking-tighter">R$ 20</span>
@@ -1016,7 +1033,7 @@
          </button>
 
          <div class="text-center mb-8">
-            <span class="text-[10px] font-black text-[#f085aa] uppercase tracking-[0.5em] mb-2 block">CLUB
+            <span class="text-[10px] font-black text-[var(--terra)] uppercase tracking-[0.5em] mb-2 block">CLUB
                VERSIANI</span>
             <h2 id="modal-title" class="text-3xl font-black text-white uppercase tracking-tight">FAÇA SEU ACESSO</h2>
          </div>
@@ -1040,13 +1057,13 @@
                         class="w-full input-premium h-14 rounded-2xl px-5 text-sm">
                   </div>
                   <button type="button" onclick="window.location.href='dashboard.html'"
-                     class="w-full h-16 bg-[#f085aa] text-black font-black uppercase tracking-widest text-sm rounded-2xl hover:scale-[1.02] transition-transform shadow-[0_15px_30px_rgba(240,133,170,0.3)]">Entrar
+                     class="w-full h-16 bg-[var(--terra)] text-black font-black uppercase tracking-widest text-sm rounded-2xl hover:scale-[1.02] transition-transform shadow-[0_15px_30px_rgba(184, 98, 42, 0.3)]">Entrar
                      no Clube</button>
                </form>
-               <div class="mt-8 text-center border-t border-white/5 pt-6">
+               <div class="mt-8 text-center border-t border-[var(--sand-deep)]/50 pt-6">
                   <p class="text-gray-500 text-[10px] mb-2 uppercase font-bold tracking-widest">Novo por aqui?</p>
                   <button onclick="toggleModalForm('signup')"
-                     class="text-white font-black uppercase tracking-widest text-[10px] hover:text-[#f085aa] transition-colors">Criar
+                     class="text-white font-black uppercase tracking-widest text-[10px] hover:text-[var(--terra)] transition-colors">Criar
                      cadastro exclusivo</button>
                </div>
             </div>
@@ -1083,14 +1100,14 @@
                         class="w-full input-premium h-12 rounded-xl px-4 text-xs">
                   </div>
                   <button type="button" onclick="window.location.href='dashboard.html'"
-                     class="w-full h-14 bg-white text-black font-black uppercase tracking-widest text-xs rounded-xl mt-4 hover:bg-[#f085aa] hover:text-white transition-all shadow-lg">Ativar
+                     class="w-full h-14 bg-white text-black font-black uppercase tracking-widest text-xs rounded-xl mt-4 hover:bg-[var(--terra)] hover:text-white transition-all shadow-lg">Ativar
                      Meu Acesso VIP</button>
                </form>
-               <div class="mt-6 text-center border-t border-white/5 pt-4">
+               <div class="mt-6 text-center border-t border-[var(--sand-deep)]/50 pt-4">
                   <p class="text-gray-500 text-[10px] mb-2 uppercase font-bold tracking-widest">Já tem conta?</p>
                   <button onclick="toggleModalForm('login')"
                      class="text-white font-bold uppercase tracking-widest text-[10px] transition-colors hover:text-white">Fazer
-                     <span class="text-[#f085aa] font-black">Login</span></button>
+                     <span class="text-[var(--terra)] font-black">Login</span></button>
                </div>
             </div>
          </div>
