@@ -52,6 +52,15 @@
          pointer-events: auto;
       }
 
+      .reveal-off .grayscale-reveal {
+         filter: grayscale(1);
+         transition: filter 1.5s ease-in-out;
+      }
+
+      .reveal-on .grayscale-reveal {
+         filter: grayscale(0);
+      }
+
       @keyframes shine-sweep {
          0% {
             left: -100%;
@@ -386,7 +395,7 @@
                   <h2 class="text-[22px] font-black text-white uppercase tracking-tight leading-tight">Como Funciona</h2>
                </div>
                <!-- Setas de navegação (Ocultas no mobile se o espaço apertar, mas os usuários podem fazer scroll via touch tranquilamente) -->
-               <div class="hidden sm:flex md:hidden gap-3 relative z-10">
+               <div class="hidden gap-3 relative z-10">
                   <button id="hw-prev"
                      class="w-12 h-12 rounded-full border border-white/20 bg-white/5 flex items-center justify-center text-white hover:bg-[#f085aa] hover:text-black hover:border-[#f085aa] transition-colors cursor-pointer">
                      <span class="material-symbols-outlined">arrow_back</span>
@@ -400,15 +409,29 @@
          </div>
 
          <!-- Wrapper do Carrossel Full-Bleed (Livre das limitações do Max-W) -->
-         <div class="relative w-full">
-            <!-- Máscara de Profundidade Esquerda (Atrás dos Cards) -->
-            <div
-               class="absolute left-0 top-0 bottom-0 w-[20vw] sm:w-[calc(50%_-_130px)] bg-gradient-to-r from-[#050505] to-transparent z-0 pointer-events-none md:hidden">
-            </div>
-            <!-- Máscara de Profundidade Direita (Atrás dos Cards) -->
-            <div
-               class="absolute right-0 top-0 bottom-0 w-[20vw] sm:w-[calc(50%_-_130px)] bg-gradient-to-l from-[#050505] to-transparent z-0 pointer-events-none md:hidden">
-            </div>
+         <div class="relative w-full group/hw">
+             <!-- Setas Laterais (Somente Mobile/Tablet) -->
+             <div class="absolute inset-y-0 left-2 md:hidden z-[60] flex items-center">
+                <button onclick="document.getElementById('hw-carousel').scrollBy({left: -320, behavior: 'smooth'})"
+                   class="w-10 h-10 rounded-full border border-white/20 bg-black/40 backdrop-blur-md flex items-center justify-center text-white transition-all cursor-pointer shadow-2xl active:scale-90">
+                   <span class="material-symbols-outlined text-[1.2rem]">arrow_back</span>
+                </button>
+             </div>
+             <div class="absolute inset-y-0 right-2 md:hidden z-[60] flex items-center">
+                <button onclick="document.getElementById('hw-carousel').scrollBy({left: 320, behavior: 'smooth'})"
+                   class="w-10 h-10 rounded-full border border-white/20 bg-black/40 backdrop-blur-md flex items-center justify-center text-white transition-all cursor-pointer shadow-2xl active:scale-90">
+                   <span class="material-symbols-outlined text-[1.2rem]">arrow_forward</span>
+                </button>
+             </div>
+
+             <!-- Máscara de Profundidade Esquerda (Atrás dos Cards) -->
+             <div
+                class="absolute left-0 top-0 bottom-0 w-[15vw] bg-gradient-to-r from-[#050505] to-transparent z-10 pointer-events-none md:hidden">
+             </div>
+             <!-- Máscara de Profundidade Direita (Atrás dos Cards) -->
+             <div
+                class="absolute right-0 top-0 bottom-0 w-[15vw] bg-gradient-to-l from-[#050505] to-transparent z-10 pointer-events-none md:hidden">
+             </div>
 
             <!-- Container do Carrossel Centrado -->
             <div id="hw-carousel"
@@ -416,7 +439,7 @@
 
                <!-- Card 1 -->
                <div
-                  class="bento-card glass-premium p-6 md:p-7 flex flex-col h-[320px] md:h-[340px] w-[76vw] sm:w-[300px] md:w-auto flex-shrink-0 snap-center md:snap-align-none group relative overflow-hidden bg-gradient-to-br from-white/8 to-transparent border border-white/10 border-t-white/30 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] transition-all duration-700 reveal-off">
+                  class="bento-card glass-premium p-6 md:p-7 flex flex-col h-[280px] md:h-[300px] w-[76vw] sm:w-[300px] md:w-auto flex-shrink-0 snap-center md:snap-align-none group relative overflow-hidden bg-gradient-to-br from-white/8 to-transparent border border-white/10 border-t-white/30 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] hover:border-[#f085aa]/50 hover:shadow-[0_45px_100px_-20px_rgba(0,0,0,0.8),0_0_30px_rgba(240,133,170,0.15)] hover:-translate-y-2 transition-all duration-700 reveal-off">
                   <span
                      class="absolute -top-4 -right-4 text-[8rem] font-black text-white/[0.03] leading-none transition-transform duration-700 group-hover:scale-110 pointer-events-none z-0">01</span>
 
@@ -439,13 +462,13 @@
 
                <!-- Card 2 -->
                <div
-                  class="bento-card glass-premium p-6 md:p-7 flex flex-col h-[320px] md:h-[340px] w-[76vw] sm:w-[300px] md:w-auto flex-shrink-0 snap-center md:snap-align-none group relative overflow-hidden bg-gradient-to-br from-white/8 to-transparent border border-white/10 border-t-white/30 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] hover:border-[#f085aa]/50 hover:shadow-[0_45px_100px_-20px_rgba(0,0,0,0.8),0_0_30px_rgba(240,133,170,0.15)] hover:-translate-y-2 transition-all duration-700 reveal-off">
+                  class="bento-card glass-premium p-6 md:p-7 flex flex-col h-[280px] md:h-[300px] w-[76vw] sm:w-[300px] md:w-auto flex-shrink-0 snap-center md:snap-align-none group relative overflow-hidden bg-gradient-to-br from-white/8 to-transparent border border-white/10 border-t-white/30 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] hover:border-[#f085aa]/50 hover:shadow-[0_45px_100px_-20px_rgba(0,0,0,0.8),0_0_30px_rgba(240,133,170,0.15)] hover:-translate-y-2 transition-all duration-700 reveal-off">
                   <span
                      class="absolute -top-4 -right-4 text-[8rem] font-black text-white/[0.03] leading-none transition-transform duration-700 group-hover:scale-110 pointer-events-none z-0">02</span>
 
                   <div class="relative z-10">
                      <div
-                        class="absolute inset-0 bg-[#f085aa]/20 blur-2xl rounded-full opacity-0 transition-opacity duration-700">
+                        class="absolute inset-0 bg-[#f085aa]/20 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700">
                      </div>
                      <div
                         class="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center border border-white/10 text-[#f085aa] shadow-[inset_0_1px_0_rgba(255,255,255,0.1)] relative z-10 transition-transform duration-500 group-hover:-translate-y-1">
@@ -462,7 +485,7 @@
 
                <!-- Card 3 -->
                <div
-                  class="bento-card glass-premium p-6 md:p-7 flex flex-col h-[320px] md:h-[340px] w-[76vw] sm:w-[300px] md:w-auto flex-shrink-0 snap-center md:snap-align-none group relative overflow-hidden bg-gradient-to-br from-white/8 to-transparent border border-white/10 border-t-white/30 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] hover:border-[#f085aa]/50 hover:shadow-[0_45px_100px_-20px_rgba(0,0,0,0.8),0_0_30px_rgba(240,133,170,0.15)] hover:-translate-y-2 transition-all duration-700 reveal-off">
+                  class="bento-card glass-premium p-6 md:p-7 flex flex-col h-[280px] md:h-[300px] w-[76vw] sm:w-[300px] md:w-auto flex-shrink-0 snap-center md:snap-align-none group relative overflow-hidden bg-gradient-to-br from-white/8 to-transparent border border-white/10 border-t-white/30 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] hover:border-[#f085aa]/50 hover:shadow-[0_45px_100px_-20px_rgba(0,0,0,0.8),0_0_30px_rgba(240,133,170,0.15)] hover:-translate-y-2 transition-all duration-700 reveal-off">
                   <span
                      class="absolute -top-4 -right-4 text-[8rem] font-black text-white/[0.03] leading-none transition-transform duration-700 group-hover:scale-110 pointer-events-none z-0">03</span>
 
@@ -509,43 +532,44 @@
                   class="absolute -top-24 -right-24 w-[320px] h-[320px] bg-[#f085aa]/15 blur-[100px] rounded-full pointer-events-none">
                </div>
                <span class="text-xs font-black text-[#f085aa] uppercase tracking-[0.3em] mb-6 block">[ DESEJO REAL ]</span>
-               <h2 class="text-[22px] font-black text-white uppercase tracking-tight leading-tight mb-8">
-                  NÃO É UM PRÊMIO QUALQUER. É O TIPO DE SONHO QUE JÁ VIVE NO SEU IMAGINÁRIO.
-               </h2>
+               <div class="mb-10">
+                  <h2 class="text-3xl md:text-5xl font-black text-white uppercase tracking-tight leading-tight mb-4">
+                     NÃO É UM PRÊMIO QUALQUER.
+                  </h2>
+                  <p class="text-lg md:text-xl text-gray-400 font-medium tracking-tight">É o tipo de sonho que já vive no seu imaginário.</p>
+               </div>
 
-               <p class="text-base text-gray-400 font-medium leading-relaxed mb-10 max-w-3xl">
-                  A bolsa que você salvou. A viagem que você adia. O item que você vê no feed e pensa “um dia”.
-               </p>
-
-               <div class="space-y-5">
-                  <div class="flex items-start gap-4">
+               <div class="space-y-6">
+                  <div class="flex items-center gap-4 group/item transition-all duration-300">
                      <div
-                        class="w-10 h-10 rounded-full border border-[#f085aa]/40 bg-[#f085aa]/10 flex items-center justify-center text-[#f085aa] mt-0.5">
-                        <span class="material-symbols-outlined text-[1.1rem]">diamond</span>
+                        class="w-12 h-12 flex-shrink-0 rounded-full border border-[#f085aa]/40 bg-[#f085aa]/10 flex items-center justify-center text-[#f085aa] shadow-[0_0_15px_rgba(240,133,170,0.1)] group-hover/item:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-[1.3rem]">favorite</span>
                      </div>
-                     <p class="text-base font-black text-white leading-tight">A bolsa que você salvou.</p>
+                     <p class="text-base font-bold text-white leading-tight">A bolsa que você salvou.</p>
                   </div>
-                  <div class="flex items-start gap-4">
+                  <div class="flex items-center gap-4 group/item transition-all duration-300">
                      <div
-                        class="w-10 h-10 rounded-full border border-[#f085aa]/40 bg-[#f085aa]/10 flex items-center justify-center text-[#f085aa] mt-0.5">
-                        <span class="material-symbols-outlined text-[1.1rem]">flight_takeoff</span>
+                        class="w-12 h-12 flex-shrink-0 rounded-full border border-[#f085aa]/40 bg-[#f085aa]/10 flex items-center justify-center text-[#f085aa] shadow-[0_0_15px_rgba(240,133,170,0.1)] group-hover/item:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-[1.3rem]">flight_takeoff</span>
                      </div>
-                     <p class="text-base font-black text-white leading-tight">A viagem que você adia.</p>
+                     <p class="text-base font-bold text-white leading-tight">A viagem que você adia.</p>
                   </div>
-                  <div class="flex items-start gap-4">
+                  <div class="flex items-center gap-4 group/item transition-all duration-300">
                      <div
-                        class="w-10 h-10 rounded-full border border-[#f085aa]/40 bg-[#f085aa]/10 flex items-center justify-center text-[#f085aa] mt-0.5">
-                        <span class="material-symbols-outlined text-[1.1rem]">favorite</span>
+                        class="w-12 h-12 flex-shrink-0 rounded-full border border-[#f085aa]/40 bg-[#f085aa]/10 flex items-center justify-center text-[#f085aa] shadow-[0_0_15px_rgba(240,133,170,0.1)] group-hover/item:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-[1.3rem]">diamond</span>
                      </div>
-                     <p class="text-base font-black text-white leading-tight">O item que você vê no feed e pensa:
+                     <p class="text-base font-bold text-white leading-tight">O item que você vê no feed e pensa:
                         <span class="text-[#f085aa]">“um dia”.</span>
                      </p>
                   </div>
                </div>
 
-               <p class="text-base text-gray-300 font-medium leading-relaxed mt-10 pt-6 border-t border-white/10 max-w-3xl">
-                  O Clube Versiani existe para aproximar você desse desejo.
-               </p>
+               <div class="mt-12 pt-8 border-t border-white/10">
+                  <p class="text-xl md:text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#f085aa] to-white leading-tight max-w-2xl">
+                     O Clube Versiani existe para aproximar você desse desejo.
+                  </p>
+               </div>
             </div>
          </div>
       </section>
@@ -581,67 +605,73 @@
 
                <div class="mb-8">
                   <div class="flex justify-end mb-4">
-                     <div class="hidden sm:flex md:hidden gap-3 relative z-10">
-                        <button id="eco-prev"
-                           class="w-10 h-10 rounded-full border border-white/20 bg-white/5 flex items-center justify-center text-white hover:bg-[#f085aa] hover:text-black hover:border-[#f085aa] transition-colors cursor-pointer">
-                           <span class="material-symbols-outlined text-[1.1rem]">arrow_back</span>
-                        </button>
-                        <button id="eco-next"
-                           class="w-10 h-10 rounded-full border border-white/20 bg-white/5 flex items-center justify-center text-white hover:bg-[#f085aa] hover:text-black hover:border-[#f085aa] transition-colors cursor-pointer">
-                           <span class="material-symbols-outlined text-[1.1rem]">arrow_forward</span>
-                        </button>
-                     </div>
+               <div class="hidden md:hidden gap-3 relative z-10">
+                  <button id="eco-prev"
+                     class="w-10 h-10 rounded-full border border-white/20 bg-white/5 flex items-center justify-center text-white hover:bg-[#f085aa] hover:text-black hover:border-[#f085aa] transition-colors cursor-pointer">
+                     <span class="material-symbols-outlined text-[1.1rem]">arrow_back</span>
+                  </button>
+                  <button id="eco-next"
+                     class="w-10 h-10 rounded-full border border-white/20 bg-white/5 flex items-center justify-center text-white hover:bg-[#f085aa] hover:text-black hover:border-[#f085aa] transition-colors cursor-pointer">
+                     <span class="material-symbols-outlined text-[1.1rem]">arrow_forward</span>
+                  </button>
+               </div>
                   </div>
-                  <div id="eco-carousel"
-                     class="flex md:grid md:grid-cols-3 gap-4 overflow-x-auto overflow-y-hidden md:overflow-visible snap-x md:snap-none snap-mandatory scroll-smooth [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] px-[6vw] sm:px-0">
+                <div class="relative w-full group/eco">
+                   <!-- Setas Laterais (Somente Mobile/Tablet) -->
+                   <div class="absolute inset-y-0 left-[-2vw] md:hidden z-[60] flex items-center">
+                      <button onclick="document.getElementById('eco-carousel').scrollBy({left: -320, behavior: 'smooth'})"
+                         class="w-10 h-10 rounded-full border border-white/10 bg-black/40 backdrop-blur-md flex items-center justify-center text-white shadow-2xl active:scale-90">
+                         <span class="material-symbols-outlined text-[1.1rem]">arrow_back</span>
+                      </button>
+                   </div>
+                   <div class="absolute inset-y-0 right-[-2vw] md:hidden z-[60] flex items-center">
+                      <button onclick="document.getElementById('eco-carousel').scrollBy({left: 320, behavior: 'smooth'})"
+                         class="w-10 h-10 rounded-full border border-white/10 bg-black/40 backdrop-blur-md flex items-center justify-center text-white shadow-2xl active:scale-90">
+                         <span class="material-symbols-outlined text-[1.1rem]">arrow_forward</span>
+                      </button>
+                   </div>
+
+                   <div id="eco-carousel"
+                      class="flex md:grid md:grid-cols-3 gap-4 overflow-x-auto overflow-y-hidden md:overflow-visible snap-x md:snap-none snap-mandatory scroll-smooth [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] px-[6vw] sm:px-0 relative z-10">
                      <div
                         class="bento-card h-[190px] p-4 rounded-2xl border border-white/10 bg-white/5 w-[78vw] sm:w-[300px] md:w-auto flex-shrink-0 snap-center group relative overflow-hidden shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] hover:border-[#f085aa]/40 hover:shadow-[0_30px_70px_-20px_rgba(0,0,0,0.8),0_0_20px_rgba(240,133,170,0.12)] transition-all duration-500">
                         <img src="https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?q=80&w=800&auto=format&fit=crop"
                            alt="Prêmios desejados Versiani" loading="lazy"
-                           class="absolute inset-0 w-full h-full object-cover opacity-25 group-hover:opacity-35 group-hover:scale-110 transition-all duration-700">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/65 to-black/25"></div>
+                           class="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:opacity-90 group-hover:scale-110 transition-all duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent"></div>
                         <span
                            class="absolute -top-2 -right-2 text-[5rem] font-black text-white/[0.04] leading-none transition-transform duration-700 group-hover:scale-110 pointer-events-none z-10">01</span>
-                        <div class="relative z-20 h-full flex flex-col justify-between">
-                           <div class="w-10 h-10 rounded-full bg-[#f085aa]/20 border border-[#f085aa]/40 flex items-center justify-center text-[#f085aa] shadow-[0_0_20px_rgba(240,133,170,0.2)]">
-                              <span class="material-symbols-outlined">diamond</span>
-                           </div>
-                           <p class="text-sm font-black text-white uppercase tracking-wide">Prêmios desejados</p>
-                        </div>
+                         <div class="relative z-20 h-full flex flex-col justify-end">
+                            <p class="text-sm font-black text-white uppercase tracking-wide">Prêmios desejados</p>
+                         </div>
                      </div>
                      <div
                         class="bento-card h-[190px] p-4 rounded-2xl border border-white/10 bg-white/5 w-[78vw] sm:w-[300px] md:w-auto flex-shrink-0 snap-center group relative overflow-hidden shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] hover:border-[#f085aa]/40 hover:shadow-[0_30px_70px_-20px_rgba(0,0,0,0.8),0_0_20px_rgba(240,133,170,0.12)] transition-all duration-500">
                         <img src="https://images.unsplash.com/photo-1553729459-efe14ef6055d?q=80&w=800&auto=format&fit=crop"
                            alt="20 pontos por assinatura no Clube Versiani" loading="lazy"
-                           class="absolute inset-0 w-full h-full object-cover opacity-25 group-hover:opacity-35 group-hover:scale-110 transition-all duration-700">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/65 to-black/25"></div>
+                           class="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:opacity-90 group-hover:scale-110 transition-all duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent"></div>
                         <span
                            class="absolute -top-2 -right-2 text-[5rem] font-black text-white/[0.04] leading-none transition-transform duration-700 group-hover:scale-110 pointer-events-none z-10">02</span>
-                        <div class="relative z-20 h-full flex flex-col justify-between">
-                           <div class="w-10 h-10 rounded-full bg-[#f085aa]/20 border border-[#f085aa]/40 flex items-center justify-center text-[#f085aa] shadow-[0_0_20px_rgba(240,133,170,0.2)]">
-                              <span class="material-symbols-outlined">paid</span>
-                           </div>
-                           <p class="text-sm font-black text-white uppercase tracking-wide">20 pontos por assinatura</p>
-                        </div>
+                         <div class="relative z-20 h-full flex flex-col justify-end">
+                            <p class="text-sm font-black text-white uppercase tracking-wide">20 pontos por assinatura</p>
+                         </div>
                      </div>
                      <div
                         class="bento-card h-[190px] p-4 rounded-2xl border border-white/10 bg-white/5 w-[78vw] sm:w-[300px] md:w-auto flex-shrink-0 snap-center group relative overflow-hidden shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] hover:border-[#f085aa]/40 hover:shadow-[0_30px_70px_-20px_rgba(0,0,0,0.8),0_0_20px_rgba(240,133,170,0.12)] transition-all duration-500">
                         <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=800&auto=format&fit=crop"
                            alt="Benefícios nas marcas Versiani Skin e Swim" loading="lazy"
-                           class="absolute inset-0 w-full h-full object-cover opacity-25 group-hover:opacity-35 group-hover:scale-110 transition-all duration-700">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/65 to-black/25"></div>
+                           class="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:opacity-90 group-hover:scale-110 transition-all duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent"></div>
                         <span
                            class="absolute -top-2 -right-2 text-[5rem] font-black text-white/[0.04] leading-none transition-transform duration-700 group-hover:scale-110 pointer-events-none z-10">03</span>
-                        <div class="relative z-20 h-full flex flex-col justify-between">
-                           <div class="w-10 h-10 rounded-full bg-[#f085aa]/20 border border-[#f085aa]/40 flex items-center justify-center text-[#f085aa] shadow-[0_0_20px_rgba(240,133,170,0.2)]">
-                              <span class="material-symbols-outlined">storefront</span>
-                           </div>
-                           <p class="text-sm font-black text-white uppercase tracking-wide">Benefícios nas marcas
-                              <a href="https://versianiskin.com/" target="_blank" rel="noopener noreferrer"
-                                 class="text-[#f085aa] hover:text-white transition-colors">Skin</a> +
-                              <a href="https://versianiswim.com.br/" target="_blank" rel="noopener noreferrer"
-                                 class="text-[#f085aa] hover:text-white transition-colors">Swim</a></p>
-                        </div>
+                         <div class="relative z-20 h-full flex flex-col justify-end">
+                            <p class="text-sm font-black text-white uppercase tracking-wide">Benefícios nas marcas
+                               <a href="https://versianiskin.com/" target="_blank" rel="noopener noreferrer"
+                                  class="text-[#f085aa] hover:text-white transition-colors">Skin</a> +
+                               <a href="https://versianiswim.com.br/" target="_blank" rel="noopener noreferrer"
+                                  class="text-[#f085aa] hover:text-white transition-colors">Swim</a></p>
+                         </div>
                      </div>
                   </div>
                </div>
@@ -663,35 +693,36 @@
          </div>
          <div class="max-w-7xl mx-auto relative z-10">
             <div class="text-center mb-16 md:mb-20 space-y-4">
-               <span class="text-xs font-black text-gray-500 uppercase tracking-[0.3em]">[ TRUSTED MEMBERS ]</span>
-               <h2 class="text-[22px] font-black text-white uppercase tracking-tight leading-tight">Elas
-                  Ousaram.<br>Elas Ganharam.</h2>
+               <span class="text-xs font-black text-[#f085aa] uppercase tracking-[0.3em] mb-4 block">[ QUEM JÁ VIVEU ISSO ]</span>
+               <h2 class="text-3xl md:text-5xl font-black text-white uppercase tracking-tight leading-tight mb-6">
+                  Elas entraram. Elas ganharam.
+               </h2>
+               <p class="text-base md:text-lg text-gray-400 font-medium max-w-2xl mx-auto leading-relaxed">
+                  No Clube Versiani, o desejo ganha forma na vida de quem entra. Algumas recebem o prêmio do mês. Outras transformam seus pontos em benefícios reais.
+               </p>
             </div>
 
             <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
-               <!-- Member 1 -->
                <div class="relative group aspect-[3/4] overflow-hidden rounded-2xl border border-white/5 reveal-off">
                   <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400&auto=format&fit=crop"
                      alt="Camila R. - Membro Versiani" width="400" height="533" loading="lazy"
-                     class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500">
+                     class="w-full h-full object-cover grayscale-reveal group-hover:scale-110 transition-all duration-700">
                   <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
                   <div class="absolute bottom-4 md:bottom-6 left-4 md:left-6 right-4 md:right-6">
-                     <p class="text-[10px] md:text-xs text-[#f085aa] font-bold uppercase tracking-widest mb-1">Ganhou
-                        iPhone 15</p>
+                     <p class="text-[10px] md:text-xs text-[#f085aa] font-bold uppercase tracking-widest mb-1">Resgatou
+                        R$ 500 em descontos</p>
                      <h4 class="text-white font-black text-sm md:text-lg">Camila R.</h4>
                   </div>
                </div>
-               <!-- Member 2 -->
                <div
                   class="relative group aspect-[3/4] overflow-hidden rounded-2xl border border-white/5 lg:translate-y-8 reveal-off">
                   <img
                      src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=400&auto=format&fit=crop"
                      alt="Juliana M. - Membro Versiani" width="400" height="533" loading="lazy"
-                     class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500">
+                     class="w-full h-full object-cover grayscale-reveal group-hover:scale-110 transition-all duration-700">
                   <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
                   <div class="absolute bottom-4 md:bottom-6 left-4 md:left-6 right-4 md:right-6">
-                     <p class="text-[10px] md:text-xs text-[#f085aa] font-bold uppercase tracking-widest mb-1">Membro
-                        Elite</p>
+                     <p class="text-[10px] md:text-xs text-[#f085aa] font-bold uppercase tracking-widest mb-1">Recebeu produtos Versiani Skin</p>
                      <h4 class="text-white font-black text-sm md:text-lg">Juliana M.</h4>
                   </div>
                </div>
@@ -700,7 +731,7 @@
                   <img
                      src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=400&auto=format&fit=crop"
                      alt="Marina S. - Membro Versiani" width="400" height="533" loading="lazy"
-                     class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500">
+                     class="w-full h-full object-cover grayscale-reveal group-hover:scale-110 transition-all duration-700">
                   <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
                   <div class="absolute bottom-4 md:bottom-6 left-4 md:left-6 right-4 md:right-6">
                      <p class="text-[10px] md:text-xs text-[#f085aa] font-bold uppercase tracking-widest mb-1">Ganhou
@@ -714,11 +745,11 @@
                   <img
                      src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=400&auto=format&fit=crop"
                      alt="Fernanda A. - Membro Versiani" width="400" height="533" loading="lazy"
-                     class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500">
+                     class="w-full h-full object-cover grayscale-reveal group-hover:scale-110 transition-all duration-700">
                   <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
                   <div class="absolute bottom-4 md:bottom-6 left-4 md:left-6 right-4 md:right-6">
                      <p class="text-[10px] md:text-xs text-[#f085aa] font-bold uppercase tracking-widest mb-1">Resgatou
-                        R$ 500</p>
+                        R$ 500 em descontos</p>
                      <h4 class="text-white font-black text-sm md:text-lg">Fernanda A.</h4>
                   </div>
                </div>
@@ -781,12 +812,16 @@
                            R$ 192 anualmente</span>
                      </div>
                      <ul class="space-y-4 mb-10">
-                        <li class="flex items-center gap-3 text-sm text-gray-300 font-bold"><span
-                              class="material-symbols-outlined text-[#f085aa] text-lg">check_circle</span> 1 Cota</li>
-                        <li class="flex items-center gap-3 text-sm text-gray-300 font-bold"><span
-                              class="material-symbols-outlined text-[#f085aa] text-lg">check_circle</span> 20 Pontos
-                           todo mês</li>
-                     </ul>
+                         <li class="flex items-center gap-3 text-sm text-gray-300 font-bold"><span
+                               class="material-symbols-outlined text-[#f085aa] text-lg">check_circle</span> 1 número da sorte</li>
+                         <li class="flex items-center gap-3 text-sm text-gray-300 font-bold"><span
+                               class="material-symbols-outlined text-[#f085aa] text-lg">check_circle</span> Acesso ao ecossistema de benefícios</li>
+                         <li class="flex items-center gap-3 text-sm text-gray-300 font-bold"><span
+                               class="material-symbols-outlined text-[#f085aa] text-lg">check_circle</span> Descontos exclusivos</li>
+                         <li class="flex items-center gap-3 text-sm text-gray-300 font-bold"><span
+                               class="material-symbols-outlined text-[#f085aa] text-lg">check_circle</span> 20 Pontos
+                            todo mês</li>
+                      </ul>
                   </div>
                   <button onclick="openAuthModal('signup')"
                      class="w-full mt-auto py-4 border border-white/20 rounded-full font-black text-white hover:bg-white hover:text-black transition-all uppercase text-sm text-center cursor-pointer">Começar
@@ -1223,16 +1258,7 @@
                   });
                }
 
-               // Auto-play interval
-               setInterval(() => {
-                  if (window.innerWidth >= 768) return; // Cancela loop no Desktop
-
-                  if (isAtEnd()) {
-                     carousel.scrollTo({ left: 0, behavior: 'smooth' });
-                  } else {
-                     carousel.scrollBy({ left: scrollStep(), behavior: 'smooth' });
-                  }
-               }, 3500);
+               // Auto-play interval removed - manual swipe only on mobile
             }
          };
 
