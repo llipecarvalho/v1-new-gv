@@ -52,13 +52,20 @@
          pointer-events: auto;
       }
 
+      /* OPÇÃO 3: REVELAÇÃO "SONHO PARA REALIDADE" */
       .reveal-off .grayscale-reveal {
-         filter: grayscale(1);
-         transition: filter 1.5s ease-in-out;
+         filter: grayscale(1) blur(15px) brightness(0.7);
+         transform: scale(0.98);
+      }
+
+      .grayscale-reveal {
+         transition: filter 8s cubic-bezier(0.22, 1, 0.36, 1), transform 6s cubic-bezier(0.22, 1, 0.36, 1);
+         will-change: filter, transform;
       }
 
       .reveal-on .grayscale-reveal {
-         filter: grayscale(0);
+         filter: grayscale(0) blur(0px) brightness(1);
+         transform: scale(1);
       }
 
       @keyframes shine-sweep {
@@ -374,7 +381,7 @@
       </div>
 
       <!-- HOW IT WORKS: BENTO GRID -->
-      <section class="py-20 md:py-32 border-b border-white/5 bg-[#050505] relative overflow-hidden"
+      <section class="pt-20 pb-10 md:pt-32 md:pb-16 border-b border-white/5 bg-[#050505] relative overflow-hidden"
          id="como-funciona">
          <!-- Ambient Atmosphere (Breathing Blobs and Gradients) -->
          <div class="absolute inset-0 -z-10 pointer-events-none overflow-hidden">
@@ -431,20 +438,20 @@
 
              <!-- Máscara de Profundidade Esquerda (Atrás dos Cards) -->
              <div
-                class="absolute left-0 top-0 bottom-0 w-[15vw] bg-gradient-to-r from-[#050505] to-transparent z-10 pointer-events-none md:hidden">
+                class="absolute left-0 top-0 bottom-0 w-[8vw] bg-gradient-to-r from-[#050505] to-transparent z-10 pointer-events-none md:hidden">
              </div>
              <!-- Máscara de Profundidade Direita (Atrás dos Cards) -->
              <div
-                class="absolute right-0 top-0 bottom-0 w-[15vw] bg-gradient-to-l from-[#050505] to-transparent z-10 pointer-events-none md:hidden">
+                class="absolute right-0 top-0 bottom-0 w-[8vw] bg-gradient-to-l from-[#050505] to-transparent z-10 pointer-events-none md:hidden">
              </div>
 
             <!-- Container do Carrossel Centrado -->
             <div id="hw-carousel"
-               class="relative z-10 flex md:grid md:grid-cols-3 lg:grid-cols-3 gap-6 overflow-x-auto overflow-y-hidden md:overflow-visible snap-x md:snap-none snap-mandatory pt-4 pb-6 px-[18vw] sm:px-[calc(50%_-_160px)] md:px-6 md:max-w-7xl md:mx-auto scroll-smooth [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+               class="relative z-10 flex md:grid md:grid-cols-3 lg:grid-cols-3 gap-6 overflow-x-auto overflow-y-hidden md:overflow-visible snap-x md:snap-none snap-mandatory pt-4 pb-6 px-10 sm:px-[calc(50%_-_160px)] md:px-6 md:max-w-7xl md:mx-auto scroll-smooth [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
 
                <!-- Card 1 -->
                <div
-                  class="bento-card glass-premium p-6 md:p-7 flex flex-col h-[280px] md:h-[300px] w-[76vw] sm:w-[300px] md:w-auto flex-shrink-0 snap-center md:snap-align-none group relative overflow-hidden bg-gradient-to-br from-white/8 to-transparent border border-white/10 border-t-white/30 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] hover:border-[#f085aa]/50 hover:shadow-[0_45px_100px_-20px_rgba(0,0,0,0.8),0_0_30px_rgba(240,133,170,0.15)] hover:-translate-y-2 transition-all duration-700 reveal-off">
+                  class="bento-card glass-premium p-6 md:p-7 flex flex-col h-[280px] md:h-[300px] w-[76vw] sm:w-[300px] md:w-auto flex-shrink-0 snap-center md:snap-align-none group relative overflow-hidden bg-gradient-to-br from-white/8 to-transparent border border-white/10 border-t-white/30 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] hover:border-[#f085aa]/50 hover:shadow-[0_45px_100px_-20px_rgba(0,0,0,0.8),0_0_30px_rgba(240,133,170,0.15)] hover:-translate-y-2 transition-all duration-700">
                   <span
                      class="absolute -top-4 -right-4 text-[8rem] font-black text-white/[0.03] leading-none transition-transform duration-700 group-hover:scale-110 pointer-events-none z-0">01</span>
 
@@ -467,7 +474,7 @@
 
                <!-- Card 2 -->
                <div
-                  class="bento-card glass-premium p-6 md:p-7 flex flex-col h-[280px] md:h-[300px] w-[76vw] sm:w-[300px] md:w-auto flex-shrink-0 snap-center md:snap-align-none group relative overflow-hidden bg-gradient-to-br from-white/8 to-transparent border border-white/10 border-t-white/30 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] hover:border-[#f085aa]/50 hover:shadow-[0_45px_100px_-20px_rgba(0,0,0,0.8),0_0_30px_rgba(240,133,170,0.15)] hover:-translate-y-2 transition-all duration-700 reveal-off">
+                  class="bento-card glass-premium p-6 md:p-7 flex flex-col h-[280px] md:h-[300px] w-[76vw] sm:w-[300px] md:w-auto flex-shrink-0 snap-center md:snap-align-none group relative overflow-hidden bg-gradient-to-br from-white/8 to-transparent border border-white/10 border-t-white/30 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] hover:border-[#f085aa]/50 hover:shadow-[0_45px_100px_-20px_rgba(0,0,0,0.8),0_0_30px_rgba(240,133,170,0.15)] hover:-translate-y-2 transition-all duration-700">
                   <span
                      class="absolute -top-4 -right-4 text-[8rem] font-black text-white/[0.03] leading-none transition-transform duration-700 group-hover:scale-110 pointer-events-none z-0">02</span>
 
@@ -490,7 +497,7 @@
 
                <!-- Card 3 -->
                <div
-                  class="bento-card glass-premium p-6 md:p-7 flex flex-col h-[280px] md:h-[300px] w-[76vw] sm:w-[300px] md:w-auto flex-shrink-0 snap-center md:snap-align-none group relative overflow-hidden bg-gradient-to-br from-white/8 to-transparent border border-white/10 border-t-white/30 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] hover:border-[#f085aa]/50 hover:shadow-[0_45px_100px_-20px_rgba(0,0,0,0.8),0_0_30px_rgba(240,133,170,0.15)] hover:-translate-y-2 transition-all duration-700 reveal-off">
+                  class="bento-card glass-premium p-6 md:p-7 flex flex-col h-[280px] md:h-[300px] w-[76vw] sm:w-[300px] md:w-auto flex-shrink-0 snap-center md:snap-align-none group relative overflow-hidden bg-gradient-to-br from-white/8 to-transparent border border-white/10 border-t-white/30 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] hover:border-[#f085aa]/50 hover:shadow-[0_45px_100px_-20px_rgba(0,0,0,0.8),0_0_30px_rgba(240,133,170,0.15)] hover:-translate-y-2 transition-all duration-700">
                   <span
                      class="absolute -top-4 -right-4 text-[8rem] font-black text-white/[0.03] leading-none transition-transform duration-700 group-hover:scale-110 pointer-events-none z-0">03</span>
 
@@ -516,7 +523,7 @@
       </section>
 
       <!-- DREAM BRIDGE -->
-      <section class="py-20 md:py-32 px-6 border-b border-white/5 bg-[#050505] reveal-off relative overflow-hidden">
+      <section class="pt-10 pb-20 md:pt-16 md:pb-32 px-6 border-b border-white/5 bg-[#050505] reveal-off relative overflow-hidden">
          <!-- Atmospheric Depth -->
          <div class="absolute inset-0 -z-10 pointer-events-none overflow-hidden">
             <div class="absolute inset-0 bg-gradient-to-b from-[#08060c] via-[#050505] to-[#0a0a0a]"></div>
@@ -580,7 +587,7 @@
       </section>
 
       <!-- ECONOMY SHOWCASE (The Value Proposition) -->
-      <section class="py-10 md:py-12 px-6 md:border-b border-white/5 overflow-hidden relative bg-[#070707] reveal-off">
+      <section class="pt-10 pb-2 md:pt-12 md:pb-4 px-6 md:border-b border-white/5 overflow-hidden relative bg-[#070707] reveal-off">
          <div class="absolute inset-0 z-0 pointer-events-none bg-gradient-to-b from-[#0f0712]/45 via-transparent to-[#08060b]/55"></div>
          <div
             class="absolute lg:hidden -top-20 right-[-28%] w-[80vw] h-[80vw] bg-[#f085aa]/18 blur-[130px] rounded-full z-0 pointer-events-none">
@@ -652,8 +659,8 @@
                      </div>
                      <div
                         class="bento-card h-[190px] p-4 rounded-2xl border border-white/10 bg-white/5 w-[78vw] sm:w-[300px] md:w-auto flex-shrink-0 snap-center group relative overflow-hidden shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] hover:border-[#f085aa]/40 hover:shadow-[0_30px_70px_-20px_rgba(0,0,0,0.8),0_0_20px_rgba(240,133,170,0.12)] transition-all duration-500">
-                        <img src="https://images.unsplash.com/photo-1553729459-efe14ef6055d?q=80&w=800&auto=format&fit=crop"
-                           alt="20 pontos por assinatura no Clube Versiani" loading="lazy"
+                        <img src="https://images.unsplash.com/photo-1613243555988-441166d4d6fd?q=80&w=800&auto=format&fit=crop"
+                           alt="Membro Elite Versiani - Benefícios Exclusivos" loading="lazy"
                            class="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:opacity-90 group-hover:scale-110 transition-all duration-700">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent"></div>
                         <span
@@ -681,7 +688,7 @@
                   </div>
                </div>
 
-               <p class="text-base text-gray-300 font-medium leading-relaxed">
+               <p class="text-base text-gray-300 font-medium leading-relaxed text-center mt-12 mb-4">
                   Resgate seus pontos e aproveite vantagens nos produtos mais desejados da marca.
                </p>
             </div>
@@ -689,7 +696,7 @@
       </section>
 
       <!-- SOCIAL PROOF / WALL OF LOVE -->
-      <section class="py-10 md:py-16 px-6 md:border-b border-white/5 bg-[#080808] relative overflow-hidden">
+      <section class="pt-6 pb-10 md:pt-8 md:pb-16 px-6 md:border-b border-white/5 bg-[#080808] relative overflow-hidden">
          <div
             class="absolute lg:hidden top-[-8%] left-[-24%] w-[72vw] h-[72vw] bg-[#f085aa]/16 blur-[120px] rounded-full z-0 pointer-events-none">
          </div>
@@ -697,7 +704,7 @@
             class="absolute lg:hidden bottom-[-10%] right-[-24%] w-[78vw] h-[78vw] bg-[#320075]/18 blur-[130px] rounded-full z-0 pointer-events-none">
          </div>
          <div class="max-w-7xl mx-auto relative z-10">
-            <div class="text-center mb-16 md:mb-20 space-y-4">
+            <div class="text-center mb-10 md:mb-12 space-y-4">
                <span class="text-xs font-black text-[#f085aa] uppercase tracking-[0.3em] mb-4 block">[ QUEM JÁ VIVEU ISSO ]</span>
                <h2 class="text-3xl md:text-5xl font-black text-white uppercase tracking-tight leading-tight mb-6">
                   Elas entraram. Elas ganharam.
@@ -714,8 +721,8 @@
                      class="w-full h-full object-cover grayscale-reveal group-hover:scale-110 transition-all duration-700">
                   <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
                   <div class="absolute bottom-4 md:bottom-6 left-4 md:left-6 right-4 md:right-6">
-                     <p class="text-[10px] md:text-xs text-[#f085aa] font-bold uppercase tracking-widest mb-1">Resgatou
-                        R$ 500 em descontos</p>
+                     <p class="text-[10px] md:text-xs text-[#f085aa] font-bold uppercase tracking-widest mb-1">Ganhou
+                        iPhone 16 Pro Max</p>
                      <h4 class="text-white font-black text-sm md:text-lg">Camila R.</h4>
                   </div>
                </div>
@@ -754,7 +761,7 @@
                   <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
                   <div class="absolute bottom-4 md:bottom-6 left-4 md:left-6 right-4 md:right-6">
                      <p class="text-[10px] md:text-xs text-[#f085aa] font-bold uppercase tracking-widest mb-1">Resgatou
-                        R$ 500 em descontos</p>
+                        R$ 800 em descontos</p>
                      <h4 class="text-white font-black text-sm md:text-lg">Fernanda A.</h4>
                   </div>
                </div>
@@ -763,7 +770,7 @@
       </section>
 
       <!-- PRICING TABLE (Dark Mode Tiers) -->
-      <section class="py-10 md:py-16 bg-[#0a0a0a] overflow-hidden relative reveal-off" id="planos">
+      <section class="py-8 md:py-12 bg-[#0a0a0a] overflow-hidden relative reveal-off" id="planos">
          <div
             class="absolute lg:hidden -top-16 right-[-26%] w-[74vw] h-[74vw] bg-[#f085aa]/16 blur-[120px] rounded-full z-0 pointer-events-none">
          </div>
@@ -798,7 +805,7 @@
             </div>
 
             <div id="planos-carousel"
-               class="flex md:grid md:grid-cols-1 gap-6 overflow-x-auto md:overflow-visible snap-x md:snap-none snap-mandatory pt-12 pb-16 px-[18vw] sm:px-[calc(50%_-_160px)] md:px-6 md:max-w-3xl md:mx-auto scroll-smooth [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] items-center">
+               class="flex md:grid md:grid-cols-1 gap-6 overflow-x-auto md:overflow-visible snap-x md:snap-none snap-mandatory pt-12 pb-8 px-[18vw] sm:px-[calc(50%_-_160px)] md:px-6 md:max-w-3xl md:mx-auto scroll-smooth [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] items-center">
 
                <!-- Starter -->
                <div
@@ -838,14 +845,14 @@
       </section>
 
       <!-- FAQ ACCORDION -->
-      <section class="py-10 md:py-16 px-6 md:border-b border-white/5 bg-[#050505] relative overflow-hidden" id="faq">
+      <section class="py-8 md:py-12 px-6 md:border-b border-white/5 bg-[#050505] relative overflow-hidden" id="faq">
          <div
             class="absolute lg:hidden -top-20 left-[-24%] w-[72vw] h-[72vw] bg-[#f085aa]/15 blur-[120px] rounded-full z-0 pointer-events-none">
          </div>
          <div
             class="absolute lg:hidden bottom-[-14%] right-[-22%] w-[78vw] h-[78vw] bg-[#320075]/18 blur-[140px] rounded-full z-0 pointer-events-none">
          </div>
-         <div class="max-w-3xl mx-auto mt-4 relative z-10">
+         <div class="max-w-3xl mx-auto mt-0 relative z-10">
             <div class="text-center mb-16 space-y-4">
                <span class="text-xs font-black text-gray-500 uppercase tracking-[0.3em]">[ TRANSPARÊNCIA TOTAL ]</span>
                <h2 class="text-3xl md:text-6xl font-black text-white uppercase tracking-tight leading-tight">Dúvidas
@@ -1366,7 +1373,7 @@
          if (btnMensal) btnMensal.addEventListener('click', () => priceUpdate(false));
          if (btnAnual) btnAnual.addEventListener('click', () => priceUpdate(true));
 
-         // Scroll Reveal Logic
+         // Scroll Reveal Logic (Global)
          const observerOptions = { threshold: 0.15 };
          const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -1377,7 +1384,20 @@
             });
          }, observerOptions);
 
-         document.querySelectorAll('.reveal-off').forEach(el => observer.observe(el));
+         document.querySelectorAll('.reveal-off:not(.reveal-late)').forEach(el => observer.observe(el));
+
+         // High Threshold Reveal (Specific for Photos Section)
+         const lateObserverOptions = { threshold: 0.90 };
+         const lateObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+               if (entry.isIntersecting) {
+                  entry.target.classList.add('reveal-on');
+                  entry.target.classList.remove('reveal-off');
+               }
+            });
+         }, lateObserverOptions);
+
+         document.querySelectorAll('.reveal-late').forEach(el => lateObserver.observe(el));
       });
    </script>
 </body>
