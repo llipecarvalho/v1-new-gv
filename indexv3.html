@@ -13,7 +13,7 @@
    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap"
       rel="stylesheet">
-   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=block"
       rel="stylesheet">
    <link rel="stylesheet" href="/src/styles/mainv3.css">
    <style>
@@ -71,6 +71,33 @@
       .reveal-on .grayscale-reveal {
          filter: grayscale(0) blur(0px) brightness(1);
          transform: scale(1);
+      }
+
+      /* ECO SLIDESHOW - KEN BURNS */
+      @keyframes kenburns {
+         0%   { transform: scale(1)    translate(0%,    0%);    }
+         100% { transform: scale(1.14) translate(-2%, -1.5%);   }
+      }
+      @keyframes kenburns-alt {
+         0%   { transform: scale(1)    translate(0%,   0%);  }
+         100% { transform: scale(1.14) translate(1.5%, 2%);  }
+      }
+
+      .eco-slide {
+         z-index: 0;
+      }
+      .eco-slide.active {
+         opacity: 1 !important;
+         z-index: 10 !important;
+      }
+      .eco-slide .eco-kb {
+         width: 100%;
+         height: 100%;
+         object-fit: cover;
+         transform-origin: center center;
+      }
+      .eco-slide.active .eco-kb {
+         animation: kenburns 10s ease-in-out forwards;
       }
 
       @keyframes shine-sweep {
@@ -280,97 +307,63 @@
             AGORA</button>
       </div>
 
-      <!-- SPLIT SCREEN HERO: ZAIOTTO MASSIVE STYLE -->
-      <header
-         class="relative min-h-[85vh] lg:min-h-[90vh] flex flex-col lg:flex-row bg-[var(--cream)]">
+      <!-- FULL-SCREEN HERO -->
+      <header class="relative min-h-[90vh] bg-[var(--cream)] overflow-hidden">
 
-         <!-- Right Side: Massive Image Slider (Full Height / Edge to Edge Zaiotto Style) -->
-         <div class="w-full lg:w-1/2 relative min-h-[50vh] lg:min-h-full flex-grow group order-1 lg:order-2"
-            id="zaiotto-slider">
+         <!-- Background: Full-Screen Image Slider -->
+         <div id="slider-slides" class="absolute inset-0 w-full h-full">
 
-            <!-- Gradient Fade from Left -->
-            <div
-               class="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[var(--cream)] to-transparent z-20 pointer-events-none hidden lg:block">
+            <!-- Slide 1 -->
+            <div class="slide absolute inset-0 transition-opacity duration-1000 opacity-100 w-full h-full">
+               <img
+                  src="https://images.unsplash.com/photo-1584916201218-f4242ceb4809?q=80&w=1920&auto=format&fit=crop"
+                  alt="Bolsa Prada Galleria - Prêmio Versiani" class="w-full h-full object-cover">
             </div>
 
-            <!-- Slider is fully automatic without manual navigation arrows -->
-
-            <!-- SLIDES -->
-            <div id="slider-slides" class="absolute inset-0 w-full h-full overflow-hidden bg-[#111]">
-
-               <!-- Slide 1 -->
-               <div class="slide absolute inset-0 transition-opacity duration-700 opacity-100 z-10 w-full h-full">
-                  <img
-                     src="https://images.unsplash.com/photo-1584916201218-f4242ceb4809?q=80&w=1200&auto=format&fit=crop"
-                     alt="Bolsa Prada Galleria - Prêmio Versiani" width="1200" height="800" loading="lazy"
-                     class="w-full h-full object-cover">
-                  <div class="absolute inset-0 bg-black/20 z-10 pointer-events-none"></div>
-                  <div
-                     class="absolute lg:hidden inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[var(--cream)] via-[var(--cream)]/70 to-transparent z-20 pointer-events-none">
-                  </div>
-
-                  <div
-                     class="absolute bottom-0 left-0 right-0 z-30 p-6 md:p-10">
-                     <h3 class="text-2xl md:text-4xl font-black text-white uppercase tracking-tighter">Prada Galleria
-                        Bag</h3>
-                  </div>
-               </div>
-
-               <!-- Slide 2 -->
-               <div class="slide absolute inset-0 transition-opacity duration-700 opacity-0 z-0 w-full h-full">
-                  <img
-                     src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=1200&auto=format&fit=crop"
-                     alt="Viagem Paris - Grande Sorteio Versiani" width="1200" height="800"
-                     class="w-full h-full object-cover">
-                  <div class="absolute inset-0 bg-black/20 z-10 pointer-events-none"></div>
-                  <div
-                     class="absolute lg:hidden inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[var(--cream)] via-[var(--cream)]/70 to-transparent z-20 pointer-events-none">
-                  </div>
-
-                  <div
-                     class="absolute bottom-0 left-0 right-0 z-30 p-6 md:p-10">
-                     <h3 class="text-2xl md:text-4xl font-black text-white uppercase tracking-tighter">Viagem para Paris
-                     </h3>
-                  </div>
-               </div>
-
-               <!-- Slide 3 -->
-               <div class="slide absolute inset-0 transition-opacity duration-700 opacity-0 z-0 w-full h-full">
-                  <img
-                     src="https://images.unsplash.com/photo-1695048133142-1a20484d2569?q=80&w=1200&auto=format&fit=crop"
-                     alt="iPhone 16 Pro Max - Loteria Versiani" width="1200" height="800"
-                     class="w-full h-full object-cover" style="object-position: center;">
-                  <div class="absolute inset-0 bg-black/20 z-10 pointer-events-none"></div>
-                  <div
-                     class="absolute lg:hidden inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[var(--cream)] via-[var(--cream)]/70 to-transparent z-20 pointer-events-none">
-                  </div>
-
-                  <div
-                     class="absolute bottom-0 left-0 right-0 z-30 p-6 md:p-10">
-                     <h3 class="text-2xl md:text-4xl font-black text-white uppercase tracking-tighter">iPhone 16 Pro Max
-                     </h3>
-                  </div>
-               </div>
-
+            <!-- Slide 2 -->
+            <div class="slide absolute inset-0 transition-opacity duration-1000 opacity-0 w-full h-full">
+               <img
+                  src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=1920&auto=format&fit=crop"
+                  alt="Viagem Paris - Prêmio Versiani" class="w-full h-full object-cover">
             </div>
-         </div>
 
-         <!-- Left Side: Typography & CTAs -->
-         <div
-            class="w-full lg:w-1/2 flex flex-col justify-center items-center text-center lg:items-start lg:text-left px-6 md:px-12 lg:px-20 xl:px-32 pt-8 pb-8 lg:pt-28 lg:pb-16 z-10 relative overflow-hidden order-2 lg:order-1">
-            
-            <div class="space-y-6 max-w-2xl relative z-10">
-               <h1
-                  class="text-[2.8rem] sm:text-5xl md:text-7xl lg:text-[5.5rem] font-black text-[var(--text-dark)] leading-[0.9] tracking-tighter uppercase break-words hyphens-auto">
-                  Acesse o <span class="text-gradient-accent">luxo.</span>
-               </h1>
-               <p class="text-base text-[var(--text-mid)] font-medium leading-relaxed">
-                  Você merece fazer parte desse universo. <br> Assine e faça parte do Clube Versiani.
-               </p>
+            <!-- Slide 3 -->
+            <div class="slide absolute inset-0 transition-opacity duration-1000 opacity-0 w-full h-full">
+               <img
+                  src="https://images.unsplash.com/photo-1695048133142-1a20484d2569?q=80&w=1920&auto=format&fit=crop"
+                  alt="iPhone 16 Pro Max - Prêmio Versiani" class="w-full h-full object-cover" style="object-position: center;">
             </div>
-         </div>
 
          </div>
+
+         <!-- Dark Overlay for readability -->
+         <div class="absolute inset-0 bg-gradient-to-r from-black/75 via-black/40 to-black/10 pointer-events-none" style="z-index:10;"></div>
+         <div class="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-black/80 to-transparent pointer-events-none" style="z-index:10;"></div>
+
+         <!-- Foreground: Text Content -->
+         <div class="absolute inset-0 flex flex-col px-8 md:px-24 lg:px-32" style="z-index:20;">
+
+            <!-- Main Headline: Centro vertical esquerdo -->
+            <div class="flex-1 flex flex-col justify-center items-start pt-10">
+               <div class="space-y-6 max-w-2xl">
+                  <h1 class="text-[3.5rem] sm:text-7xl md:text-8xl lg:text-[7rem] font-black text-white drop-shadow-[0_4px_24px_rgba(0,0,0,0.8)] leading-[0.88] tracking-tighter uppercase">
+                     Acesse o <span class="text-gradient-accent drop-shadow-[0_0_30px_rgba(0,0,0,0.6)]">luxo.</span>
+                  </h1>
+                  <p class="hidden md:block text-lg md:text-xl text-white font-semibold leading-relaxed max-w-md opacity-90 drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)] border-l-2 border-[var(--terra)] pl-4">
+                     Você merece fazer parte desse universo.<br>
+                     Assine e concorra mensalmente a prêmios de dar inveja.
+                  </p>
+               </div>
+            </div>
+
+            <!-- Bottom: Prize of the month -->
+            <div class="pb-10 md:pb-12">
+               <span class="text-[10px] font-black text-[var(--terra)] uppercase tracking-[0.3em] block mb-2">[ Prêmio do Mês ]</span>
+               <h2 id="hero-slide-title" class="text-3xl md:text-5xl font-black text-white uppercase tracking-tighter drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)]" style="transition: opacity 0.5s ease;">Prada Galleria Bag</h2>
+            </div>
+
+         </div>
+
       </header>
 
       <!-- INFINITE MARQUEE TICKER -->
@@ -556,7 +549,7 @@
          </div>
          <div class="max-w-7xl mx-auto relative z-10">
             <div
-               class="bento-card glass-premium p-8 md:p-12 relative overflow-hidden bg-white border border-[var(--sand-deep)] shadow-2xl max-w-4xl">
+               class="bento-card glass-premium p-8 md:p-12 relative overflow-hidden bg-white border border-[var(--sand-deep)] shadow-2xl max-w-4xl mx-auto">
                <div
                   class="absolute -top-24 -right-24 w-[320px] h-[320px] bg-[var(--terra)]/15 blur-[100px] rounded-full pointer-events-none">
                </div>
@@ -619,95 +612,96 @@
             class="absolute lg:hidden inset-x-0 top-0 h-20 bg-gradient-to-b from-[var(--sand)]/80 to-transparent z-0 pointer-events-none">
          </div>
 
-         <div class="max-w-7xl mx-auto relative z-10">
+         <div class="max-w-7xl mx-auto relative z-10 md:grid md:grid-cols-2 md:gap-16 md:items-center">
             <div>
                <span class="text-[10px] md:text-xs font-black text-[var(--terra)] uppercase tracking-[0.2em] md:tracking-[0.3em] mb-4 block whitespace-nowrap">[ ACESSO AO UNIVERSO VERSIANI ]</span>
-               <h2 class="text-[22px] font-black text-[var(--text-dark)] uppercase tracking-tight leading-tight mb-8">
-                  <span class="block whitespace-nowrap">Um valor pequeno.</span>
-                  <span class="block whitespace-nowrap">Um acesso ao</span>
-                  <span class="block whitespace-nowrap">extraordinário.</span>
+               <h2 class="text-[22px] md:text-4xl lg:text-5xl font-black text-[var(--text-dark)] uppercase tracking-tight leading-tight mb-8">
+                  <span class="block">Um valor pequeno.</span>
+                  <span class="block">Um acesso ao</span>
+                  <span class="block">extraordinário.</span>
                </h2>
                <p class="text-base text-[var(--text-mid)] font-medium leading-relaxed mb-8">
                   No Clube Versiani, você se aproxima dos prêmios de luxo mais desejados e ainda transforma sua
                   assinatura em benefícios, descontos e experiências no universo Versiani.
                </p>
-
-               <div class="mb-8">
-                  <div class="flex justify-end mb-4">
-               <div class="hidden md:hidden gap-3 relative z-10">
-                  <button id="eco-prev"
-                     class="w-10 h-10 rounded-full border border-white/20 bg-white/5 flex items-center justify-center text-white hover:bg-[var(--terra)] hover:text-black hover:border-[var(--terra)] transition-colors cursor-pointer">
-                     <span class="material-symbols-outlined text-[1.1rem]">arrow_back</span>
-                  </button>
-                  <button id="eco-next"
-                     class="w-10 h-10 rounded-full border border-white/20 bg-white/5 flex items-center justify-center text-white hover:bg-[var(--terra)] hover:text-black hover:border-[var(--terra)] transition-colors cursor-pointer">
-                     <span class="material-symbols-outlined text-[1.1rem]">arrow_forward</span>
-                  </button>
-               </div>
-                  </div>
-                <div class="relative w-full group/eco">
-                   <!-- Setas Laterais (Somente Mobile/Tablet) -->
-                   <div id="eco-prev-btn" class="absolute inset-y-0 left-[-2vw] md:hidden z-[60] flex items-center opacity-0 pointer-events-none transition-opacity duration-300">
-                      <button onclick="document.getElementById('eco-carousel').scrollBy({left: -320, behavior: 'smooth'})"
-                         class="w-10 h-10 rounded-full border border-[var(--sand-deep)] bg-[var(--sand)]/40 backdrop-blur-md flex items-center justify-center text-white shadow-2xl active:scale-90">
-                         <span class="material-symbols-outlined text-[1.1rem]">arrow_back</span>
-                      </button>
-                   </div>
-                   <div id="eco-next-btn" class="absolute inset-y-0 right-[-2vw] md:hidden z-[60] flex items-center transition-opacity duration-300">
-                      <button onclick="document.getElementById('eco-carousel').scrollBy({left: 320, behavior: 'smooth'})"
-                         class="w-10 h-10 rounded-full border border-[var(--sand-deep)] bg-[var(--sand)]/40 backdrop-blur-md flex items-center justify-center text-white shadow-2xl active:scale-90">
-                         <span class="material-symbols-outlined text-[1.1rem]">arrow_forward</span>
-                      </button>
-                   </div>
-
-                   <div id="eco-carousel"
-                      class="flex md:grid md:grid-cols-3 gap-4 overflow-x-auto overflow-y-hidden md:overflow-visible snap-x md:snap-none snap-mandatory scroll-smooth [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] px-[6vw] sm:px-0 relative z-10">
-                     <div
-                        class="bento-card h-[190px] p-4 rounded-2xl border border-[var(--sand-deep)] bg-white w-[78vw] sm:w-[300px] md:w-auto flex-shrink-0 snap-center group relative overflow-hidden shadow-lg hover:border-[var(--terra)]/40 hover:shadow-2xl transition-all duration-500">
-                        <img src="https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?q=80&w=800&auto=format&fit=crop"
-                           alt="Prêmios desejados Versiani" loading="lazy"
-                           class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 group-hover:scale-110 transition-all duration-700">
-                        <div class="absolute inset-0 bg-gradient-to-t from-[var(--cream)]/80 via-transparent to-transparent"></div>
-                        <span
-                           class="absolute -top-2 -right-2 text-[5rem] font-black text-[var(--terra)] opacity-[0.05] leading-none transition-transform duration-700 group-hover:scale-110 pointer-events-none z-10">01</span>
-                         <div class="relative z-20 h-full flex flex-col justify-end">
-                            <p class="text-sm font-black text-[var(--text-dark)] uppercase tracking-wide">Prêmios desejados</p>
-                         </div>
-                     </div>
-                     <div
-                        class="bento-card h-[190px] p-4 rounded-2xl border border-[var(--sand-deep)] bg-white w-[78vw] sm:w-[300px] md:w-auto flex-shrink-0 snap-center group relative overflow-hidden shadow-lg hover:border-[var(--terra)]/40 hover:shadow-2xl transition-all duration-500">
-                        <img src="https://images.unsplash.com/photo-1613243555988-441166d4d6fd?q=80&w=800&auto=format&fit=crop"
-                           alt="Membro Elite Versiani - Benefícios Exclusivos" loading="lazy"
-                           class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 group-hover:scale-110 transition-all duration-700">
-                        <div class="absolute inset-0 bg-gradient-to-t from-[var(--cream)]/80 via-transparent to-transparent"></div>
-                        <span
-                           class="absolute -top-2 -right-2 text-[5rem] font-black text-[var(--terra)] opacity-[0.05] leading-none transition-transform duration-700 group-hover:scale-110 pointer-events-none z-10">02</span>
-                         <div class="relative z-20 h-full flex flex-col justify-end">
-                            <p class="text-sm font-black text-[var(--text-dark)] uppercase tracking-wide">20 pontos por assinatura</p>
-                         </div>
-                     </div>
-                     <div
-                        class="bento-card h-[190px] p-4 rounded-2xl border border-[var(--sand-deep)] bg-white w-[78vw] sm:w-[300px] md:w-auto flex-shrink-0 snap-center group relative overflow-hidden shadow-lg hover:border-[var(--terra)]/40 hover:shadow-2xl transition-all duration-500">
-                        <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=800&auto=format&fit=crop"
-                           alt="Benefícios nas marcas Versiani Skin e Swim" loading="lazy"
-                           class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 group-hover:scale-110 transition-all duration-700">
-                        <div class="absolute inset-0 bg-gradient-to-t from-[var(--cream)]/80 via-transparent to-transparent"></div>
-                        <span
-                           class="absolute -top-2 -right-2 text-[5rem] font-black text-[var(--terra)] opacity-[0.05] leading-none transition-transform duration-700 group-hover:scale-110 pointer-events-none z-10">03</span>
-                         <div class="relative z-20 h-full flex flex-col justify-end">
-                            <p class="text-sm font-black text-[var(--text-dark)] uppercase tracking-wide">Benefícios nas marcas
-                               <a href="https://versianiskin.com/" target="_blank" rel="noopener noreferrer"
-                                  class="text-[var(--terra)] hover:text-[var(--text-dark)] transition-colors">Skin</a> +
-                               <a href="https://versianiswim.com.br/" target="_blank" rel="noopener noreferrer"
-                                  class="text-[var(--terra)] hover:text-[var(--text-dark)] transition-colors">Swim</a></p>
-                         </div>
-                     </div>
-                  </div>
-               </div>
-
-                <p class="text-base text-[var(--text-mid)] font-medium leading-relaxed text-center mt-12 mb-4">
+               <p class="hidden md:block text-sm text-[var(--text-mid)] font-medium leading-relaxed mt-12 mb-4 italic">
                    Resgate seus pontos e aproveite vantagens nos produtos mais desejados da marca.
                 </p>
+            </div>
+
+            <div>              
+               <!-- Desktop Ken Burns Slideshow (1 card ciclando as 3 imagens) -->
+               <div class="hidden md:block relative h-[340px] rounded-2xl overflow-hidden border border-[var(--sand-deep)] shadow-[0_10px_40px_-10px_rgba(184,98,42,0.15)] flex-1">
+
+                  <!-- Slide 1: Prêmios -->
+                  <div class="eco-slide absolute inset-0 opacity-0 transition-opacity duration-1000">
+                     <img src="https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?q=80&w=1400&auto=format&fit=crop"
+                          alt="Prêmios desejados Versiani" class="eco-kb w-full h-full object-[center_35%] object-cover scale-105 animate-[kenburns_15s_linear_infinite]">
+                     <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent z-10 pointer-events-none"></div>
+                     <div class="absolute bottom-6 left-6 right-6 z-20">
+                        <p class="text-base font-black text-white uppercase tracking-widest drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">Prêmios desejados</p>
+                     </div>
+                  </div>
+
+                  <!-- Slide 2: Cartão VIP -->
+                  <div class="eco-slide absolute inset-0 opacity-0 transition-opacity duration-1000">
+                     <img src="https://images.unsplash.com/photo-1613243555988-441166d4d6fd?q=80&w=1400&auto=format&fit=crop"
+                          alt="20 Pontos por Assinatura" class="eco-kb w-full h-full object-[center_top] object-cover scale-105 animate-[kenburns_15s_linear_infinite]">
+                     <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent z-10 pointer-events-none"></div>
+                     <div class="absolute bottom-6 left-6 right-6 z-20">
+                        <p class="text-base font-black text-white uppercase tracking-widest drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">20 pontos por assinatura</p>
+                     </div>
+                  </div>
+
+                  <!-- Slide 3: Skin + Swim -->
+                  <div class="eco-slide absolute inset-0 opacity-0 transition-opacity duration-1000">
+                     <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1400&auto=format&fit=crop"
+                          alt="Benefícios Skin e Swim" class="eco-kb w-full h-full object-[center_20%] object-cover scale-105 animate-[kenburns_15s_linear_infinite]">
+                     <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent z-10 pointer-events-none"></div>
+                     <div class="absolute bottom-6 left-6 right-6 z-20">
+                        <p class="text-base font-black text-white uppercase tracking-widest drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">Benefícios nas marcas Skin + Swim</p>
+                     </div>
+                  </div>
+
+                  <!-- Navigation Dots for Desktop Slider -->
+                  <div class="absolute bottom-6 right-6 z-30 flex gap-2">
+                     <div class="eco-dot w-8 h-2 rounded-full bg-[var(--terra)] transition-all duration-300"></div>
+                     <div class="eco-dot w-2 h-2 rounded-full bg-black/20 transition-all duration-300"></div>
+                     <div class="eco-dot w-2 h-2 rounded-full bg-black/20 transition-all duration-300"></div>
+                  </div>
+               </div>
+
+               <!-- Carousel Original (Mobile) -->
+               <div class="md:hidden relative w-full group/eco">
+                  <div id="eco-carousel"
+                     class="flex gap-4 overflow-x-auto overflow-y-hidden snap-x snap-mandatory scroll-smooth [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] px-[6vw] relative z-10">
+                    <div class="bento-card h-[190px] p-4 rounded-2xl border border-[var(--sand-deep)] bg-white w-[78vw] flex-shrink-0 snap-center relative overflow-hidden shadow-lg">
+                       <img src="https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?q=80&w=800&auto=format&fit=crop"
+                          alt="Prêmios desejados Versiani" loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                       <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent pointer-events-none z-10"></div>
+                        <div class="relative z-20 h-full flex flex-col justify-end">
+                           <p class="text-sm font-black text-white uppercase tracking-wide drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">Prêmios desejados</p>
+                        </div>
+                    </div>
+                    <div class="bento-card h-[190px] p-4 rounded-2xl border border-[var(--sand-deep)] bg-white w-[78vw] flex-shrink-0 snap-center relative overflow-hidden shadow-lg">
+                       <img src="https://images.unsplash.com/photo-1613243555988-441166d4d6fd?q=80&w=800&auto=format&fit=crop"
+                          alt="20 pontos por assinatura" loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                       <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent pointer-events-none z-10"></div>
+                        <div class="relative z-20 h-full flex flex-col justify-end">
+                           <p class="text-sm font-black text-white uppercase tracking-wide drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">20 pontos por assinatura</p>
+                        </div>
+                    </div>
+                    <div class="bento-card h-[190px] p-4 rounded-2xl border border-[var(--sand-deep)] bg-white w-[78vw] flex-shrink-0 snap-center relative overflow-hidden shadow-lg">
+                       <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=800&auto=format&fit=crop"
+                          alt="Benefícios nas marcas Skin e Swim" loading="lazy" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                       <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent pointer-events-none z-10"></div>
+                        <div class="relative z-20 h-full flex flex-col justify-end">
+                           <p class="text-sm font-black text-white uppercase tracking-wide drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">Benefícios nas marcas Skin + Swim</p>
+                        </div>
+                    </div>
+                 </div>
+              </div>
+              <p class="md:hidden text-center text-sm text-[var(--text-mid)] font-medium mt-6 mb-4">Resgate seus pontos e aproveite vantagens nas marcas.</p>
             </div>
          </div>
       </section>
@@ -786,75 +780,107 @@
          </div>
       </section>
 
-      <!-- PRICING TABLE (Dark Mode Tiers) -->
-      <section class="py-8 md:py-12 bg-[var(--cream)] overflow-hidden relative reveal-off" id="planos">
-         <div
-            class="absolute lg:hidden -top-16 right-[-26%] w-[74vw] h-[74vw] bg-[var(--terra)]/16 blur-[120px] rounded-full z-0 pointer-events-none">
-         </div>
-         <div
-            class="absolute lg:hidden bottom-[-14%] left-[-18%] w-[76vw] h-[76vw] bg-[var(--espresso)]/20 blur-[140px] rounded-full z-0 pointer-events-none">
-         </div>
-         <!-- Container do Header -->
-         <div class="max-w-7xl mx-auto px-6 md:px-8 relative z-10">
-            <div
-               class="flex flex-col mb-6 md:mb-8 gap-8 md:gap-20 relative w-full overflow-hidden md:overflow-visible items-center">
+      <!-- PRICING: Split Layout Premium -->
+      <section class="py-16 md:py-24 overflow-hidden relative border-y border-[var(--sand-deep)]" id="planos">
 
-               <div class="w-full flex flex-col items-center z-0 text-center">
-                  <span class="text-xs font-black text-[var(--terra)] uppercase tracking-[0.3em] block mb-6 md:mb-10">[
-                     SUA ENTRADA NO CLUBE ]</span>
-                  <h2
-                     class="text-[22px] font-black text-[var(--text-dark)] uppercase tracking-tight leading-tight opacity-90 text-center">
-                     Comece com R$ 20</h2>
+         <!-- Atmospheric Depth -->
+         <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden bg-[var(--cream)]">
+            <div class="absolute inset-0 bg-gradient-to-b from-[var(--cream)] via-[var(--sand)]/30 to-[var(--cream)]"></div>
+            <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-full h-[500px] bg-[var(--terra)]/5 blur-[120px] rounded-full pointer-events-none"></div>
+            <div class="absolute -bottom-[20%] -right-[10%] w-[60vw] h-[60vw] bg-[var(--espresso)]/10 blur-[180px] rounded-full animate-blob"></div>
+            <div class="absolute -top-[10%] -left-[10%] w-[50vw] h-[50vw] bg-[var(--terra)]/10 blur-[140px] rounded-full animate-blob" style="animation-delay: -4s;"></div>
+         </div>
+
+         <div class="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 relative z-10">
+            <div class="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
+
+               <!-- LEFT: Pitch persuasivo -->
+               <div class="flex-1 space-y-8 reveal-off">
+                  <span class="text-xs font-black text-[var(--terra)] uppercase tracking-[0.3em]">[ Sua entrada no clube ]</span>
+                  <h2 class="text-4xl md:text-5xl lg:text-6xl font-black text-[var(--text-dark)] uppercase tracking-tight leading-[0.95]">
+                     Comece<br>com <span class="text-gradient-accent">R$ 20.</span>
+                  </h2>
+                  <p class="text-[var(--text-mid)] font-medium text-lg leading-relaxed max-w-md">
+                     Por menos de um café por semana, você entra no universo Versiani — com chances reais de ganhar prêmios de alto valor todo mês.
+                  </p>
+
+                  <!-- Value bullets -->
+                  <ul class="space-y-5">
+                     <li class="flex items-start gap-4">
+                        <span class="material-symbols-outlined text-[var(--terra)] text-2xl mt-0.5">stars</span>
+                        <div>
+                           <p class="text-[var(--text-dark)] font-black text-base uppercase tracking-wide">Sorteios Todo Mês</p>
+                           <p class="text-[var(--text-mid)] text-sm font-medium">Prêmios reais, sorteados pela Loteria Federal.</p>
+                        </div>
+                     </li>
+                     <li class="flex items-start gap-4">
+                        <span class="material-symbols-outlined text-[var(--terra)] text-2xl mt-0.5">local_offer</span>
+                        <div>
+                           <p class="text-[var(--text-dark)] font-black text-base uppercase tracking-wide">Descontos Exclusivos</p>
+                           <p class="text-[var(--text-mid)] text-sm font-medium">Acesso à loja de benefícios com desconto real em cada compra.</p>
+                        </div>
+                     </li>
+                     <li class="flex items-start gap-4">
+                        <span class="material-symbols-outlined text-[var(--terra)] text-2xl mt-0.5">workspace_premium</span>
+                        <div>
+                           <p class="text-[var(--text-dark)] font-black text-base uppercase tracking-wide">Cancele Quando Quiser</p>
+                           <p class="text-[var(--text-mid)] text-sm font-medium">Sem fidelidade, sem burocracia. 1 click para sair.</p>
+                        </div>
+                     </li>
+                  </ul>
                </div>
 
-            </div>
-         </div>
+               <!-- RIGHT: Card premium -->
+               <div class="w-full lg:w-[420px] flex-shrink-0 reveal-off">
+                  <!-- Glow ring behind card -->
+                  <div class="relative">
+                     <div class="absolute -inset-1 bg-gradient-to-br from-[var(--terra)]/20 to-[var(--sand-deep)]/40 rounded-3xl blur-xl opacity-70"></div>
 
-         <!-- Wrapper do Carrossel Full-Bleed -->
-         <div class="relative w-full">
-            <div
-               class="absolute left-0 top-0 bottom-0 w-[18vw] sm:w-[calc(50%_-_130px)] bg-[var(--cream)]/60 backdrop-blur-[8px] z-20 pointer-events-none md:hidden"
-               style="-webkit-mask-image: linear-gradient(to right, black 20%, transparent 100%); mask-image: linear-gradient(to right, black 20%, transparent 100%);">
-            </div>
-            <div
-               class="absolute right-0 top-0 bottom-0 w-[18vw] sm:w-[calc(50%_-_130px)] bg-[var(--cream)]/60 backdrop-blur-[8px] z-20 pointer-events-none md:hidden"
-               style="-webkit-mask-image: linear-gradient(to left, black 20%, transparent 100%); mask-image: linear-gradient(to left, black 20%, transparent 100%);">
-            </div>
+                     <div class="relative bg-white border border-[var(--sand-deep)] rounded-2xl p-8 md:p-10 shadow-2xl">
 
-            <div id="planos-carousel"
-               class="flex md:grid md:grid-cols-1 gap-6 overflow-x-auto md:overflow-visible snap-x md:snap-none snap-mandatory pt-12 pb-16 px-[18vw] sm:px-[calc(50%_-_160px)] md:px-6 md:max-w-3xl md:mx-auto scroll-smooth [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] items-center">
-
-               <!-- Starter -->
-               <div
-                  class="bento-card p-10 flex flex-col justify-between bg-white border border-[var(--sand-deep)] hover:border-[var(--terra)]/30 shadow-2xl transition-all w-[75vw] sm:w-[320px] md:w-auto flex-shrink-0 snap-center md:snap-align-none min-h-[460px] reveal-off">
-                  <div>
-                     <h3 class="text-2xl font-black text-[var(--text-dark)] uppercase tracking-wide mb-2">Entrada</h3>
-                     <p class="text-[var(--text-mid)] text-sm font-medium h-12">Comece com R$ 20 e entre no Clube Versiani.</p>
-                     <div class="my-8 flex flex-col gap-1">
-                        <div class="flex items-end gap-2">
-                           <span class="text-4xl md:text-5xl font-black text-[var(--text-dark)]">R$<span
-                                 id="price-pilar">20</span></span>
-                           <span class="text-[var(--text-light)] font-bold mb-1 uppercase text-sm">/mês</span>
+                        <!-- Plan header -->
+                        <div class="flex items-start justify-between mb-6">
+                           <div>
+                              <span class="text-[10px] font-black text-[var(--terra)] uppercase tracking-[0.3em] block mb-1">Plano</span>
+                              <h3 class="text-3xl font-black text-[var(--text-dark)] uppercase tracking-wide">Entrada</h3>
+                           </div>
+                           <span class="px-3 py-1 rounded-full bg-[var(--terra)]/10 border border-[var(--terra)]/30 text-[var(--terra)] text-[10px] font-black uppercase tracking-widest">Ativo</span>
                         </div>
-                        <span id="annual-info-pilar"
-                           class="text-[10px] text-[var(--terra)] font-bold uppercase tracking-widest opacity-0 h-0 transition-all duration-300">Cobrado
-                           R$ 192 anualmente</span>
+
+                        <!-- Price -->
+                        <div class="mb-8 pb-8 border-b border-[var(--sand-deep)]/40">
+                           <div class="flex items-end gap-2">
+                              <span class="text-6xl font-black text-[var(--text-dark)] leading-none">R$<span id="price-pilar">20</span></span>
+                              <span class="text-[var(--text-light)] font-bold mb-1 uppercase text-sm">/mês</span>
+                           </div>
+                           <span id="annual-info-pilar" class="text-[10px] text-[var(--terra)] font-bold uppercase tracking-widest opacity-0 h-0 transition-all duration-300">Cobrado R$ 192 anualmente</span>
+                           <p class="text-[var(--text-mid)] text-xs mt-2 font-medium uppercase tracking-wide">Cancele a qualquer momento</p>
+                        </div>
+
+                        <!-- Features -->
+                        <ul class="space-y-4 mb-8">
+                           <li class="flex items-center gap-3 text-sm text-[var(--text-body)] font-bold">
+                              <span class="material-symbols-outlined text-[var(--terra)] text-lg">check_circle</span> 1 número da sorte por mês
+                           </li>
+                           <li class="flex items-center gap-3 text-sm text-[var(--text-body)] font-bold">
+                              <span class="material-symbols-outlined text-[var(--terra)] text-lg">check_circle</span> Acesso ao ecossistema de benefícios
+                           </li>
+                           <li class="flex items-center gap-3 text-sm text-[var(--text-body)] font-bold">
+                              <span class="material-symbols-outlined text-[var(--terra)] text-lg">check_circle</span> Descontos exclusivos nas lojas
+                           </li>
+                           <li class="flex items-center gap-3 text-sm text-[var(--text-body)] font-bold">
+                              <span class="material-symbols-outlined text-[var(--terra)] text-lg">check_circle</span> 20 Pontos todo mês
+                           </li>
+                        </ul>
+
+                        <!-- CTA -->
+                        <button onclick="openAuthModal('signup')"
+                           class="w-full py-4 rounded-full bg-[var(--text-dark)] text-[var(--cream)] font-black text-sm uppercase tracking-widest hover:bg-[var(--terra)] shadow-lg transition-all hover:text-white cursor-pointer">
+                           Começar com R$ 20
+                        </button>
+
                      </div>
-                     <ul class="space-y-4 mb-10">
-                         <li class="flex items-center gap-3 text-sm text-gray-300 font-bold"><span
-                               class="material-symbols-outlined text-[var(--terra)] text-lg">check_circle</span> 1 número da sorte</li>
-                         <li class="flex items-center gap-3 text-sm text-gray-300 font-bold"><span
-                               class="material-symbols-outlined text-[var(--terra)] text-lg">check_circle</span> Acesso ao ecossistema de benefícios</li>
-                         <li class="flex items-center gap-3 text-sm text-gray-300 font-bold"><span
-                               class="material-symbols-outlined text-[var(--terra)] text-lg">check_circle</span> Descontos exclusivos</li>
-                         <li class="flex items-center gap-3 text-sm text-gray-300 font-bold"><span
-                               class="material-symbols-outlined text-[var(--terra)] text-lg">check_circle</span> 20 Pontos
-                            todo mês</li>
-                      </ul>
                   </div>
-                  <button onclick="openAuthModal('signup')"
-                     class="w-full mt-auto py-4 border border-white/20 rounded-full font-black text-white hover:bg-white hover:text-black transition-all uppercase text-sm text-center cursor-pointer">Começar
-                     com R$ 20</button>
                </div>
 
             </div>
@@ -1340,9 +1366,76 @@
             });
          }
 
+         // --- AUTOMATIC HERO SLIDER & TITLE UPDATE LOGIC ---
+         const heroSlides = document.querySelectorAll('#slider-slides .slide');
+         const titleEl = document.getElementById('hero-slide-title');
+         let currentHeroSlide = 0;
+
+         // Fixed titles matching the order of the slides
+         const slideTitles = ['Prada Galleria Bag', 'Viagem para Paris', 'iPhone 16 Pro Max'];
+
+         // Initial state setup
+         if (titleEl && slideTitles.length > 0) {
+            titleEl.textContent = slideTitles[0];
+         }
+
+         if (heroSlides.length > 0 && titleEl) {
+            setInterval(() => {
+               // Fade out current slide
+               heroSlides[currentHeroSlide].classList.remove('opacity-100', 'z-10');
+               heroSlides[currentHeroSlide].classList.add('opacity-0', 'z-0');
+               
+               // Fade out title
+               titleEl.style.opacity = '0';
+
+               // Move to next slide
+               currentHeroSlide = (currentHeroSlide + 1) % heroSlides.length;
+
+               // Update slide after title fade
+               setTimeout(() => {
+                  // Fade in new slide
+                  heroSlides[currentHeroSlide].classList.remove('opacity-0', 'z-0');
+                  heroSlides[currentHeroSlide].classList.add('opacity-100', 'z-10');
+                  
+                  // Update and fade in title
+                  titleEl.textContent = slideTitles[currentHeroSlide];
+                  titleEl.style.opacity = '1';
+               }, 500); // 500ms matches the CSS transition time to align visual change
+               
+            }, 5000); // Change slide every 5 seconds
+         }
+         // ----------------------------------------------------
+
          setupCarousel('hw');
          setupCarousel('eco');
          setupCarousel('planos');
+
+         // Desktop Eco Slideshow (Ken Burns)
+         const ecoSlides = document.querySelectorAll('.eco-slide');
+         const ecoDots = document.querySelectorAll('.eco-dot');
+         if (ecoSlides.length > 0) {
+            let ecoIndex = 0;
+            ecoSlides[0].classList.add('active');
+            
+            const updateDots = (index) => {
+               ecoDots.forEach((d, i) => {
+                  if (i === index) {
+                     d.classList.add('w-8', 'bg-[var(--terra)]');
+                     d.classList.remove('w-2', 'bg-black/20');
+                  } else {
+                     d.classList.add('w-2', 'bg-black/20');
+                     d.classList.remove('w-8', 'bg-[var(--terra)]');
+                  }
+               });
+            };
+
+            setInterval(() => {
+               ecoSlides[ecoIndex].classList.remove('active');
+               ecoIndex = (ecoIndex + 1) % ecoSlides.length;
+               ecoSlides[ecoIndex].classList.add('active');
+               updateDots(ecoIndex);
+            }, 5000);
+         }
 
          // Pricing Toggle Logic
          const btnMensal = document.getElementById('btn-mensal');
