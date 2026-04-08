@@ -9,6 +9,7 @@ export default defineConfig({
         auth: resolve(__dirname, 'auth.html'),
         dashboard: resolve(__dirname, 'dashboard.html'),
         indexv3: resolve(__dirname, 'indexv3.html'),
+        indexv4: resolve(__dirname, 'indexv4.html'),
       },
     },
   },
