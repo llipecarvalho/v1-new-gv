@@ -70,12 +70,23 @@
 
       /* ECO SLIDESHOW - KEN BURNS */
       @keyframes kenburns {
-         0%   { transform: scale(1)    translate(0%,    0%);    }
-         100% { transform: scale(1.14) translate(-2%, -1.5%);   }
+         0% {
+            transform: scale(1) translate(0%, 0%);
+         }
+
+         100% {
+            transform: scale(1.14) translate(-2%, -1.5%);
+         }
       }
+
       @keyframes kenburns-alt {
-         0%   { transform: scale(1)    translate(0%,   0%);  }
-         100% { transform: scale(1.14) translate(1.5%, 2%);  }
+         0% {
+            transform: scale(1) translate(0%, 0%);
+         }
+
+         100% {
+            transform: scale(1.14) translate(1.5%, 2%);
+         }
       }
 
       .eco-slide {
@@ -85,19 +96,23 @@
          transition: opacity 1.5s ease-in-out;
          z-index: 0;
       }
+
       .eco-slide.active {
          opacity: 1;
          z-index: 1;
       }
+
       .eco-slide .eco-kb {
          width: 100%;
          height: 100%;
          object-fit: cover;
          transform-origin: center center;
       }
+
       .eco-slide.active .eco-kb {
          animation: kenburns 10s ease-in-out forwards;
       }
+
       .eco-slide:nth-child(even).active .eco-kb {
          animation: kenburns-alt 10s ease-in-out forwards;
       }
@@ -266,16 +281,16 @@
 
             <!-- RIGHT: Login & Theme -->
             <div class="flex items-center gap-2 md:gap-4 pr-1 md:pr-4 flex-shrink-0">
-               <a href="indexv3.html" 
+               <a href="indexv3.html"
                   class="px-3 md:px-5 py-2 md:py-3.5 rounded-full bg-[#FAF7F2] text-[#19100A] text-[8px] md:text-[11px] font-black uppercase tracking-[0.2em] hover:bg-[#B8622A] hover:text-white transition-all cursor-pointer whitespace-nowrap border border-[#B8622A]/20 shadow-[0_0_20px_rgba(184,98,42,0.2)]">
                   V2
                </a>
-               
-               <a href="indexv4.html" 
+
+               <a href="indexv4.html"
                   class="px-3 md:px-5 py-2 md:py-3.5 rounded-full bg-[#FAF7F2] text-[#19100A] text-[8px] md:text-[11px] font-black uppercase tracking-[0.2em] hover:bg-[#B8622A] hover:text-white transition-all cursor-pointer whitespace-nowrap border border-[#B8622A]/20 shadow-[0_0_20px_rgba(184,98,42,0.2)]">
                   V3
                </a>
-               
+
                <button onclick="openAuthModal('login')"
                   class="px-3 md:px-7 py-2 md:py-3.5 rounded-full border border-white/10 bg-white/5 text-[8px] md:text-[11px] font-black uppercase tracking-[0.2em] text-gray-400 hover:bg-white/10 transition-all cursor-pointer whitespace-nowrap"
                   aria-label="Entrar">
@@ -308,51 +323,70 @@
 
          <button onclick="openAuthModal('signup')"
             class="mobile-link mt-8 bg-[#f085aa] text-black px-12 py-4 rounded-full font-black text-lg uppercase hover:scale-105 hover:bg-white transition-all shadow-[0_0_30px_rgba(240,133,170,0.4)] cursor-pointer text-center">ASSINE
-            AGORA</button>`n      </div>
-           <!-- STACKED HERO (Mobile Stacked / Desktop Split) -->
+            AGORA</button>`n
+      </div>
+      <!-- STACKED HERO (Mobile Stacked / Desktop Split) -->
       <header class="relative flex flex-col lg:min-h-[90vh] lg:flex-row bg-[#050505] overflow-hidden">
 
          <!-- Top Area (Mobile) / Left Side (Desktop): Image Slider -->
-         <div class="relative w-full h-[65vh] lg:h-auto lg:absolute lg:inset-0 lg:w-full lg:h-full overflow-hidden" style="z-index: 10;">
-            <img src="https://images.unsplash.com/photo-1591561954557-26941169b49e?q=80&w=1920&auto=format&fit=crop"
-                 alt="Bolsa Gucci Marmont - Prêmio Versiani" class="w-full h-full object-cover select-none pointer-events-none">
+         <div
+            class="relative w-full h-[85vh] pt-7 lg:pt-0 lg:h-auto lg:absolute lg:inset-0 lg:w-full lg:h-full overflow-hidden"
+            style="z-index: 10;">
+            <img src="https://images.unsplash.com/photo-1591561954557-26941169b49e?q=80&w=1920&auto=format"
+               alt="Bolsa Gucci Marmont - Prêmio Versiani"
+               class="w-full h-full object-contain select-none pointer-events-none scale-110 transform-gpu drop-shadow-[0_10px_30px_rgba(0,0,0,0.8)] brightness-105">
 
             <!-- Fade overlay para fundir a imagem com a parte inferior (Solid Dark) -->
-            <div class="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#050505] via-[#050505]/80 to-transparent lg:hidden" style="z-index: 15;"></div>
-            
+            <div
+               class="absolute inset-x-0 bottom-0 h-8 bg-gradient-to-t from-[#050505] via-[#050505]/80 to-transparent lg:hidden"
+               style="z-index: 15;"></div>
+
             <!-- Mobile Prize Title Position -->
-            <div class="absolute bottom-3 left-0 right-0 z-20 lg:hidden flex flex-col justify-start px-6 text-left">
-                <span class="text-[10px] font-black text-[#f085aa] uppercase tracking-[0.3em] mb-1 drop-shadow-md">[PRÓXIMO PRÊMIO]</span>
-                <h2 id="hero-slide-title-mobile" class="text-2xl font-black text-white uppercase tracking-tighter drop-shadow-md">GUCCI MARMONT</h2>
+            <div class="absolute top-28 left-6 z-20 lg:hidden">
+               <div class="bg-[#f59e0b] px-3 py-1.5 rounded-md flex flex-col gap-0.5 shadow-xl skew-x-[-6deg]">
+                  <span class="text-[7px] font-black text-black/70 uppercase tracking-[0.25em] ml-0.5 mt-0.5">Próximo
+                     Prêmio</span>
+                  <h2 id="hero-slide-title-mobile"
+                     class="text-[14px] leading-tight font-black text-black uppercase tracking-tighter">
+                     GUCCI MARMONT</h2>
+               </div>
             </div>
          </div>
 
          <!-- Bottom Area (Mobile) / Context Over (Desktop): Text Content -->
-         <div class="relative w-full lg:min-h-[90vh] flex flex-col justify-center bg-[#050505] px-4 pt-8 pb-12 lg:bg-transparent lg:px-24 lg:px-32 lg:pt-0 lg:pb-0" style="z-index: 20;">
-            
-            <!-- Desktop Overlay (Hidden on Mobile) -->
-            <div class="absolute inset-0 bg-gradient-to-r from-black/75 via-black/30 to-transparent hidden lg:block" style="z-index: -1;"></div>
+         <div
+            class="relative w-full lg:min-h-[90vh] flex flex-col justify-center bg-[#050505] px-4 pt-8 pb-12 lg:bg-transparent lg:px-24 lg:px-32 lg:pt-0 lg:pb-0"
+            style="z-index: 20;">
 
-            <div class="space-y-6 max-w-2xl relative text-center lg:text-left mx-auto lg:mx-0 w-full">
-               <div class="space-y-4">
-                  <h1 class="text-[2.8rem] sm:text-6xl md:text-8xl lg:text-[7rem] font-black text-white leading-[0.9] tracking-tighter uppercase whitespace-nowrap">
+            <!-- Desktop Overlay (Hidden on Mobile) -->
+            <div class="absolute inset-0 bg-gradient-to-r from-black/75 via-black/30 to-transparent hidden lg:block"
+               style="z-index: -1;"></div>
+
+            <div class="space-y-8 max-w-2xl relative text-center lg:text-left mx-auto lg:mx-0 w-full">
+               <div class="space-y-5">
+                  <h1
+                     class="text-[2.8rem] sm:text-6xl md:text-8xl lg:text-[7rem] font-black text-white leading-[0.9] tracking-tighter uppercase whitespace-nowrap">
                      Acesse o <span class="text-gradient-rose">luxo</span>
                   </h1>
-                  <div class="mx-auto lg:mx-0 max-w-[420px] md:max-w-[500px] flex flex-col gap-3 text-center lg:text-left">
-                     <h2 class="text-[18px] md:text-[22px] text-white font-bold leading-snug">
-                        Entre para o Clube Versiani<br>e concorra a esta bolsa.
-                     </h2>
-                     <h2 class="text-[18px] md:text-[22px] text-white font-bold leading-snug">
-                        Ao participar, você aproveita descontos exclusivos nas marcas do Clube.
-                     </h2>
+
+                  <div
+                     class="flex flex-col gap-4 text-[17px] md:text-xl text-gray-400 font-medium leading-relaxed max-w-[380px] mx-auto lg:mx-0">
+                     <p class="text-white font-bold text-xl md:text-2xl">Entre para o Clube Versiani e concorra a esta
+                        bolsa.</p>
+                     <p>Aproveite descontos exclusivos nas marcas do Clube.</p>
                   </div>
                </div>
+
+
             </div>
 
             <!-- Desktop Prize UI (Hidden on Mobile) -->
             <div class="hidden lg:block absolute bottom-12 left-24 lg:left-32">
-               <span class="text-[10px] font-black text-[#f085aa] uppercase tracking-[0.3em] block mb-2">[ PRÓXIMO PRÊMIO ]</span>
-               <h2 id="hero-slide-title-desktop" class="text-4xl lg:text-5xl font-black text-white uppercase tracking-tighter drop-shadow-xl">GUCCI MARMONT</h2>
+               <span class="text-[10px] font-black text-[#f085aa] uppercase tracking-[0.3em] block mb-2">[ PRÓXIMO
+                  PRÊMIO ]</span>
+               <h2 id="hero-slide-title-desktop"
+                  class="text-4xl lg:text-5xl font-black text-white uppercase tracking-tighter drop-shadow-xl">GUCCI
+                  MARMONT</h2>
             </div>
          </div>
 
@@ -389,14 +423,18 @@
                class="absolute -bottom-[10%] left-[15%] w-[50vw] h-[50vw] bg-[#f085aa]/10 blur-[140px] rounded-full animate-blob"
                style="animation-delay: -12s;"></div>
             <!-- Grain Texture Overlay -->
-            <div class="absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-overlay" 
-               style="background-image: url('data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.65\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E');"></div>
+            <div class="absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-overlay"
+               style="background-image: url('data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.65\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E');">
+            </div>
          </div>
          <div class="max-w-7xl mx-auto px-6 relative z-10">
             <div class="flex items-end justify-between mb-8 gap-6">
                <div class="space-y-4 md:text-center md:w-full">
-                  <span class="text-xs font-black text-[#f085aa] uppercase tracking-[0.3em]">[ SUA ENTRADA NESSE UNIVERSO ]</span>
-                  <h2 class="text-[22px] md:text-4xl lg:text-5xl font-black text-white uppercase tracking-tight leading-tight">Como Funciona</h2>
+                  <span class="text-xs font-black text-[#f085aa] uppercase tracking-[0.3em]">[ SUA ENTRADA NESSE
+                     UNIVERSO ]</span>
+                  <h2
+                     class="text-[22px] md:text-4xl lg:text-5xl font-black text-white uppercase tracking-tight leading-tight">
+                     Como Funciona</h2>
                </div>
                <!-- Setas de navegação (Ocultas no mobile se o espaço apertar, mas os usuários podem fazer scroll via touch tranquilamente) -->
                <div class="hidden gap-3 relative z-10">
@@ -414,28 +452,30 @@
 
          <!-- Wrapper do Carrossel Full-Bleed (Livre das limitações do Max-W) -->
          <div class="relative w-full group/hw">
-             <!-- Setas Laterais (Somente Mobile/Tablet) -->
-             <div id="hw-prev-btn" class="absolute inset-y-0 left-2 md:hidden z-[60] flex items-center opacity-0 pointer-events-none transition-opacity duration-300">
-                <button onclick="document.getElementById('hw-carousel').scrollBy({left: -320, behavior: 'smooth'})"
-                   class="w-10 h-10 rounded-full border border-white/20 bg-black/40 backdrop-blur-md flex items-center justify-center text-white transition-all cursor-pointer shadow-2xl active:scale-90">
-                   <span class="material-symbols-outlined text-[1.2rem]">arrow_back</span>
-                </button>
-             </div>
-             <div id="hw-next-btn" class="absolute inset-y-0 right-2 md:hidden z-[60] flex items-center transition-opacity duration-300">
-                <button onclick="document.getElementById('hw-carousel').scrollBy({left: 320, behavior: 'smooth'})"
-                   class="w-10 h-10 rounded-full border border-white/20 bg-black/40 backdrop-blur-md flex items-center justify-center text-white transition-all cursor-pointer shadow-2xl active:scale-90">
-                   <span class="material-symbols-outlined text-[1.2rem]">arrow_forward</span>
-                </button>
-             </div>
+            <!-- Setas Laterais (Somente Mobile/Tablet) -->
+            <div id="hw-prev-btn"
+               class="absolute inset-y-0 left-2 md:hidden z-[60] flex items-center opacity-0 pointer-events-none transition-opacity duration-300">
+               <button onclick="document.getElementById('hw-carousel').scrollBy({left: -320, behavior: 'smooth'})"
+                  class="w-10 h-10 rounded-full border border-white/20 bg-black/40 backdrop-blur-md flex items-center justify-center text-white transition-all cursor-pointer shadow-2xl active:scale-90">
+                  <span class="material-symbols-outlined text-[1.2rem]">arrow_back</span>
+               </button>
+            </div>
+            <div id="hw-next-btn"
+               class="absolute inset-y-0 right-2 md:hidden z-[60] flex items-center transition-opacity duration-300">
+               <button onclick="document.getElementById('hw-carousel').scrollBy({left: 320, behavior: 'smooth'})"
+                  class="w-10 h-10 rounded-full border border-white/20 bg-black/40 backdrop-blur-md flex items-center justify-center text-white transition-all cursor-pointer shadow-2xl active:scale-90">
+                  <span class="material-symbols-outlined text-[1.2rem]">arrow_forward</span>
+               </button>
+            </div>
 
-             <!-- Máscara de Profundidade Esquerda (Atrás dos Cards) -->
-             <div
-                class="absolute left-0 top-0 bottom-0 w-[8vw] bg-gradient-to-r from-[#050505] to-transparent z-10 pointer-events-none md:hidden">
-             </div>
-             <!-- Máscara de Profundidade Direita (Atrás dos Cards) -->
-             <div
-                class="absolute right-0 top-0 bottom-0 w-[8vw] bg-gradient-to-l from-[#050505] to-transparent z-10 pointer-events-none md:hidden">
-             </div>
+            <!-- Máscara de Profundidade Esquerda (Atrás dos Cards) -->
+            <div
+               class="absolute left-0 top-0 bottom-0 w-[8vw] bg-gradient-to-r from-[#050505] to-transparent z-10 pointer-events-none md:hidden">
+            </div>
+            <!-- Máscara de Profundidade Direita (Atrás dos Cards) -->
+            <div
+               class="absolute right-0 top-0 bottom-0 w-[8vw] bg-gradient-to-l from-[#050505] to-transparent z-10 pointer-events-none md:hidden">
+            </div>
 
             <!-- Container do Carrossel Centrado -->
             <div id="hw-carousel"
@@ -457,9 +497,10 @@
                      </div>
                   </div>
                   <div class="relative z-10 mt-6 flex-1 flex flex-col justify-start">
-                     <h3 class="text-xl md:text-2xl font-black text-white mb-3 tracking-tight">Concorra a itens de alto valor</h3>
-                     <p class="text-sm text-gray-300 font-medium leading-relaxed">Entra no Clube Versiani por R$20 ao
-                        mês e já passa a fazer parte desse universo. Sem fidelidade mínima.</p>
+                     <h3 class="text-xl md:text-2xl font-black text-white mb-3 tracking-tight">Você entra no Clube por
+                        R$ 20/mês</h3>
+                     <p class="text-sm text-gray-300 font-medium leading-relaxed">Um valor acessível, sem surpresas. Já
+                        no primeiro mês você está concorrendo a itens de alto valor.</p>
                   </div>
                </div>
 
@@ -479,9 +520,10 @@
                      </div>
                   </div>
                   <div class="relative z-10 mt-6 flex-1 flex flex-col justify-start">
-                     <h3 class="text-xl md:text-2xl font-black text-white mb-3 tracking-tight">Benefícios exclusivos nas marcas do clube</h3>
-                     <p class="text-sm text-gray-300 font-medium leading-relaxed">A cada assinatura ativa, você recebe
-                        1 chance no prêmio do mês e soma 20 pontos.</p>
+                     <h3 class="text-xl md:text-2xl font-black text-white mb-3 tracking-tight">Todo mês você concorre a
+                        prêmios especiais</h3>
+                     <p class="text-sm text-gray-300 font-medium leading-relaxed">Com sua assinatura ativa, você recebe
+                        1 número da sorte no prêmio do mês. Todo mês é um novo prêmio, uma nova chance.</p>
                   </div>
                </div>
 
@@ -501,9 +543,11 @@
                      </div>
                   </div>
                   <div class="relative z-10 mt-6 flex-1 flex flex-col justify-start">
-                     <h3 class="text-xl md:text-2xl font-black text-white mb-3 tracking-tight">Sem fidelidade mínima</h3>
-                     <p class="text-sm text-gray-300 font-medium leading-relaxed">Os pontos podem ser trocados por
-                        benefícios ou descontos nas marcas Versiani.</p>
+                     <h3 class="text-xl md:text-2xl font-black text-white mb-3 tracking-tight">Sua assinatura vira
+                        desconto
+                     </h3>
+                     <p class="text-sm text-gray-300 font-medium leading-relaxed">Você acumula 20 pontos por mês. 1
+                        ponto = R$1 de desconto real nas marcas do Clube. Use quando e como quiser.</p>
                   </div>
                </div>
             </div>
@@ -512,7 +556,8 @@
       </section>
 
       <!-- DREAM BRIDGE -->
-      <section class="pt-10 pb-20 md:pt-16 md:pb-32 px-6 border-b border-white/5 bg-[#050505] reveal-off relative overflow-hidden">
+      <section
+         class="pt-10 pb-20 md:pt-16 md:pb-32 px-6 border-b border-white/5 bg-[#050505] reveal-off relative overflow-hidden">
          <!-- Atmospheric Depth -->
          <div class="absolute inset-0 -z-10 pointer-events-none overflow-hidden">
             <div class="absolute inset-0 bg-gradient-to-b from-[#08060c] via-[#050505] to-[#0a0a0a]"></div>
@@ -532,12 +577,14 @@
                <div
                   class="absolute -top-24 -right-24 w-[320px] h-[320px] bg-[#f085aa]/15 blur-[100px] rounded-full pointer-events-none">
                </div>
-               <span class="text-xs font-black text-[#f085aa] uppercase tracking-[0.3em] mb-6 block">[ DESEJO REAL ]</span>
+               <span class="text-xs font-black text-[#f085aa] uppercase tracking-[0.3em] mb-6 block">[ DESEJO REAL
+                  ]</span>
                <div class="mb-10">
                   <h2 class="text-3xl md:text-5xl font-black text-white uppercase tracking-tight leading-tight mb-4">
                      NÃO É UM PRÊMIO QUALQUER.
                   </h2>
-                  <p class="text-lg md:text-xl text-gray-400 font-medium tracking-tight">É o tipo de sonho que já vive no seu imaginário.</p>
+                  <p class="text-lg md:text-xl text-gray-400 font-medium tracking-tight">É o tipo de sonho que já vive
+                     no seu imaginário.</p>
                </div>
 
                <div class="space-y-6">
@@ -567,8 +614,9 @@
                </div>
 
                <div class="mt-12 pt-8 border-t border-white/10">
-                  <p class="text-xl md:text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#f085aa] to-white leading-tight max-w-2xl">
-                     O Clube Versiani existe para aproximar você desse desejo.
+                  <p
+                     class="text-xl md:text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#f085aa] to-white leading-tight max-w-2xl">
+                     O Clube existe para aproximar você dos seus desejos.
                   </p>
                </div>
             </div>
@@ -576,8 +624,11 @@
       </section>
 
       <!-- ECONOMY SHOWCASE (The Value Proposition) -->
-      <section class="pt-10 pb-2 md:pt-12 md:pb-4 px-6 md:border-b border-white/5 overflow-hidden relative bg-[#070707] reveal-off">
-         <div class="absolute inset-0 z-0 pointer-events-none bg-gradient-to-b from-[#0f0712]/45 via-transparent to-[#08060b]/55"></div>
+      <section
+         class="pt-10 pb-2 md:pt-12 md:pb-4 px-6 md:border-b border-white/5 overflow-hidden relative bg-[#070707] reveal-off">
+         <div
+            class="absolute inset-0 z-0 pointer-events-none bg-gradient-to-b from-[#0f0712]/45 via-transparent to-[#08060b]/55">
+         </div>
          <div
             class="absolute lg:hidden -top-20 right-[-28%] w-[80vw] h-[80vw] bg-[#f085aa]/18 blur-[130px] rounded-full z-0 pointer-events-none">
          </div>
@@ -593,167 +644,88 @@
 
          <div class="max-w-7xl mx-auto relative z-10 md:grid md:grid-cols-2 md:gap-16 md:items-center">
             <div>
-               <span class="text-[10px] md:text-xs font-black text-[#f085aa] uppercase tracking-[0.2em] md:tracking-[0.3em] mb-4 block whitespace-nowrap">[ ACESSO AO UNIVERSO VERSIANI ]</span>
-               <h2 class="text-[22px] md:text-4xl lg:text-5xl font-black text-white uppercase tracking-tight leading-tight mb-8">
-                  <span class="block">Um valor pequeno.</span>
-                  <span class="block">Um acesso ao</span>
-                  <span class="block">extraordinário.</span>
+               <span
+                  class="text-[9px] md:text-xs font-black text-[#f085aa] uppercase tracking-[0.2em] md:tracking-[0.3em] mb-4 block leading-relaxed max-w-[90vw]">
+                  [ UM VALOR PEQUENO. UM ACESSO AO EXTRAORDINÁRIO. ]
+               </span>
+               <h2
+                  class="text-[32px] md:text-4xl lg:text-5xl font-black text-white uppercase tracking-tighter leading-tight mb-8">
+                  <span class="block">Você não perde</span>
+                  <span class="block">nem se não ganhar.</span>
                </h2>
-               <p class="text-base text-gray-400 font-medium leading-relaxed mb-8">
-                  No Clube Versiani, você se aproxima dos prêmios de luxo mais desejados e ainda transforma sua
-                  assinatura em benefícios, descontos e experiências no universo Versiani.
+               <p class="text-[17px] md:text-xl text-gray-300 font-medium leading-relaxed mb-8 max-w-[420px]">
+                  Essa é a diferença entre o Clube Versiani e qualquer outra assinatura: seu dinheiro trabalha por você
+                  de dois jeitos ao mesmo tempo.
                </p>
             </div>
 
-            <div>
-                  <div class="flex justify-end mb-4">
-               <div class="hidden md:hidden gap-3 relative z-10">
-                  <button id="eco-prev"
-                     class="w-10 h-10 rounded-full border border-white/20 bg-white/5 flex items-center justify-center text-white hover:bg-[#f085aa] hover:text-black hover:border-[#f085aa] transition-colors cursor-pointer">
+            <div class="w-full mt-10 md:mt-0 relative group">
+               <!-- Mobile Arrows -->
+               <div
+                  class="absolute top-1/2 -translate-y-1/2 -left-4 md:hidden z-20 flex items-center pointer-events-none">
+                  <button onclick="document.getElementById('cards-carousel').scrollBy({left: -320, behavior: 'smooth'})"
+                     class="pointer-events-auto w-10 h-10 rounded-full border border-white/5 bg-[#1a1115]/95 hover:bg-[#251820] flex items-center justify-center text-white shadow-2xl active:scale-95 transition-all">
                      <span class="material-symbols-outlined text-[1.1rem]">arrow_back</span>
                   </button>
-                  <button id="eco-next"
-                     class="w-10 h-10 rounded-full border border-white/20 bg-white/5 flex items-center justify-center text-white hover:bg-[#f085aa] hover:text-black hover:border-[#f085aa] transition-colors cursor-pointer">
+               </div>
+               <div
+                  class="absolute top-1/2 -translate-y-1/2 -right-4 md:hidden z-20 flex items-center pointer-events-none">
+                  <button onclick="document.getElementById('cards-carousel').scrollBy({left: 320, behavior: 'smooth'})"
+                     class="pointer-events-auto w-10 h-10 rounded-full border border-white/5 bg-[#1a1115]/95 hover:bg-[#251820] flex items-center justify-center text-white shadow-2xl active:scale-95 transition-all">
                      <span class="material-symbols-outlined text-[1.1rem]">arrow_forward</span>
                   </button>
                </div>
-                  </div>
-                 <!-- Desktop Ken Burns Slideshow (1 card ciclando as 3 imagens) -->
-                 <div class="hidden md:block relative h-[340px] rounded-2xl overflow-hidden border border-white/10 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)]">
 
-                    <!-- Slide 1: Prêmios -->
-                    <div class="eco-slide absolute inset-0 opacity-0 transition-opacity duration-1000">
-                       <img src="https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?q=80&w=1400&auto=format&fit=crop"
-                            alt="Prêmios desejados Versiani" class="eco-kb w-full h-full object-cover scale-105 animate-[kenburns_15s_linear_infinite]">
-                       <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent z-10 pointer-events-none"></div>
-                       <div class="absolute bottom-6 left-6 right-6 z-20">
-                          <p class="text-base font-black text-white uppercase tracking-widest drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">Prêmios desejados</p>
-                       </div>
-                    </div>
+               <div id="cards-carousel"
+                  class="flex flex-row md:flex-col gap-4 md:gap-6 overflow-x-auto md:overflow-visible snap-x snap-mandatory scroll-smooth [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] pb-6 md:pb-0 -mx-6 md:mx-0 px-[9vw] md:px-0 relative z-10 w-[100vw] sm:w-auto">
 
-                    <!-- Slide 2: Cartão VIP -->
-                    <div class="eco-slide absolute inset-0 opacity-0 transition-opacity duration-1000">
-                       <img src="https://images.unsplash.com/photo-1613243555988-441166d4d6fd?q=80&w=1400&auto=format&fit=crop"
-                            alt="20 Pontos por Assinatura" class="eco-kb w-full h-full object-cover scale-105 animate-[kenburns_15s_linear_infinite]">
-                       <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent z-10 pointer-events-none"></div>
-                       <div class="absolute bottom-6 left-6 right-6 z-20">
-                          <p class="text-base font-black text-white uppercase tracking-widest drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">20 Pontos por Assinatura</p>
-                       </div>
-                    </div>
-
-                    <!-- Slide 3: Benefícios -->
-                    <div class="eco-slide absolute inset-0 opacity-0 transition-opacity duration-1000">
-                       <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1400&auto=format&fit=crop"
-                            alt="Benefícios Versiani Skin e Swim" class="eco-kb w-full h-full object-cover scale-105 animate-[kenburns_15s_linear_infinite]" style="object-position: center 25%;">
-                       <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent z-10 pointer-events-none"></div>
-                       <div class="absolute bottom-6 left-6 right-6 z-20">
-                          <p class="text-base font-black text-white uppercase tracking-widest drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">Benefícios nas marcas
-                             <a href="https://versianiskin.com/" target="_blank" rel="noopener noreferrer" class="text-[#f085aa] hover:text-white transition-colors">Skin</a> +
-                             <a href="https://versianiswim.com.br/" target="_blank" rel="noopener noreferrer" class="text-[#f085aa] hover:text-white transition-colors">Swim</a>
-                          </p>
-                       </div>
-                    </div>
-
-                    <!-- Indicadores de Progresso -->
-                    <div class="absolute bottom-3 right-6 z-30 flex gap-1.5">
-                       <div class="eco-dot w-6 h-0.5 rounded-full bg-white transition-all duration-500"></div>
-                       <div class="eco-dot w-1.5 h-0.5 rounded-full bg-white/30 transition-all duration-500"></div>
-                       <div class="eco-dot w-1.5 h-0.5 rounded-full bg-white/30 transition-all duration-500"></div>
-                    </div>
-                 </div>
-
-                 <style>
-                    @keyframes kenburns { 0% { transform: scale(1); } 100% { transform: scale(1.15); } }
-                 </style>
-
-                 <script>
-                    let currentSlide = 0;
-                    const slides = document.querySelectorAll('.eco-slide');
-                    const dots = document.querySelectorAll('.eco-dot');
-                    function showSlide(n) {
-                       slides.forEach((s, i) => {
-                          s.style.opacity = i === n ? '1' : '0';
-                          dots[i].style.width = i === n ? '24px' : '6px';
-                          dots[i].style.backgroundColor = i === n ? 'white' : 'rgba(255,255,255,0.3)';
-                       });
-                    }
-                    setInterval(() => {
-                       currentSlide = (currentSlide + 1) % slides.length;
-                       showSlide(currentSlide);
-                    }, 5000);
-                    showSlide(0);
-                 </script>
-
-                 <!-- Mobile/Tablet Carousel (oculto no desktop) -->
-                 <div class="relative w-full group/eco md:hidden">
-                   <!-- Setas Laterais (Somente Mobile/Tablet) -->
-                   <div id="eco-prev-btn" class="absolute inset-y-0 left-[-2vw] md:hidden z-[60] flex items-center opacity-0 pointer-events-none transition-opacity duration-300">
-                      <button onclick="document.getElementById('eco-carousel').scrollBy({left: -320, behavior: 'smooth'})"
-                         class="w-10 h-10 rounded-full border border-white/10 bg-black/40 backdrop-blur-md flex items-center justify-center text-white shadow-2xl active:scale-90">
-                         <span class="material-symbols-outlined text-[1.1rem]">arrow_back</span>
-                      </button>
-                   </div>
-                   <div id="eco-next-btn" class="absolute inset-y-0 right-[-2vw] md:hidden z-[60] flex items-center transition-opacity duration-300">
-                      <button onclick="document.getElementById('eco-carousel').scrollBy({left: 320, behavior: 'smooth'})"
-                         class="w-10 h-10 rounded-full border border-white/10 bg-black/40 backdrop-blur-md flex items-center justify-center text-white shadow-2xl active:scale-90">
-                         <span class="material-symbols-outlined text-[1.1rem]">arrow_forward</span>
-                      </button>
-                   </div>
-
-                   <div id="eco-carousel"
-                      class="flex md:grid md:grid-cols-3 gap-4 overflow-x-auto overflow-y-hidden md:overflow-visible snap-x md:snap-none snap-mandatory scroll-smooth [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] px-[6vw] sm:px-0 relative z-10">
-                     <div
-                        class="bento-card h-[190px] p-4 rounded-2xl border border-white/10 bg-white/5 w-[78vw] sm:w-[300px] md:w-auto flex-shrink-0 snap-center group relative overflow-hidden shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] hover:border-[#f085aa]/40 hover:shadow-[0_30px_70px_-20px_rgba(0,0,0,0.8),0_0_20px_rgba(240,133,170,0.12)] transition-all duration-500">
-                        <img src="https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?q=80&w=800&auto=format&fit=crop"
-                           alt="Prêmios desejados Versiani" loading="lazy"
-                           class="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:opacity-90 group-hover:scale-110 transition-all duration-700">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent"></div>
-                        <span
-                           class="absolute -top-2 -right-2 text-[5rem] font-black text-white/[0.04] leading-none transition-transform duration-700 group-hover:scale-110 pointer-events-none z-10">01</span>
-                         <div class="relative z-20 h-full flex flex-col justify-end">
-                            <p class="text-sm font-black text-white uppercase tracking-wide">Prêmios desejados</p>
-                         </div>
-                     </div>
-                     <div
-                        class="bento-card h-[190px] p-4 rounded-2xl border border-white/10 bg-white/5 w-[78vw] sm:w-[300px] md:w-auto flex-shrink-0 snap-center group relative overflow-hidden shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] hover:border-[#f085aa]/40 hover:shadow-[0_30px_70px_-20px_rgba(0,0,0,0.8),0_0_20px_rgba(240,133,170,0.12)] transition-all duration-500">
-                        <img src="https://images.unsplash.com/photo-1613243555988-441166d4d6fd?q=80&w=800&auto=format&fit=crop"
-                           alt="Membro Elite Versiani - Benefícios Exclusivos" loading="lazy"
-                           class="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:opacity-90 group-hover:scale-110 transition-all duration-700">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent"></div>
-                        <span
-                           class="absolute -top-2 -right-2 text-[5rem] font-black text-white/[0.04] leading-none transition-transform duration-700 group-hover:scale-110 pointer-events-none z-10">02</span>
-                         <div class="relative z-20 h-full flex flex-col justify-end">
-                            <p class="text-sm font-black text-white uppercase tracking-wide">20 pontos por assinatura</p>
-                         </div>
-                     </div>
-                     <div
-                        class="bento-card h-[190px] p-4 rounded-2xl border border-white/10 bg-white/5 w-[78vw] sm:w-[300px] md:w-auto flex-shrink-0 snap-center group relative overflow-hidden shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] hover:border-[#f085aa]/40 hover:shadow-[0_30px_70px_-20px_rgba(0,0,0,0.8),0_0_20px_rgba(240,133,170,0.12)] transition-all duration-500">
-                        <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=800&auto=format&fit=crop"
-                           alt="Benefícios nas marcas Versiani Skin e Swim" loading="lazy"
-                           class="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:opacity-90 group-hover:scale-110 transition-all duration-700">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent"></div>
-                        <span
-                           class="absolute -top-2 -right-2 text-[5rem] font-black text-white/[0.04] leading-none transition-transform duration-700 group-hover:scale-110 pointer-events-none z-10">03</span>
-                         <div class="relative z-20 h-full flex flex-col justify-end">
-                            <p class="text-sm font-black text-white uppercase tracking-wide">Benefícios nas marcas
-                               <a href="https://versianiskin.com/" target="_blank" rel="noopener noreferrer"
-                                  class="text-[#f085aa] hover:text-white transition-colors">Skin</a> +
-                               <a href="https://versianiswim.com.br/" target="_blank" rel="noopener noreferrer"
-                                  class="text-[#f085aa] hover:text-white transition-colors">Swim</a></p>
-                         </div>
+                  <!-- Premium Card 1 (Estilo Imagem) -->
+                  <div
+                     class="p-8 md:p-10 rounded-[32px] border border-[#f085aa]/20 bg-gradient-to-br from-[#2b1f24] to-[#120d11] relative overflow-hidden w-[82vw] md:w-full flex-shrink-0 snap-center shadow-lg transition-all duration-300">
+                     <div class="relative z-10 flex flex-col h-full justify-center">
+                        <h3 class="text-[22px] md:text-2xl font-black text-white uppercase tracking-tighter mb-4">Sua
+                           chance todo mês</h3>
+                        <p class="text-[16px] md:text-[17px] text-gray-300 font-medium leading-relaxed">
+                           Enquanto sua assinatura estiver ativa, você está no sorteio. Um novo prêmio. Uma nova chance.
+                           Todo mês.
+                        </p>
                      </div>
                   </div>
+
+                  <!-- Premium Card 2 (Estilo Imagem) -->
+                  <div
+                     class="p-8 md:p-10 rounded-[32px] border border-[#f085aa]/20 bg-gradient-to-br from-[#2b1f24] to-[#120d11] relative overflow-hidden w-[82vw] md:w-full flex-shrink-0 snap-center shadow-lg transition-all duration-300">
+                     <div class="relative z-10 flex flex-col h-full justify-center">
+                        <h3 class="text-[22px] md:text-2xl font-black text-white uppercase tracking-tighter mb-4">Seus
+                           pontos,<br>seu dinheiro</h3>
+                        <p class="text-[16px] md:text-[17px] text-gray-300 font-medium leading-relaxed mb-6">
+                           20 pontos todo mês.<br>
+                           1 ponto = R$1 de desconto real.
+                        </p>
+                        <p class="text-[16px] md:text-[17px] text-gray-300 font-medium leading-relaxed">
+                           Use na <span class="text-[#f085aa] font-bold">Versiani Skin</span> ou na <span
+                              class="text-[#f085aa] font-bold">Versiani Swim</span>
+                           <span class="block text-gray-500 text-[14px] md:text-[15px] mt-2">— as marcas que já estão no
+                              seu feed.</span>
+                        </p>
+                     </div>
+                  </div>
+
                </div>
 
-               <p class="text-base text-gray-300 font-medium leading-relaxed text-center mt-12 mb-4">
-                  Resgate seus pontos e aproveite vantagens nos produtos mais desejados da marca.
-               </p>
+               <!-- Fechamento -->
+               <div class="mt-2 md:mt-2 text-left">
+                  <p class="text-[17px] md:text-xl text-white font-medium leading-relaxed tracking-tight">
+                     No Clube Versiani, não existe mês perdido.
+                  </p>
+               </div>
             </div>
          </div>
       </section>
 
       <!-- SOCIAL PROOF / WALL OF LOVE -->
-      <section class="pt-6 pb-10 md:pt-8 md:pb-16 px-6 md:border-b border-white/5 bg-[#080808] relative overflow-hidden">
+      <section
+         class="pt-6 pb-10 md:pt-8 md:pb-16 px-6 md:border-b border-white/5 bg-[#080808] relative overflow-hidden">
          <div
             class="absolute lg:hidden top-[-8%] left-[-24%] w-[72vw] h-[72vw] bg-[#f085aa]/16 blur-[120px] rounded-full z-0 pointer-events-none">
          </div>
@@ -762,12 +734,14 @@
          </div>
          <div class="max-w-7xl mx-auto relative z-10">
             <div class="text-center mb-10 md:mb-12 space-y-4">
-               <span class="text-xs font-black text-[#f085aa] uppercase tracking-[0.3em] mb-4 block">[ QUEM JÁ VIVEU ISSO ]</span>
+               <span class="text-xs font-black text-[#f085aa] uppercase tracking-[0.3em] mb-4 block">[ QUEM JÁ VIVEU
+                  ISSO ]</span>
                <h2 class="text-3xl md:text-5xl font-black text-white uppercase tracking-tight leading-tight mb-6">
                   Elas entraram. Elas ganharam.
                </h2>
                <p class="text-base md:text-lg text-gray-400 font-medium max-w-2xl mx-auto leading-relaxed">
-                  No Clube Versiani, o desejo ganha forma na vida de quem entra. Algumas recebem o prêmio do mês. Outras transformam seus pontos em benefícios reais.
+                  No Clube Versiani, o desejo ganha forma na vida de quem entra. Algumas recebem o prêmio do mês. Outras
+                  transformam seus pontos em benefícios reais.
                </p>
             </div>
 
@@ -791,7 +765,8 @@
                      class="w-full h-full object-cover grayscale-reveal group-hover:scale-110 transition-all duration-700">
                   <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
                   <div class="absolute bottom-4 md:bottom-6 left-4 md:left-6 right-4 md:right-6">
-                     <p class="text-[10px] md:text-xs text-[#f085aa] font-bold uppercase tracking-widest mb-1">Recebeu produtos Versiani Skin</p>
+                     <p class="text-[10px] md:text-xs text-[#f085aa] font-bold uppercase tracking-widest mb-1">Recebeu
+                        produtos Versiani Skin</p>
                      <h4 class="text-white font-black text-sm md:text-lg">Juliana M.</h4>
                   </div>
                </div>
@@ -832,9 +807,15 @@
          <!-- Atmospheric Depth (same as Dream Bridge) -->
          <div class="absolute inset-0 -z-10 pointer-events-none overflow-hidden">
             <div class="absolute inset-0 bg-gradient-to-b from-[#08060c] via-[#050505] to-[#0a0a0a]"></div>
-            <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-full h-[500px] bg-[#f085aa]/5 blur-[120px] rounded-full pointer-events-none"></div>
-            <div class="absolute -bottom-[20%] -right-[10%] w-[60vw] h-[60vw] bg-[#320075]/15 blur-[180px] rounded-full animate-blob"></div>
-            <div class="absolute -top-[10%] -left-[10%] w-[50vw] h-[50vw] bg-[#f085aa]/10 blur-[140px] rounded-full animate-blob" style="animation-delay: -4s;"></div>
+            <div
+               class="absolute top-1/4 left-1/2 -translate-x-1/2 w-full h-[500px] bg-[#f085aa]/5 blur-[120px] rounded-full pointer-events-none">
+            </div>
+            <div
+               class="absolute -bottom-[20%] -right-[10%] w-[60vw] h-[60vw] bg-[#320075]/15 blur-[180px] rounded-full animate-blob">
+            </div>
+            <div
+               class="absolute -top-[10%] -left-[10%] w-[50vw] h-[50vw] bg-[#f085aa]/10 blur-[140px] rounded-full animate-blob"
+               style="animation-delay: -4s;"></div>
          </div>
 
          <div class="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 relative z-10">
@@ -842,12 +823,15 @@
 
                <!-- LEFT: Pitch persuasivo -->
                <div class="flex-1 space-y-8 reveal-off">
-                  <span class="text-xs font-black text-[#f085aa] uppercase tracking-[0.3em]">[ Sua entrada no clube ]</span>
-                  <h2 class="text-4xl md:text-5xl lg:text-6xl font-black text-white uppercase tracking-tight leading-[0.95]">
+                  <span class="text-xs font-black text-[#f085aa] uppercase tracking-[0.3em]">[ Sua entrada no clube
+                     ]</span>
+                  <h2
+                     class="text-4xl md:text-5xl lg:text-6xl font-black text-white uppercase tracking-tight leading-[0.95]">
                      Comece<br>com <span class="text-gradient-rose">R$ 20.</span>
                   </h2>
                   <p class="text-white/60 text-lg leading-relaxed max-w-md">
-                     Por menos de um café por semana, você entra no universo Versiani — com chances reais de ganhar prêmios de alto valor todo mês.
+                     Por menos de um café por semana, você entra no universo Versiani — com chances reais de ganhar
+                     prêmios de alto valor todo mês.
                   </p>
 
                   <!-- Value bullets -->
@@ -863,7 +847,8 @@
                         <span class="material-symbols-outlined text-[#f085aa] text-2xl mt-0.5">local_offer</span>
                         <div>
                            <p class="text-white font-black text-base uppercase tracking-wide">Descontos Exclusivos</p>
-                           <p class="text-white/50 text-sm">Acesso à loja de benefícios com desconto real em cada compra.</p>
+                           <p class="text-white/50 text-sm">Acesso à loja de benefícios com desconto real em cada
+                              compra.</p>
                         </div>
                      </li>
                      <li class="flex items-start gap-4">
@@ -881,42 +866,54 @@
                <div class="w-full lg:w-[420px] flex-shrink-0 reveal-off">
                   <!-- Glow ring behind card -->
                   <div class="relative">
-                     <div class="absolute -inset-1 bg-gradient-to-br from-[#f085aa]/40 to-[#320075]/30 rounded-3xl blur-xl opacity-70"></div>
+                     <div
+                        class="absolute -inset-1 bg-gradient-to-br from-[#f085aa]/40 to-[#320075]/30 rounded-3xl blur-xl opacity-70">
+                     </div>
 
-                     <div class="relative bg-gradient-to-br from-white/10 to-white/[0.03] backdrop-blur-xl border border-white/20 border-t-[#f085aa]/40 rounded-2xl p-8 md:p-10">
+                     <div
+                        class="relative bg-gradient-to-br from-white/10 to-white/[0.03] backdrop-blur-xl border border-white/20 border-t-[#f085aa]/40 rounded-2xl p-8 md:p-10">
 
                         <!-- Plan header -->
                         <div class="flex items-start justify-between mb-6">
                            <div>
-                              <span class="text-[10px] font-black text-[#f085aa] uppercase tracking-[0.3em] block mb-1">Plano</span>
+                              <span
+                                 class="text-[10px] font-black text-[#f085aa] uppercase tracking-[0.3em] block mb-1">Plano</span>
                               <h3 class="text-3xl font-black text-white uppercase tracking-wide">Entrada</h3>
                            </div>
-                           <span class="px-3 py-1 rounded-full bg-[#f085aa]/15 border border-[#f085aa]/30 text-[#f085aa] text-[10px] font-black uppercase tracking-widest">Ativo</span>
+                           <span
+                              class="px-3 py-1 rounded-full bg-[#f085aa]/15 border border-[#f085aa]/30 text-[#f085aa] text-[10px] font-black uppercase tracking-widest">Ativo</span>
                         </div>
 
                         <!-- Price -->
                         <div class="mb-8 pb-8 border-b border-white/10">
                            <div class="flex items-end gap-2">
-                              <span class="text-6xl font-black text-white leading-none">R$<span id="price-pilar">20</span></span>
+                              <span class="text-6xl font-black text-white leading-none">R$<span
+                                    id="price-pilar">20</span></span>
                               <span class="text-white/40 font-bold mb-1 uppercase text-sm">/mês</span>
                            </div>
-                           <span id="annual-info-pilar" class="text-[10px] text-[#f085aa] font-bold uppercase tracking-widest opacity-0 h-0 transition-all duration-300">Cobrado R$ 192 anualmente</span>
+                           <span id="annual-info-pilar"
+                              class="text-[10px] text-[#f085aa] font-bold uppercase tracking-widest opacity-0 h-0 transition-all duration-300">Cobrado
+                              R$ 192 anualmente</span>
                            <p class="text-white/40 text-xs mt-2 uppercase tracking-wide">Cancele a qualquer momento</p>
                         </div>
 
                         <!-- Features -->
                         <ul class="space-y-4 mb-8">
                            <li class="flex items-center gap-3 text-sm text-white/80 font-semibold">
-                              <span class="material-symbols-outlined text-[#f085aa] text-lg">check_circle</span> 1 número da sorte por mês
+                              <span class="material-symbols-outlined text-[#f085aa] text-lg">check_circle</span> 1
+                              número da sorte por mês
                            </li>
                            <li class="flex items-center gap-3 text-sm text-white/80 font-semibold">
-                              <span class="material-symbols-outlined text-[#f085aa] text-lg">check_circle</span> Acesso ao ecossistema de benefícios
+                              <span class="material-symbols-outlined text-[#f085aa] text-lg">check_circle</span> Acesso
+                              ao ecossistema de benefícios
                            </li>
                            <li class="flex items-center gap-3 text-sm text-white/80 font-semibold">
-                              <span class="material-symbols-outlined text-[#f085aa] text-lg">check_circle</span> Descontos exclusivos nas lojas
+                              <span class="material-symbols-outlined text-[#f085aa] text-lg">check_circle</span>
+                              Descontos exclusivos nas lojas
                            </li>
                            <li class="flex items-center gap-3 text-sm text-white/80 font-semibold">
-                              <span class="material-symbols-outlined text-[#f085aa] text-lg">check_circle</span> 20 Pontos todo mês
+                              <span class="material-symbols-outlined text-[#f085aa] text-lg">check_circle</span> 20
+                              Pontos todo mês
                            </li>
                         </ul>
 
@@ -949,101 +946,89 @@
                   Frequentes</h2>
             </div>
 
-                                    <div class="space-y-4 text-left">
-               <!-- FAQ 1 -->
-               <div class="border-b border-white/10 pb-4">
-                  <button class="faq-toggle w-full flex justify-between items-center py-4 text-left group cursor-pointer focus:outline-none">
-                     <h4 class="text-base md:text-lg font-bold text-white uppercase tracking-wide group-hover:text-[#f085aa] transition-colors pr-4">
-                        1. Como funciona o resgate de descontos nas lojas?</h4>
-                     <span class="material-symbols-outlined text-white transition-transform duration-300 transform group-hover:text-[#f085aa]">expand_more</span>
-                  </button>
-                  <div class="faq-panel text-gray-400 text-sm leading-relaxed pr-8">
-                     <div class="pt-2 pb-6">De acordo com seu plano, seus R$ são convertidos em pontos. Basta acessar a loja de parcerias da Versiani e aplicar seus pontos no carrinho de compras. 1 Ponto equivale a R$1 de desconto real.</div>
-                  </div>
-               </div>
-               <!-- FAQ 2 -->
-               <div class="border-b border-white/10 pb-4">
-                  <button class="faq-toggle w-full flex justify-between items-center py-4 text-left group cursor-pointer focus:outline-none">
-                     <h4 class="text-base md:text-lg font-bold text-white uppercase tracking-wide group-hover:text-[#f085aa] transition-colors pr-4">
-                        2. O sorteio é legalizado?</h4>
-                     <span class="material-symbols-outlined text-white transition-transform duration-300 transform group-hover:text-[#f085aa]">expand_more</span>
-                  </button>
-                  <div class="faq-panel text-gray-400 text-sm leading-relaxed pr-8">
-                     <div class="pt-2 pb-6">100% regulamentado. Trabalhamos exclusivamente utilizando as extrações oficiais da Loteria Federal (CEF) sob autorização dos órgãos competentes, garantindo transparência máxima e lisura.</div>
-                  </div>
-               </div>
-               <!-- FAQ 3 -->
-               <div class="border-b border-white/10 pb-4">
-                  <button class="faq-toggle w-full flex justify-between items-center py-4 text-left group cursor-pointer focus:outline-none">
-                     <h4 class="text-base md:text-lg font-bold text-white uppercase tracking-wide group-hover:text-[#f085aa] transition-colors pr-4">
-                        3. Posso cancelar minha assinatura a qualquer momento?</h4>
-                     <span class="material-symbols-outlined text-white transition-transform duration-300 transform group-hover:text-[#f085aa]">expand_more</span>
-                  </button>
-                  <div class="faq-panel text-gray-400 text-sm leading-relaxed pr-8">
-                     <div class="pt-2 pb-6">Sim. O cancelamento para planos mensais pode ser feito com 1 botão através do seu painel corporativo, sem burocracia, sem fidelidade e sem retenção de dados.</div>
-                  </div>
-               </div>
+            <div class="space-y-4 text-left">
+
                <!-- FAQ 4 -->
                <div class="border-b border-white/10 pb-4">
-                  <button class="faq-toggle w-full flex justify-between items-center py-4 text-left group cursor-pointer focus:outline-none">
-                     <h4 class="text-base md:text-lg font-bold text-white uppercase tracking-wide group-hover:text-[#f085aa] transition-colors pr-4">
-                        4. Quais formas de pagamento estão disponíveis?</h4>
-                     <span class="material-symbols-outlined text-white transition-transform duration-300 transform group-hover:text-[#f085aa]">expand_more</span>
+                  <button
+                     class="faq-toggle w-full flex justify-between items-center py-4 text-left group cursor-pointer focus:outline-none">
+                     <h4
+                        class="text-base md:text-lg font-bold text-white uppercase tracking-wide group-hover:text-[#f085aa] transition-colors pr-4">
+                        1. Quais formas de pagamento estão disponíveis?</h4>
+                     <span
+                        class="material-symbols-outlined text-white transition-transform duration-300 transform group-hover:text-[#f085aa]">expand_more</span>
                   </button>
                   <div class="faq-panel text-gray-400 text-sm leading-relaxed pr-8">
-                     <div class="pt-2 pb-6">Você pode assinar com Pix ou cartão de crédito. E, se em algum momento quiser sair, pode cancelar quando quiser, sem multa.</div>
+                     <div class="pt-2 pb-6">Você pode assinar com Pix ou cartão de crédito. E, se em algum momento
+                        quiser sair, pode cancelar quando quiser, sem multa.</div>
                   </div>
                </div>
                <!-- FAQ 5 -->
                <div class="border-b border-white/10 pb-4">
-                  <button class="faq-toggle w-full flex justify-between items-center py-4 text-left group cursor-pointer focus:outline-none">
-                     <h4 class="text-base md:text-lg font-bold text-white uppercase tracking-wide group-hover:text-[#f085aa] transition-colors pr-4">
-                        5. Quais prêmios posso ganhar?</h4>
-                     <span class="material-symbols-outlined text-white transition-transform duration-300 transform group-hover:text-[#f085aa]">expand_more</span>
+                  <button
+                     class="faq-toggle w-full flex justify-between items-center py-4 text-left group cursor-pointer focus:outline-none">
+                     <h4
+                        class="text-base md:text-lg font-bold text-white uppercase tracking-wide group-hover:text-[#f085aa] transition-colors pr-4">
+                        2. Quais prêmios posso ganhar?</h4>
+                     <span
+                        class="material-symbols-outlined text-white transition-transform duration-300 transform group-hover:text-[#f085aa]">expand_more</span>
                   </button>
                   <div class="faq-panel text-gray-400 text-sm leading-relaxed pr-8">
-                     <div class="pt-2 pb-6">Todo mês, o Clube Versiani traz a chance de viver algo realmente desejado: de itens de luxo a experiências especiais. A proposta é aproximar você do que antes parecia distante.</div>
+                     <div class="pt-2 pb-6">Todo mês, o Clube Versiani traz a chance de viver algo realmente desejado:
+                        de itens de luxo a experiências especiais. A proposta é aproximar você do que antes parecia
+                        distante.</div>
                   </div>
                </div>
                <!-- FAQ 6 -->
                <div class="border-b border-white/10 pb-4">
-                  <button class="faq-toggle w-full flex justify-between items-center py-4 text-left group cursor-pointer focus:outline-none">
-                     <h4 class="text-base md:text-lg font-bold text-white uppercase tracking-wide group-hover:text-[#f085aa] transition-colors pr-4">
-                        6. Quais benefícios eu recebo?</h4>
-                     <span class="material-symbols-outlined text-white transition-transform duration-300 transform group-hover:text-[#f085aa]">expand_more</span>
+                  <button
+                     class="faq-toggle w-full flex justify-between items-center py-4 text-left group cursor-pointer focus:outline-none">
+                     <h4
+                        class="text-base md:text-lg font-bold text-white uppercase tracking-wide group-hover:text-[#f085aa] transition-colors pr-4">
+                        3. Quais benefícios eu recebo?</h4>
+                     <span
+                        class="material-symbols-outlined text-white transition-transform duration-300 transform group-hover:text-[#f085aa]">expand_more</span>
                   </button>
                   <div class="faq-panel text-gray-400 text-sm leading-relaxed pr-8">
-                     <div class="pt-2 pb-6">Além da sua chance no prêmio do mês, sua assinatura também gera pontos, que podem ser usados em benefícios e descontos nas marcas Versiani.</div>
+                     <div class="pt-2 pb-6">Além da sua chance no prêmio do mês, sua assinatura também gera pontos, que
+                        podem ser usados em benefícios e descontos nas marcas Versiani.</div>
                   </div>
                </div>
                <!-- FAQ 7 -->
                <div class="border-b border-white/10 pb-4">
-                  <button class="faq-toggle w-full flex justify-between items-center py-4 text-left group cursor-pointer focus:outline-none">
-                     <h4 class="text-base md:text-lg font-bold text-white uppercase tracking-wide group-hover:text-[#f085aa] transition-colors pr-4">
-                        7. Quanto custa para entrar?</h4>
-                     <span class="material-symbols-outlined text-white transition-transform duration-300 transform group-hover:text-[#f085aa]">expand_more</span>
+                  <button
+                     class="faq-toggle w-full flex justify-between items-center py-4 text-left group cursor-pointer focus:outline-none">
+                     <h4
+                        class="text-base md:text-lg font-bold text-white uppercase tracking-wide group-hover:text-[#f085aa] transition-colors pr-4">
+                        4. Quanto custa para entrar?</h4>
+                     <span
+                        class="material-symbols-outlined text-white transition-transform duration-300 transform group-hover:text-[#f085aa]">expand_more</span>
                   </button>
                   <div class="faq-panel text-gray-400 text-sm leading-relaxed pr-8">
-                     <div class="pt-2 pb-6">A assinatura do Clube Versiani começa em R$20. Com ela, você já entra nesse universo, soma pontos e garante sua chance no sorteio do mês.</div>
+                     <div class="pt-2 pb-6">A assinatura do Clube Versiani começa em R$20. Com ela, você já entra nesse
+                        universo, soma pontos e garante sua chance no sorteio do mês.</div>
                   </div>
                </div>
                <!-- FAQ 8 -->
                <div class="border-b border-white/10 pb-4">
-                  <button class="faq-toggle w-full flex justify-between items-center py-4 text-left group cursor-pointer focus:outline-none">
-                     <h4 class="text-base md:text-lg font-bold text-white uppercase tracking-wide group-hover:text-[#f085aa] transition-colors pr-4">
-                        8. Posso ter mais de uma chance nos sorteios?</h4>
-                     <span class="material-symbols-outlined text-white transition-transform duration-300 transform group-hover:text-[#f085aa]">expand_more</span>
+                  <button
+                     class="faq-toggle w-full flex justify-between items-center py-4 text-left group cursor-pointer focus:outline-none">
+                     <h4
+                        class="text-base md:text-lg font-bold text-white uppercase tracking-wide group-hover:text-[#f085aa] transition-colors pr-4">
+                        5. Posso ter mais de uma chance nos sorteios?</h4>
+                     <span
+                        class="material-symbols-outlined text-white transition-transform duration-300 transform group-hover:text-[#f085aa]">expand_more</span>
                   </button>
                   <div class="faq-panel text-gray-400 text-sm leading-relaxed pr-8">
-                     <div class="pt-2 pb-6">Sim. Você pode escolher planos com mais chances, aumentando sua presença no sorteio do mês e também seu acúmulo de pontos.</div>
+                     <div class="pt-2 pb-6">Sim. Você pode escolher planos com mais chances, aumentando sua presença no
+                        sorteio do mês e também seu acúmulo de pontos.</div>
                   </div>
                </div>
             </div>
-               <!-- CTA FOOTER (Massive Impact) -->
+            <!-- CTA FOOTER (Massive Impact) -->
    </main>
 
-   <footer
-      class="bg-[#050505] pt-10 md:pt-24 pb-48 lg:pb-6 border-t border-white/10 px-6 md:relative overflow-hidden">
+   <footer class="bg-[#050505] pt-10 md:pt-24 pb-48 lg:pb-6 border-t border-white/10 px-6 md:relative overflow-hidden">
       <!-- Massive Glow Behind CTA -->
       <div
          class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] md:w-[800px] md:h-[400px] bg-[#f085aa]/15 blur-[120px] rounded-full pointer-events-none"
@@ -1402,30 +1387,30 @@
                   });
                }
 
-                const updateArrowVisibility = () => {
-                   const prevBtn = document.getElementById(`${idRoot}-prev-btn`);
-                   const nextBtn = document.getElementById(`${idRoot}-next-btn`);
-                   if (prevBtn) {
-                      if (carousel.scrollLeft <= 50) {
-                         prevBtn.classList.add('opacity-0', 'pointer-events-none');
-                      } else {
-                         prevBtn.classList.remove('opacity-0', 'pointer-events-none');
-                      }
-                   }
-                   if (nextBtn) {
-                      const atEnd = carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 80;
-                      if (atEnd) {
-                         nextBtn.classList.add('opacity-0', 'pointer-events-none');
-                      } else {
-                         nextBtn.classList.remove('opacity-0', 'pointer-events-none');
-                      }
-                   }
-                };
+               const updateArrowVisibility = () => {
+                  const prevBtn = document.getElementById(`${idRoot}-prev-btn`);
+                  const nextBtn = document.getElementById(`${idRoot}-next-btn`);
+                  if (prevBtn) {
+                     if (carousel.scrollLeft <= 50) {
+                        prevBtn.classList.add('opacity-0', 'pointer-events-none');
+                     } else {
+                        prevBtn.classList.remove('opacity-0', 'pointer-events-none');
+                     }
+                  }
+                  if (nextBtn) {
+                     const atEnd = carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 80;
+                     if (atEnd) {
+                        nextBtn.classList.add('opacity-0', 'pointer-events-none');
+                     } else {
+                        nextBtn.classList.remove('opacity-0', 'pointer-events-none');
+                     }
+                  }
+               };
 
-                carousel.addEventListener('scroll', updateArrowVisibility);
-                window.addEventListener('resize', updateArrowVisibility);
-                // Initial check
-                setTimeout(updateArrowVisibility, 300);
+               carousel.addEventListener('scroll', updateArrowVisibility);
+               window.addEventListener('resize', updateArrowVisibility);
+               // Initial check
+               setTimeout(updateArrowVisibility, 300);
             }
          };
 

@@ -110,11 +110,6 @@ body { font-family: 'Manrope', sans-serif; background-color: #fef7ff;}
 
 /* Mobile Optimization for 360x800 */
 @media (max-width: 767px) {
-  header {
-    min-height: auto !important;
-    height: calc(100vh - 80px); /* Adjust for nav and footer visibility */
-    max-height: 720px;
-  }
   #zaiotto-slider {
     min-height: 45vh !important;
   }
