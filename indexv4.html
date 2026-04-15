@@ -408,20 +408,11 @@
       </div>
 
       <!-- HOW IT WORKS: BENTO GRID -->
-      <section class="pt-20 pb-10 md:pt-32 md:pb-16 border-b border-white/5 bg-[#050505] relative overflow-hidden"
+      <section class="pt-20 pb-10 md:pt-32 md:pb-16 border-b border-white/5 bg-[#050505] relative overflow-hidden isolate"
          id="como-funciona">
          <!-- Ambient Atmosphere (Breathing Blobs and Gradients) -->
          <div class="absolute inset-0 -z-10 pointer-events-none overflow-hidden">
-            <div class="absolute inset-0 bg-gradient-to-b from-[#0b0710] via-transparent to-[#08060c] opacity-80"></div>
-            <div
-               class="absolute -top-[20%] -left-[10%] w-[70vw] h-[70vw] bg-[#f085aa]/15 blur-[160px] rounded-full animate-blob">
-            </div>
-            <div
-               class="absolute top-[20%] -right-[15%] w-[60vw] h-[60vw] bg-[#320075]/20 blur-[180px] rounded-full animate-blob"
-               style="animation-delay: -7s;"></div>
-            <div
-               class="absolute -bottom-[10%] left-[15%] w-[50vw] h-[50vw] bg-[#f085aa]/10 blur-[140px] rounded-full animate-blob"
-               style="animation-delay: -12s;"></div>
+            <div class="absolute inset-0 bg-[#050505]"></div>
             <!-- Grain Texture Overlay -->
             <div class="absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-overlay"
                style="background-image: url('data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.65\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E');">
@@ -451,7 +442,7 @@
          </div>
 
          <!-- Wrapper do Carrossel Full-Bleed (Livre das limitações do Max-W) -->
-         <div class="relative w-full group/hw">
+         <div class="relative w-full group/hw bg-[#050505]">
             <!-- Setas Laterais (Somente Mobile/Tablet) -->
             <div id="hw-prev-btn"
                class="absolute inset-y-0 left-2 md:hidden z-[60] flex items-center opacity-0 pointer-events-none transition-opacity duration-300">
@@ -463,19 +454,12 @@
             <div id="hw-next-btn"
                class="absolute inset-y-0 right-2 md:hidden z-[60] flex items-center transition-opacity duration-300">
                <button onclick="document.getElementById('hw-carousel').scrollBy({left: 320, behavior: 'smooth'})"
-                  class="w-10 h-10 rounded-full border border-white/20 bg-black/40 backdrop-blur-md flex items-center justify-center text-white transition-all cursor-pointer shadow-2xl active:scale-90">
+                  class="w-10 h-10 rounded-full border border-white/20 bg-[#1a1a1a] flex items-center justify-center text-white transition-all cursor-pointer shadow-2xl active:scale-90">
                   <span class="material-symbols-outlined text-[1.2rem]">arrow_forward</span>
                </button>
             </div>
 
-            <!-- Máscara de Profundidade Esquerda (Atrás dos Cards) -->
-            <div
-               class="absolute left-0 top-0 bottom-0 w-[8vw] bg-gradient-to-r from-[#050505] to-transparent z-10 pointer-events-none md:hidden">
-            </div>
-            <!-- Máscara de Profundidade Direita (Atrás dos Cards) -->
-            <div
-               class="absolute right-0 top-0 bottom-0 w-[8vw] bg-gradient-to-l from-[#050505] to-transparent z-10 pointer-events-none md:hidden">
-            </div>
+
 
             <!-- Container do Carrossel Centrado -->
             <div id="hw-carousel"
@@ -483,7 +467,7 @@
 
                <!-- Card 1 -->
                <div
-                  class="bento-card glass-premium p-6 md:p-7 flex flex-col h-[280px] md:h-[300px] w-[76vw] sm:w-[300px] md:w-auto flex-shrink-0 snap-center md:snap-align-none group relative overflow-hidden bg-gradient-to-br from-white/8 to-transparent border border-white/10 border-t-white/30 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] hover:border-[#f085aa]/50 hover:shadow-[0_45px_100px_-20px_rgba(0,0,0,0.8),0_0_30px_rgba(240,133,170,0.15)] hover:-translate-y-2 transition-all duration-700">
+                  class="bento-card glass-premium p-6 md:p-7 flex flex-col h-[280px] md:h-[300px] w-[76vw] sm:w-[300px] md:w-auto flex-shrink-0 snap-center md:snap-align-none group relative overflow-hidden bg-white/[0.03] border border-white/10 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] hover:border-[#f085aa]/50 hover:shadow-[0_45px_100px_-20px_rgba(0,0,0,0.8),0_0_30px_rgba(240,133,170,0.15)] hover:-translate-y-2 transition-all duration-700">
                   <span
                      class="absolute -top-4 -right-4 text-[8rem] font-black text-white/[0.03] leading-none transition-transform duration-700 group-hover:scale-110 pointer-events-none z-0">01</span>
 
@@ -506,7 +490,7 @@
 
                <!-- Card 2 -->
                <div
-                  class="bento-card glass-premium p-6 md:p-7 flex flex-col h-[280px] md:h-[300px] w-[76vw] sm:w-[300px] md:w-auto flex-shrink-0 snap-center md:snap-align-none group relative overflow-hidden bg-gradient-to-br from-white/8 to-transparent border border-white/10 border-t-white/30 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] hover:border-[#f085aa]/50 hover:shadow-[0_45px_100px_-20px_rgba(0,0,0,0.8),0_0_30px_rgba(240,133,170,0.15)] hover:-translate-y-2 transition-all duration-700">
+                  class="bento-card glass-premium p-6 md:p-7 flex flex-col h-[280px] md:h-[300px] w-[76vw] sm:w-[300px] md:w-auto flex-shrink-0 snap-center md:snap-align-none group relative overflow-hidden bg-white/[0.03] border border-white/10 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] hover:border-[#f085aa]/50 hover:shadow-[0_45px_100px_-20px_rgba(0,0,0,0.8),0_0_30px_rgba(240,133,170,0.15)] hover:-translate-y-2 transition-all duration-700">
                   <span
                      class="absolute -top-4 -right-4 text-[8rem] font-black text-white/[0.03] leading-none transition-transform duration-700 group-hover:scale-110 pointer-events-none z-0">02</span>
 
@@ -529,7 +513,7 @@
 
                <!-- Card 3 -->
                <div
-                  class="bento-card glass-premium p-6 md:p-7 flex flex-col h-[280px] md:h-[300px] w-[76vw] sm:w-[300px] md:w-auto flex-shrink-0 snap-center md:snap-align-none group relative overflow-hidden bg-gradient-to-br from-white/8 to-transparent border border-white/10 border-t-white/30 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] hover:border-[#f085aa]/50 hover:shadow-[0_45px_100px_-20px_rgba(0,0,0,0.8),0_0_30px_rgba(240,133,170,0.15)] hover:-translate-y-2 transition-all duration-700">
+                  class="bento-card glass-premium p-6 md:p-7 flex flex-col h-[280px] md:h-[300px] w-[76vw] sm:w-[300px] md:w-auto flex-shrink-0 snap-center md:snap-align-none group relative overflow-hidden bg-white/[0.03] border border-white/10 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] hover:border-[#f085aa]/50 hover:shadow-[0_45px_100px_-20px_rgba(0,0,0,0.8),0_0_30px_rgba(240,133,170,0.15)] hover:-translate-y-2 transition-all duration-700">
                   <span
                      class="absolute -top-4 -right-4 text-[8rem] font-black text-white/[0.03] leading-none transition-transform duration-700 group-hover:scale-110 pointer-events-none z-0">03</span>
 
@@ -551,7 +535,6 @@
                   </div>
                </div>
             </div>
-         </div>
          </div>
       </section>
 
@@ -625,21 +608,9 @@
 
       <!-- ECONOMY SHOWCASE (The Value Proposition) -->
       <section
-         class="pt-10 pb-2 md:pt-12 md:pb-4 px-6 md:border-b border-white/5 overflow-hidden relative bg-[#070707] reveal-off">
+         class="pt-10 pb-10 md:pt-12 md:pb-16 px-6 md:border-b border-white/5 overflow-hidden relative bg-[#070707] reveal-off">
          <div
-            class="absolute inset-0 z-0 pointer-events-none bg-gradient-to-b from-[#0f0712]/45 via-transparent to-[#08060b]/55">
-         </div>
-         <div
-            class="absolute lg:hidden -top-20 right-[-28%] w-[80vw] h-[80vw] bg-[#f085aa]/18 blur-[130px] rounded-full z-0 pointer-events-none">
-         </div>
-         <div
-            class="absolute lg:hidden bottom-[-12%] left-[-20%] w-[74vw] h-[74vw] bg-[#320075]/20 blur-[140px] rounded-full z-0 pointer-events-none">
-         </div>
-         <div
-            class="absolute lg:hidden top-[34%] left-[-20%] w-[76vw] h-[76vw] bg-[#f085aa]/18 blur-[130px] rounded-full z-0 pointer-events-none">
-         </div>
-         <div
-            class="absolute lg:hidden inset-x-0 top-0 h-20 bg-gradient-to-b from-[#09070d]/80 to-transparent z-0 pointer-events-none">
+            class="absolute inset-0 z-0 pointer-events-none bg-[#070707]">
          </div>
 
          <div class="max-w-7xl mx-auto relative z-10 md:grid md:grid-cols-2 md:gap-16 md:items-center">
@@ -654,47 +625,35 @@
                   <span class="block">nem se não ganhar.</span>
                </h2>
                <p class="text-[17px] md:text-xl text-gray-300 font-medium leading-relaxed mb-8 max-w-[420px]">
-                  Essa é a diferença entre o Clube Versiani e qualquer outra assinatura: seu dinheiro trabalha por você
-                  de dois jeitos ao mesmo tempo.
+                  Essa é a diferença entre o Clube Versiani e qualquer outra assinatura: <span class="text-white font-bold">seu dinheiro trabalha por você de dois jeitos ao mesmo tempo.</span>
                </p>
             </div>
 
             <div class="w-full mt-10 md:mt-0 relative group">
-               <!-- Mobile Arrows -->
-               <div
-                  class="absolute top-1/2 -translate-y-1/2 -left-4 md:hidden z-20 flex items-center pointer-events-none">
-                  <button onclick="document.getElementById('cards-carousel').scrollBy({left: -320, behavior: 'smooth'})"
-                     class="pointer-events-auto w-10 h-10 rounded-full border border-white/5 bg-[#1a1115]/95 hover:bg-[#251820] flex items-center justify-center text-white shadow-2xl active:scale-95 transition-all">
-                     <span class="material-symbols-outlined text-[1.1rem]">arrow_back</span>
-                  </button>
-               </div>
-               <div
-                  class="absolute top-1/2 -translate-y-1/2 -right-4 md:hidden z-20 flex items-center pointer-events-none">
-                  <button onclick="document.getElementById('cards-carousel').scrollBy({left: 320, behavior: 'smooth'})"
-                     class="pointer-events-auto w-10 h-10 rounded-full border border-white/5 bg-[#1a1115]/95 hover:bg-[#251820] flex items-center justify-center text-white shadow-2xl active:scale-95 transition-all">
-                     <span class="material-symbols-outlined text-[1.1rem]">arrow_forward</span>
-                  </button>
-               </div>
 
-               <div id="cards-carousel"
-                  class="flex flex-row md:flex-col gap-4 md:gap-6 overflow-x-auto md:overflow-visible snap-x snap-mandatory scroll-smooth [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] pb-6 md:pb-0 -mx-6 md:mx-0 px-[9vw] md:px-0 relative z-10 w-[100vw] sm:w-auto">
+               <div id="cards-carousel" class="flex flex-col gap-4 md:gap-6 relative z-10">
 
                   <!-- Premium Card 1 (Estilo Imagem) -->
                   <div
-                     class="p-8 md:p-10 rounded-[32px] border border-[#f085aa]/20 bg-gradient-to-br from-[#2b1f24] to-[#120d11] relative overflow-hidden w-[82vw] md:w-full flex-shrink-0 snap-center shadow-lg transition-all duration-300">
+                     class="p-8 md:p-10 rounded-[32px] border border-[#f085aa]/20 bg-gradient-to-br from-[#2b1f24] to-[#120d11] relative overflow-hidden w-full shadow-lg transition-all duration-300">
                      <div class="relative z-10 flex flex-col h-full justify-center">
                         <h3 class="text-[22px] md:text-2xl font-black text-white uppercase tracking-tighter mb-4">Sua
                            chance todo mês</h3>
-                        <p class="text-[16px] md:text-[17px] text-gray-300 font-medium leading-relaxed">
+                        <p class="text-[16px] md:text-[17px] text-gray-300 font-medium leading-relaxed mb-6">
                            Enquanto sua assinatura estiver ativa, você está no sorteio. Um novo prêmio. Uma nova chance.
                            Todo mês.
+                        </p>
+                        <p class="text-[16px] md:text-[17px] text-gray-300 font-medium leading-relaxed">
+                           1 número da sorte por mês.<br>
+                           Sorteio realizado pela <span class="text-[#f085aa] font-bold">Loteria Federal.</span>
+                           <span class="block text-gray-500 text-[14px] md:text-[15px] mt-2">— transparência total, resultado público.</span>
                         </p>
                      </div>
                   </div>
 
                   <!-- Premium Card 2 (Estilo Imagem) -->
                   <div
-                     class="p-8 md:p-10 rounded-[32px] border border-[#f085aa]/20 bg-gradient-to-br from-[#2b1f24] to-[#120d11] relative overflow-hidden w-[82vw] md:w-full flex-shrink-0 snap-center shadow-lg transition-all duration-300">
+                     class="p-8 md:p-10 rounded-[32px] border border-[#f085aa]/20 bg-gradient-to-br from-[#2b1f24] to-[#120d11] relative overflow-hidden w-full shadow-lg transition-all duration-300">
                      <div class="relative z-10 flex flex-col h-full justify-center">
                         <h3 class="text-[22px] md:text-2xl font-black text-white uppercase tracking-tighter mb-4">Seus
                            pontos,<br>seu dinheiro</h3>
@@ -714,10 +673,11 @@
                </div>
 
                <!-- Fechamento -->
-               <div class="mt-2 md:mt-2 text-left">
-                  <p class="text-[17px] md:text-xl text-white font-medium leading-relaxed tracking-tight">
-                     No Clube Versiani, não existe mês perdido.
+               <div class="mt-8 text-center">
+                  <p class="text-lg md:text-xl text-white font-bold leading-relaxed">
+                     No Clube Versiani, não existe
                   </p>
+                  <p class="text-2xl md:text-3xl font-black text-[#f085aa] leading-tight tracking-tight">mês perdido.</p>
                </div>
             </div>
          </div>
@@ -725,7 +685,7 @@
 
       <!-- SOCIAL PROOF / WALL OF LOVE -->
       <section
-         class="pt-6 pb-10 md:pt-8 md:pb-16 px-6 md:border-b border-white/5 bg-[#080808] relative overflow-hidden">
+         class="pt-12 pb-10 md:pt-16 md:pb-16 px-6 md:border-b border-white/5 bg-[#080808] relative overflow-hidden">
          <div
             class="absolute lg:hidden top-[-8%] left-[-24%] w-[72vw] h-[72vw] bg-[#f085aa]/16 blur-[120px] rounded-full z-0 pointer-events-none">
          </div>
@@ -1026,6 +986,8 @@
                </div>
             </div>
             <!-- CTA FOOTER (Massive Impact) -->
+         </div>
+      </section>
    </main>
 
    <footer class="bg-[#050505] pt-10 md:pt-24 pb-48 lg:pb-6 border-t border-white/10 px-6 md:relative overflow-hidden">
