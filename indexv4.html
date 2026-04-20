@@ -1154,15 +1154,12 @@
          </button>
 
          <div class="text-center mb-8">
-            <span class="text-[9px] font-black text-[#f085aa] uppercase tracking-[0.5em] mb-2 block">CLUB
-               VERSIANI</span>
-            <h2 id="modal-title" class="text-2xl md:text-3xl font-black text-white uppercase tracking-tight">ACESSO AO
-               CLUBE</h2>
+            <span class="text-[9px] font-black text-[#f085aa] uppercase tracking-[0.5em] mb-2 block">CLUB VERSIANI</span>
+            <h2 id="modal-title" class="text-2xl md:text-3xl font-black text-white uppercase tracking-tight">ACESSO AO CLUBE</h2>
          </div>
 
          <!-- FORMS CONTAINER (OTP FLOW) -->
          <div class="relative min-h-[360px] flex flex-col justify-center">
-
             <!-- STEP 1: IDENTIFIER -->
             <div id="modal-step-identifier" class="auth-form-step active">
                <div class="space-y-6">
@@ -1170,26 +1167,91 @@
                      <p class="text-gray-400 text-sm font-medium">Informe seu CPF ou Celular para receber o código de
                         acesso.</p>
                   </div>
-                  <div class="space-y-2 text-left">
-                     <label class="text-[10px] font-bold text-gray-400 uppercase tracking-widest pl-1">Identificador</label>
-                     <input type="text" id="modal-identifier" placeholder="CPF ou Celular com DDD"
-                        class="w-full input-premium h-16 rounded-2xl px-5 text-base font-bold">
+                  <div class="space-y-4">
+                     <div class="space-y-2 text-left">
+                        <label class="text-[10px] font-bold text-gray-400 uppercase tracking-widest pl-1">Identificador</label>
+                        <input type="text" id="modal-identifier" placeholder="CPF ou Celular com DDD"
+                           class="w-full bg-white h-16 rounded-2xl px-5 text-base text-black font-bold outline-none">
+                     </div>
+
+                     <!-- WhatsApp Confirmation Checkbox -->
+                     <div class="flex items-center gap-3 px-1 text-left">
+                        <label class="relative flex items-center cursor-pointer">
+                           <input type="checkbox" checked class="peer sr-only">
+                           <div class="w-6 h-6 bg-white/10 border border-white/20 rounded-lg peer-checked:bg-[#f085aa] peer-checked:border-[#f085aa] transition-all flex items-center justify-center"></div>
+                           <!-- SVG como irmão direto -->
+                           <svg class="absolute w-4 h-4 text-black opacity-0 peer-checked:opacity-100 transition-opacity left-1 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="4">
+                              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                           </svg>
+                        </label>
+                        <span class="text-sm font-bold text-white/90">Esse também é meu WhatsApp.</span>
+                     </div>
                   </div>
-                  <button type="button" id="modal-btn-continue" onclick="toModalStepCode()" disabled
+
+                  <button type="button" id="modal-btn-continue" onclick="handleModalIdentifierSubmit()" disabled
                      class="w-full h-16 bg-[#f085aa] text-black font-black uppercase tracking-widest text-sm rounded-full hover:scale-[1.02] active:scale-[0.98] transition-all shadow-[0_15px_30px_rgba(240,133,170,0.3)] disabled:opacity-20 disabled:cursor-not-allowed">
-                     Continuar
+                     CONTINUAR
                   </button>
-                  <p class="text-center text-[10px] text-gray-500 font-bold uppercase tracking-widest">
-                     Não tem cadastro? <a href="#" class="text-[#f085aa] hover:underline">Assine agora</a>
-                  </p>
+
+                  <div class="text-center space-y-4 pt-2">
+                     <p class="text-[11px] text-gray-500 font-bold leading-relaxed px-2">
+                        Ao continuar, concordo que meus dados poderão ser utilizados para comunicações relacionadas ao cadastro no <span class="text-white">Clube Versiani</span>.
+                     </p>
+                     <p class="text-[10px] text-gray-400 font-black uppercase tracking-widest">
+                        Não tem cadastro? <a href="#" class="text-[#f085aa] hover:underline">Assine agora</a>
+                     </p>
+                  </div>
                </div>
             </div>
 
-            <!-- STEP 2: CODE (OTP) -->
+            <!-- STEP 2: COMPLEMENT REGISTRATION (NEW USER) -->
+            <div id="modal-step-register" class="auth-form-step">
+               <div class="space-y-6">
+                  <div class="text-center md:text-left mb-6">
+                     <p class="text-gray-400 text-sm font-medium">Não identificamos sua conta. Preencha seus dados para começar.</p>
+                  </div>
+                  
+                  <div class="space-y-4">
+                     <div class="space-y-2 text-left">
+                        <label class="text-[10px] font-bold text-gray-400 uppercase tracking-widest pl-1">Nome Completo</label>
+                        <input type="text" id="modal-reg-name" placeholder="Como quer ser chamada?"
+                           class="w-full bg-white text-black font-bold h-14 rounded-xl px-5 text-base">
+                     </div>
+
+                     <div class="space-y-2 text-left">
+                        <label id="modal-label-complement" class="text-[10px] font-bold text-gray-400 uppercase tracking-widest pl-1">Seu Celular (WhatsApp)</label>
+                        <input type="text" id="modal-reg-complement" placeholder="(00) 9 0000-0000"
+                           class="w-full bg-white text-black font-bold h-14 rounded-xl px-5 text-base">
+                     </div>
+
+                     <!-- Terms Acceptance -->
+                     <div class="flex items-start gap-3 p-4 bg-white/5 rounded-2xl border border-white/10 text-left">
+                        <label class="relative flex items-center justify-center cursor-pointer mt-1">
+                           <input type="checkbox" id="modal-reg-terms" class="peer sr-only">
+                           <div class="w-5 h-5 bg-white/10 border border-white/20 rounded-md peer-checked:bg-green-500 peer-checked:border-green-500 transition-all"></div>
+                           <!-- SVG como irmão direto -->
+                           <svg class="absolute w-3 h-3 text-black opacity-0 peer-checked:opacity-100 transition-opacity pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="4">
+                              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                           </svg>
+                        </label>
+                        <p class="text-[11px] text-gray-400 font-medium leading-relaxed">
+                           Li e concordo com os <a href="#" class="text-[#f085aa] underline">Termos de Uso</a> e a <a href="#" class="text-[#f085aa] underline">Política de Privacidade</a> do Clube Versiani.
+                        </p>
+                     </div>
+                  </div>
+
+                  <button type="button" id="modal-btn-register-submit" onclick="handleModalRegisterSubmit()" disabled
+                     class="w-full h-16 bg-[#f085aa] text-black font-black uppercase tracking-widest text-sm rounded-full shadow-lg disabled:opacity-20">
+                     CONTINUAR
+                  </button>
+               </div>
+            </div>
+
+            <!-- STEP 3: CODE (OTP) -->
             <div id="modal-step-otp" class="auth-form-step">
                <div class="space-y-8">
                   <div class="text-center md:text-left mb-6">
-                     <p class="text-gray-400 text-sm font-medium">Enviamos um código de 6 dígitos para o seu acesso.</p>
+                     <p class="text-gray-400 text-sm font-medium" id="modal-otp-message">Enviamos um código de 6 dígitos para o seu acesso.</p>
                   </div>
 
                   <!-- OTP Grid -->
@@ -1209,7 +1271,7 @@
 
                   <button type="button" id="modal-btn-validate" onclick="window.location.href='dashboard2.html'" disabled
                      class="w-full h-16 bg-white text-black font-black uppercase tracking-widest text-sm rounded-full hover:bg-[#f085aa] hover:text-white transition-all shadow-xl disabled:opacity-20">
-                     Validar e Entrar
+                     ENTRAR
                   </button>
 
                   <button onclick="toModalStepIdentifier()"
@@ -1231,11 +1293,63 @@
          const authModal = document.getElementById('auth-modal');
          const modalTitle = document.getElementById('modal-title');
          const stepIdentifier = document.getElementById('modal-step-identifier');
+         const stepRegister = document.getElementById('modal-step-register');
          const stepOtp = document.getElementById('modal-step-otp');
+         
          const modalIdentifierInput = document.getElementById('modal-identifier');
          const modalBtnContinue = document.getElementById('modal-btn-continue');
+         
+         const modalRegName = document.getElementById('modal-reg-name');
+         const modalRegComplement = document.getElementById('modal-reg-complement');
+         const modalRegTerms = document.getElementById('modal-reg-terms');
+         const modalBtnRegisterSubmit = document.getElementById('modal-btn-register-submit');
+         
          const modalOtpFields = document.querySelectorAll('.modal-otp-field');
          const modalBtnValidate = document.getElementById('modal-btn-validate');
+
+         let modalFirstInputType = 'cpf';
+
+         // SIMULATION DB
+         const getModalDB = () => JSON.parse(localStorage.getItem('versiani_users') || '[]');
+         const saveToModalDB = (val) => {
+            const db = getModalDB();
+            if (!db.includes(val)) {
+               db.push(val);
+               localStorage.setItem('versiani_users', JSON.stringify(db));
+            }
+         };
+
+         // Intelligence Functions
+         function isValidCPF(cpf) {
+            cpf = cpf.replace(/[^\d]+/g, '');
+            if (cpf.length !== 11 || !!cpf.match(/(\d)\1{10}/)) return false;
+            let add = 0;
+            for (let i = 0; i < 9; i++) add += parseInt(cpf.charAt(i)) * (10 - i);
+            let rev = 11 - (add % 11);
+            if (rev === 10 || rev === 11) rev = 0;
+            if (rev !== parseInt(cpf.charAt(9))) return false;
+            add = 0;
+            for (let i = 0; i < 10; i++) add += parseInt(cpf.charAt(i)) * (11 - i);
+            rev = 11 - (add % 11);
+            if (rev === 10 || rev === 11) rev = 0;
+            if (rev !== parseInt(cpf.charAt(10))) return false;
+            return true;
+         }
+
+         function formatCPF(v) {
+            v = v.replace(/\D/g, "");
+            v = v.replace(/(\d{3})(\d)/, "$1.$2");
+            v = v.replace(/(\d{3})(\d)/, "$1.$2");
+            v = v.replace(/(\d{3})(\d{1,2})$/, "$1-$2");
+            return v;
+         }
+
+         function formatPhone(v) {
+            v = v.replace(/\D/g, "");
+            v = v.replace(/^(\d{2})(\d)/g, "($1) $2");
+            v = v.replace(/(\d)(\d{4})$/, "$1-$2");
+            return v;
+         }
 
          window.openAuthModal = (mode) => {
             authModal.classList.add('active');
@@ -1250,25 +1364,118 @@
 
          window.toModalStepIdentifier = () => {
             stepOtp.classList.remove('active');
+            stepRegister.classList.remove('active');
             setTimeout(() => {
                stepIdentifier.classList.add('active');
                modalTitle.textContent = 'ACESSO AO CLUBE';
             }, 50);
          };
 
+         window.handleModalIdentifierSubmit = () => {
+            const val = modalIdentifierInput.value.replace(/\D/g, '');
+            const db = getModalDB();
+            
+            if (db.includes(val)) {
+               toModalStepCode();
+            } else {
+               toModalStepRegister();
+            }
+         };
+
+         window.toModalStepRegister = () => {
+            stepIdentifier.classList.remove('active');
+            setTimeout(() => {
+               stepRegister.classList.add('active');
+               const labelComp = document.getElementById('modal-label-complement');
+               if (modalFirstInputType === 'cpf') {
+                  labelComp.textContent = 'Seu Celular (WhatsApp)';
+                  modalRegComplement.placeholder = '(00) 9 0000-0000';
+               } else {
+                  labelComp.textContent = 'Seu CPF';
+                  modalRegComplement.placeholder = '000.000.000-00';
+               }
+            }, 50);
+         };
+
+         window.handleModalRegisterSubmit = () => {
+            const val = modalIdentifierInput.value.replace(/\D/g, '');
+            saveToModalDB(val);
+            toModalStepCode();
+         };
+
          window.toModalStepCode = () => {
             stepIdentifier.classList.remove('active');
+            stepRegister.classList.remove('active');
             setTimeout(() => {
                stepOtp.classList.add('active');
                modalTitle.textContent = 'CONFIRMAR ACESSO';
+               
+               const otpMsg = document.getElementById('modal-otp-message');
+               if (modalFirstInputType === 'cpf') {
+                  otpMsg.textContent = 'Enviamos um código de 6 dígitos para o seu WhatsApp.';
+               } else {
+                  otpMsg.textContent = 'Enviamos um código de 6 dígitos para o celular informado.';
+               }
+               
                modalOtpFields[0].focus();
             }, 50);
          };
 
-         // Validator for Modal Identifier
+         // Intelligence for Modal Identifier
          modalIdentifierInput.addEventListener('input', (e) => {
-            modalBtnContinue.disabled = e.target.value.trim().length < 5;
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length > 11) value = value.slice(0, 11);
+            
+            const indicatorId = 'modal-detection-indicator';
+            let indicator = document.getElementById(indicatorId);
+            if (!indicator) {
+               indicator = document.createElement('p');
+               indicator.id = indicatorId;
+               indicator.className = 'text-[10px] font-bold uppercase tracking-widest mt-2 ml-1 transition-all';
+               modalIdentifierInput.parentNode.appendChild(indicator);
+            }
+
+            if (value.length === 11) {
+               if (isValidCPF(value)) {
+                  e.target.value = formatCPF(value);
+                  indicator.textContent = '✓ CPF Detectado';
+                  indicator.className = 'text-[10px] font-bold uppercase tracking-widest mt-2 ml-1 text-green-400';
+                  modalFirstInputType = 'cpf';
+               } else {
+                  e.target.value = formatPhone(value);
+                  indicator.textContent = '✓ Celular Detectado';
+                  indicator.className = 'text-[10px] font-bold uppercase tracking-widest mt-2 ml-1 text-[#f085aa]';
+                  modalFirstInputType = 'phone';
+               }
+            } else {
+               e.target.value = value;
+               indicator.textContent = '';
+            }
+
+            modalBtnContinue.disabled = value.length < 11;
          });
+
+         // Complement Logic
+         const validateModalReg = () => {
+            const isNameValid = modalRegName.value.trim().length > 3;
+            const isCompValid = modalRegComplement.value.replace(/\D/g, '').length === 11;
+            const isTerms = modalRegTerms.checked;
+            modalBtnRegisterSubmit.disabled = !(isNameValid && isCompValid && isTerms);
+         };
+
+         modalRegComplement.addEventListener('input', (e) => {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length > 11) value = value.slice(0, 11);
+            if (modalFirstInputType === 'cpf') {
+               e.target.value = formatPhone(value);
+            } else {
+               if (value.length === 11 && isValidCPF(value)) e.target.value = formatCPF(value);
+               else e.target.value = value;
+            }
+            validateModalReg();
+         });
+         modalRegName.addEventListener('input', validateModalReg);
+         modalRegTerms.addEventListener('change', validateModalReg);
 
          // Modal OTP Logic
          modalOtpFields.forEach((field, index) => {

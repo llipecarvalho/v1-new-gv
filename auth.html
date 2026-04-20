@@ -4,7 +4,7 @@
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-   <title>Clube Versiani — Área Exclusiva</title>
+   <title>Clube Versiani — Acesso</title>
 
    <!-- Fonts & Icons -->
    <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,7 +19,7 @@
       :root {
          --v-rose: #f085aa;
          --v-dark: #050505;
-         --v-purple: #320075;
+         --v-btn: #f085aa; /* Alterado para o rosa da imagem 1 */
       }
 
       body {
@@ -28,6 +28,9 @@
          color: white;
          overflow: hidden;
          height: 100dvh;
+         display: flex;
+         align-items: center;
+         justify-content: center;
       }
 
       .animate-blob {
@@ -42,13 +45,70 @@
 
       .glass-premium {
          background: rgba(255, 255, 255, 0.03);
-         backdrop-filter: blur(30px) saturate(180%);
-         -webkit-backdrop-filter: blur(30px) saturate(180%);
+         backdrop-filter: blur(40px) saturate(180%);
+         -webkit-backdrop-filter: blur(40px) saturate(180%);
          border: 1px solid rgba(255, 255, 255, 0.08);
       }
 
+      .modal-card {
+         width: 100%;
+         max-width: 440px;
+         border-radius: 40px;
+         padding: 40px;
+         box-shadow: 0 50px 100px -20px rgba(0,0,0,0.5);
+         position: relative;
+         z-index: 10;
+      }
+
+      .input-white {
+         background: white !important;
+         color: black !important;
+         border: none !important;
+         border-radius: 20px;
+         height: 70px;
+         font-size: 1.1rem;
+         font-weight: 700;
+         transition: all 0.3s ease;
+      }
+
+      .input-white::placeholder {
+         color: #94a3b8;
+      }
+
+      .btn-maroon {
+         background: var(--v-btn);
+         color: black !important;
+         border-radius: 40px;
+         height: 75px;
+         font-weight: 900;
+         text-transform: uppercase;
+         letter-spacing: 0.1em;
+         transition: all 0.3s ease;
+         opacity: 0.9;
+      }
+
+      .btn-maroon:not(:disabled):hover {
+         opacity: 1;
+         transform: translateY(-2px);
+         box-shadow: 0 10px 30px rgba(61, 35, 42, 0.5);
+      }
+
+      .btn-maroon:disabled {
+         opacity: 0.2;
+         cursor: not-allowed;
+      }
+
+      .step-enter {
+         animation: slideIn 0.5s forwards cubic-bezier(0.23, 1, 0.32, 1);
+      }
+
+      @keyframes slideIn {
+         from { opacity: 0; transform: translateY(10px); filter: blur(5px); }
+         to { opacity: 1; transform: translateY(0); filter: blur(0); }
+      }
+
       .input-otp {
-         width: 45px;
+         width: 100%;
          height: 60px;
          text-align: center;
          font-size: 1.5rem;
@@ -56,6 +116,7 @@
          background: rgba(255, 255, 255, 0.05);
          border: 1px solid rgba(255, 255, 255, 0.1);
          border-radius: 12px;
+         color: white;
          transition: all 0.3s ease;
       }
 
@@ -63,41 +124,6 @@
          border-color: var(--v-rose);
          background: rgba(240, 133, 170, 0.1);
          outline: none;
-         box-shadow: 0 0 15px rgba(240, 133, 170, 0.3);
-      }
-
-      .btn-primary {
-         background: white;
-         color: black;
-         transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-         box-shadow: 0 10px 30px -10px rgba(255, 255, 255, 0.2);
-      }
-
-      .btn-primary:not(:disabled):hover {
-         transform: translateY(-2px);
-         background: var(--v-rose);
-         color: white;
-         box-shadow: 0 15px 40px -10px rgba(240, 133, 170, 0.4);
-      }
-
-      .btn-primary:disabled {
-         opacity: 0.2;
-         cursor: not-allowed;
-      }
-
-      .step-enter {
-         animation: slideIn 0.5s forwards;
-      }
-
-      @keyframes slideIn {
-         from { opacity: 0; transform: translateX(20px); filter: blur(10px); }
-         to { opacity: 1; transform: translateX(0); filter: blur(0); }
-      }
-
-      .text-gradient-rose {
-         background: linear-gradient(to right, #f085aa, #ffffff);
-         -webkit-background-clip: text;
-         -webkit-text-fill-color: transparent;
       }
    </style>
 </head>
@@ -110,151 +136,332 @@
       <div class="absolute bottom-[10%] right-[-10%] w-[80vw] h-[80vw] bg-[#320075]/15 blur-[120px] rounded-full animate-blob" style="animation-delay: -5s;"></div>
    </div>
 
-   <!-- Header -->
-   <header class="p-6 flex items-center justify-between z-50">
-      <button onclick="goBack()" class="w-10 h-10 flex items-center justify-center rounded-full bg-white/5 border border-white/10 text-white hover:bg-white/10 transition-colors">
-         <span class="material-symbols-outlined font-light">arrow_back</span>
+   <!-- Modal Card Layout -->
+   <div class="modal-card glass-premium mx-6">
+      <!-- Close Button (Redireciona para Home) -->
+      <button onclick="window.location.href='index.html'" class="absolute top-8 right-8 text-white/50 hover:text-white transition-colors">
+         <span class="material-symbols-outlined text-2xl font-light">close</span>
       </button>
-      <div class="flex flex-col items-center">
-         <span class="text-[20px] font-black text-white tracking-tighter">Versiani<span class="text-[#f085aa]">.</span></span>
-      </div>
-      <div class="w-10"></div> <!-- Spacer -->
-   </header>
 
-   <!-- Main Content Area -->
-   <main class="flex-1 flex flex-col px-6 pt-8 pb-12 overflow-y-auto z-10">
-      
+      <!-- Main Header -->
+      <div class="text-center mb-10">
+         <span class="text-[10px] font-black text-[#f085aa] uppercase tracking-[0.4em] mb-2 block">CLUB VERSIANI</span>
+         <h1 id="modal-title" class="text-2xl md:text-3xl font-black text-white uppercase tracking-tight">ACESSO AO CLUBE</h1>
+      </div>
+
       <!-- STEP 1: IDENTIFIER -->
-      <section id="step-identifier" class="step-enter flex flex-col h-full max-w-sm mx-auto w-full">
-         <div class="mb-10 text-center md:text-left">
-            <h1 class="text-3xl md:text-4xl font-black text-white leading-tight uppercase tracking-tight mb-4">
-               Olá!<br>Qual seu <span class="text-[#f085aa]">CPF</span> ou <span class="text-[#f085aa]">Celular</span>?
-            </h1>
-            <p class="text-gray-400 font-medium">Use os dados da sua última compra ou assinatura para acessar.</p>
+      <section id="step-identifier" class="step-enter flex flex-col space-y-7">
+         <div class="text-center">
+            <p class="text-gray-400 text-sm font-medium px-4">Informe seu CPF ou Celular para receber o código de acesso.</p>
          </div>
 
-         <div class="space-y-6 flex-1">
-            <div class="relative">
+         <div class="space-y-4">
+            <div class="space-y-2">
+               <label class="text-[10px] font-black text-gray-400 uppercase tracking-widest pl-1">Identificador</label>
                <input type="text" id="identifier" placeholder="CPF ou Celular com DDD"
-                  class="w-full h-20 bg-white/5 border border-white/10 rounded-2xl px-6 text-xl font-bold text-white placeholder-white/20 focus:border-[#f085aa] focus:bg-[#f085aa]/5 transition-all outline-none">
+                  class="w-full input-white px-6 text-black font-bold outline-none focus:ring-4 focus:ring-[#f085aa]/20 transition-all">
             </div>
 
-            <div class="p-6 rounded-2xl bg-white/[0.03] border border-white/5 flex items-center gap-4">
-               <div class="w-10 h-10 rounded-full bg-[#f085aa]/10 flex items-center justify-center text-[#f085aa]">
-                  <span class="material-symbols-outlined text-xl">verified_user</span>
-               </div>
-               <p class="text-[11px] text-gray-500 font-bold uppercase tracking-widest leading-relaxed">
-                  Seus dados estão protegidos pela <br> criptografia Versiani.
+            <!-- WhatsApp Confirmation Checkbox -->
+            <div class="flex items-center gap-3 px-1">
+               <label class="relative flex items-center cursor-pointer">
+                  <input type="checkbox" checked class="peer sr-only">
+                  <div class="w-6 h-6 bg-white/10 border border-white/20 rounded-lg peer-checked:bg-[#f085aa] peer-checked:border-[#f085aa] transition-all flex items-center justify-center"></div>
+                  <!-- SVG como irmão direto para o peer-checked funcionar 100% -->
+                  <svg class="absolute w-4 h-4 text-black opacity-0 peer-checked:opacity-100 transition-opacity left-1 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="4">
+                     <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+               </label>
+               <span class="text-sm font-bold text-white/90">Esse também é meu WhatsApp.</span>
+            </div>
+         </div>
+
+         <button id="btn-continue" onclick="handleIdentifierSubmit()" disabled
+            class="btn-maroon w-full flex items-center justify-center">
+            CONTINUAR
+         </button>
+
+         <!-- Data Consent Footer -->
+         <div class="text-center space-y-6 pt-2">
+            <p class="text-[11px] text-gray-500 font-bold leading-relaxed px-2">
+               Ao continuar, concordo que meus dados poderão ser utilizados para comunicações relacionadas ao cadastro no <span class="text-white">Clube Versiani</span>.
+            </p>
+            <p class="text-[10px] text-gray-400 font-black uppercase tracking-widest">
+               Não tem cadastro? <a href="#" class="text-[#f085aa] hover:underline">Assine agora</a>
+            </p>
+         </div>
+      </section>
+
+      <!-- STEP 2 (NEW USER): COMPLEMENT REGISTRATION -->
+      <section id="step-register" class="hidden step-enter flex flex-col space-y-6">
+         <div class="text-center">
+            <p class="text-gray-400 text-sm font-medium">Não identificamos sua conta. Preencha seus dados para começar.</p>
+         </div>
+
+         <div class="space-y-4">
+            <div class="space-y-2">
+               <label class="text-[10px] font-black text-gray-500 uppercase tracking-widest pl-1">Nome Completo</label>
+               <input type="text" id="reg-name" placeholder="Como quer ser chamada?"
+                  class="w-full input-white px-6 text-black font-bold outline-none focus:ring-4 focus:ring-[#f085aa]/20 transition-all">
+            </div>
+
+            <div class="space-y-2">
+               <label id="label-complement" class="text-[10px] font-black text-gray-500 uppercase tracking-widest pl-1">Seu Celular (WhatsApp)</label>
+               <input type="text" id="reg-complement" placeholder="(00) 9 0000-0000"
+                  class="w-full input-white px-6 text-black font-bold outline-none focus:ring-4 focus:ring-[#f085aa]/20 transition-all">
+            </div>
+
+            <!-- Terms Acceptance -->
+            <div class="flex items-start gap-3 p-4 bg-white/5 rounded-2xl border border-white/10">
+               <label class="relative flex items-center justify-center cursor-pointer mt-1">
+                  <input type="checkbox" id="reg-terms" class="peer sr-only">
+                  <div class="w-5 h-5 bg-white/10 border border-white/20 rounded-md peer-checked:bg-green-500 peer-checked:border-green-500 transition-all"></div>
+                  <!-- SVG como irmão direto para garantir visibilidade -->
+                  <svg class="absolute w-3 h-3 text-black opacity-0 peer-checked:opacity-100 transition-opacity pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="4">
+                     <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+               </label>
+               <p class="text-[11px] text-gray-400 font-medium leading-relaxed">
+                  Li e concordo com os <a href="#" class="text-[#f085aa] underline">Termos de Uso</a> e a <a href="#" class="text-[#f085aa] underline">Política de Privacidade</a> do Clube Versiani.
                </p>
             </div>
          </div>
 
-         <!-- Bottom Action -->
-         <div class="mt-auto pt-8">
-            <button id="btn-continue" onclick="toStepCode()" disabled
-               class="btn-primary w-full h-16 rounded-full font-black uppercase tracking-widest text-sm flex items-center justify-center gap-3">
-               Continuar
-               <span class="material-symbols-outlined font-light">arrow_forward</span>
-            </button>
-            <p class="mt-6 text-center text-xs text-gray-600 font-bold uppercase tracking-widest">
-               Precisa de ajuda? <a href="#" class="text-[#f085aa] hover:underline">Fale conosco</a>
-            </p>
-         </div>
+         <button id="btn-register-submit" onclick="submitRegisterAndContinue()" disabled
+            class="btn-maroon w-full">
+            CONTINUAR
+         </button>
       </section>
 
-      <!-- STEP 2: CODE (Hidden) -->
-      <section id="step-code" class="hidden flex flex-col h-full max-w-sm mx-auto w-full">
-         <div class="mb-10 text-center md:text-left">
-            <h1 class="text-3xl md:text-4xl font-black text-white leading-tight uppercase tracking-tight mb-4">
-               Confirmar<br><span class="text-[#f085aa]">seu acesso.</span>
-            </h1>
-            <p class="text-gray-400 font-medium tracking-tight leading-relaxed">
-               Enviamos um código de 6 dígitos para o seu 
-               <span class="text-white font-bold" id="code-destination">WhatsApp</span>.
-            </p>
+      <!-- STEP 3: CODE (OTP) -->
+      <section id="step-code" class="hidden step-enter flex flex-col space-y-8">
+         <div class="text-center">
+            <p class="text-gray-400 text-sm font-medium" id="otp-message">Enviamos um código de 6 dígitos para o seu acesso.</p>
          </div>
 
-         <div class="space-y-10 flex-1">
-            <!-- OTP Grid -->
-            <div class="flex justify-between gap-2 md:gap-3">
-               <input type="number" maxlength="1" class="input-otp otp-field" pattern="\d*">
-               <input type="number" maxlength="1" class="input-otp otp-field" pattern="\d*">
-               <input type="number" maxlength="1" class="input-otp otp-field" pattern="\d*">
-               <input type="number" maxlength="1" class="input-otp otp-field" pattern="\d*">
-               <input type="number" maxlength="1" class="input-otp otp-field" pattern="\d*">
-               <input type="number" maxlength="1" class="input-otp otp-field" pattern="\d*">
-            </div>
-
-            <div class="text-center">
-               <p class="text-xs font-bold text-gray-500 uppercase tracking-widest mb-4">Não recebeu o código?</p>
-               <button class="text-[#f085aa] text-sm font-black uppercase tracking-widest hover:underline">Reenviar Código (00:45)</button>
-            </div>
+         <!-- OTP Grid -->
+         <div class="flex justify-between gap-2 overflow-hidden">
+            <input type="number" maxlength="1" class="input-otp otp-field" pattern="\d*">
+            <input type="number" maxlength="1" class="input-otp otp-field" pattern="\d*">
+            <input type="number" maxlength="1" class="input-otp otp-field" pattern="\d*">
+            <input type="number" maxlength="1" class="input-otp otp-field" pattern="\d*">
+            <input type="number" maxlength="1" class="input-otp otp-field" pattern="\d*">
+            <input type="number" maxlength="1" class="input-otp otp-field" pattern="\d*">
          </div>
 
-         <!-- Bottom Action -->
-         <div class="mt-auto pt-8">
-            <button id="btn-validate" onclick="window.location.href='dashboard2.html'" disabled
-               class="btn-primary w-full h-16 rounded-full font-black uppercase tracking-widest text-sm flex items-center justify-center gap-3">
-               Validar e Entrar
-               <span class="material-symbols-outlined font-light">stars</span>
-            </button>
-            <p class="mt-6 text-center text-xs text-gray-600 font-bold uppercase tracking-widest">
-               Mudou de número? <a href="#" class="text-[#f085aa] hover:underline">Clique aqui</a>
-            </p>
+         <div class="text-center">
+            <button class="text-[#f085aa] text-[10px] font-black uppercase tracking-widest hover:underline">Reenviar Código (00:45)</button>
          </div>
+
+         <button id="btn-validate" onclick="window.location.href='dashboard2.html'" disabled
+            class="btn-maroon w-full">
+            ENTRAR
+         </button>
+
+         <button onclick="goBack()" class="text-[10px] text-gray-500 font-bold uppercase tracking-widest hover:text-white transition-colors">
+            Voltar / Alterar Dados
+         </button>
       </section>
-
-   </main>
+   </div>
 
    <script>
       let currentStep = 'identifier';
+      let firstInputType = 'cpf'; // cpf ou phone
+      
       const identifierInput = document.getElementById('identifier');
       const btnContinue = document.getElementById('btn-continue');
+      
+      const regName = document.getElementById('reg-name');
+      const regComplement = document.getElementById('reg-complement');
+      const regTerms = document.getElementById('reg-terms');
+      const btnRegisterSubmit = document.getElementById('btn-register-submit');
+
       const otpFields = document.querySelectorAll('.otp-field');
       const btnValidate = document.getElementById('btn-validate');
+      const modalTitle = document.getElementById('modal-title');
 
-      // Validator for Identifier
+      // SIMULATION DB
+      const getMockDB = () => JSON.parse(localStorage.getItem('versiani_users') || '[]');
+      const saveToMockDB = (val) => {
+         const db = getMockDB();
+         if (!db.includes(val)) {
+            db.push(val);
+            localStorage.setItem('versiani_users', JSON.stringify(db));
+         }
+      };
+      const clearMockDB = () => {
+         localStorage.removeItem('versiani_users');
+         window.location.reload();
+      };
+
+      // CPF Validation Algorithm
+      function isValidCPF(cpf) {
+         cpf = cpf.replace(/[^\d]+/g, '');
+         if (cpf.length !== 11 || !!cpf.match(/(\d)\1{10}/)) return false;
+         let add = 0;
+         for (let i = 0; i < 9; i++) add += parseInt(cpf.charAt(i)) * (10 - i);
+         let rev = 11 - (add % 11);
+         if (rev === 10 || rev === 11) rev = 0;
+         if (rev !== parseInt(cpf.charAt(9))) return false;
+         add = 0;
+         for (let i = 0; i < 10; i++) add += parseInt(cpf.charAt(i)) * (11 - i);
+         rev = 11 - (add % 11);
+         if (rev === 10 || rev === 11) rev = 0;
+         if (rev !== parseInt(cpf.charAt(10))) return false;
+         return true;
+      }
+
+      function formatCPF(v) {
+         v = v.replace(/\D/g, "");
+         v = v.replace(/(\d{3})(\d)/, "$1.$2");
+         v = v.replace(/(\d{3})(\d)/, "$1.$2");
+         v = v.replace(/(\d{3})(\d{1,2})$/, "$1-$2");
+         return v;
+      }
+
+      function formatPhone(v) {
+         v = v.replace(/\D/g, "");
+         v = v.replace(/^(\d{2})(\d)/g, "($1) $2");
+         v = v.replace(/(\d)(\d{4})$/, "$1-$2");
+         return v;
+      }
+
+      // Input Intelligence
       identifierInput.addEventListener('input', (e) => {
-         const value = e.target.value.trim();
-         // Basic validation (at least 11 chars for CPF or Phone)
-         btnContinue.disabled = value.length < 5;
+         let value = e.target.value.replace(/\D/g, '');
+         if (value.length > 11) value = value.slice(0, 11);
+         
+         const indicatorId = 'detection-indicator';
+         let indicator = document.getElementById(indicatorId);
+         if (!indicator) {
+            indicator = document.createElement('p');
+            indicator.id = indicatorId;
+            indicator.className = 'text-[10px] font-bold uppercase tracking-widest mt-2 ml-1 transition-all';
+            identifierInput.parentNode.appendChild(indicator);
+         }
+
+         if (value.length === 11) {
+            if (isValidCPF(value)) {
+               e.target.value = formatCPF(value);
+               indicator.textContent = '✓ CPF Detectado';
+               indicator.className = 'text-[10px] font-bold uppercase tracking-widest mt-2 ml-1 text-green-400';
+               firstInputType = 'cpf';
+            } else {
+               e.target.value = formatPhone(value);
+               indicator.textContent = '✓ Celular Detectado';
+               indicator.className = 'text-[10px] font-bold uppercase tracking-widest mt-2 ml-1 text-[#f085aa]';
+               firstInputType = 'phone';
+            }
+         } else {
+            e.target.value = value;
+            indicator.textContent = '';
+         }
+
+         btnContinue.disabled = value.length < 11;
       });
 
-      function toStepCode() {
+      // Complement Input Intelligence
+      regComplement.addEventListener('input', (e) => {
+         let value = e.target.value.replace(/\D/g, '');
+         if (value.length > 11) value = value.slice(0, 11);
+         
+         if (firstInputType === 'cpf') {
+            e.target.value = formatPhone(value);
+         } else {
+            if (value.length === 11 && isValidCPF(value)) {
+               e.target.value = formatCPF(value);
+            } else {
+               e.target.value = value;
+            }
+         }
+         validateRegisterStep();
+      });
+
+      regName.addEventListener('input', validateRegisterStep);
+      regTerms.addEventListener('change', validateRegisterStep);
+
+      function validateRegisterStep() {
+         const isNameValid = regName.value.trim().length > 3;
+         const isComplementValid = regComplement.value.replace(/\D/g, '').length === 11;
+         const isTermsAccepted = regTerms.checked;
+         btnRegisterSubmit.disabled = !(isNameValid && isComplementValid && isTermsAccepted);
+      }
+
+      function handleIdentifierSubmit() {
+         const value = identifierInput.value.replace(/\D/g, '');
+         const db = getMockDB();
+         
+         if (db.includes(value)) {
+            // JÁ EXISTE NO BANCO: Vai direto pro Código
+            toStepCode();
+         } else {
+            // NÃO EXISTE: Precisa complementar cadastro
+            toStepRegister();
+         }
+      }
+
+      function toStepRegister() {
          document.getElementById('step-identifier').classList.add('hidden');
+         const stepReg = document.getElementById('step-register');
+         stepReg.classList.remove('hidden');
+         
+         const labelComp = document.getElementById('label-complement');
+         if (firstInputType === 'cpf') {
+            labelComp.textContent = 'Seu Celular (WhatsApp)';
+            regComplement.placeholder = '(00) 9 0000-0000';
+         } else {
+            labelComp.textContent = 'Seu CPF';
+            regComplement.placeholder = '000.000.000-00';
+         }
+         
+         currentStep = 'register';
+      }
+
+      function submitRegisterAndContinue() {
+         const value = identifierInput.value.replace(/\D/g, '');
+         saveToMockDB(value); // SALVA NO BANCO FAKE
+         toStepCode('register');
+      }
+
+      function toStepCode(fromTab) {
+         if (fromTab === 'register') {
+            document.getElementById('step-register').classList.add('hidden');
+         } else {
+            document.getElementById('step-identifier').classList.add('hidden');
+         }
+         
          const stepCode = document.getElementById('step-code');
          stepCode.classList.remove('hidden');
-         stepCode.classList.add('step-enter');
+         
+         const otpMsg = document.getElementById('otp-message');
+         if (firstInputType === 'cpf') {
+            otpMsg.textContent = 'Enviamos um código de 6 dígitos para o seu WhatsApp.';
+         } else {
+            otpMsg.textContent = 'Enviamos um código de 6 dígitos para o celular informado.';
+         }
+
+         modalTitle.textContent = 'CONFIRMAR ACESSO';
          currentStep = 'code';
          otpFields[0].focus();
       }
 
       function goBack() {
-         if (currentStep === 'code') {
-            document.getElementById('step-code').classList.add('hidden');
-            document.getElementById('step-identifier').classList.remove('hidden');
-            currentStep = 'identifier';
-         } else {
-            window.location.href = 'index.html';
-         }
+         document.getElementById('step-code').classList.add('hidden');
+         document.getElementById('step-register').classList.add('hidden');
+         document.getElementById('step-identifier').classList.remove('hidden');
+         modalTitle.textContent = 'ACESSO AO CLUBE';
+         currentStep = 'identifier';
       }
 
       // OTP Field Logic
       otpFields.forEach((field, index) => {
          field.addEventListener('input', (e) => {
-            if (e.target.value.length > 1) {
-               e.target.value = e.target.value.slice(0, 1);
-            }
-            if (e.target.value.length === 1 && index < otpFields.length - 1) {
-               otpFields[index + 1].focus();
-            }
+            if (e.target.value.length > 1) e.target.value = e.target.value.slice(0, 1);
+            if (e.target.value.length === 1 && index < otpFields.length - 1) otpFields[index+1].focus();
             checkOtpComplete();
          });
-
          field.addEventListener('keydown', (e) => {
-            if (e.key === 'Backspace' && !e.target.value && index > 0) {
-               otpFields[index - 1].focus();
-            }
+            if (e.key === 'Backspace' && !e.target.value && index > 0) otpFields[index-1].focus();
          });
       });
 
