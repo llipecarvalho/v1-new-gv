@@ -8,6 +8,7 @@ export default defineConfig({
         main: resolve(__dirname, 'index.html'),
         auth: resolve(__dirname, 'auth.html'),
         dashboard: resolve(__dirname, 'dashboard.html'),
+        dashboard2: resolve(__dirname, 'dashboard2.html'),
         indexv3: resolve(__dirname, 'indexv3.html'),
         indexv4: resolve(__dirname, 'indexv4.html'),
       },
