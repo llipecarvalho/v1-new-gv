@@ -3,17 +3,14 @@
 
 <head>
    <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
    <title>Clube Versiani — Área Exclusiva</title>
 
    <!-- Fonts & Icons -->
    <link rel="preconnect" href="https://fonts.googleapis.com">
    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-   <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
-      rel="stylesheet">
-   <link rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,200,0,0" />
+   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,200,0,0" />
 
    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
    <script src="https://cdn.tailwindcss.com"></script>
@@ -26,258 +23,244 @@
       }
 
       body {
-         font-family: 'Outfit', sans-serif;
+         font-family: 'Manrope', sans-serif;
          background-color: var(--v-dark);
          color: white;
-         overflow-x: hidden;
+         overflow: hidden;
+         height: 100dvh;
       }
 
       .animate-blob {
-         animation: blob 7s infinite;
+         animation: blob 10s infinite alternate ease-in-out;
       }
 
       @keyframes blob {
-         0% {
-            transform: scale(1) translate(0px, 0px);
-            opacity: 0.3;
-         }
-
-         33% {
-            transform: scale(1.1) translate(30px, -50px);
-            opacity: 0.5;
-         }
-
-         66% {
-            transform: scale(0.9) translate(-20px, 20px);
-            opacity: 0.2;
-         }
-
-         100% {
-            transform: scale(1) translate(0px, 0px);
-            opacity: 0.3;
-         }
+         0% { transform: scale(1) translate(0px, 0px); opacity: 0.3; }
+         50% { transform: scale(1.1) translate(20px, -30px); opacity: 0.5; }
+         100% { transform: scale(0.9) translate(-10px, 10px); opacity: 0.2; }
       }
 
       .glass-premium {
          background: rgba(255, 255, 255, 0.03);
-         backdrop-filter: blur(20px) saturate(180%);
-         -webkit-backdrop-filter: blur(20px) saturate(180%);
-         border: 1px solid rgba(255, 255, 255, 0.1);
-         box-shadow: 0 40px 100px -30px rgba(0, 0, 0, 0.8);
+         backdrop-filter: blur(30px) saturate(180%);
+         -webkit-backdrop-filter: blur(30px) saturate(180%);
+         border: 1px solid rgba(255, 255, 255, 0.08);
       }
 
-      .input-premium {
+      .input-otp {
+         width: 45px;
+         height: 60px;
+         text-align: center;
+         font-size: 1.5rem;
+         font-weight: 800;
          background: rgba(255, 255, 255, 0.05);
          border: 1px solid rgba(255, 255, 255, 0.1);
-         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-         color: white;
+         border-radius: 12px;
+         transition: all 0.3s ease;
       }
 
-      .input-premium:focus {
-         background: rgba(240, 133, 170, 0.08);
-         /* Rosa Versiani sutil */
+      .input-otp:focus {
          border-color: var(--v-rose);
+         background: rgba(240, 133, 170, 0.1);
          outline: none;
-         box-shadow: 0 0 20px rgba(240, 133, 170, 0.15);
+         box-shadow: 0 0 15px rgba(240, 133, 170, 0.3);
       }
 
-      .btn-rose-gradient {
-         background: linear-gradient(135deg, #f085aa, #d6648c);
-         box-shadow: 0 10px 30px -10px rgba(240, 133, 170, 0.4);
-         transition: all 0.4s ease;
+      .btn-primary {
+         background: white;
+         color: black;
+         transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+         box-shadow: 0 10px 30px -10px rgba(255, 255, 255, 0.2);
       }
 
-      .btn-rose-gradient:hover {
+      .btn-primary:not(:disabled):hover {
          transform: translateY(-2px);
-         filter: brightness(1.1);
-         box-shadow: 0 15px 40px -10px rgba(240, 133, 170, 0.6);
+         background: var(--v-rose);
+         color: white;
+         box-shadow: 0 15px 40px -10px rgba(240, 133, 170, 0.4);
       }
 
-      /* Transitions for Toggle */
-      .hidden-form {
-         display: none !important;
-         opacity: 0;
-         transform: scale(0.95);
+      .btn-primary:disabled {
+         opacity: 0.2;
+         cursor: not-allowed;
       }
 
-      /* Custom scrollbar */
-      ::-webkit-scrollbar {
-         width: 4px;
+      .step-enter {
+         animation: slideIn 0.5s forwards;
       }
 
-      ::-webkit-scrollbar-track {
-         background: transparent;
+      @keyframes slideIn {
+         from { opacity: 0; transform: translateX(20px); filter: blur(10px); }
+         to { opacity: 1; transform: translateX(0); filter: blur(0); }
       }
 
-      ::-webkit-scrollbar-thumb {
-         background: rgba(255, 255, 255, 0.1);
-         border-radius: 10px;
+      .text-gradient-rose {
+         background: linear-gradient(to right, #f085aa, #ffffff);
+         -webkit-background-clip: text;
+         -webkit-text-fill-color: transparent;
       }
    </style>
 </head>
 
-<body class="min-h-screen flex items-center justify-center p-4">
+<body class="flex flex-col">
 
-   <!-- Ambient Blobs -->
-   <div
-      class="fixed top-[-10%] left-[-10%] w-[60vw] h-[60vw] bg-[#f085aa]/15 blur-[120px] rounded-full animate-blob pointer-events-none -z-10">
+   <!-- Ambient Background -->
+   <div class="fixed top-0 left-0 w-full h-full -z-10 overflow-hidden pointer-events-none">
+      <div class="absolute top-[10%] left-[-10%] w-[80vw] h-[80vw] bg-[#f085aa]/10 blur-[120px] rounded-full animate-blob"></div>
+      <div class="absolute bottom-[10%] right-[-10%] w-[80vw] h-[80vw] bg-[#320075]/15 blur-[120px] rounded-full animate-blob" style="animation-delay: -5s;"></div>
    </div>
-   <div
-      class="fixed bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] bg-[#320075]/20 blur-[150px] rounded-full animate-blob pointer-events-none -z-10"
-      style="animation-delay: -5s;"></div>
 
-   <!-- Auth Section -->
-   <div class="w-full max-w-[480px] z-10">
-
-      <!-- Top Logo & Return -->
-      <div class="text-center mb-8">
-         <a href="index.html"
-            class="inline-flex items-center gap-2 text-gray-500 hover:text-white transition-colors mb-6 text-sm font-medium tracking-wide">
-            <span class="material-symbols-outlined text-lg">arrow_back</span>
-            VOLTAR AO INÍCIO
-         </a>
-         <div class="flex flex-col items-center">
-            <span class="text-xs font-black text-[#f085aa] uppercase tracking-[0.5em] mb-2">CLUB VERSIANI</span>
-            <h1 id="auth-title" class="text-4xl font-black text-white uppercase tracking-tight">FAÇA SEU ACESSO</h1>
-         </div>
+   <!-- Header -->
+   <header class="p-6 flex items-center justify-between z-50">
+      <button onclick="goBack()" class="w-10 h-10 flex items-center justify-center rounded-full bg-white/5 border border-white/10 text-white hover:bg-white/10 transition-colors">
+         <span class="material-symbols-outlined font-light">arrow_back</span>
+      </button>
+      <div class="flex flex-col items-center">
+         <span class="text-[20px] font-black text-white tracking-tighter">Versiani<span class="text-[#f085aa]">.</span></span>
       </div>
+      <div class="w-10"></div> <!-- Spacer -->
+   </header>
 
-      <!-- Main Glass Card -->
-      <div class="glass-premium rounded-3xl p-8 md:p-10 relative overflow-hidden">
+   <!-- Main Content Area -->
+   <main class="flex-1 flex flex-col px-6 pt-8 pb-12 overflow-y-auto z-10">
+      
+      <!-- STEP 1: IDENTIFIER -->
+      <section id="step-identifier" class="step-enter flex flex-col h-full max-w-sm mx-auto w-full">
+         <div class="mb-10 text-center md:text-left">
+            <h1 class="text-3xl md:text-4xl font-black text-white leading-tight uppercase tracking-tight mb-4">
+               Olá!<br>Qual seu <span class="text-[#f085aa]">CPF</span> ou <span class="text-[#f085aa]">Celular</span>?
+            </h1>
+            <p class="text-gray-400 font-medium">Use os dados da sua última compra ou assinatura para acessar.</p>
+         </div>
 
-         <!-- Decorator -->
-         <div class="absolute -top-20 -right-20 w-40 h-40 bg-[#f085aa]/10 blur-[80px] rounded-full"></div>
+         <div class="space-y-6 flex-1">
+            <div class="relative">
+               <input type="text" id="identifier" placeholder="CPF ou Celular com DDD"
+                  class="w-full h-20 bg-white/5 border border-white/10 rounded-2xl px-6 text-xl font-bold text-white placeholder-white/20 focus:border-[#f085aa] focus:bg-[#f085aa]/5 transition-all outline-none">
+            </div>
 
-         <!-- LOGIN FORM -->
-         <div id="login-form">
-            <form class="space-y-6">
-               <div class="space-y-2">
-                  <label class="text-xs font-bold text-gray-400 uppercase tracking-widest pl-1">Seu E-mail</label>
-                  <input type="email" placeholder="exemplo@gmail.com"
-                     class="w-full input-premium h-14 rounded-2xl px-5 text-white placeholder-white/20 font-medium">
+            <div class="p-6 rounded-2xl bg-white/[0.03] border border-white/5 flex items-center gap-4">
+               <div class="w-10 h-10 rounded-full bg-[#f085aa]/10 flex items-center justify-center text-[#f085aa]">
+                  <span class="material-symbols-outlined text-xl">verified_user</span>
                </div>
-
-               <div class="space-y-2">
-                  <div class="flex justify-between items-center px-1">
-                     <label class="text-xs font-bold text-gray-400 uppercase tracking-widest">Sua Senha</label>
-                     <a href="#"
-                        class="text-[10px] text-[#f085aa] font-black uppercase tracking-widest hover:underline">Esqueci
-                        a senha</a>
-                  </div>
-                  <input type="password" placeholder="••••••••"
-                     class="w-full input-premium h-14 rounded-2xl px-5 text-white placeholder-white/20 font-medium tracking-widest">
-               </div>
-
-               <div class="pt-2">
-                  <button type="button" onclick="window.location.href='dashboard.html'"
-                     class="w-full btn-rose-gradient h-16 rounded-2xl text-black font-black uppercase tracking-widest text-sm">Entrar
-                     no Clube</button>
-               </div>
-            </form>
-
-            <div class="mt-8 text-center">
-               <p class="text-gray-500 text-sm font-medium mb-1">Ainda não faz parte do clube?</p>
-               <button onclick="toggleAuth('signup')"
-                  class="text-[#f085aa] font-black uppercase tracking-widest text-xs hover:tracking-[0.15em] transition-all">Criar
-                  seu cadastro exclusivo</button>
+               <p class="text-[11px] text-gray-500 font-bold uppercase tracking-widest leading-relaxed">
+                  Seus dados estão protegidos pela <br> criptografia Versiani.
+               </p>
             </div>
          </div>
 
-         <!-- SIGNUP FORM (Hidden by default) -->
-         <div id="signup-form" class="hidden-form">
-            <form class="space-y-5">
-               <div class="space-y-1.5">
-                  <label class="text-[10px] font-bold text-gray-500 uppercase tracking-widest pl-1">Nome
-                     Completo</label>
-                  <input type="text" placeholder="Como no seu CPF"
-                     class="w-full input-premium h-12 rounded-xl px-5 text-white placeholder-white/20 font-medium text-sm">
-               </div>
+         <!-- Bottom Action -->
+         <div class="mt-auto pt-8">
+            <button id="btn-continue" onclick="toStepCode()" disabled
+               class="btn-primary w-full h-16 rounded-full font-black uppercase tracking-widest text-sm flex items-center justify-center gap-3">
+               Continuar
+               <span class="material-symbols-outlined font-light">arrow_forward</span>
+            </button>
+            <p class="mt-6 text-center text-xs text-gray-600 font-bold uppercase tracking-widest">
+               Precisa de ajuda? <a href="#" class="text-[#f085aa] hover:underline">Fale conosco</a>
+            </p>
+         </div>
+      </section>
 
-               <div class="grid grid-cols-2 gap-4">
-                  <div class="space-y-1.5">
-                     <label
-                        class="text-[10px] font-bold text-gray-500 uppercase tracking-widest pl-1">Nascimento</label>
-                     <input type="date"
-                        class="w-full input-premium h-12 rounded-xl px-4 text-white opacity-40 focus:opacity-100 font-medium text-sm">
-                  </div>
-                  <div class="space-y-1.5">
-                     <label class="text-[10px] font-bold text-gray-500 uppercase tracking-widest pl-1">CPF</label>
-                     <input type="text" placeholder="000.000.000-00"
-                        class="w-full input-premium h-12 rounded-xl px-4 text-white placeholder-white/20 font-medium text-sm">
-                  </div>
-               </div>
+      <!-- STEP 2: CODE (Hidden) -->
+      <section id="step-code" class="hidden flex flex-col h-full max-w-sm mx-auto w-full">
+         <div class="mb-10 text-center md:text-left">
+            <h1 class="text-3xl md:text-4xl font-black text-white leading-tight uppercase tracking-tight mb-4">
+               Confirmar<br><span class="text-[#f085aa]">seu acesso.</span>
+            </h1>
+            <p class="text-gray-400 font-medium tracking-tight leading-relaxed">
+               Enviamos um código de 6 dígitos para o seu 
+               <span class="text-white font-bold" id="code-destination">WhatsApp</span>.
+            </p>
+         </div>
 
-               <div class="space-y-1.5">
-                  <label class="text-[10px] font-bold text-gray-500 uppercase tracking-widest pl-1">E-mail de
-                     Cadastro</label>
-                  <input type="email" placeholder="Para receber os sorteios"
-                     class="w-full input-premium h-12 rounded-xl px-5 text-white placeholder-white/20 font-medium text-sm">
-               </div>
+         <div class="space-y-10 flex-1">
+            <!-- OTP Grid -->
+            <div class="flex justify-between gap-2 md:gap-3">
+               <input type="number" maxlength="1" class="input-otp otp-field" pattern="\d*">
+               <input type="number" maxlength="1" class="input-otp otp-field" pattern="\d*">
+               <input type="number" maxlength="1" class="input-otp otp-field" pattern="\d*">
+               <input type="number" maxlength="1" class="input-otp otp-field" pattern="\d*">
+               <input type="number" maxlength="1" class="input-otp otp-field" pattern="\d*">
+               <input type="number" maxlength="1" class="input-otp otp-field" pattern="\d*">
+            </div>
 
-               <div class="grid grid-cols-2 gap-4">
-                  <div class="space-y-1.5">
-                     <label class="text-[10px] font-bold text-gray-500 uppercase tracking-widest pl-1">Criar
-                        Senha</label>
-                     <input type="password" placeholder="••••••"
-                        class="w-full input-premium h-12 rounded-xl px-4 text-white placeholder-white/20 font-medium text-sm">
-                  </div>
-                  <div class="space-y-1.5">
-                     <label class="text-[10px] font-bold text-gray-500 uppercase tracking-widest pl-1">Confirmar</label>
-                     <input type="password" placeholder="••••••"
-                        class="w-full input-premium h-12 rounded-xl px-4 text-white placeholder-white/20 font-medium text-sm">
-                  </div>
-               </div>
-
-               <div class="pt-4">
-                  <button type="button" onclick="window.location.href='dashboard.html'"
-                     class="w-full btn-rose-gradient h-16 rounded-2xl text-black font-black uppercase tracking-widest text-sm shadow-[0_15px_40px_-10px_rgba(240,133,170,0.4)]">Ativar
-                     Meu Acesso VIP</button>
-               </div>
-            </form>
-
-            <div class="mt-8 text-center border-t border-white/5 pt-6">
-               <p class="text-gray-500 text-sm font-medium mb-1">Já possui uma conta?</p>
-               <button onclick="toggleAuth('login')"
-                  class="text-[#f085aa] font-black uppercase tracking-widest text-xs hover:tracking-[0.15em] transition-all">Fazer
-                  login agora</button>
+            <div class="text-center">
+               <p class="text-xs font-bold text-gray-500 uppercase tracking-widest mb-4">Não recebeu o código?</p>
+               <button class="text-[#f085aa] text-sm font-black uppercase tracking-widest hover:underline">Reenviar Código (00:45)</button>
             </div>
          </div>
 
-      </div>
-
-      <!-- Compliance/Security Footnote -->
-      <div class="mt-8 flex items-center justify-center gap-4 text-gray-600">
-         <div class="flex items-center gap-1.5 grayscale opacity-50">
-            <span class="material-symbols-outlined text-sm">lock</span>
-            <span class="text-[9px] font-bold uppercase tracking-widest">SSL Seguro</span>
+         <!-- Bottom Action -->
+         <div class="mt-auto pt-8">
+            <button id="btn-validate" onclick="window.location.href='dashboard2.html'" disabled
+               class="btn-primary w-full h-16 rounded-full font-black uppercase tracking-widest text-sm flex items-center justify-center gap-3">
+               Validar e Entrar
+               <span class="material-symbols-outlined font-light">stars</span>
+            </button>
+            <p class="mt-6 text-center text-xs text-gray-600 font-bold uppercase tracking-widest">
+               Mudou de número? <a href="#" class="text-[#f085aa] hover:underline">Clique aqui</a>
+            </p>
          </div>
-         <div class="w-px h-3 bg-white/5"></div>
-         <span class="text-[9px] font-bold uppercase tracking-widest opacity-50">Plataforma Elev-C</span>
-      </div>
+      </section>
 
-   </div>
+   </main>
 
    <script>
-      function toggleAuth(mode) {
-         const loginForm = document.getElementById('login-form');
-         const signupForm = document.getElementById('signup-form');
-         const title = document.getElementById('auth-title');
+      let currentStep = 'identifier';
+      const identifierInput = document.getElementById('identifier');
+      const btnContinue = document.getElementById('btn-continue');
+      const otpFields = document.querySelectorAll('.otp-field');
+      const btnValidate = document.getElementById('btn-validate');
 
-         if (mode === 'signup') {
-            loginForm.classList.add('hidden-form');
-            signupForm.classList.remove('hidden-form');
-            title.innerText = 'CRIAR CADASTRO';
+      // Validator for Identifier
+      identifierInput.addEventListener('input', (e) => {
+         const value = e.target.value.trim();
+         // Basic validation (at least 11 chars for CPF or Phone)
+         btnContinue.disabled = value.length < 5;
+      });
+
+      function toStepCode() {
+         document.getElementById('step-identifier').classList.add('hidden');
+         const stepCode = document.getElementById('step-code');
+         stepCode.classList.remove('hidden');
+         stepCode.classList.add('step-enter');
+         currentStep = 'code';
+         otpFields[0].focus();
+      }
+
+      function goBack() {
+         if (currentStep === 'code') {
+            document.getElementById('step-code').classList.add('hidden');
+            document.getElementById('step-identifier').classList.remove('hidden');
+            currentStep = 'identifier';
          } else {
-            signupForm.classList.add('hidden-form');
-            loginForm.classList.remove('hidden-form');
-            title.innerText = 'FAÇA SEU ACESSO';
+            window.location.href = 'index.html';
          }
       }
 
-      // Check URL for initial mode
-      const urlParams = new URLSearchParams(window.location.search);
-      if (urlParams.get('mode') === 'signup') {
-         toggleAuth('signup');
+      // OTP Field Logic
+      otpFields.forEach((field, index) => {
+         field.addEventListener('input', (e) => {
+            if (e.target.value.length > 1) {
+               e.target.value = e.target.value.slice(0, 1);
+            }
+            if (e.target.value.length === 1 && index < otpFields.length - 1) {
+               otpFields[index + 1].focus();
+            }
+            checkOtpComplete();
+         });
+
+         field.addEventListener('keydown', (e) => {
+            if (e.key === 'Backspace' && !e.target.value && index > 0) {
+               otpFields[index - 1].focus();
+            }
+         });
+      });
+
+      function checkOtpComplete() {
+         const allFilled = Array.from(otpFields).every(f => f.value.length === 1);
+         btnValidate.disabled = !allFilled;
       }
    </script>
 </body>

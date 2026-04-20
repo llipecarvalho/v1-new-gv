@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Versiani — Dashboard Elite</title>
+    
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --v-rose: #f085aa;
+            --v-dark: #050505;
+            --v-card: rgba(255, 255, 255, 0.03);
+            --v-border: rgba(255, 255, 255, 0.08);
+        }
+
+        body {
+            font-family: 'Manrope', sans-serif;
+            background-color: var(--v-dark);
+            color: white;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .glass-premium {
+            background: var(--v-card);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid var(--v-border);
+        }
+
+        .bottom-nav {
+            background: rgba(5, 5, 5, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-top: 1px solid var(--v-border);
+        }
+
+        .nav-item.active {
+            color: var(--v-rose);
+        }
+        
+        .nav-item.active .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1;
+            filter: drop-shadow(0 0 8px rgba(240, 133, 170, 0.4));
+        }
+
+        .status-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 100%);
+            border: 1px solid var(--v-border);
+            border-radius: 20px;
+        }
+
+        .text-gradient-rose {
+            background: linear-gradient(to right, #f085aa, #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Hide scrollbar */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        .balance-text {
+            font-variant-numeric: tabular-nums;
+        }
+    </style>
+</head>
+<body class="pb-24">
+
+    <!-- SIDEBAR MENU (Elite Dark Version) -->
+    <div id="side-menu" class="fixed inset-0 z-[2000] invisible">
+        <!-- Backdrop -->
+        <div onclick="toggleMenu()" class="absolute inset-0 bg-black/80 backdrop-blur-md opacity-0 transition-opacity duration-300" id="menu-backdrop"></div>
+        
+        <!-- Content -->
+        <div class="absolute top-0 left-0 w-[80%] h-full bg-[#050505] border-r border-white/5 shadow-2xl -translate-x-full transition-transform duration-300 flex flex-col" id="menu-content">
+            <!-- Header do Menu -->
+            <div class="p-8 flex items-center justify-between border-b border-white/5">
+                <span class="text-xl font-black text-white tracking-tighter">VERSIANI<span class="text-[#f085aa]">.</span></span>
+                <button onclick="toggleMenu()" class="text-white/30 hover:text-[#f085aa] transition-colors">
+                    <span class="material-symbols-outlined text-3xl">close</span>
+                </button>
+            </div>
+
+            <!-- Scrollable Items -->
+            <div class="flex-1 overflow-y-auto py-6">
+                <!-- Seção de Ícones -->
+                <div class="px-4 space-y-2">
+                    <button onclick="switchTab('home'); toggleMenu()" class="w-full flex items-center gap-5 px-6 py-4 hover:bg-white/5 rounded-2xl transition-all group">
+                        <span class="material-symbols-outlined font-light text-[#f085aa]">grid_view</span>
+                        <span class="text-sm font-black uppercase tracking-widest text-white/80 group-hover:text-white">Início</span>
+                    </button>
+                    <button onclick="toggleMenu()" class="w-full flex items-center gap-5 px-6 py-4 hover:bg-white/5 rounded-2xl transition-all group">
+                        <span class="material-symbols-outlined font-light text-gray-500">auto_stories</span>
+                        <span class="text-sm font-black uppercase tracking-widest text-white/50 group-hover:text-white">Álbuns</span>
+                    </button>
+                    <button onclick="switchTab('contests'); toggleMenu()" class="w-full flex items-center gap-5 px-6 py-4 hover:bg-white/5 rounded-2xl transition-all group">
+                        <span class="material-symbols-outlined font-light text-gray-500">confirmation_number</span>
+                        <span class="text-sm font-black uppercase tracking-widest text-white/50 group-hover:text-white">Sorteios</span>
+                    </button>
+                    <button onclick="toggleMenu()" class="w-full flex items-center gap-5 px-6 py-4 hover:bg-white/5 rounded-2xl transition-all group">
+                        <span class="material-symbols-outlined font-light text-gray-500">percent</span>
+                        <span class="text-sm font-black uppercase tracking-widest text-white/50 group-hover:text-white">Cupons</span>
+                    </button>
+                    <button onclick="switchTab('store'); toggleMenu()" class="w-full flex items-center gap-5 px-6 py-4 hover:bg-white/5 rounded-2xl transition-all group">
+                        <span class="material-symbols-outlined font-light text-gray-500">storefront</span>
+                        <span class="text-sm font-black uppercase tracking-widest text-white/50 group-hover:text-white">Lojão</span>
+                    </button>
+                </div>
+
+                <!-- Seção de Texto (Gestão) -->
+                <div class="px-10 space-y-6 mt-10 pt-10 border-t border-white/5">
+                    <button class="w-full text-left text-[10px] font-black uppercase tracking-[0.2em] text-white/40 hover:text-[#f085aa] block">Indique e Ganhe</button>
+                    <button onclick="switchTab('profile'); toggleMenu()" class="w-full text-left text-[10px] font-black uppercase tracking-[0.2em] text-white/40 hover:text-[#f085aa] block">Meus Dados</button>
+                    <button class="w-full text-left text-[10px] font-black uppercase tracking-[0.2em] text-white/40 hover:text-[#f085aa] block">Dúvidas Frequentes</button>
+                    <button onclick="window.location.href='indexv4.html'" class="w-full text-left text-[10px] font-black uppercase tracking-[0.2em] text-red-500/50 hover:text-red-500 block pt-4">Sair da Conta</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN HEADER (Elite Restored) -->
+    <header class="p-6 flex items-center justify-between sticky top-0 z-50 bg-[#050505]/90 backdrop-blur-xl border-b border-white/5">
+        <!-- Minimalist Menu Toggle -->
+        <button onclick="toggleMenu()" class="flex flex-col items-center gap-0.5 active:scale-90 transition-transform">
+            <div class="w-6 h-[2px] bg-[#f085aa] rounded-full"></div>
+            <div class="w-4 h-[2px] bg-white rounded-full ml-auto"></div>
+            <div class="w-6 h-[2px] bg-[#f085aa] rounded-full"></div>
+            <span class="text-[7px] font-black text-gray-500 uppercase tracking-widest mt-1">MENU</span>
+        </button>
+
+        <!-- Centered Logo -->
+        <div class="absolute left-1/2 -translate-x-1/2">
+            <span class="text-xl font-black text-white tracking-tight">VERSIANI<span class="text-[#f085aa]">.</span></span>
+        </div>
+
+        <!-- Notification Bell (Glass) -->
+        <button class="w-10 h-10 rounded-full glass-premium flex items-center justify-center relative active:scale-95 transition-all">
+            <span class="material-symbols-outlined font-light text-xl">notifications</span>
+            <span class="absolute top-2.5 right-2.5 w-1.5 h-1.5 bg-[#f085aa] rounded-full shadow-[0_0_8px_#f085aa]"></span>
+        </button>
+    </header>
+
+    <!-- TAB CONTENT CONTAINER -->
+    <div id="tab-content">
+        
+        <!-- INÍCIO (TAB HOME) -->
+        <div id="tab-home" class="tab-pane active animate-fade-in">
+            
+            <!-- STORIES / PARCEIROS (Novo) -->
+            <div class="px-4 py-4 flex gap-4 overflow-x-auto no-scrollbar">
+                <div class="flex flex-col items-center gap-1 min-w-[70px]">
+                    <div class="w-16 h-16 rounded-full border-2 border-[#f085aa] p-0.5 shadow-[0_0_15px_rgba(240,133,170,0.3)]">
+                        <div class="w-full h-full rounded-full bg-white flex items-center justify-center p-2 overflow-hidden">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/9/94/Prada_Logo.svg" class="w-full grayscale opacity-80">
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col items-center gap-1 min-w-[70px]">
+                    <div class="w-16 h-16 rounded-full border-2 border-sky-400 p-0.5">
+                        <div class="w-full h-full rounded-full bg-white flex items-center justify-center p-2 overflow-hidden">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e8/Tesla_logo.png" class="w-full grayscale h-6 object-contain">
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col items-center gap-1 min-w-[70px]">
+                    <div class="w-16 h-16 rounded-full border-2 border-yellow-500 p-0.5">
+                        <div class="w-full h-full rounded-full bg-white flex items-center justify-center p-2 overflow-hidden">
+                            <img src="https://upload.wikimedia.org/wikipedia/sco/d/d4/Domino%27s_Pizza_logo.svg" class="w-full h-full object-contain">
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col items-center gap-1 min-w-[70px]">
+                    <div class="w-16 h-16 rounded-full border-2 border-white/20 p-0.5">
+                        <div class="w-full h-full rounded-full bg-white flex items-center justify-center p-2 overflow-hidden">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_Icons_-_2020_-_Cloud.svg" class="w-8 h-8 opacity-80">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- QUICK BANNER 1 (Novo) -->
+            <div class="px-6 mb-4">
+                <div class="bg-gradient-to-r from-purple-800 to-indigo-600 rounded-3xl p-4 flex items-center justify-between shadow-lg">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center">
+                            <span class="material-symbols-outlined text-white">blur_on</span>
+                        </div>
+                        <span class="text-xs font-black text-white uppercase tracking-widest">Raspe e ganhe na hora!</span>
+                    </div>
+                    <span class="material-symbols-outlined text-white text-sm">arrow_forward_ios</span>
+                </div>
+            </div>
+
+            <!-- MAIN STATUS CARD (Inspirado no Familhão) -->
+            <section class="px-6 mb-8 mt-2">
+                <div class="status-card p-6 bg-gradient-to-br from-[#f085aa]/20 to-[#320075]/20 border border-white/10 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-[#f085aa]/10 blur-3xl"></div>
+                    <p class="text-[10px] font-black text-[#f085aa] uppercase tracking-[0.2em] mb-2">Equilíbrio entre ON e OFF</p>
+                    <h2 class="text-3xl font-black tracking-tighter leading-none mb-4">GANHE ATÉ <br><span class="text-white text-4xl">R$ 1 MILHÃO</span></h2>
+                    <button onclick="openUpgradeModal()" class="px-6 py-2.5 bg-white text-black rounded-full text-[10px] font-black uppercase tracking-widest shadow-xl active:scale-95 transition-all">
+                        EU QUERO!
+                    </button>
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=200&auto=format&fit=crop" class="absolute -right-4 -bottom-4 w-32 h-32 object-cover opacity-60 rounded-full blur-[1px]">
+                </div>
+            </section>
+
+            <!-- MINHAS RECOMPENSAS (Novo Grid) -->
+            <section class="px-6 mb-8">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-sm font-black uppercase tracking-widest">Minhas Recompensas</h3>
+                    <button class="text-[10px] font-black text-[#f085aa] uppercase tracking-widest">Ver Mais</button>
+                </div>
+                <!-- Light Grid like the reference image -->
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-white rounded-3xl p-5 shadow-lg flex flex-col justify-between h-32 group active:scale-95 transition-all">
+                        <div class="flex justify-between items-start">
+                            <span class="text-3xl font-black text-black">2</span>
+                            <div class="w-8 h-8 rounded-full bg-sky-100 flex items-center justify-center">
+                                <span class="material-symbols-outlined text-sky-500 text-sm">confirmation_number</span>
+                            </div>
+                        </div>
+                        <p class="text-[10px] font-black text-black/60 uppercase tracking-tight leading-tight">Chances nos <br>Sorteios</p>
+                    </div>
+                    <div class="bg-white rounded-3xl p-5 shadow-lg flex flex-col justify-between h-32 group active:scale-95 transition-all">
+                        <div class="flex justify-between items-start">
+                            <span class="text-3xl font-black text-black">1.240</span>
+                            <div class="w-8 h-8 rounded-full bg-orange-100 flex items-center justify-center">
+                                <span class="material-symbols-outlined text-orange-500 text-sm">monetization_on</span>
+                            </div>
+                        </div>
+                        <p class="text-[10px] font-black text-black/60 uppercase tracking-tight leading-tight">Créditos no <br>Lojão</p>
+                    </div>
+                    <div class="bg-white rounded-3xl p-5 shadow-lg flex flex-col justify-between h-32 group active:scale-95 transition-all">
+                        <div class="flex justify-between items-start">
+                            <span class="text-3xl font-black text-black">15</span>
+                            <div class="w-8 h-8 rounded-full bg-purple-100 flex items-center justify-center">
+                                <span class="material-symbols-outlined text-purple-500 text-sm">redeem</span>
+                            </div>
+                        </div>
+                        <p class="text-[10px] font-black text-black/60 uppercase tracking-tight leading-tight">Cupons de <br>Desconto</p>
+                    </div>
+                    <div class="bg-white rounded-3xl p-5 shadow-lg flex flex-col justify-between h-32 group active:scale-95 transition-all">
+                        <div class="flex justify-between items-start">
+                            <span class="text-3xl font-black text-black">142</span>
+                            <div class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center">
+                                <span class="material-symbols-outlined text-green-600 text-sm">groups</span>
+                            </div>
+                        </div>
+                        <p class="text-[10px] font-black text-black/60 uppercase tracking-tight leading-tight">Afiliados na <br>Sua Rede</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- MISSÕES PREMIADAS (Novo) -->
+            <section class="px-6 mb-8">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-sm font-black uppercase tracking-widest">Missões Premiadas</h3>
+                    <button class="text-[10px] font-black text-[#f085aa] uppercase tracking-widest">Quero Mais</button>
+                </div>
+                <div class="bg-white/5 border border-white/10 rounded-3xl p-5 flex items-center justify-between">
+                    <div class="max-w-[70%]">
+                        <p class="text-[9px] font-black text-sky-400 uppercase tracking-widest mb-1">Quiz Versiani</p>
+                        <h4 class="text-sm font-bold text-white mb-2 leading-tight">Responda e ganhe figura extra para o álbum!</h4>
+                        <div class="flex items-center gap-2">
+                            <span class="text-[9px] font-black bg-white/10 px-2 py-0.5 rounded text-gray-400">Nunca expira</span>
+                        </div>
+                    </div>
+                    <div class="w-16 h-16 rounded-2xl overflow-hidden shadow-lg border border-white/20">
+                        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=200&auto=format&fit=crop" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </section>
+
+            <!-- OFERTAS DO LOJÃO (Novo) -->
+            <section class="px-6 mb-24">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-sm font-black uppercase tracking-widest">Ofertas do Lojão</h3>
+                    <button class="text-[10px] font-black text-[#f085aa] uppercase tracking-widest">Ver Tudo</button>
+                </div>
+                <div class="flex gap-4 overflow-x-auto no-scrollbar">
+                    <div class="min-w-[140px] bg-white rounded-3xl p-4 shadow-lg group">
+                        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=200&auto=format&fit=crop" class="w-full aspect-square object-contain mb-2 group-hover:scale-110 transition-transform">
+                        <span class="text-[9px] font-black text-gray-400 uppercase tracking-widest">A partir de</span>
+                        <div class="flex items-center gap-1">
+                            <div class="w-3 h-3 rounded-full bg-orange-500"></div>
+                            <span class="text-sm font-black text-black">470</span>
+                        </div>
+                    </div>
+                    <div class="min-w-[140px] bg-white rounded-3xl p-4 shadow-lg group">
+                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=200&auto=format&fit=crop" class="w-full aspect-square object-contain mb-2 group-hover:scale-110 transition-transform">
+                        <span class="text-[9px] font-black text-gray-400 uppercase tracking-widest">A partir de</span>
+                        <div class="flex items-center gap-1">
+                            <div class="w-3 h-3 rounded-full bg-orange-500"></div>
+                            <span class="text-sm font-black text-black">320</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- MINHA REDE (TAB NETWORK) -->
+        <div id="tab-network" class="tab-pane hidden animate-fade-in p-6">
+            <h2 class="text-2xl font-black uppercase tracking-tighter mb-8">Minha <span class="text-[#f085aa]">Rede</span></h2>
+            
+            <div class="space-y-4">
+                <!-- Nível 1 -->
+                <div class="status-card p-6 flex items-center justify-between border-l-4 border-l-[#f085aa]">
+                    <div>
+                        <p class="text-[10px] font-black text-gray-500 uppercase tracking-widest">Nível 1 (Diretos)</p>
+                        <h4 class="text-2xl font-black">42 Afiliados</h4>
+                    </div>
+                    <div class="text-right">
+                        <p class="text-[10px] font-black text-gray-500 uppercase tracking-widest">Ganhos</p>
+                        <h4 class="text-lg font-black text-[#f085aa]">R$ 840,00</h4>
+                    </div>
+                </div>
+
+                <!-- Nível 2 -->
+                <div class="status-card p-6 flex items-center justify-between border-l-4 border-l-[#320075]">
+                    <div>
+                        <p class="text-[10px] font-black text-gray-500 uppercase tracking-widest">Nível 2 (Indiretos)</p>
+                        <h4 class="text-2xl font-black">100 Afiliados</h4>
+                    </div>
+                    <div class="text-right">
+                        <p class="text-[10px] font-black text-gray-500 uppercase tracking-widest">Ganhos</p>
+                        <h4 class="text-lg font-black text-[#f085aa]">R$ 400,50</h4>
+                    </div>
+                </div>
+
+                <!-- Growth Insight -->
+                <div class="p-6 rounded-3xl bg-[#f085aa]/10 border border-[#f085aa]/20 mt-8">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="material-symbols-outlined text-[#f085aa]">auto_awesome</span>
+                        <p class="text-xs font-black uppercase tracking-widest text-[#f085aa]">Próximo Bônus</p>
+                    </div>
+                    <p class="text-sm text-gray-300 leading-relaxed mb-6">
+                        Complete 50 indicados diretos para subir para o nível <span class="text-white font-black italic">ELITE GOLD</span> e garantir 30% de comissão.
+                    </p>
+                    <div class="w-full h-2 bg-black/40 rounded-full overflow-hidden mb-4">
+                        <div class="h-full bg-gradient-to-r from-[#f085aa] to-[#ffffff] w-[84%]"></div>
+                    </div>
+                    <button onclick="openUpgradeModal()" class="w-full py-2 bg-[#f085aa] text-black text-[10px] font-black uppercase rounded-lg">Acelerar Gradação</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- SORTEIOS (TAB CONTESTS) -->
+        <div id="tab-contests" class="tab-pane hidden animate-fade-in p-6">
+            <h2 class="text-2xl font-black uppercase tracking-tighter mb-4">Prêmios & <span class="text-[#f085aa]">Sorteios</span></h2>
+            
+            <!-- MINI TABS (Sub-navegação) -->
+            <div class="flex gap-2 mb-8 bg-white/5 p-1 rounded-full border border-white/5">
+                <button class="flex-1 py-3 px-4 rounded-full bg-[#f085aa] text-black text-[10px] font-black uppercase tracking-widest">Minhas Chances</button>
+                <button class="flex-1 py-3 px-4 rounded-full text-gray-500 text-[10px] font-black uppercase tracking-widest hover:text-white transition-colors">Vencedores</button>
+            </div>
+
+            <div class="space-y-6 mb-20">
+                <!-- Sorteio Card 1 (Mercedes) -->
+                <div class="status-card overflow-hidden">
+                    <div class="h-40 relative">
+                        <img src="https://images.unsplash.com/photo-1549399542-7e3f8b79c3d9?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover" alt="Mercedes">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#050505] to-transparent"></div>
+                        <div class="absolute top-4 right-4 bg-[#f085aa] text-black px-3 py-1 rounded-full text-[9px] font-black uppercase">Prêmio Master</div>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="flex h-2 w-2 rounded-full bg-green-500 animate-pulse"></span>
+                            <span class="text-[10px] font-black text-green-500 uppercase tracking-widest">Seu acesso está confirmado</span>
+                        </div>
+                        <h4 class="text-xl font-black uppercase tracking-tight mb-4">Mercedes GLA 200 PRO</h4>
+                        
+                        <!-- Lucky Numbers -->
+                        <div class="p-4 rounded-2xl bg-white/5 border border-white/10 mb-5">
+                            <p class="text-[9px] font-black text-gray-500 uppercase tracking-widest mb-2">Seus Números da Sorte</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-xs font-black bg-white/10 px-2 py-1 rounded border border-white/10">127157560</span>
+                                <span class="text-xs font-black bg-white/10 px-2 py-1 rounded border border-white/10">127157561</span>
+                            </div>
+                        </div>
+
+                        <div class="flex justify-between items-center text-[10px] font-black uppercase tracking-widest">
+                            <span class="text-sky-400">Sorteio: 24/04/2026</span>
+                            <span class="text-gray-500">Loteria Federal</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TURBINAR BENEFÍCIOS (Call to action) -->
+                <div class="rounded-3xl bg-gradient-to-br from-[#320075] to-[#f085aa] p-6 shadow-[0_20px_40px_rgba(240,133,170,0.2)]">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="max-w-[60%]">
+                            <h5 class="text-sm font-black uppercase tracking-widest text-white mb-2">Quer turbinar seus prêmios?</h5>
+                            <p class="text-[11px] text-white/80 font-medium leading-tight">Faça o upgrade para o plano Platinum e ganhe 10x mais números da sorte todos os meses.</p>
+                        </div>
+                        <div class="w-12 h-12 bg-white/20 backdrop-blur-md rounded-2xl flex items-center justify-center">
+                            <span class="material-symbols-outlined text-white">rocket_launch</span>
+                        </div>
+                    </div>
+                    <button onclick="openUpgradeModal()" class="w-full py-4 bg-white text-[#320075] rounded-full text-[10px] font-black uppercase tracking-[0.2em] shadow-xl active:scale-95 transition-all">
+                        Upgrade Agora
+                    </button>
+                </div>
+
+                <!-- FAQ RAPIDO -->
+                <div class="status-card p-5 flex items-center justify-between">
+                    <p class="text-xs font-bold text-gray-400">Ficou com alguma dúvida?</p>
+                    <button class="text-[#f085aa] text-[10px] font-black uppercase tracking-widest flex items-center gap-2">
+                        Ver FAQ <span class="material-symbols-outlined text-xs">arrow_forward</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- LOJÃO (TAB STORE - Premium Overhaul) -->
+        <div id="tab-store" class="tab-pane hidden animate-fade-in pb-20">
+            <!-- Top Stats Redesigned -->
+            <div class="px-6 grid grid-cols-3 gap-4 mb-10 mt-6">
+                <!-- Stat Item -->
+                <div class="bg-black/40 border border-white/5 rounded-[2.5rem] p-5 flex flex-col items-center justify-center backdrop-blur-xl group hover:border-[#f085aa]/30 transition-all">
+                    <div class="w-10 h-10 rounded-full bg-[#f085aa]/10 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-[#f085aa] text-lg">payments</span>
+                    </div>
+                    <span class="text-sm font-black text-white">240</span>
+                    <span class="text-[8px] font-black text-gray-500 uppercase tracking-widest mt-1">Créditos</span>
+                </div>
+                <div class="bg-black/40 border border-white/5 rounded-[2.5rem] p-5 flex flex-col items-center justify-center backdrop-blur-xl group hover:border-[#f085aa]/30 transition-all text-center">
+                    <div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-gray-400 text-lg">local_mall</span>
+                    </div>
+                    <span class="text-[8px] font-black text-gray-500 uppercase tracking-widest leading-tight">Meus</span>
+                    <span class="text-[10px] font-black text-white uppercase tracking-widest">Pedidos</span>
+                </div>
+                <div class="bg-black/40 border border-white/5 rounded-[2.5rem] p-5 flex flex-col items-center justify-center backdrop-blur-xl group hover:border-[#f085aa]/30 transition-all text-center text-center">
+                    <div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                        <span class="material-symbols-outlined text-gray-400 text-lg">favorite</span>
+                    </div>
+                    <span class="text-[8px] font-black text-gray-500 uppercase tracking-widest leading-tight">Meus</span>
+                    <span class="text-[10px] font-black text-white uppercase tracking-widest">Favs</span>
+                </div>
+            </div>
+
+            <div class="px-8 mb-6">
+                <h3 class="text-xs font-black uppercase tracking-[0.3em] text-white/30">Shop por Categorias</h3>
+            </div>
+
+            <!-- BRAND SECTION: TRAMONTINA (Premium Glossy) -->
+            <div class="relative overflow-hidden mb-8">
+                <div class="absolute inset-0 bg-gradient-to-r from-[#1a3673] to-[#2b4c9b] opacity-90"></div>
+                <!-- Dynamic Background Pattern -->
+                <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
+                
+                <div class="relative py-8">
+                    <div class="px-8 flex items-center justify-between mb-6">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-white rounded-2xl p-2 flex items-center justify-center shadow-2xl">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/2/25/Tramontina_logo.svg" class="w-full" alt="Tramontina">
+                            </div>
+                            <div>
+                                <h4 class="text-white font-black uppercase tracking-tighter text-lg">Tramontina</h4>
+                                <p class="text-[9px] font-bold text-blue-200/60 uppercase tracking-widest">Cozinha Design</p>
+                            </div>
+                        </div>
+                        <button class="px-5 py-2 glass-premium border border-white/20 rounded-full text-[9px] font-black text-white uppercase tracking-widest">Coleção</button>
+                    </div>
+
+                    <div class="flex gap-4 overflow-x-auto px-8 no-scrollbar pb-4">
+                        <!-- Product 1 -->
+                        <div class="min-w-[150px] h-[230px] bg-white rounded-[2rem] p-4 relative group transform active:scale-95 transition-all flex flex-col cursor-pointer">
+                            <button class="absolute top-4 right-4 w-6 h-6 rounded-full bg-gray-50 flex items-center justify-center text-gray-300 hover:text-red-500 transition-colors z-10">
+                                <span class="material-symbols-outlined text-[14px]">favorite</span>
+                            </button>
+                            <div class="w-full aspect-square bg-gray-50 rounded-[1.5rem] flex items-center justify-center p-2 mb-2 flex-shrink-0 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1590794056226-79ef3a8147e1?q=80&w=200&auto=format&fit=crop" class="w-full h-full object-contain">
+                            </div>
+                            <p class="text-[9px] font-black text-black leading-tight mb-1 line-clamp-1">Frigideira Turim Vermelha</p>
+                            <div class="mt-auto pt-2 border-t border-gray-100 flex items-center justify-between">
+                                <div class="flex items-center gap-1">
+                                    <span class="material-symbols-outlined text-orange-500 text-[10px]">monetization_on</span>
+                                    <span class="text-[10px] font-black text-black">43</span>
+                                </div>
+                                <span class="text-[5px] font-black text-gray-400 uppercase tracking-widest leading-none">Resgatar</span>
+                            </div>
+                        </div>
+
+                        <!-- Product 2 -->
+                        <div class="min-w-[150px] h-[230px] bg-white rounded-[2rem] p-4 relative group transform active:scale-95 transition-all flex flex-col cursor-pointer">
+                            <button class="absolute top-4 right-4 w-6 h-6 rounded-full bg-gray-50 flex items-center justify-center text-gray-300 hover:text-red-500 transition-colors z-10">
+                                <span class="material-symbols-outlined text-[14px]">favorite</span>
+                            </button>
+                            <div class="w-full aspect-square bg-gray-50 rounded-[1.5rem] flex items-center justify-center p-2 mb-2 flex-shrink-0 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1584990344448-a5c174ec509c?q=80&w=200&auto=format&fit=crop" class="w-full h-full object-contain">
+                            </div>
+                            <p class="text-[9px] font-black text-black leading-tight mb-1 line-clamp-1">Jogo de Panelas 5 Pçs</p>
+                            <div class="mt-auto pt-2 border-t border-gray-100 flex items-center justify-between">
+                                <div class="flex items-center gap-1">
+                                    <span class="material-symbols-outlined text-orange-500 text-[10px]">monetization_on</span>
+                                    <span class="text-[10px] font-black text-black">120</span>
+                                </div>
+                                <span class="text-[5px] font-black text-gray-400 uppercase tracking-widest leading-none">Resgatar</span>
+                            </div>
+                        </div>
+
+                        <!-- Product 3 -->
+                        <div class="min-w-[150px] h-[230px] bg-white rounded-[2rem] p-4 relative group transform active:scale-95 transition-all flex flex-col cursor-pointer">
+                            <div class="w-full aspect-square bg-gray-50 rounded-[1.5rem] flex items-center justify-center p-2 mb-2 flex-shrink-0 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1626015024419-74e1762199f3?q=80&w=200&auto=format&fit=crop" class="w-full h-full object-contain">
+                            </div>
+                            <p class="text-[9px] font-black text-black leading-tight mb-1 line-clamp-1">Faca Chef Profissional</p>
+                            <div class="mt-auto pt-2 border-t border-gray-100 flex items-center justify-between">
+                                <div class="flex items-center gap-1">
+                                    <span class="material-symbols-outlined text-orange-500 text-[10px]">monetization_on</span>
+                                    <span class="text-[10px] font-black text-black">52</span>
+                                </div>
+                                <span class="text-[5px] font-black text-gray-400 uppercase tracking-widest leading-none">Resgatar</span>
+                            </div>
+                        </div>
+
+                        <!-- Product 4 -->
+                        <div class="min-w-[150px] h-[230px] bg-white rounded-[2rem] p-4 relative group transform active:scale-95 transition-all flex flex-col cursor-pointer">
+                            <div class="w-full aspect-square bg-gray-50 rounded-[1.5rem] flex items-center justify-center p-2 mb-2 flex-shrink-0 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1544381014-996ff91871a2?q=80&w=200&auto=format&fit=crop" class="w-full h-full object-contain">
+                            </div>
+                            <p class="text-[9px] font-black text-black leading-tight mb-1 line-clamp-1">Assadeira Antiaderente</p>
+                            <div class="mt-auto pt-2 border-t border-gray-100 flex items-center justify-between">
+                                <div class="flex items-center gap-1">
+                                    <span class="material-symbols-outlined text-orange-500 text-[10px]">monetization_on</span>
+                                    <span class="text-[10px] font-black text-black">38</span>
+                                </div>
+                                <span class="text-[5px] font-black text-gray-400 uppercase tracking-widest leading-none">Resgatar</span>
+                            </div>
+                        </div>
+
+                        <!-- Product 5 -->
+                        <div class="min-w-[150px] h-[230px] bg-white rounded-[2rem] p-4 relative group transform active:scale-95 transition-all flex flex-col cursor-pointer">
+                            <div class="w-full aspect-square bg-gray-50 rounded-[1.5rem] flex items-center justify-center p-2 mb-2 flex-shrink-0 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1594213155453-735eadd3002f?q=80&w=200&auto=format&fit=crop" class="w-full h-full object-contain">
+                            </div>
+                            <p class="text-[9px] font-black text-black leading-tight mb-1 line-clamp-1">Chaleira Elétrica Inox</p>
+                            <div class="mt-auto pt-2 border-t border-gray-100 flex items-center justify-between">
+                                <div class="flex items-center gap-1">
+                                    <span class="material-symbols-outlined text-orange-500 text-[10px]">monetization_on</span>
+                                    <span class="text-[10px] font-black text-black">85</span>
+                                </div>
+                                <span class="text-[5px] font-black text-gray-400 uppercase tracking-widest leading-none">Resgatar</span>
+                            </div>
+                        </div>
+
+                        <!-- Product 6 -->
+                        <div class="min-w-[150px] h-[230px] bg-white rounded-[2rem] p-4 shadow-[0_15px_35px_rgba(0,0,0,0.2)] relative group transform active:scale-95 transition-all flex flex-col cursor-pointer text-center">
+                            <div class="w-full aspect-square bg-gray-50 rounded-[1.5rem] flex items-center justify-center p-2 mb-2 flex-shrink-0 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1510072043360-eeba74e1e87e?q=80&w=200&auto=format&fit=crop" class="w-full h-full object-contain">
+                            </div>
+                            <p class="text-[9px] font-black text-black leading-tight mb-1 line-clamp-1">Escorredor de Louça</p>
+                            <div class="mt-auto pt-2 border-t border-gray-100 flex items-center justify-between">
+                                <div class="flex items-center gap-1">
+                                    <span class="material-symbols-outlined text-orange-500 text-[10px]">monetization_on</span>
+                                    <span class="text-[10px] font-black text-black">45</span>
+                                </div>
+                                <span class="text-[5px] font-black text-gray-400 uppercase tracking-widest leading-none">Resgatar</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BRAND SECTION: NATURA -->
+            <div class="relative overflow-hidden mb-24">
+                <div class="absolute inset-0 bg-gradient-to-br from-[#d97d00] to-[#f29100] opacity-90"></div>
+                <div class="relative py-8">
+                    <div class="px-8 flex items-center justify-between mb-6">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-white rounded-2xl p-2 flex items-center justify-center shadow-2xl">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/1/1a/Logo_Natura_Cosm%C3%A9ticos.png" class="w-full" alt="Natura">
+                            </div>
+                            <div>
+                                <h4 class="text-white font-black uppercase tracking-tighter text-lg">Natura</h4>
+                                <p class="text-[9px] font-bold text-orange-100/60 uppercase tracking-widest">Bem estar bem</p>
+                            </div>
+                        </div>
+                        <button class="px-5 py-2 glass-premium border border-white/20 rounded-full text-[9px] font-black text-white uppercase tracking-widest">Ver Tudo</button>
+                    </div>
+
+                    <div class="flex gap-4 overflow-x-auto px-8 no-scrollbar pb-4">
+                        <!-- Product 1 -->
+                        <div class="min-w-[150px] h-[230px] bg-white rounded-[2rem] p-4 shadow-[0_15px_35px_rgba(0,0,0,0.2)] relative group transform active:scale-95 transition-all flex flex-col cursor-pointer">
+                            <div class="w-full aspect-square bg-gray-50 rounded-[1.5rem] flex items-center justify-center p-2 mb-2 flex-shrink-0 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?q=80&w=200&auto=format&fit=crop" class="w-full h-full object-contain">
+                            </div>
+                            <p class="text-[9px] font-black text-black leading-tight mb-1 line-clamp-1">Polpa Hidratante Mãos</p>
+                            <div class="mt-auto pt-2 border-t border-gray-100 flex items-center justify-between">
+                                <div class="flex items-center gap-1">
+                                    <span class="material-symbols-outlined text-orange-500 text-[10px]">monetization_on</span>
+                                    <span class="text-[10px] font-black text-black">42</span>
+                                </div>
+                                <span class="text-[5px] font-black text-gray-400 uppercase tracking-widest leading-none">Resgatar</span>
+                            </div>
+                        </div>
+                        <!-- Product 2 -->
+                        <div class="min-w-[150px] h-[230px] bg-white rounded-[2rem] p-4 shadow-[0_15px_35px_rgba(0,0,0,0.2)] relative group transform active:scale-95 transition-all flex flex-col cursor-pointer">
+                            <div class="w-full aspect-square bg-gray-50 rounded-[1.5rem] flex items-center justify-center p-2 mb-2 flex-shrink-0 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=200&auto=format&fit=crop" class="w-full h-full object-contain">
+                            </div>
+                            <p class="text-[9px] font-black text-black leading-tight mb-1 line-clamp-1">Sabonete Líquido Tododia</p>
+                            <div class="mt-auto pt-2 border-t border-gray-100 flex items-center justify-between">
+                                <div class="flex items-center gap-1">
+                                    <span class="material-symbols-outlined text-orange-500 text-[10px]">monetization_on</span>
+                                    <span class="text-[10px] font-black text-black">22</span>
+                                </div>
+                                <span class="text-[5px] font-black text-gray-400 uppercase tracking-widest leading-none">Resgatar</span>
+                            </div>
+                        </div>
+                        <!-- Product 3 -->
+                        <div class="min-w-[150px] h-[230px] bg-white rounded-[2rem] p-4 shadow-[0_15px_35px_rgba(0,0,0,0.2)] relative group transform active:scale-95 transition-all flex flex-col cursor-pointer">
+                            <div class="w-full aspect-square bg-gray-50 rounded-[1.5rem] flex items-center justify-center p-2 mb-2 flex-shrink-0 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?q=80&w=200&auto=format&fit=crop" class="w-full h-full object-contain">
+                            </div>
+                            <p class="text-[9px] font-black text-black leading-tight mb-1 line-clamp-1">Creme Corporal Ekos</p>
+                            <div class="mt-auto pt-2 border-t border-gray-100 flex items-center justify-between">
+                                <div class="flex items-center gap-1">
+                                    <span class="material-symbols-outlined text-orange-500 text-[10px]">monetization_on</span>
+                                    <span class="text-[10px] font-black text-black">65</span>
+                                </div>
+                                <span class="text-[5px] font-black text-gray-400 uppercase tracking-widest leading-none">Resgatar</span>
+                            </div>
+                        </div>
+                        <!-- Product 4 -->
+                        <div class="min-w-[150px] h-[230px] bg-white rounded-[2rem] p-4 shadow-[0_15px_35px_rgba(0,0,0,0.2)] relative group transform active:scale-95 transition-all flex flex-col cursor-pointer">
+                            <div class="w-full aspect-square bg-gray-50 rounded-[1.5rem] flex items-center justify-center p-2 mb-2 flex-shrink-0 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1510257451381-807e366fd2f6?q=80&w=200&auto=format&fit=crop" class="w-full h-full object-contain">
+                            </div>
+                            <p class="text-[9px] font-black text-black leading-tight mb-1 line-clamp-1">Perfume Kaiak Masculino</p>
+                            <div class="mt-auto pt-2 border-t border-gray-100 flex items-center justify-between">
+                                <div class="flex items-center gap-1">
+                                    <span class="material-symbols-outlined text-orange-500 text-[10px]">monetization_on</span>
+                                    <span class="text-[10px] font-black text-black">120</span>
+                                </div>
+                                <span class="text-[5px] font-black text-gray-400 uppercase tracking-widest leading-none">Resgatar</span>
+                            </div>
+                        </div>
+                        <!-- Product 5 -->
+                        <div class="min-w-[150px] h-[230px] bg-white rounded-[2rem] p-4 shadow-[0_15px_35px_rgba(0,0,0,0.2)] relative group transform active:scale-95 transition-all flex flex-col cursor-pointer">
+                            <div class="w-full aspect-square bg-gray-50 rounded-[1.5rem] flex items-center justify-center p-2 mb-2 flex-shrink-0 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=200&auto=format&fit=crop" class="w-full h-full object-contain">
+                            </div>
+                            <p class="text-[9px] font-black text-black leading-tight mb-1 line-clamp-1">Desodorante Invisible</p>
+                            <div class="mt-auto pt-2 border-t border-gray-100 flex items-center justify-between">
+                                <div class="flex items-center gap-1">
+                                    <span class="material-symbols-outlined text-orange-500 text-[10px]">monetization_on</span>
+                                    <span class="text-[10px] font-black text-black">15</span>
+                                </div>
+                                <span class="text-[5px] font-black text-gray-400 uppercase tracking-widest leading-none">Resgatar</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- CUPONS (TAB HUB - Premium Redesign) -->
+        <div id="tab-hub" class="tab-pane hidden animate-fade-in pb-24">
+            <!-- Glossy Title Section -->
+            <div class="p-8 text-center mt-4">
+                <p class="text-[9px] font-black text-[#f085aa] uppercase tracking-[0.4em] mb-4">Mundo de Vantagens</p>
+                <h2 class="text-2xl font-black text-white leading-tight uppercase tracking-widest">Resgate seus <br><span class="text-[#f085aa]">Descontos</span></h2>
+                
+                <!-- Advanced Toggle -->
+                <div class="flex p-1.5 bg-white/5 border border-white/5 rounded-full mt-10 max-w-[280px] mx-auto">
+                    <button class="flex-1 py-3 text-[9px] font-black uppercase tracking-widest bg-[#f085aa] text-black rounded-full shadow-[0_0_15px_rgba(240,133,170,0.4)]">Disponíveis</button>
+                    <button class="flex-1 py-3 text-[9px] font-black uppercase tracking-widest text-gray-500 hover:text-white transition-colors">Resgatados</button>
+                </div>
+            </div>
+
+            <div class="px-6">
+                <!-- Premium Alert Bar -->
+                <div class="bg-gradient-to-r from-[#320075] to-[#f085aa]/20 border border-[#f085aa]/20 rounded-3xl p-5 mb-10 flex items-center gap-4 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-24 h-full bg-white/5 skew-x-[45deg] group-hover:skew-x-[30deg] transition-all"></div>
+                    <div class="w-10 h-10 rounded-full bg-[#f085aa] flex items-center justify-center flex-shrink-0 animate-pulse">
+                        <span class="material-symbols-outlined text-black text-base">confirmation_number</span>
+                    </div>
+                    <div>
+                        <p class="text-[10px] font-black text-white uppercase tracking-widest leading-tight">Voucher Liberado!</p>
+                        <p class="text-[8px] font-bold text-[#f085aa] uppercase tracking-wider mt-1">Você tem 1 cupom para escolher hoje</p>
+                    </div>
+                </div>
+
+                <!-- Grid de Cupons Premium -->
+                <div class="grid grid-cols-2 gap-5 items-stretch">
+                    <!-- Premium Coupon Card -->
+                    <div onclick="openCouponDetail('Cinépolis', '60% OFF', 'https://upload.wikimedia.org/wikipedia/commons/e/ea/Cinepolis.png')" class="relative group active:scale-95 transition-all flex flex-col h-full cursor-pointer">
+                        <div class="absolute -inset-0.5 bg-gradient-to-b from-white/10 to-transparent rounded-[3rem] blur-sm opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        <div class="relative bg-white rounded-[3rem] p-7 shadow-[0_15px_40px_rgba(0,0,0,0.4)] flex flex-col h-full items-center">
+                            <div class="w-20 h-20 rounded-full bg-gray-50 flex items-center justify-center p-4 mb-6 shadow-inner flex-shrink-0">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/e/ea/Cinepolis.png" class="w-full object-contain" alt="Cinepolis">
+                            </div>
+                            <h4 class="text-[8px] font-black text-gray-400 uppercase tracking-[0.2em] mb-3">Cinépolis</h4>
+                            <p class="text-[10px] font-black text-black leading-snug text-center px-1">O seu cinema com <span class="text-[#f085aa]">60% de Desconto</span></p>
+                            <div class="mt-auto pt-8 border-t border-gray-100 w-full text-center">
+                                <span class="text-[8px] font-black text-gray-500 uppercase tracking-widest hover:text-[#f085aa] transition-colors">RESGATAR</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Premium Coupon Card 2 -->
+                    <div onclick="openCouponDetail('Cinemark', '32% OFF', 'https://upload.wikimedia.org/wikipedia/pt/b/b2/Cinemark_logo.png')" class="relative group active:scale-95 transition-all flex flex-col h-full cursor-pointer">
+                        <div class="relative bg-white rounded-[3rem] p-7 shadow-[0_15px_40px_rgba(0,0,0,0.4)] flex flex-col h-full items-center">
+                            <div class="w-20 h-20 rounded-full bg-gray-50 flex items-center justify-center p-4 mb-6 shadow-inner flex-shrink-0">
+                                <img src="https://upload.wikimedia.org/wikipedia/pt/b/b2/Cinemark_logo.png" class="w-full object-contain" alt="Cinemark">
+                            </div>
+                            <h4 class="text-[8px] font-black text-gray-400 uppercase tracking-[0.2em] mb-3">Cinemark</h4>
+                            <p class="text-[10px] font-black text-black leading-snug text-center px-1">Ingressos VIP com <span class="text-[#f085aa]">32% OFF</span></p>
+                            <div class="mt-auto pt-8 border-t border-gray-100 w-full text-center">
+                                <span class="text-[8px] font-black text-gray-500 uppercase tracking-widest hover:text-[#f085aa] transition-colors">RESGATAR</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- COUPON DETAIL MODAL (Novo Flow) -->
+    <div id="coupon-modal" class="fixed inset-0 z-[1100] hidden overflow-y-auto">
+        <div class="fixed inset-0 bg-black/95 backdrop-blur-xl"></div>
+        
+        <!-- Step 1: Details -->
+        <div id="coupon-step-1" class="relative min-h-screen flex flex-col animate-fade-in">
+            <!-- Header -->
+            <header class="p-6 flex items-center justify-between sticky top-0 bg-black/50 backdrop-blur-md z-10">
+                <button onclick="closeCouponModal()" class="w-10 h-10 rounded-full glass-premium flex items-center justify-center">
+                    <span class="material-symbols-outlined">arrow_back</span>
+                </button>
+                <h3 id="modal-coupon-title" class="text-sm font-black uppercase tracking-widest">Cinépolis</h3>
+                <button class="w-10 h-10 rounded-full glass-premium flex items-center justify-center opacity-0"></button>
+            </header>
+
+            <div class="px-6 flex flex-col items-center text-center mt-4">
+                <div class="w-24 h-24 rounded-full border-2 border-white/10 bg-white flex items-center justify-center p-4 mb-6">
+                    <img id="modal-coupon-logo" src="" class="w-full object-contain">
+                </div>
+                <h2 id="modal-coupon-desc" class="text-xl font-black text-white leading-tight mb-8">Ingressos com até 60% de desconto no Cinépolis!</h2>
+
+                <!-- Instrução Card -->
+                <div class="bg-white rounded-[2.5rem] p-8 text-black text-left space-y-8 mb-32">
+                    <div>
+                        <h4 class="text-sm font-black mb-4">Veja como aproveitar</h4>
+                        <div class="space-y-4">
+                            <div class="flex gap-4">
+                                <div class="w-6 h-6 rounded-full bg-[#f085aa] text-white flex flex-shrink-0 items-center justify-center text-[10px] font-bold">1</div>
+                                <p class="text-[11px] font-bold">Toque em "resgatar cupom".</p>
+                            </div>
+                            <div class="flex gap-4">
+                                <div class="w-6 h-6 rounded-full bg-[#f085aa] text-white flex flex-shrink-0 items-center justify-center text-[10px] font-bold">2</div>
+                                <p class="text-[11px] font-bold">Copie o código ou o link.</p>
+                            </div>
+                            <div class="flex gap-4">
+                                <div class="w-6 h-6 rounded-full bg-[#f085aa] text-white flex flex-shrink-0 items-center justify-center text-[10px] font-bold">3</div>
+                                <p class="text-[11px] font-bold leading-relaxed">Se for um código, insira no parceiro. Se for link, cole no seu navegador.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-6 border-t border-gray-100">
+                        <h4 class="text-sm font-black mb-4">Passo a Passo:</h4>
+                        <p class="text-[10px] font-medium text-gray-600 leading-relaxed italic">
+                            1º) Acesse o link oficial;<br>
+                            2º) Faça o cadastro com CPF;<br>
+                            3º) Selecione o tipo de oferta;<br>
+                            4º) Efetue o pagamento com o desconto aplicado.
+                        </p>
+                    </div>
+
+                    <div class="pt-6 border-t border-gray-100">
+                        <h4 class="text-sm font-black mb-4">Política de Cancelamento</h4>
+                        <p class="text-[10px] font-medium text-gray-600 leading-relaxed">Não é possível realizar a troca por outro produto após o resgate do voucher.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Button -->
+            <div class="fixed bottom-0 left-0 w-full p-6 bg-gradient-to-t from-black to-transparent">
+                <button onclick="goToResgateEmail()" class="w-full h-16 rounded-full bg-[#f085aa] text-black text-xs font-black uppercase tracking-widest shadow-xl active:scale-95 transition-all">
+                    RESGATAR CUPOM
+                </button>
+            </div>
+        </div>
+
+        <!-- Step 2: Email -->
+        <div id="coupon-step-2" class="relative min-h-screen hidden flex flex-col animate-fade-in bg-white">
+            <header class="p-6 flex items-center justify-between">
+                <button onclick="goToStep1()" class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-black">
+                    <span class="material-symbols-outlined">arrow_back</span>
+                </button>
+                <h3 class="text-sm font-black uppercase tracking-widest text-black">Benefícios</h3>
+                <button class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-black">
+                    <span class="material-symbols-outlined text-xl">notifications</span>
+                </button>
+            </header>
+
+            <div class="px-10 flex-1 flex flex-col items-center justify-center text-center">
+                <h2 class="text-2xl font-black text-black leading-tight mb-4">Pra continuar, informe seu e-mail.</h2>
+                <p class="text-sm font-medium text-gray-500 mb-12">Você receberá informações importantes sobre o seu resgate.</p>
+
+                <div class="w-full">
+                    <input type="email" placeholder="E-mail" class="w-full h-16 px-8 rounded-full border-2 border-gray-100 focus:border-[#f085aa] outline-none text-black font-bold transition-all mb-4">
+                    <button class="w-full h-16 rounded-full bg-gray-200 text-gray-500 text-xs font-black uppercase tracking-widest cursor-not-allowed">
+                        CONTINUAR
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <!-- PERFIL (TAB PROFILE) -->
+        <div id="tab-profile" class="tab-pane hidden animate-fade-in p-6">
+            <div class="flex items-center gap-4 mb-8">
+                <div class="w-16 h-16 rounded-full border-2 border-[#f085aa] overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=200&auto=format&fit=crop" class="w-full h-full object-cover">
+                </div>
+                <div>
+                    <h2 class="text-xl font-black">Tarciana Cavalcanti</h2>
+                    <p class="text-[10px] text-gray-500 font-bold uppercase tracking-widest">ID: #VR-77420</p>
+                </div>
+            </div>
+
+            <!-- EXTRATO DETALHADO -->
+            <div class="status-card p-6 mb-8">
+                <div class="flex items-center justify-between mb-6">
+                    <h3 class="text-xs font-black uppercase tracking-widest">Extrato Elite</h3>
+                    <span class="material-symbols-outlined text-gray-500">account_balance_wallet</span>
+                </div>
+                
+                <div class="space-y-4">
+                    <!-- Transação 1 -->
+                    <div class="flex items-center justify-between pb-4 border-b border-white/5">
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-green-500/10 flex items-center justify-center">
+                                <span class="material-symbols-outlined text-green-500 text-sm">north_east</span>
+                            </div>
+                            <div>
+                                <p class="text-xs font-bold">Comissão L1 - João Silva</p>
+                                <p class="text-[9px] text-gray-500 uppercase tracking-widest font-black">Hoje, 14:20</p>
+                            </div>
+                        </div>
+                        <span class="text-sm font-black text-green-500">+ R$ 19,40</span>
+                    </div>
+
+                    <!-- Transação 2 -->
+                    <div class="flex items-center justify-between pb-4 border-b border-white/5">
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-green-500/10 flex items-center justify-center">
+                                <span class="material-symbols-outlined text-green-500 text-sm">north_east</span>
+                            </div>
+                            <div>
+                                <p class="text-xs font-bold">Comissão L2 - Maria Clara</p>
+                                <p class="text-[9px] text-gray-500 uppercase tracking-widest font-black">Ontem, 09:15</p>
+                            </div>
+                        </div>
+                        <span class="text-sm font-black text-green-500">+ R$ 4,80</span>
+                    </div>
+
+                    <!-- Transação 3 -->
+                    <div class="flex items-center justify-between pb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center">
+                                <span class="material-symbols-outlined text-white text-sm">payments</span>
+                            </div>
+                            <div>
+                                <p class="text-xs font-bold">Saque Efetuado</p>
+                                <p class="text-[9px] text-gray-500 uppercase tracking-widest font-black">15 Out, 18:30</p>
+                            </div>
+                        </div>
+                        <span class="text-sm font-black text-gray-400">- R$ 1.200,00</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- OPÇÕES -->
+            <div class="space-y-3">
+                <button onclick="switchTab('network')" class="w-full h-14 glass-premium rounded-2xl px-6 flex items-center justify-between group active:scale-95 transition-all">
+                    <div class="flex items-center gap-4">
+                        <span class="material-symbols-outlined text-gray-400 group-hover:text-[#f085aa]">groups</span>
+                        <span class="text-xs font-black uppercase tracking-widest">Minha Rede</span>
+                    </div>
+                    <span class="material-symbols-outlined text-sm text-gray-600">chevron_right</span>
+                </button>
+                <button class="w-full h-14 glass-premium rounded-2xl px-6 flex items-center justify-between group">
+                    <div class="flex items-center gap-4">
+                        <span class="material-symbols-outlined text-gray-400">settings</span>
+                        <span class="text-xs font-black uppercase tracking-widest">Configurações</span>
+                    </div>
+                </button>
+                <button onclick="window.location.href='indexv4.html'" class="w-full h-14 border border-red-500/20 bg-red-500/5 rounded-2xl px-6 flex items-center justify-center gap-4 text-red-500">
+                    <span class="material-symbols-outlined">logout</span>
+                    <span class="text-xs font-black uppercase tracking-widest">Sair da Conta</span>
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- STICKY BOTTOM NAVIGATION -->
+    <nav class="fixed bottom-0 left-0 w-full h-[84px] bottom-nav px-6 flex items-center justify-between z-[100]">
+        <button onclick="switchTab('home')" id="btn-home" class="nav-item active flex flex-col items-center gap-1">
+            <span class="material-symbols-outlined text-[24px]">home</span>
+            <span class="text-[9px] font-black uppercase tracking-widest">Início</span>
+        </button>
+        <button onclick="switchTab('contests')" id="btn-contests" class="nav-item flex flex-col items-center gap-1 text-gray-500">
+            <span class="material-symbols-outlined text-[24px]">confirmation_number</span>
+            <span class="text-[9px] font-black uppercase tracking-widest">Sorteios</span>
+        </button>
+        <div onclick="openUpgradeModal()" class="w-16 h-16 rounded-full bg-[#f085aa] shadow-[0_0_30px_rgba(240,133,170,0.5)] flex items-center justify-center -translate-y-6 active:scale-90 transition-transform">
+            <span class="material-symbols-outlined text-black text-3xl font-bold">add</span>
+        </div>
+        <button onclick="switchTab('hub')" id="btn-hub" class="nav-item flex flex-col items-center gap-1 text-gray-500">
+            <span class="material-symbols-outlined text-[24px]">percent</span>
+            <span class="text-[9px] font-black uppercase tracking-widest">Cupons</span>
+        </button>
+        <button onclick="switchTab('store')" id="btn-store" class="nav-item flex flex-col items-center gap-1 text-gray-500">
+            <span class="material-symbols-outlined text-[24px]">storefront</span>
+            <span class="text-[9px] font-black uppercase tracking-widest">Lojão</span>
+        </button>
+    </nav>
+
+    <style>
+        .tab-pane {
+            transition: all 0.3s ease;
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 0.4s forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+
+    <!-- UPGRADE MODAL (Step 4) -->
+    <div id="upgrade-modal" class="fixed inset-0 z-[1000] hidden overflow-y-auto">
+        <div class="fixed inset-0 bg-black/90 backdrop-blur-xl"></div>
+        
+        <div class="relative min-h-screen flex flex-col p-6 animate-fade-in">
+            <!-- Close Header -->
+            <div class="flex items-center justify-between mb-8">
+                <h3 class="text-xl font-black uppercase tracking-tighter">Escolha seu <span class="text-[#f085aa]">Pacote</span></h3>
+                <button onclick="closeUpgradeModal()" class="w-10 h-10 rounded-full glass-premium flex items-center justify-center">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+
+            <!-- PACKAGES LIST (Versão Elite Slim) -->
+            <div class="space-y-6 mb-24">
+                <!-- PACK 1: GOLD -->
+                <div class="relative group" onclick="selectPackage('Gold', 49.90)">
+                    <div class="absolute -inset-0.5 bg-gradient-to-r from-yellow-500/20 to-transparent rounded-[2rem] blur opacity-30 group-hover:opacity-100 transition duration-500"></div>
+                    <div class="relative bg-black/40 border border-white/5 rounded-[2rem] p-6 flex items-center justify-between backdrop-blur-xl transition-all active:scale-95">
+                        <div class="flex-1">
+                            <h4 class="text-[9px] font-black text-yellow-500 uppercase tracking-[0.2em] mb-1">Passaporte Gold</h4>
+                            <h3 class="text-lg font-black text-white leading-tight">Versiani <span class="text-gray-400 font-light">Gold</span></h3>
+                            <div class="flex items-center gap-3 mt-3">
+                                <div class="flex items-center gap-1 text-[9px] font-black text-gray-500 uppercase tracking-widest">
+                                    <span class="material-symbols-outlined text-[14px]">confirmation_number</span> 50 Nºs
+                                </div>
+                                <div class="flex items-center gap-1 text-[9px] font-black text-gray-500 uppercase tracking-widest">
+                                    <span class="material-symbols-outlined text-[14px]">trending_up</span> 20% Com.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-right flex flex-col items-end">
+                            <p class="text-[10px] font-black text-[#f085aa] uppercase tracking-widest leading-none">R$ 49,90</p>
+                            <span class="text-[8px] font-bold text-gray-600 block mb-2 uppercase">p/ mês</span>
+                            <div class="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center group-hover:border-[#f085aa] group-hover:text-[#f085aa] transition-colors">
+                                <span class="material-symbols-outlined text-sm">add</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PACK 2: PLATINUM (VIP) -->
+                <div class="relative group" onclick="selectPackage('Platinum', 97.00)">
+                    <div class="absolute -inset-0.5 bg-gradient-to-r from-[#f085aa] to-[#320075] rounded-[2rem] blur opacity-40 group-hover:opacity-100 transition duration-500"></div>
+                    <div class="relative bg-gradient-to-br from-black/80 to-[#1a003d]/40 border border-[#f085aa]/20 rounded-[2rem] p-7 flex items-center justify-between backdrop-blur-xl transition-all active:scale-95">
+                        <div class="flex-1">
+                            <div class="inline-flex px-2 py-0.5 bg-[#f085aa] rounded-full mb-3">
+                                <span class="text-[7px] font-black text-black uppercase tracking-widest">PLATINUM VIP</span>
+                            </div>
+                            <h2 class="text-2xl font-black text-white tracking-tighter leading-none mb-4">PLATINUM</h2>
+                            <div class="space-y-1.5">
+                                <div class="flex items-center gap-2 text-[9px] font-black text-gray-300 uppercase tracking-widest">
+                                    <span class="material-symbols-outlined text-[#f085aa] text-[14px]">stars</span> 150 Números
+                                </div>
+                                <div class="flex items-center gap-2 text-[9px] font-black text-gray-300 uppercase tracking-widest">
+                                    <span class="material-symbols-outlined text-[#f085aa] text-[14px]">stars</span> 40% Comissão
+                                </div>
+                                <div class="flex items-center gap-2 text-[9px] font-black text-gray-300 uppercase tracking-widest">
+                                    <span class="material-symbols-outlined text-[#f085aa] text-[14px]">stars</span> Concierge 24H
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-right flex flex-col items-end justify-between self-stretch">
+                            <div class="flex flex-col items-end">
+                                <p class="text-[12px] font-bold text-[#f085aa] uppercase tracking-widest leading-none">R$</p>
+                                <p class="text-3xl font-black text-white tracking-tighter">97,00</p>
+                            </div>
+                            <button class="px-5 py-2 rounded-full bg-white text-black text-[9px] font-black uppercase tracking-widest shadow-xl group-hover:bg-[#f085aa] transition-colors">RESERVAR</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STICKY FOOTER CHECKOUT -->
+            <div class="fixed bottom-0 left-0 w-full p-6 bg-black/80 backdrop-blur-xl border-top border-white/10 flex items-center justify-between z-[101]">
+                <div>
+                    <p class="text-[10px] font-black text-gray-500 uppercase tracking-widest">Total selecionado</p>
+                    <h4 id="checkout-total" class="text-2xl font-black text-white">R$ 0,00</h4>
+                </div>
+                <button id="btn-checkout-confirm" disabled class="px-8 py-4 bg-white/10 text-gray-500 rounded-full text-[10px] font-black uppercase tracking-widest disabled:opacity-50 transition-all">
+                    CONTINUAR
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('side-menu');
+            const backdrop = document.getElementById('menu-backdrop');
+            const content = document.getElementById('menu-content');
+            
+            if (menu.classList.contains('invisible')) {
+                // Open
+                menu.classList.remove('invisible');
+                setTimeout(() => {
+                    backdrop.classList.remove('opacity-0');
+                    content.classList.remove('-translate-x-full');
+                }, 10);
+            } else {
+                // Close
+                backdrop.classList.add('opacity-0');
+                content.classList.add('-translate-x-full');
+                setTimeout(() => {
+                    menu.classList.add('invisible');
+                }, 300);
+            }
+        }
+
+        function openUpgradeModal() {
+            document.getElementById('upgrade-modal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Lock scroll
+        }
+
+        function closeUpgradeModal() {
+            document.getElementById('upgrade-modal').classList.add('hidden');
+            document.body.style.overflow = ''; // Unlock scroll
+        }
+
+        // NOVO: Funções do Fluxo de Cupom
+        function openCouponDetail(title, desc, logo) {
+            document.getElementById('modal-coupon-title').innerText = title;
+            document.getElementById('modal-coupon-desc').innerText = desc;
+            document.getElementById('modal-coupon-logo').src = logo;
+            
+            document.getElementById('coupon-modal').classList.remove('hidden');
+            document.getElementById('coupon-step-1').classList.remove('hidden');
+            document.getElementById('coupon-step-2').classList.add('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeCouponModal() {
+            document.getElementById('coupon-modal').classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+
+        function goToResgateEmail() {
+            document.getElementById('coupon-step-1').classList.add('hidden');
+            document.getElementById('coupon-step-2').classList.remove('hidden');
+        }
+
+        function goToStep1() {
+            document.getElementById('coupon-step-1').classList.remove('hidden');
+            document.getElementById('coupon-step-2').classList.add('hidden');
+        }
+
+        let selectedPrice = 0;
+        function selectPackage(name, price) {
+            selectedPrice = price;
+            document.getElementById('checkout-total').innerText = 'R$ ' + price.toLocaleString('pt-BR', {minimumFractionDigits: 2});
+            
+            const btn = document.getElementById('btn-checkout-confirm');
+            btn.disabled = false;
+            btn.classList.remove('bg-white/10', 'text-gray-500');
+            btn.classList.add('bg-[#f085aa]', 'text-black', 'shadow-lg');
+        }
+
+        function switchTab(tabId) {
+            // Hide all panes
+            const panes = document.querySelectorAll('.tab-pane');
+            panes.forEach(pane => pane.classList.add('hidden'));
+            
+            // Deactivate all buttons
+            const buttons = document.querySelectorAll('.nav-item');
+            buttons.forEach(btn => btn.classList.remove('active', 'text-[#f085aa]'));
+            buttons.forEach(btn => btn.classList.add('text-gray-500'));
+            
+            // Show target pane
+            const targetPane = document.getElementById('tab-' + tabId);
+            if (targetPane) targetPane.classList.remove('hidden');
+            
+            // Activate button
+            const targetBtn = document.getElementById('btn-' + tabId);
+            if (targetBtn) {
+                targetBtn.classList.add('active', 'text-[#f085aa]');
+                targetBtn.classList.remove('text-gray-500');
+            }
+        }
+    </script>
+</body>
+</html>
