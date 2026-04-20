@@ -167,8 +167,8 @@
                     </div>
                     <div class="reward-card">
                         <div class="flex justify-between items-start">
-                            <span class="text-2xl font-black text-black points-display">1.240 pts</span>
-                            <div class="w-8 h-8 rounded-full bg-orange-50 flex items-center justify-center">
+                            <span class="text-2xl font-black text-black points-display whitespace-nowrap leading-none">1.240 <span class="text-[10px] uppercase align-middle ml-1">pts</span></span>
+                            <div class="w-8 h-8 rounded-full bg-orange-50 flex items-center justify-center shrink-0">
                                 <span class="material-symbols-outlined text-orange-400 text-sm">monetization_on</span>
                             </div>
                         </div>
@@ -176,8 +176,8 @@
                     </div>
                     <div class="reward-card">
                         <div class="flex justify-between items-start">
-                            <span class="text-2xl font-black text-black text-[#f085aa]">1</span>
-                            <div class="w-8 h-8 rounded-full bg-pink-50 flex items-center justify-center">
+                            <span class="text-2xl font-black text-black">1</span>
+                            <div class="w-8 h-8 rounded-full bg-pink-50 flex items-center justify-center shrink-0">
                                 <span class="material-symbols-outlined text-[#f085aa] text-sm">local_offer</span>
                             </div>
                         </div>
@@ -185,8 +185,8 @@
                     </div>
                     <div class="reward-card">
                         <div class="flex justify-between items-start">
-                            <span class="text-2xl font-black text-black text-green-600">12</span>
-                            <div class="w-8 h-8 rounded-full bg-green-50 flex items-center justify-center">
+                            <span class="text-2xl font-black text-green-600">12</span>
+                            <div class="w-8 h-8 rounded-full bg-green-50 flex items-center justify-center shrink-0">
                                 <span class="material-symbols-outlined text-green-500 text-sm">groups</span>
                             </div>
                         </div>
@@ -777,7 +777,14 @@
 
         function updatePointsUI() {
             const pointsViews = document.querySelectorAll('.points-display');
-            pointsViews.forEach(el => el.textContent = userPoints + ' pts');
+            pointsViews.forEach(el => {
+                // Se o elemento estiver na reward-card, mantém a estrutura de span pequeno
+                if (el.closest('.reward-card')) {
+                    el.innerHTML = `${userPoints.toLocaleString('pt-BR')} <span class="text-[10px] uppercase align-middle ml-1">pts</span>`;
+                } else {
+                    el.textContent = `${userPoints.toLocaleString('pt-BR')} pts`;
+                }
+            });
         }
 
         let currentProduct = null;
