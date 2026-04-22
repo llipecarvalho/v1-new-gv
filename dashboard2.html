@@ -877,7 +877,7 @@
     <!-- SIDEBAR MENU FIXO -->
     <div id="side-menu" class="fixed inset-0 z-[3000] invisible">
         <div id="menu-backdrop" class="absolute inset-0 bg-black/80 backdrop-blur-md opacity-0 transition-opacity duration-300" onclick="toggleMenu()"></div>
-        <div id="menu-content" class="absolute left-0 top-0 h-full w-[80%] bg-[#0a0a0a] border-r border-white/5 p-8 -translate-x-full transition-transform duration-300">
+        <div id="menu-content" class="absolute left-0 top-0 h-full w-[80%] bg-[#0a0a0a] border-r border-white/5 p-8 -translate-x-full transition-transform duration-300 overflow-y-auto no-scrollbar pb-20">
             <div class="flex items-center gap-4 mb-12">
                 <div class="w-14 h-14 rounded-full overflow-hidden border-2 border-[#f085aa]">
                     <img src="https://images.unsplash.com/photo-1594744803329-a584af1ea51c?q=80&w=200&auto=format&fit=crop" class="w-full h-full object-cover">
@@ -887,16 +887,68 @@
                     <p class="text-[8px] font-bold text-[#f085aa] uppercase tracking-[0.2em] mt-1.5 italic">ID #001 — VIP DIAMANTE</p>
                 </div>
             </div>
-            <nav class="space-y-6">
-                <button onclick="switchTab('profile'); toggleMenu()" class="flex items-center gap-4 w-full text-left">
-                    <span class="material-symbols-outlined text-[#f085aa]">account_circle</span>
-                    <span class="text-xs font-black uppercase tracking-[0.1em] text-white/70">Meu Perfil Elite</span>
-                </button>
-                <div class="h-px bg-white/5 my-8"></div>
-                <button onclick="window.location.href='indexv4.html'" class="flex items-center gap-4 w-full text-left">
-                    <span class="material-symbols-outlined text-red-500/50">logout</span>
-                    <span class="text-xs font-black uppercase tracking-[0.1em] text-red-500/50">Sair da Conta</span>
-                </button>
+            <nav class="space-y-1">
+                <!-- GRUPO 1: NAVEGAÇÃO PRINCIPAL -->
+                <div class="pb-4 pt-2">
+                    <button onclick="switchTab('home'); toggleMenu()" class="flex items-center gap-4 w-full px-4 py-2 text-left group hover:bg-white/5 rounded-2xl transition-all">
+                        <span class="material-symbols-outlined text-[#f085aa] group-hover:scale-110 transition-transform">grid_view</span>
+                        <span class="text-[13px] font-black uppercase tracking-wider text-white">Início</span>
+                    </button>
+                    <button onclick="switchTab('hub'); toggleMenu()" class="flex items-center gap-4 w-full px-4 py-2 text-left group hover:bg-white/5 rounded-2xl transition-all">
+                        <span class="material-symbols-outlined text-[#f085aa] group-hover:scale-110 transition-transform">confirmation_number</span>
+                        <span class="text-[13px] font-black uppercase tracking-wider text-white">Sorteios Ativos</span>
+                    </button>
+                    <button onclick="switchTab('store'); toggleMenu()" class="flex items-center gap-4 w-full px-4 py-2 text-left group hover:bg-white/5 rounded-2xl transition-all">
+                        <span class="material-symbols-outlined text-[#f085aa] group-hover:scale-110 transition-transform">redeem</span>
+                        <span class="text-[13px] font-black uppercase tracking-wider text-white">Mimos & Clube</span>
+                    </button>
+                    <button onclick="switchTab('home'); toggleMenu()" class="flex items-center gap-4 w-full px-4 py-2 text-left group hover:bg-white/5 rounded-2xl transition-all">
+                        <span class="material-symbols-outlined text-[#f085aa] group-hover:scale-110 transition-transform">military_tech</span>
+                        <span class="text-[13px] font-black uppercase tracking-wider text-white">Missões Premiadas</span>
+                    </button>
+                    <button onclick="switchTab('network'); toggleMenu()" class="flex items-center gap-4 w-full px-4 py-2 text-left group hover:bg-white/5 rounded-2xl transition-all">
+                        <span class="material-symbols-outlined text-[#f085aa] group-hover:scale-110 transition-transform">share_reviews</span>
+                        <span class="text-[13px] font-black uppercase tracking-wider text-white">Indique e Ganhe</span>
+                    </button>
+                    <button onclick="switchTab('plans'); toggleMenu()" class="flex items-center gap-4 w-full px-4 py-2 text-left group hover:bg-white/5 rounded-2xl transition-all">
+                        <span class="material-symbols-outlined text-[#f085aa] group-hover:scale-110 transition-transform">workspace_premium</span>
+                        <span class="text-[13px] font-black uppercase tracking-wider text-white">Mais Benefícios</span>
+                    </button>
+                </div>
+
+                <div class="h-px bg-white/5 mx-4 my-2"></div>
+
+                <!-- GRUPO 2: GERENCIAMENTO -->
+                <div class="py-2">
+                    <button onclick="switchTab('profile'); toggleMenu()" class="flex items-center gap-4 w-full px-6 py-1.5 text-left group">
+                        <span class="text-[11px] font-black uppercase tracking-[0.1em] text-white/50 group-hover:text-white transition-colors">Meus Dados Elite</span>
+                    </button>
+                    <button onclick="switchTab('home'); toggleMenu()" class="flex items-center gap-4 w-full px-6 py-1.5 text-left group">
+                        <span class="text-[11px] font-black uppercase tracking-[0.1em] text-white/50 group-hover:text-white transition-colors">Extrato de Pontos</span>
+                    </button>
+                    <button onclick="switchTab('plans'); toggleMenu()" class="flex items-center gap-4 w-full px-6 py-1.5 text-left group">
+                        <span class="text-[11px] font-black uppercase tracking-[0.1em] text-white/50 group-hover:text-white transition-colors">Status da Assinatura</span>
+                    </button>
+                </div>
+
+                <div class="h-px bg-white/5 mx-4 my-2"></div>
+
+                <!-- GRUPO 3: AJUDA & LEGAL -->
+                <div class="py-2">
+                    <button onclick="window.location.href='https://wa.me/seunumeroaqui'" class="flex items-center gap-4 w-full px-6 py-1.5 text-left group">
+                        <span class="text-[11px] font-black uppercase tracking-[0.1em] text-white/50 group-hover:text-white transition-colors">Dúvidas Frequentes</span>
+                    </button>
+                    <button onclick="toggleMenu()" class="flex items-center gap-4 w-full px-6 py-1.5 text-left group">
+                        <span class="text-[11px] font-black uppercase tracking-[0.1em] text-white/50 group-hover:text-white transition-colors">Regulamentos</span>
+                    </button>
+                </div>
+
+                <div class="pt-8 pb-4">
+                    <button onclick="window.location.href='indexv4.html'" class="flex items-center gap-4 w-full px-6 py-3 text-left group">
+                        <span class="material-symbols-outlined text-red-500/50 group-hover:scale-110 transition-transform">logout</span>
+                        <span class="text-[11px] font-black uppercase tracking-[0.1em] text-red-500/50 group-hover:text-red-500 transition-colors">Sair do Clube</span>
+                    </button>
+                </div>
             </nav>
         </div>
     </div>
@@ -1029,6 +1081,7 @@
                 }
             }
 
+            document.body.style.overflow = '';
             window.scrollTo(0,0);
         }
 
@@ -1036,12 +1089,17 @@
             const menu = document.getElementById('side-menu');
             const backdrop = document.getElementById('menu-backdrop');
             const content = document.getElementById('menu-content');
-            if (menu.classList.contains('invisible')) {
+            const isVisible = !menu.classList.contains('invisible');
+
+            if (isVisible) {
+                backdrop.classList.add('opacity-0');
+                content.classList.add('-translate-x-full');
+                setTimeout(() => { menu.classList.add('invisible'); }, 300);
+                document.body.style.overflow = '';
+            } else {
                 menu.classList.remove('invisible');
                 setTimeout(() => { backdrop.classList.remove('opacity-0'); content.classList.remove('-translate-x-full'); }, 10);
-            } else {
-                backdrop.classList.add('opacity-0'); content.classList.add('-translate-x-full');
-                setTimeout(() => { menu.classList.add('invisible'); }, 300);
+                document.body.style.overflow = 'hidden';
             }
         }
 
