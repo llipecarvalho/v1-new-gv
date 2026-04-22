@@ -77,6 +77,12 @@
             background: linear-gradient(to right, #f085aa, #ffb8d1);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
+        .text-gradient-versiani {
+            background: linear-gradient(to right, #f085aa, #320075);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .elevk-step.hidden { display: none !important; }
 
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(10px); }
@@ -119,8 +125,8 @@
         
         <!-- ABA 1: HOME -->
         <div id="tab-home" class="tab-pane animate-fade space-y-8">
-            <!-- Stories -->
-            <div class="flex gap-5 overflow-x-auto px-6 no-scrollbar h-24 items-center">
+            <!-- Stories (OCULTO POR ORA) -->
+            <div class="hidden flex gap-5 overflow-x-auto px-6 no-scrollbar h-24 items-center">
                 <div class="flex flex-col items-center gap-1.5">
                     <div class="story-circle"><div class="story-inner"><img src="https://versianiswim.com.br/cdn/shop/files/VS-Swim-1282-copiar-_2__jpg.webp?v=1770470831&width=750" class="w-full h-full object-cover"></div></div>
                     <span class="text-[9px] font-bold text-gray-400 uppercase tracking-widest">Swim</span>
@@ -141,15 +147,15 @@
 
             <!-- Hero -->
             <div class="px-6">
-                <div class="relative rounded-[2.5rem] overflow-hidden shadow-2xl border border-white/5">
-                    <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=800&auto=format&fit=crop" class="w-full h-64 object-cover">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
-                    <div class="absolute bottom-6 left-6 right-6 flex items-end justify-between">
-                        <div>
-                            <p class="text-[9px] font-black text-[#f085aa] uppercase tracking-widest mb-1">Desejo do Mês</p>
-                            <h2 class="text-2xl font-black text-white uppercase leading-none">Bolsa Chanel <br><span class="text-gradient-rose">2.55 ELITE</span></h2>
+                <div class="relative rounded-[2.5rem] overflow-hidden shadow-2xl border border-white/5 h-[380px]">
+                    <img src="https://images.unsplash.com/photo-1591561954557-26941169b49e?q=80&w=1920&auto=format" class="w-full h-full object-cover" style="object-position: 50% -110px;">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent"></div>
+                    <div class="absolute bottom-8 left-8 right-8 flex items-end justify-between">
+                        <div class="max-w-[180px]">
+                            <p class="text-[9px] font-black text-[#f085aa] uppercase tracking-widest mb-1">Prêmio do Mês</p>
+                            <h2 class="text-xl font-black text-white uppercase leading-tight tracking-tighter">Salvatore <br>Ferragamo</h2>
                         </div>
-                        <button class="px-5 py-2.5 bg-white text-black text-[9px] font-black uppercase rounded-full shadow-lg">Eu quero!</button>
+                        <button class="px-5 py-2.5 bg-white text-black text-[9px] font-black uppercase rounded-full shadow-lg active:scale-95 transition-all">Eu quero!</button>
                     </div>
                 </div>
             </div>
@@ -206,7 +212,7 @@
                         <button class="btn-ver-tudo">Ver Mais</button>
                     </div>
                     <div class="flex gap-4 overflow-x-auto no-scrollbar">
-                        <div class="min-w-[85%] bg-white rounded-3xl p-5 flex items-center justify-between shadow-sm border border-sky-100">
+                        <div class="w-full bg-white rounded-3xl p-5 flex items-center justify-between shadow-sm border border-sky-100">
                             <div class="max-w-[65%] text-black">
                                 <p class="text-[8px] font-black text-sky-500 uppercase tracking-widest mb-1">Elite Quiz</p>
                                 <h4 class="text-[11px] font-bold leading-tight">Responda e ganhe 10 pontos extras!</h4>
@@ -231,11 +237,12 @@
                                 <img src="https://versianiswim.com.br/cdn/shop/files/VS-Swim-1282-copiar-_2__jpg.webp?v=1770470831&width=750" class="w-full h-full object-cover">
                             </div>
                             <div class="mt-auto">
-                                <div class="flex items-center gap-1.5 mb-2">
-                                    <div class="w-2.5 h-2.5 rounded-full bg-orange-500"></div>
-                                    <span class="text-[10px] font-black text-black">470 pts</span>
+                                <h4 class="text-[11px] font-black text-black uppercase mb-2 truncate">Macacão Decote Costas</h4>
+                                <div class="flex items-center gap-1 mb-3">
+                                    <span class="text-[11px] font-black text-orange-500">470</span>
+                                    <span class="text-[9px] font-black text-gray-400 uppercase">PONTOS</span>
                                 </div>
-                                <button onclick="redeem('Biquíni Versiani Swim', 470)" class="w-full py-2 bg-black text-white text-[8px] font-black uppercase rounded-full active:scale-95 transition-all">Resgatar</button>
+                                <button onclick="redeem('Macacão Decote Costas', 470)" class="w-full py-3 bg-black text-white text-[9px] font-black uppercase rounded-full active:scale-95 transition-all">Resgatar</button>
                             </div>
                         </div>
                         <!-- Produto 2 -->
@@ -244,11 +251,12 @@
                                 <img src="https://acdn-us.mitiendanube.com/stores/006/595/892/products/perfect-serum-1a973dd1831ca98bac17597582941633-1024-1024.webp" class="w-full h-full object-cover">
                             </div>
                             <div class="mt-auto">
-                                <div class="flex items-center gap-1.5 mb-2">
-                                    <div class="w-2.5 h-2.5 rounded-full bg-orange-500"></div>
-                                    <span class="text-[10px] font-black text-black">320 pts</span>
+                                <h4 class="text-[11px] font-black text-black uppercase mb-2 truncate">Perfect Serum - 50ml</h4>
+                                <div class="flex items-center gap-1 mb-3">
+                                    <span class="text-[11px] font-black text-orange-500">320</span>
+                                    <span class="text-[9px] font-black text-gray-400 uppercase">PONTOS</span>
                                 </div>
-                                <button onclick="redeem('Kit Skin Care Versiani', 320)" class="w-full py-2 bg-black text-white text-[8px] font-black uppercase rounded-full active:scale-95 transition-all">Resgatar</button>
+                                <button onclick="redeem('Perfect Serum - 50ml', 320)" class="w-full py-3 bg-black text-white text-[9px] font-black uppercase rounded-full active:scale-95 transition-all">Resgatar</button>
                             </div>
                         </div>
                     </div>
@@ -458,13 +466,13 @@
                     <div class="relative aspect-square w-full rounded-[1.5rem] overflow-hidden mb-3 bg-gray-50">
                         <img src="https://versianiswim.com.br/cdn/shop/files/VS-Swim-1282-copiar-_2__jpg.webp?v=1770470831&width=750" class="w-full h-full object-cover">
                     </div>
-                    <p class="text-[11px] font-black text-black uppercase leading-tight mb-1">Biquíni Versiani Swim</p>
+                    <p class="text-[11px] font-black text-black uppercase leading-tight mb-1">Macacão Decote Costas</p>
                     <div class="mt-auto">
                         <div class="flex items-center gap-1 mb-3">
                             <span class="text-[10px] font-black text-orange-500">470</span>
-                            <span class="text-[8px] font-bold text-gray-400 uppercase">Pontos</span>
+                            <span class="text-[8px] font-black text-gray-400 uppercase">Pontos</span>
                         </div>
-                        <button onclick="redeem('Biquíni Versiani Swim', 470)" class="w-full py-2 bg-black text-white text-[8px] font-black uppercase rounded-full active:scale-95 transition-all">Resgatar</button>
+                        <button onclick="redeem('Macacão Decote Costas', 470)" class="w-full py-2 bg-black text-white text-[8px] font-black uppercase rounded-full active:scale-95 transition-all">Resgatar</button>
                     </div>
                 </div>
                 <!-- Produto 2 -->
@@ -472,13 +480,13 @@
                     <div class="relative aspect-square w-full rounded-[1.5rem] overflow-hidden mb-3 bg-gray-50">
                         <img src="https://acdn-us.mitiendanube.com/stores/006/595/892/products/perfect-serum-1a973dd1831ca98bac17597582941633-1024-1024.webp" class="w-full h-full object-cover">
                     </div>
-                    <p class="text-[11px] font-black text-black uppercase leading-tight mb-1">Kit Skin Care Versiani</p>
+                    <p class="text-[11px] font-black text-black uppercase leading-tight mb-1">Perfect Serum - 50ml</p>
                     <div class="mt-auto">
                         <div class="flex items-center gap-1 mb-3">
                             <span class="text-[10px] font-black text-orange-500">320</span>
-                            <span class="text-[8px] font-bold text-gray-400 uppercase">Pontos</span>
+                            <span class="text-[8px] font-black text-gray-400 uppercase">Pontos</span>
                         </div>
-                        <button onclick="redeem('Kit Skin Care Versiani', 320)" class="w-full py-2 bg-black text-white text-[8px] font-black uppercase rounded-full active:scale-95 transition-all">Resgatar</button>
+                        <button onclick="redeem('Perfect Serum - 50ml', 320)" class="w-full py-2 bg-black text-white text-[8px] font-black uppercase rounded-full active:scale-95 transition-all">Resgatar</button>
                     </div>
                 </div>
             </div>
@@ -494,29 +502,260 @@
             </div>
         </div>
 
-        <!-- ABA 5: REDE ELITE (NETWORK) -->
-        <div id="tab-network" class="tab-pane hidden animate-fade px-6 space-y-8 pt-4 pb-20">
-            <div class="text-center mb-6">
-                <h2 class="text-xl font-black uppercase tracking-tighter text-white">Rede <span class="text-[#f085aa]">Elite</span></h2>
-                <p class="text-[9px] text-gray-400 font-bold uppercase tracking-widest mt-1">Ganhe recompensas indicando amigas.</p>
+        <!-- ABA 5: REDE ELITE (ELEV-K ONBOARDING) -->
+        <div id="tab-network" class="tab-pane hidden animate-fade px-6 pt-4 pb-32">
+            
+            <!-- HEADER DA ABA COM VOLTAR -->
+            <div class="flex items-center justify-between mb-8">
+                <button onclick="goBackAffiliate()" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white border border-white/10 active:scale-90 transition-all">
+                    <span class="material-symbols-outlined text-sm">arrow_back_ios</span>
+                </button>
+                <h2 class="text-lg font-black text-white uppercase tracking-tighter">Área <span class="text-gradient-versiani">Afiliada</span></h2>
+                <div class="w-10 h-10"></div>
             </div>
 
-            <div class="glass-card p-10 bg-black text-center border-white/5 rounded-[3rem] shadow-2xl relative overflow-hidden">
-                <div class="absolute -right-4 -bottom-4 w-24 h-24 bg-[#f085aa]/10 rounded-full blur-2xl"></div>
-                <p class="text-[10px] font-bold text-gray-500 uppercase tracking-[0.2em] mb-3">Comissões Disponíveis</p>
-                <div class="flex items-center justify-center gap-1">
-                    <span class="text-lg font-bold text-white/50">R$</span>
-                    <h3 class="text-5xl font-black text-gradient-rose tracking-tighter">1.250<span class="text-xl font-medium text-white">,00</span></h3>
+            <!-- CONTÊINER REDE ELITE -->
+            <div id="affiliate-onboarding" class="space-y-8">
+                <div class="text-center mb-4">
+                    <p class="text-[10px] text-gray-400 font-bold uppercase tracking-widest leading-relaxed">Faça parte do time Versiani e ganhe comissões exclusivas.</p>
                 </div>
-                <button class="mt-8 w-full py-4 bg-green-500 text-black text-[10px] font-black uppercase rounded-full shadow-[0_10px_20px_rgba(34,197,94,0.2)] active:scale-95 transition-all">Sacar via PIX</button>
+
+                <!-- PROGRESS BAR (DISCRETA) -->
+                <div id="affiliate-progress-bar" class="flex gap-2 px-2 mb-8">
+                    <div class="h-1 flex-1 bg-gradient-to-r from-[#f085aa] to-[#320075] rounded-full"></div>
+                    <div class="h-1 flex-1 bg-white/10 rounded-full"></div>
+                    <div class="h-1 flex-1 bg-white/10 rounded-full"></div>
+                    <div class="h-1 flex-1 bg-white/10 rounded-full"></div>
+                </div>
+
+                <!-- STEP 1: IDENTIFICAÇÃO -->
+                <div id="affiliate-step-1" class="affiliate-step space-y-6 animate-fade">
+                    <div class="space-y-4">
+                        <p class="text-xs font-black text-white uppercase tracking-widest">Você é?</p>
+                        <div class="flex p-1 bg-white/5 rounded-xl border border-white/10">
+                            <button onclick="setAffiliateType('empresa')" id="btn-type-empresa" class="flex-1 py-3 rounded-lg text-[10px] font-black uppercase transition-all bg-white/5 text-gray-500">Sou Empresa</button>
+                            <button onclick="setAffiliateType('pf')" id="btn-type-pf" class="flex-1 py-3 rounded-lg text-[10px] font-black uppercase transition-all bg-gradient-to-r from-[#f085aa] to-[#320075] text-white shadow-lg">Sou Pessoa Física</button>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 gap-4">
+                        <!-- Campos Empresa (Hidden by default) -->
+                        <div id="group-empresa" class="hidden space-y-4">
+                            <div class="space-y-1.5">
+                                <label class="text-[9px] font-black text-gray-400 uppercase tracking-widest ml-1">CNPJ</label>
+                                <input type="text" id="affiliate-cnpj" placeholder="00.000.000/0000-00" class="w-full h-11 bg-white rounded-xl px-5 text-black font-semibold text-xs outline-none focus:ring-4 focus:ring-[#f085aa]/20 transition-all placeholder:text-[10px] placeholder:font-medium placeholder:text-gray-400">
+                            </div>
+                            <div class="space-y-1.5">
+                                <label class="text-[9px] font-black text-gray-400 uppercase tracking-widest ml-1">Razão Social</label>
+                                <input type="text" id="affiliate-razao" placeholder="Nome da sua empresa" class="w-full h-11 bg-white rounded-xl px-5 text-black font-semibold text-xs outline-none focus:ring-4 focus:ring-[#f085aa]/20 transition-all placeholder:text-[10px] placeholder:font-medium placeholder:text-gray-400">
+                            </div>
+                        </div>
+
+                        <!-- Campos Comuns -->
+                        <div class="space-y-1.5">
+                            <label class="text-[9px] font-black text-gray-400 uppercase tracking-widest ml-1">E-mail</label>
+                            <input type="email" id="affiliate-email" placeholder="seuemail@exemplo.com" class="w-full h-11 bg-white rounded-xl px-5 text-black font-semibold text-xs outline-none placeholder:text-[10px] placeholder:font-medium placeholder:text-gray-400">
+                        </div>
+                        <div class="space-y-1.5">
+                            <label class="text-[9px] font-black text-gray-400 uppercase tracking-widest ml-1">Nome completo</label>
+                            <input type="text" id="affiliate-nome" placeholder="Como quer ser chamada?" class="w-full h-11 bg-white rounded-xl px-5 text-black font-semibold text-xs outline-none placeholder:text-[10px] placeholder:font-medium placeholder:text-gray-400">
+                        </div>
+                        
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="space-y-1.5">
+                                <label class="text-[9px] font-black text-gray-400 uppercase tracking-widest ml-1">Nº de celular</label>
+                                <input type="text" id="affiliate-celular" placeholder="(00) 0 0000-0000" class="w-full h-11 bg-white rounded-xl px-5 text-black font-semibold text-xs outline-none placeholder:text-[10px] placeholder:font-medium placeholder:text-gray-400">
+                            </div>
+                            <div class="space-y-1.5">
+                                <label class="text-[9px] font-black text-gray-400 uppercase tracking-widest ml-1">CPF</label>
+                                <input type="text" id="affiliate-cpf" placeholder="000.000.000-00" class="w-full h-11 bg-white rounded-xl px-5 text-black font-semibold text-xs outline-none placeholder:text-[10px] placeholder:font-medium placeholder:text-gray-400">
+                            </div>
+                        </div>
+                    </div>
+
+                    <button onclick="nextStep(2)" class="w-full h-11 bg-gradient-to-r from-[#f085aa] to-[#320075] text-white font-black uppercase tracking-[0.2em] text-xs rounded-xl shadow-xl hover:scale-[1.02] active:scale-95 transition-all mt-8">
+                        Prosseguir
+                    </button>
+                </div>
+                
+                <!-- STEP 2: REDES SOCIAIS -->
+                <div id="affiliate-step-2" class="affiliate-step hidden space-y-6 animate-fade">
+                    <div class="space-y-4">
+                        <p class="text-xs font-black text-white uppercase tracking-widest">Sua Presença Digital</p>
+                        <div id="social-networks-container" class="space-y-4">
+                            <div class="social-row grid grid-cols-1 gap-3 p-4 bg-white/5 rounded-3xl border border-white/5">
+                                <div class="grid grid-cols-2 gap-3">
+                                    <div class="space-y-1.5">
+                                        <label class="text-[9px] font-black text-gray-400 uppercase tracking-widest ml-1">Rede Social</label>
+                                        <select class="w-full h-12 bg-white rounded-xl px-4 text-black font-bold outline-none text-xs">
+                                            <option>Instagram</option>
+                                            <option>TikTok</option>
+                                            <option>YouTube</option>
+                                            <option>Outro</option>
+                                        </select>
+                                    </div>
+                                    <div class="space-y-1.5">
+                                        <label class="text-[9px] font-black text-gray-400 uppercase tracking-widest ml-1">Nº de Seguidores</label>
+                                        <input type="text" placeholder="Ex: 10k" class="w-full h-12 bg-white rounded-xl px-4 text-black font-bold outline-none text-xs">
+                                    </div>
+                                </div>
+                                <div class="space-y-1.5">
+                                    <label class="text-[9px] font-black text-gray-400 uppercase tracking-widest ml-1">Link do Perfil</label>
+                                    <input type="text" placeholder="instagram.com/seuuser" class="w-full h-12 bg-white rounded-xl px-4 text-black font-bold outline-none text-xs">
+                                </div>
+                            </div>
+                        </div>
+                        <button onclick="addSocialNetwork()" class="flex items-center gap-2 text-[#f085aa] text-[10px] font-black uppercase tracking-widest mt-2 ml-1">
+                            <span class="material-symbols-outlined text-base">add_circle</span> Adicionar nova rede
+                        </button>
+                    </div>
+
+                    <div class="flex gap-4 mt-8">
+                        <button onclick="nextStep(1)" class="flex-1 h-11 bg-white/5 text-white font-black uppercase tracking-widest text-[9px] rounded-xl border border-white/10">Voltar</button>
+                        <button onclick="nextStep(3)" class="flex-[2] h-11 bg-gradient-to-r from-[#f085aa] to-[#320075] text-white font-black uppercase tracking-[0.2em] text-[10px] rounded-xl shadow-xl">Prosseguir</button>
+                    </div>
+                </div>
+
+                <!-- STEP 3: ENDEREÇO & PIX -->
+                <div id="affiliate-step-3" class="affiliate-step hidden space-y-6 animate-fade">
+                    <div class="space-y-6">
+                        <div class="space-y-4">
+                            <p class="text-xs font-black text-white uppercase tracking-widest">Onde você recebe?</p>
+                            <div class="space-y-3">
+                                <div class="space-y-1.5">
+                                    <label class="text-[9px] font-black text-gray-400 uppercase tracking-widest ml-1">Chave Pix</label>
+                                    <input type="text" id="affiliate-pix" placeholder="CPF, E-mail ou Celular" class="w-full h-11 bg-white rounded-xl px-5 text-black font-semibold text-xs outline-none placeholder:text-[10px] placeholder:font-medium placeholder:text-gray-400">
+                                </div>
+                                <div class="space-y-1.5">
+                                    <label class="text-[9px] font-black text-gray-400 uppercase tracking-widest ml-1">Instituição Bancária</label>
+                                    <input type="text" id="affiliate-banco" placeholder="Ex: Nubank, Itaú..." class="w-full h-11 bg-white rounded-xl px-5 text-black font-semibold text-xs outline-none placeholder:text-[10px] placeholder:font-medium placeholder:text-gray-400">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="space-y-4">
+                            <p class="text-xs font-black text-white uppercase tracking-widest">Seu Endereço</p>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="space-y-1.5">
+                                    <label class="text-[9px] font-black text-gray-400 uppercase tracking-widest ml-1">CEP</label>
+                                    <input type="text" id="affiliate-cep" placeholder="00000-000" class="w-full h-11 bg-white rounded-xl px-5 text-black font-semibold text-xs outline-none placeholder:text-[10px] placeholder:font-medium placeholder:text-gray-400">
+                                </div>
+                                <div class="space-y-1.5">
+                                    <label class="text-[9px] font-black text-gray-400 uppercase tracking-widest ml-1">Estado</label>
+                                    <input type="text" id="affiliate-estado" placeholder="Ex: SP" class="w-full h-11 bg-white rounded-xl px-5 text-black font-semibold text-xs outline-none placeholder:text-[10px] placeholder:font-medium placeholder:text-gray-400">
+                                </div>
+                            </div>
+                            <div class="space-y-1.5">
+                                <label class="text-[9px] font-black text-gray-400 uppercase tracking-widest ml-1">Cidade</label>
+                                <input type="text" id="affiliate-cidade" placeholder="Sua cidade" class="w-full h-11 bg-white rounded-xl px-5 text-black font-semibold text-xs outline-none placeholder:text-[10px] placeholder:font-medium placeholder:text-gray-400">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4 mt-8">
+                        <button onclick="nextStep(2)" class="flex-1 h-11 bg-white/5 text-white font-black uppercase tracking-widest text-[9px] rounded-xl border border-white/10">Voltar</button>
+                        <button onclick="nextStep(4)" class="flex-[2] h-11 bg-gradient-to-r from-[#f085aa] to-[#320075] text-white font-black uppercase tracking-[0.2em] text-[10px] rounded-xl shadow-xl">Prosseguir</button>
+                    </div>
+                </div>
+
+                <!-- STEP 4: SEGURANÇA -->
+                <div id="affiliate-step-4" class="affiliate-step hidden space-y-6 animate-fade">
+                    <div class="space-y-4 text-left pt-4">
+                        <div class="space-y-1.5">
+                            <label class="text-[9px] font-black text-gray-400 uppercase tracking-widest ml-1">Crie sua senha</label>
+                            <input type="password" placeholder="••••••••" class="w-full h-11 bg-white rounded-xl px-6 text-black font-semibold text-xs outline-none placeholder:text-[10px] placeholder:font-medium placeholder:text-gray-400">
+                        </div>
+                        <div class="space-y-1.5">
+                            <label class="text-[9px] font-black text-gray-400 uppercase tracking-widest ml-1">Repita sua senha</label>
+                            <input type="password" placeholder="••••••••" class="w-full h-11 bg-white rounded-xl px-6 text-black font-semibold text-xs outline-none placeholder:text-[10px] placeholder:font-medium placeholder:text-gray-400">
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4 mt-8">
+                        <button onclick="nextStep(3)" class="flex-1 h-11 bg-white/5 text-white font-black uppercase tracking-widest text-[9px] rounded-xl border border-white/10">Voltar</button>
+                        <button onclick="prepareReviewStep()" class="flex-[2] h-11 bg-gradient-to-r from-[#f085aa] to-[#320075] text-white font-black uppercase tracking-[0.2em] text-[10px] rounded-xl shadow-xl">Prosseguir</button>
+                    </div>
+                </div>
+
+                <!-- STEP 5: REVISÃO DE DADOS -->
+                <div id="affiliate-step-5" class="affiliate-step hidden space-y-6 animate-fade">
+                    <div class="text-left space-y-6">
+                        <p class="text-xs font-black text-white uppercase tracking-widest">Confirme seus dados</p>
+                        
+                        <div class="bg-white/5 rounded-3xl p-6 space-y-6 border border-white/10">
+                            <!-- Identificação -->
+                            <div class="space-y-2">
+                                <p class="text-[8px] font-black text-[#f085aa] uppercase tracking-[0.2em]">Identificação</p>
+                                <div class="grid grid-cols-1 gap-1">
+                                    <p class="text-xs text-white font-bold" id="rev-nome"></p>
+                                    <p class="text-[10px] text-gray-400" id="rev-documento"></p>
+                                    <p class="text-[10px] text-gray-400" id="rev-contato"></p>
+                                </div>
+                            </div>
+                            
+                            <div class="h-px bg-white/5"></div>
+
+                            <!-- Financeiro -->
+                            <div class="space-y-2">
+                                <p class="text-[8px] font-black text-[#f085aa] uppercase tracking-[0.2em]">Financeiro & Logística</p>
+                                <div class="grid grid-cols-1 gap-1">
+                                    <p class="text-[10px] text-white">PIX: <span id="rev-pix" class="font-bold"></span></p>
+                                    <p class="text-[10px] text-gray-400" id="rev-endereco"></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p class="text-[9px] text-gray-500 font-medium leading-relaxed px-2">Ao finalizar, você declara que as informações acima são verdadeiras e está de acordo com as regras de afiliação.</p>
+                    </div>
+
+                    <div class="flex gap-4 mt-8">
+                        <button onclick="nextStep(4)" class="flex-1 h-11 bg-white/5 text-white font-black uppercase tracking-widest text-[9px] rounded-xl border border-white/10">Corrigir</button>
+                        <button onclick="finishOnboarding()" class="flex-[2] h-11 bg-gradient-to-r from-[#f085aa] to-[#320075] text-white font-black uppercase tracking-[0.2em] text-[10px] rounded-xl shadow-xl">Finalizar Cadastro</button>
+                    </div>
+                </div>
             </div>
 
-            <div class="bg-white/5 border border-white/5 rounded-3xl p-6">
-                <p class="text-[9px] font-black text-white/40 uppercase tracking-widest mb-4">Seu Link de Convite</p>
-                <div class="flex items-center gap-3 bg-black/40 rounded-2xl p-4 border border-white/5">
-                    <span class="text-[10px] text-gray-500 font-medium truncate flex-1 leading-none">clubever siani.co/ref/gabrielav...</span>
-                    <button class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-[#f085aa]"><span class="material-symbols-outlined text-xl">content_copy</span></button>
+            <!-- PAINEL DE AFILIADO (REDE ELITE DASHBOARD) -->
+            <div id="affiliate-dashboard" class="hidden space-y-8 animate-fade">
+                <div class="text-center mb-6">
+                    <h2 class="text-xl font-black uppercase tracking-tighter text-white">Painel <span class="text-gradient-versiani">Rede Elite</span></h2>
                 </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="glass-card p-6 bg-black rounded-[2rem] border-white/5">
+                        <p class="text-[8px] font-black text-gray-500 uppercase tracking-widest mb-2">Saldo</p>
+                        <h3 class="text-2xl font-black text-gradient-versiani leading-none">R$ 0,00</h3>
+                    </div>
+                    <div class="glass-card p-6 bg-black rounded-[2rem] border-white/5">
+                        <p class="text-[8px] font-black text-gray-500 uppercase tracking-widest mb-2">A Receber</p>
+                        <h3 class="text-2xl font-black text-white leading-none">R$ 0,00</h3>
+                    </div>
+                </div>
+
+                <button class="w-full py-5 bg-gradient-to-r from-[#f085aa] to-[#320075] text-white text-[10px] font-black uppercase rounded-full shadow-lg">Solicitar Saque</button>
+
+                <div class="bg-white/5 border border-white/5 rounded-3xl p-6">
+                    <p class="text-[9px] font-black text-white/40 uppercase tracking-widest mb-4">Seu Link de Afiliada</p>
+                    <div class="flex items-center gap-3 bg-black/40 rounded-2xl p-4 border border-white/5">
+                        <span class="text-[10px] text-gray-400 font-medium truncate flex-1">Aguardando aprovação...</span>
+                        <button class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-[#f085aa] opacity-20"><span class="material-symbols-outlined text-xl">content_copy</span></button>
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <h4 class="text-xs font-black text-white uppercase tracking-widest ml-1">Melhores Dicas 💰</h4>
+                    <div class="space-y-3">
+                        <div class="glass-card p-5 rounded-3xl border-white/5 flex gap-4">
+                            <span class="material-symbols-outlined text-[#f085aa]">rocket_launch</span>
+                            <p class="text-[10px] text-gray-400 leading-relaxed">Compartilhe seu link nos stories para converter 3x mais.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BOTÃO PARA VOLTAR AO CADASTRO (PARA TESTES/EDIÇÃO) -->
+                <button onclick="resetAffiliateOnboarding()" class="w-full py-6 text-[9px] font-black text-gray-600 uppercase tracking-[0.2em] hover:text-white transition-all text-center">
+                    Revisar ou Editar Cadastro
+                </button>
             </div>
         </div>
 
@@ -611,35 +850,6 @@
             </div>
         </div>
 
-        <!-- VIEW: SOLICITAÇÃO DE E-MAIL -->
-        <div id="view-redeem-email" class="fixed inset-0 z-[2900] bg-[#050505] hidden flex flex-col">
-            <!-- Header -->
-            <div class="px-6 py-5 flex items-center justify-between border-b border-white/5 bg-[#050505]">
-                <button onclick="backToBenefitDetail()" class="text-[#f085aa]">
-                    <span class="material-symbols-outlined">arrow_back_ios</span>
-                </button>
-                <h2 class="text-lg font-black text-white uppercase tracking-tighter">Benefício <span class="text-[#f085aa]">Elite</span></h2>
-                <button class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center">
-                    <span class="material-symbols-outlined text-[#f085aa]">notifications</span>
-                </button>
-            </div>
-
-            <div class="flex-1 px-10 flex flex-col items-center justify-center -mt-20">
-                <div class="w-16 h-16 rounded-full bg-[#f085aa]/10 flex items-center justify-center mb-8">
-                    <span class="material-symbols-outlined text-[#f085aa] text-3xl">mail</span>
-                </div>
-                <h3 class="text-xl font-black text-center text-white mb-4 leading-tight uppercase tracking-tight">Informe seu e-mail de acesso.</h3>
-                <p class="text-[10px] font-bold text-gray-500 text-center mb-12 uppercase tracking-widest">Enviaremos as instruções de resgate para você.</p>
-                
-                <input type="email" id="redeem-email-input" placeholder="seu@email.com" 
-                    class="w-full bg-white/5 border-2 border-white/5 rounded-3xl h-16 px-6 text-center text-lg font-bold text-white focus:border-[#f085aa] focus:outline-none transition-all mb-8 placeholder:text-gray-700">
-
-                <button onclick="confirmRedeemFinal()" class="w-full py-5 bg-white/5 text-gray-600 font-black uppercase rounded-full transition-all tracking-[0.2em] text-xs" id="btn-confirm-email" disabled>
-                    Continuar
-                </button>
-            </div>
-        </div>
-
     <!-- NAVEGAÇÃO BASE FIXA -->
     <nav class="fixed bottom-0 left-0 w-full h-[60px] bottom-nav px-6 flex items-center justify-between z-[2000]">
         <button onclick="switchTab('home')" id="btn-home" class="nav-item active flex flex-col items-center gap-1.5 transition-all">
@@ -691,8 +901,137 @@
         </div>
     </div>
 
-    <!-- SCRIPTS -->
+    <!-- MODALS SECTION -->
+    
+    <!-- PREMIUM LOGOUT MODAL -->
+    <div id="logout-modal" class="fixed inset-0 z-[3500] flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-300">
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" onclick="closeLogoutModal()"></div>
+        <div class="relative w-full max-w-sm glass-premium rounded-[2.5rem] p-10 text-center transform scale-90 transition-all duration-300 border border-white/20 shadow-2xl">
+            <h2 class="text-2xl font-black text-white uppercase tracking-tight mb-3">Deseja sair?</h2>
+            <p class="text-[11px] text-gray-400 font-medium mb-8 leading-relaxed px-4">Você precisará validar seu acesso novamente para entrar na sua conta.</p>
+            <div class="space-y-3">
+                <button onclick="window.location.href='auth.html'" class="w-full h-14 bg-gradient-to-r from-[#f085aa] to-[#320075] text-white font-black uppercase tracking-widest text-[10px] rounded-full shadow-lg active:scale-95 transition-all">Sim, sair agora</button>
+                <button onclick="closeLogoutModal()" class="w-full h-12 bg-white/5 text-white font-bold uppercase tracking-widest text-[9px] rounded-full hover:bg-white/10 transition-all">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- GENERIC CUSTOM ALERT MODAL (PADRONIZADO) -->
+    <div id="alert-modal" class="fixed inset-0 z-[4000] flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-300">
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" onclick="closeAlertModal()"></div>
+        <div class="relative w-full max-w-sm glass-premium rounded-[2.5rem] p-10 text-center transform scale-90 transition-all duration-300 border border-white/20 shadow-2xl">
+            <h2 id="alert-title" class="text-2xl font-black text-white uppercase tracking-tight mb-3">Título</h2>
+            <p id="alert-text" class="text-[11px] text-gray-400 font-medium mb-8 leading-relaxed px-4">Mensagem do alerta.</p>
+            <div class="space-y-3">
+                <button id="alert-btn-main" onclick="closeAlertModal()" class="w-full h-14 bg-gradient-to-r from-[#f085aa] to-[#320075] text-white font-black uppercase tracking-widest text-[10px] rounded-full shadow-lg active:scale-95 transition-all">Entendido</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- VIEW: DETALHES DO BENEFÍCIO -->
+    <div id="view-benefit-detail" class="fixed inset-0 z-[2800] bg-[#0a0a0a] hidden flex flex-col">
+        <div class="flex-1 overflow-y-auto no-scrollbar pb-32">
+            <div class="relative w-full h-[45vh]">
+                <img id="detail-logo" src="" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-black/20"></div>
+                <div class="absolute top-0 left-0 w-full px-6 py-5 flex items-center justify-between z-20">
+                    <button onclick="closeBenefitDetail()" class="w-10 h-10 rounded-full bg-black/20 backdrop-blur-md flex items-center justify-center text-white border border-white/10 active:scale-90 transition-all">
+                        <span class="material-symbols-outlined text-[22px] translate-x-[1px]">chevron_left</span>
+                    </button>
+                    <button class="w-10 h-10 rounded-full bg-black/20 backdrop-blur-md flex items-center justify-center text-white border border-white/10">
+                        <span class="material-symbols-outlined text-white">notifications</span>
+                    </button>
+                </div>
+            </div>
+            <div class="relative z-10 px-6 -mt-12 pb-12 flex flex-col items-center">
+                <h3 id="detail-headline" class="text-2xl font-black text-center text-white mb-8 leading-tight px-4 uppercase tracking-tighter"></h3>
+                <div class="bg-white rounded-[2.5rem] p-8 w-full text-black space-y-8 shadow-2xl">
+                    <div>
+                        <h4 class="font-black uppercase text-[11px] tracking-widest mb-5">Como aproveitar</h4>
+                        <div class="space-y-4">
+                            <div class="flex gap-4 items-center">
+                                <span class="w-7 h-7 rounded-full bg-[#f085aa] text-white text-[10px] font-black flex items-center justify-center shrink-0">1</span>
+                                <p class="text-[11px] font-bold text-gray-700">Toque em "resgatar cupom".</p>
+                            </div>
+                            <div class="flex gap-4 items-center">
+                                <span class="w-7 h-7 rounded-full bg-[#f085aa] text-white text-[10px] font-black flex items-center justify-center shrink-0">2</span>
+                                <p class="text-[11px] font-bold text-gray-700">Copie o código ou o link.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 sticky bottom-0 left-0 w-full z-50 bg-transparent">
+                        <button onclick="goToEmailStep()" class="w-full py-5 bg-[#f085aa] text-white font-black uppercase rounded-full shadow-lg active:scale-95 transition-all tracking-[0.2em] text-xs">
+                            Resgatar Cupom
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- VIEW: SOLICITAÇÃO DE E-MAIL -->
+    <div id="view-redeem-email" class="fixed inset-0 z-[2900] bg-[#050505] hidden flex flex-col">
+        <div class="px-6 py-5 flex items-center justify-between border-b border-white/5 bg-[#050505]">
+            <button onclick="backToBenefitDetail()" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-[#f085aa] active:scale-90 transition-all">
+                <span class="material-symbols-outlined text-[22px]">chevron_left</span>
+            </button>
+            <h2 class="text-lg font-black text-white uppercase tracking-tighter">Benefício <span class="text-[#f085aa]">Elite</span></h2>
+            <div class="w-10 h-10"></div>
+        </div>
+        <div class="flex-1 px-10 flex flex-col items-center justify-center -mt-20">
+            <div class="w-16 h-16 rounded-full bg-[#f085aa]/10 flex items-center justify-center mb-8">
+                <span class="material-symbols-outlined text-[#f085aa] text-3xl">mail</span>
+            </div>
+            <h3 class="text-xl font-black text-center text-white mb-4 leading-tight uppercase">Informe seu e-mail.</h3>
+            <input type="email" id="redeem-email-input" placeholder="seu@email.com" 
+                class="w-full bg-white/5 border-2 border-white/5 rounded-3xl h-16 px-6 text-center text-lg font-bold text-white focus:border-[#f085aa] focus:outline-none transition-all mb-8">
+            <button onclick="confirmRedeemFinal()" class="w-full py-5 bg-white/5 text-gray-600 font-black uppercase rounded-full transition-all tracking-[0.2em] text-xs" id="btn-confirm-email" disabled>Continuar</button>
+        </div>
+    </div>
+
+    <style>
+        .glass-premium {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+        }
+        #logout-modal.active, #alert-modal.active { opacity: 1; pointer-events: auto; }
+        #logout-modal.active > div:last-child, #alert-modal.active > div:last-child { transform: scale(1); }
+    </style>
+
+    <!-- SCRIPTS UNIFICADOS -->
     <script>
+        // --- NAVEGAÇÃO & TABS ---
+        function switchTab(tabId) {
+            const bottomNav = document.querySelector('.bottom-nav');
+            bottomNav.classList.remove('hidden');
+            
+            document.querySelectorAll('.tab-pane').forEach(p => p.classList.add('hidden'));
+            document.querySelectorAll('.nav-item').forEach(b => {
+                b.classList.add('text-gray-500');
+                b.classList.remove('active', 'text-[#f085aa]');
+            });
+
+            const pane = document.getElementById('tab-' + tabId);
+            if(pane) pane.classList.remove('hidden');
+            
+            const btn = document.getElementById('btn-' + tabId);
+            if(btn) {
+                btn.classList.add('active', 'text-[#f085aa]');
+                btn.classList.remove('text-gray-500');
+            }
+
+            // Regra especial: Esconder bottom bar se entrar no Onboarding da Rede Elite
+            if (tabId === 'network') {
+                const isDashboard = !document.getElementById('affiliate-dashboard').classList.contains('hidden');
+                if (!isDashboard) {
+                    bottomNav.classList.add('hidden');
+                }
+            }
+
+            window.scrollTo(0,0);
+        }
+
         function toggleMenu() {
             const menu = document.getElementById('side-menu');
             const backdrop = document.getElementById('menu-backdrop');
@@ -706,28 +1045,12 @@
             }
         }
 
-        function switchTab(tabId) {
-            document.querySelectorAll('.tab-pane').forEach(p => p.classList.add('hidden'));
-            document.querySelectorAll('.nav-item').forEach(b => {
-                b.classList.add('text-gray-500');
-                b.classList.remove('active', 'text-[#f085aa]');
-            });
-            const pane = document.getElementById('tab-' + tabId);
-            if(pane) pane.classList.remove('hidden');
-            const btn = document.getElementById('btn-' + tabId);
-            if(btn) {
-                btn.classList.add('active', 'text-[#f085aa]');
-                btn.classList.remove('text-gray-500');
-            }
-            window.scrollTo(0,0);
-        }
-
+        // --- PONTOS & BENEFÍCIOS ---
         let userPoints = 1240;
+        let currentProduct = null;
 
         function updatePointsUI() {
-            const pointsViews = document.querySelectorAll('.points-display');
-            pointsViews.forEach(el => {
-                // Se o elemento estiver na reward-card, mantém a estrutura de span pequeno
+            document.querySelectorAll('.points-display').forEach(el => {
                 if (el.closest('.reward-card')) {
                     el.innerHTML = `${userPoints.toLocaleString('pt-BR')} <span class="text-[10px] uppercase align-middle ml-1">pts</span>`;
                 } else {
@@ -736,16 +1059,11 @@
             });
         }
 
-        let currentProduct = null;
-
         function openBenefitDetail(product, points, image, headline) {
             currentProduct = { name: product, cost: points };
-            document.getElementById('detail-title').textContent = product;
-            document.getElementById('detail-headline').textContent = headline || `Resgate seu ${product} agora mesmo!`;
+            document.getElementById('detail-headline').textContent = headline || `Resgate seu ${product} agora!`;
             document.getElementById('detail-logo').src = image;
-            
-            const view = document.getElementById('view-benefit-detail');
-            view.classList.remove('hidden');
+            document.getElementById('view-benefit-detail').classList.remove('hidden');
             document.body.style.overflow = 'hidden';
         }
 
@@ -754,93 +1072,199 @@
             document.body.style.overflow = '';
         }
 
-        function goToEmailStep() {
-            document.getElementById('view-redeem-email').classList.remove('hidden');
-        }
+        function goToEmailStep() { document.getElementById('view-redeem-email').classList.remove('hidden'); }
+        function backToBenefitDetail() { document.getElementById('view-redeem-email').classList.add('hidden'); }
 
-        function backToBenefitDetail() {
-            document.getElementById('view-redeem-email').classList.add('hidden');
+        function redeem(product, cost) {
+            let img = product.includes('Decote') ? "https://versianiswim.com.br/cdn/shop/files/VS-Swim-1282-copiar-_2__jpg.webp?v=1770470831&width=750" : "https://acdn-us.mitiendanube.com/stores/006/595/892/products/perfect-serum-1a973dd1831ca98bac17597582941633-1024-1024.webp";
+            let head = product.includes('Decote') ? "Macacão Decote Costas: Elegância e Estilo" : "Perfect Serum: O segredo da pele perfeita";
+            openBenefitDetail(product, cost, img, head);
         }
-
-        document.getElementById('redeem-email-input').addEventListener('input', function(e) {
-            const btn = document.getElementById('btn-confirm-email');
-            if (e.target.value.includes('@') && e.target.value.includes('.')) {
-                btn.disabled = false;
-                btn.classList.remove('bg-white/5', 'text-gray-600');
-                btn.classList.add('bg-[#f085aa]', 'text-white', 'shadow-lg');
-            } else {
-                btn.disabled = true;
-                btn.classList.add('bg-white/5', 'text-gray-600');
-                btn.classList.remove('bg-[#f085aa]', 'text-white', 'shadow-lg');
-            }
-        });
 
         function confirmRedeemFinal() {
             if (userPoints < currentProduct.cost) {
-                Swal.fire({
-                    title: 'Ops!',
-                    text: 'Saldo de pontos insuficiente.',
-                    icon: 'error',
-                    confirmButtonColor: '#f085aa',
-                    background: '#1a1a1a',
-                    color: '#fff'
-                });
+                showCustomAlert('Ops!', 'Seu saldo de pontos é insuficiente para este resgate.', 'error');
                 return;
             }
-
             userPoints -= currentProduct.cost;
             updatePointsUI();
-
             document.getElementById('view-redeem-email').classList.add('hidden');
             document.getElementById('view-benefit-detail').classList.add('hidden');
             document.body.style.overflow = '';
+            showCustomAlert('Resgate Solicitado!', 'As instruções de resgate foram enviadas para seu e-mail.', 'check_circle');
+        }
 
-            Swal.fire({
-                title: 'Resgate Solicitado!',
-                text: 'As instruções de uso foram enviadas para o seu e-mail.',
-                icon: 'success',
-                confirmButtonColor: '#f085aa',
-                background: '#1a1a1a',
-                color: '#fff'
+        // --- REDE ELITE AFILIADOS ---
+        let currentAffiliateStep = 1;
+        let affiliateType = 'pf';
+
+        function resetAffiliateOnboarding() {
+            document.getElementById('affiliate-dashboard').classList.add('hidden');
+            document.getElementById('affiliate-onboarding').classList.remove('hidden');
+            nextStep(1);
+        }
+
+        function goBackAffiliate() {
+            const isDashboard = !document.getElementById('affiliate-dashboard').classList.contains('hidden');
+            if (currentAffiliateStep === 1 || isDashboard) {
+                document.querySelector('.bottom-nav').classList.remove('hidden');
+                switchTab('home');
+            } else {
+                nextStep(currentAffiliateStep - 1);
+            }
+        }
+
+        function setAffiliateType(type) {
+            affiliateType = type;
+            const btnEmpresa = document.getElementById('btn-type-empresa');
+            const btnPF = document.getElementById('btn-type-pf');
+            const group = document.getElementById('group-empresa');
+            if (type === 'empresa') {
+                btnEmpresa.className = 'flex-1 py-3 rounded-lg text-[10px] font-black uppercase transition-all bg-gradient-to-r from-[#f085aa] to-[#320075] text-white shadow-lg';
+                btnPF.className = 'flex-1 py-3 rounded-lg text-[10px] font-black uppercase transition-all bg-white/5 text-gray-500';
+                group.classList.remove('hidden');
+            } else {
+                btnPF.className = 'flex-1 py-3 rounded-lg text-[10px] font-black uppercase transition-all bg-gradient-to-r from-[#f085aa] to-[#320075] text-white shadow-lg';
+                btnEmpresa.className = 'flex-1 py-3 rounded-lg text-[10px] font-black uppercase transition-all bg-white/5 text-gray-500';
+                group.classList.add('hidden');
+            }
+        }
+
+        function nextStep(step) {
+            if (step >= 1 && step <= 5) {
+                document.querySelector('.bottom-nav').classList.add('hidden');
+            }
+            document.querySelectorAll('.affiliate-step').forEach(s => s.classList.add('hidden'));
+            document.getElementById(`affiliate-step-${step}`).classList.remove('hidden');
+            currentAffiliateStep = step;
+            updateAffiliateProgress(step);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function prepareReviewStep() {
+            const nome = document.getElementById('affiliate-nome').value;
+            const email = document.getElementById('affiliate-email').value;
+            const pix = document.getElementById('affiliate-pix').value;
+            const cpf = document.getElementById('affiliate-cpf').value;
+            const cnpj = document.getElementById('affiliate-cnpj').value;
+            const celular = document.getElementById('affiliate-celular').value;
+            const cep = document.getElementById('affiliate-cep').value;
+            const cidade = document.getElementById('affiliate-cidade').value;
+            const estado = document.getElementById('affiliate-estado').value;
+
+            document.getElementById('rev-nome').textContent = nome || 'Nome não informado';
+            document.getElementById('rev-contato').textContent = `${email} • ${celular}`;
+            document.getElementById('rev-pix').textContent = pix || 'Não informado';
+            document.getElementById('rev-endereco').textContent = `${cep}, ${cidade} - ${estado}`;
+            
+            if (affiliateType === 'pf') {
+                document.getElementById('rev-documento').textContent = `CPF: ${cpf}`;
+            } else {
+                document.getElementById('rev-documento').textContent = `CNPJ: ${cnpj} • ${document.getElementById('affiliate-razao').value}`;
+            }
+            nextStep(5);
+        }
+
+        function updateAffiliateProgress(step) {
+            const container = document.getElementById('affiliate-progress-bar');
+            if (!container) return;
+            const bars = container.children;
+            for (let i = 0; i < bars.length; i++) {
+                if (i < step) {
+                    bars[i].className = 'h-1 flex-1 bg-gradient-to-r from-[#f085aa] to-[#320075] rounded-full';
+                } else {
+                    bars[i].className = 'h-1 flex-1 bg-white/10 rounded-full';
+                }
+            }
+        }
+
+        function finishOnboarding() {
+            showCustomAlert('Cadastro Enviado!', 'Análise em andamento. Em breve você receberá a confirmação.', 'verified', () => {
+                document.getElementById('affiliate-onboarding').classList.add('hidden');
+                document.getElementById('affiliate-dashboard').classList.remove('hidden');
+                document.querySelector('.bottom-nav').classList.remove('hidden');
             });
         }
 
-        function redeem(product, cost) {
-            // No dashboard2, o botão "Resgatar" agora abre a tela de detalhes primeiro
-            // Para manter a experiência consistente com o print enviado
-            let img = "";
-            let headline = "";
+        function addSocialNetwork() {
+            const container = document.getElementById('social-networks-container');
+            const newRow = document.createElement('div');
+            newRow.className = 'social-row grid grid-cols-1 gap-3 p-4 bg-white/5 rounded-3xl border border-white/5 animate-fade relative';
+            newRow.innerHTML = `
+                <button onclick="this.parentElement.remove()" class="absolute -top-2 -right-2 w-6 h-6 bg-red-500 text-white rounded-full flex items-center justify-center shadow-lg active:scale-90 transition-all">
+                    <span class="material-symbols-outlined text-[14px]">close</span>
+                </button>
+                <div class="grid grid-cols-2 gap-3">
+                    <div class="space-y-1.5">
+                        <label class="text-[9px] font-black text-gray-400 uppercase tracking-widest ml-1">Rede Social</label>
+                        <select class="w-full h-12 bg-white rounded-xl px-4 text-black font-bold outline-none text-xs">
+                            <option>Instagram</option>
+                            <option>TikTok</option>
+                            <option>YouTube</option>
+                            <option>Outro</option>
+                        </select>
+                    </div>
+                    <div class="space-y-1.5">
+                        <label class="text-[9px] font-black text-gray-400 uppercase tracking-widest ml-1">Nº de Seguidores</label>
+                        <input type="text" placeholder="Ex: 10k" class="w-full h-12 bg-white rounded-xl px-4 text-black font-bold outline-none text-xs">
+                    </div>
+                </div>
+                <div class="space-y-1.5">
+                    <label class="text-[9px] font-black text-gray-400 uppercase tracking-widest ml-1">Link do Perfil</label>
+                    <input type="text" placeholder="link.com/seuuser" class="w-full h-12 bg-white rounded-xl px-4 text-black font-bold outline-none text-xs">
+                </div>
+            `;
+            container.appendChild(newRow);
+        }
+
+        // --- SISTEMA DE ALERTA CUSTOMIZADO ---
+        let alertCallback = null;
+
+        function showCustomAlert(title, text, type = 'success', callback = null) {
+            document.getElementById('alert-title').textContent = title;
+            document.getElementById('alert-text').textContent = text;
             
-            if (product.includes('Swim')) {
-                img = "https://versianiswim.com.br/cdn/shop/files/VS-Swim-1282-copiar-_2__jpg.webp?v=1770470831&width=750";
-                headline = "Biquíni Versiani Swim: Elegância na praia";
-            } else {
-                img = "https://acdn-us.mitiendanube.com/stores/006/595/892/products/perfect-serum-1a973dd1831ca98bac17597582941633-1024-1024.webp";
-                headline = "Kit Skin Care: O segredo da pele perfeita";
+            alertCallback = callback;
+            const modal = document.getElementById('alert-modal');
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeAlertModal() {
+            const modal = document.getElementById('alert-modal');
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+            if (alertCallback) {
+                alertCallback();
+                alertCallback = null;
             }
-
-            openBenefitDetail(product, cost, img, headline);
         }
 
+        // --- LOGOUT ---
         function logout() {
-            Swal.fire({
-                title: 'Deseja sair?',
-                text: "Você precisará validar seu acesso novamente para entrar.",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#f085aa',
-                cancelButtonColor: 'rgba(255,255,255,0.05)',
-                confirmButtonText: 'Sim, sair agora',
-                cancelButtonText: 'Cancelar',
-                background: '#1a1a1a',
-                color: '#fff',
-                backdrop: `rgba(0,0,0,0.8)`
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    window.location.href = 'auth.html';
-                }
-            })
+            const modal = document.getElementById('logout-modal');
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
         }
+        function closeLogoutModal() {
+            const modal = document.getElementById('logout-modal');
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // --- EVENT LISTENERS ---
+        document.getElementById('redeem-email-input')?.addEventListener('input', function(e) {
+            const btn = document.getElementById('btn-confirm-email');
+            if (e.target.value.includes('@') && e.target.value.includes('.')) {
+                btn.disabled = false;
+                btn.classList.replace('text-gray-600', 'text-white');
+                btn.classList.replace('bg-white/5', 'bg-[#f085aa]');
+            } else {
+                btn.disabled = true;
+                btn.classList.replace('text-white', 'text-gray-600');
+                btn.classList.replace('bg-[#f085aa]', 'bg-white/5');
+            }
+        });
     </script>
 </body>
 </html>
