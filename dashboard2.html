@@ -282,32 +282,101 @@
         </div>
 
         <!-- ABA 2: SORTEIOS (HUB) -->
-        <div id="tab-hub" class="tab-pane hidden animate-fade space-y-6 px-6">
+        <div id="tab-hub" class="tab-pane hidden animate-fade space-y-6 px-6 pb-32">
             <div class="text-center mb-8">
-                <h2 class="text-xl font-black uppercase tracking-tighter text-white">Sorteios <span class="text-[#f085aa]">Elite</span></h2>
-                <p class="text-[9px] text-gray-400 font-bold uppercase tracking-widest mt-1">Sua sorte, seu estilo, sua vez.</p>
+                <h2 class="text-xl font-black uppercase tracking-tighter text-white">Sorteios</h2>
+                <p class="text-[9px] text-gray-400 font-bold uppercase tracking-widest mt-1">Acompanhe os sorteios e resultados</p>
             </div>
             
             <div class="bg-[#1a1a1a] p-1 rounded-2xl flex items-center mb-6">
-                <button class="flex-1 py-3 rounded-xl bg-[#f085aa] text-black text-[10px] font-black uppercase">Minhas Cotas</button>
+                <button class="flex-1 py-3 rounded-xl bg-[#f085aa] text-black text-[10px] font-black uppercase">Meus Números</button>
                 <button class="flex-1 py-3 rounded-xl text-gray-500 text-[10px] font-black uppercase">Ganhadoras</button>
             </div>
 
-            <div class="bg-[#121212] rounded-[2rem] overflow-hidden border border-white/5 shadow-2xl">
+            <!-- Card de Sorteio 1 -->
+            <div onclick="showMyNumbers('Salvatore Ferragamo', ['127157560', '127157561', '127157562'])" 
+                 class="bg-[#121212] rounded-[2rem] overflow-hidden border border-white/5 shadow-2xl active:scale-[0.98] transition-all cursor-pointer">
                 <div class="flex p-6 items-center gap-5">
                     <div class="w-16 h-16 rounded-2xl overflow-hidden shadow-lg border border-white/10">
                         <img src="https://images.unsplash.com/photo-1591561954557-26941169b49e?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover">
                     </div>
                     <div class="flex-1">
-                        <p class="text-[11px] font-black text-white uppercase leading-none">Salvatore Ferragamo</p>
-                        <span class="text-[14px] font-black text-[#f085aa] tracking-widest mt-2 block">127157560</span>
-                        <div class="inline-flex px-2 py-0.5 rounded-full bg-green-500/10 border border-green-500/20 mt-2">
-                            <span class="text-[6px] font-black text-green-500 uppercase tracking-widest">Cota Ativa</span>
+                        <p class="text-[11px] font-black text-gray-500 uppercase tracking-widest leading-none mb-2">Próximo Sorteio</p>
+                        <h3 class="text-lg font-black text-white uppercase leading-tight tracking-tighter">Salvatore Ferragamo</h3>
+                        <div class="flex items-center gap-2 mt-3">
+                            <span class="text-[12px] font-bold text-[#f085aa]">Você possui 3 números</span>
+                            <span class="material-symbols-outlined text-[#f085aa] text-sm">arrow_forward_ios</span>
                         </div>
                     </div>
                 </div>
                 <div class="bg-white/5 py-3 px-6 flex justify-between items-center border-t border-white/5 text-[8px] font-bold text-gray-500 uppercase">
                     <div class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[12px]">schedule</span> Resultado em 22/04</div>
+                    <span class="text-[#f085aa]">Federal</span>
+                </div>
+            </div>
+
+            <!-- Card de Sorteio 2 -->
+            <div onclick="showMyNumbers('iPhone 16 Pro Max', ['982341055'])" 
+                 class="bg-[#121212] rounded-[2rem] overflow-hidden border border-white/5 shadow-2xl active:scale-[0.98] transition-all cursor-pointer">
+                <div class="flex p-6 items-center gap-5">
+                    <div class="w-16 h-16 rounded-2xl overflow-hidden shadow-lg border border-white/10">
+                        <img src="https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover">
+                    </div>
+                    <div class="flex-1">
+                        <p class="text-[11px] font-black text-gray-500 uppercase tracking-widest leading-none mb-2">Sorteio Ativo</p>
+                        <h3 class="text-lg font-black text-white uppercase leading-tight tracking-tighter">iPhone 16 Pro Max</h3>
+                        <div class="flex items-center gap-2 mt-3">
+                            <span class="text-[12px] font-bold text-[#f085aa]">Você possui 1 número</span>
+                            <span class="material-symbols-outlined text-[#f085aa] text-sm">arrow_forward_ios</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white/5 py-3 px-6 flex justify-between items-center border-t border-white/5 text-[8px] font-bold text-gray-500 uppercase">
+                    <div class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[12px]">schedule</span> Resultado em 30/04</div>
+                    <span class="text-[#f085aa]">Federal</span>
+                </div>
+            </div>
+
+            <!-- Card de Sorteio 3 -->
+            <div onclick="showMyNumbers('Viagem Maldivas', ['554433221', '554433222', '554433223', '554433224', '554433225'])" 
+                 class="bg-[#121212] rounded-[2rem] overflow-hidden border border-white/5 shadow-2xl active:scale-[0.98] transition-all cursor-pointer">
+                <div class="flex p-6 items-center gap-5">
+                    <div class="w-16 h-16 rounded-2xl overflow-hidden shadow-lg border border-white/10">
+                        <img src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?q=80&w=400&auto=format&fit=crop" class="w-full h-full object-cover">
+                    </div>
+                    <div class="flex-1">
+                        <p class="text-[11px] font-black text-gray-500 uppercase tracking-widest leading-none mb-2">Grande Prêmio</p>
+                        <h3 class="text-lg font-black text-white uppercase leading-tight tracking-tighter">Viagem Maldivas</h3>
+                        <div class="flex items-center gap-2 mt-3">
+                            <span class="text-[12px] font-bold text-[#f085aa]">Você possui 5 números</span>
+                            <span class="material-symbols-outlined text-[#f085aa] text-sm">arrow_forward_ios</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white/5 py-3 px-6 flex justify-between items-center border-t border-white/5 text-[8px] font-bold text-gray-500 uppercase">
+                    <div class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[12px]">schedule</span> Resultado em 15/05</div>
+                    <span class="text-[#f085aa]">Federal</span>
+                </div>
+            </div>
+
+            <!-- Card de Sorteio 4 -->
+            <div onclick="showMyNumbers('Perfect Serum Versiani', ['112233445', '112233446'])" 
+                 class="bg-[#121212] rounded-[2rem] overflow-hidden border border-white/5 shadow-2xl active:scale-[0.98] transition-all cursor-pointer">
+                <div class="flex p-6 items-center gap-5">
+                    <div class="w-16 h-16 rounded-2xl overflow-hidden shadow-lg border border-white/10">
+                        <img src="https://acdn-us.mitiendanube.com/stores/006/595/892/products/perfect-serum-1a973dd1831ca98bac17597582941633-1024-1024.webp" class="w-full h-full object-cover">
+                    </div>
+                    <div class="flex-1">
+                        <p class="text-[11px] font-black text-gray-500 uppercase tracking-widest leading-none mb-2">Sorteio Semanal</p>
+                        <h3 class="text-lg font-black text-white uppercase leading-tight tracking-tighter">Perfect Serum Versiani</h3>
+                        <div class="flex items-center gap-2 mt-3">
+                            <span class="text-[12px] font-bold text-[#f085aa]">Você possui 2 números</span>
+                            <span class="material-symbols-outlined text-[#f085aa] text-sm">arrow_forward_ios</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white/5 py-3 px-6 flex justify-between items-center border-t border-white/5 text-[8px] font-bold text-gray-500 uppercase">
+                    <div class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[12px]">schedule</span> Resultado em 25/04</div>
                     <span class="text-[#f085aa]">Federal</span>
                 </div>
             </div>
@@ -1308,6 +1377,32 @@
             const modal = document.getElementById('logout-modal');
             modal.classList.remove('active');
             document.body.style.overflow = '';
+        }
+
+        // --- SORTEIOS ---
+        function showMyNumbers(prizeName, numbers) {
+            const numbersHtml = numbers.map(n => `<div class="w-full bg-[#f085aa]/10 text-[#f085aa] py-1.5 rounded-lg font-black text-sm border border-[#f085aa]/20 tracking-widest">${n}</div>`).join('');
+            
+            Swal.fire({
+                title: `<span class="text-xl font-black uppercase text-white">${prizeName}</span>`,
+                html: `
+                    <div class="mt-4 space-y-4">
+                        <p class="text-xs text-gray-400 font-bold uppercase tracking-widest">Seus Números da Sorte:</p>
+                        <div class="flex flex-col gap-2 max-w-[200px] mx-auto">
+                            ${numbersHtml}
+                        </div>
+                    </div>
+                `,
+                background: '#121212',
+                color: '#fff',
+                confirmButtonText: 'FECHAR',
+                confirmButtonColor: '#f085aa',
+                showClass: { popup: 'animate-fade' },
+                customClass: {
+                    popup: 'rounded-[2.5rem] border border-white/10 shadow-2xl backdrop-blur-xl',
+                    confirmButton: 'rounded-full font-black uppercase tracking-widest text-[10px] px-10 py-4 shadow-lg shadow-[#f085aa]/20'
+                }
+            });
         }
 
         // --- EVENT LISTENERS ---
