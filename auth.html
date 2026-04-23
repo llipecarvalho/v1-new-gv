@@ -125,6 +125,15 @@
          background: rgba(240, 133, 170, 0.1);
          outline: none;
       }
+
+      .animate-fade {
+         animation: fadeIn 0.4s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+      }
+
+      @keyframes fadeIn {
+         from { opacity: 0; transform: translateY(-8px); filter: blur(4px); }
+         to { opacity: 1; transform: translateY(0); filter: blur(0); }
+      }
    </style>
 </head>
 
@@ -139,7 +148,7 @@
    <!-- Modal Card Layout -->
    <div class="modal-card glass-premium mx-6">
       <!-- Close Button (Redireciona para Home) -->
-      <button onclick="window.location.href='index.html'" class="absolute top-8 right-8 text-white/50 hover:text-white transition-colors">
+      <button onclick="window.location.href='indexv4.html'" class="absolute top-8 right-8 text-white/50 hover:text-white transition-colors">
          <span class="material-symbols-outlined text-2xl font-light">close</span>
       </button>
 
@@ -162,12 +171,11 @@
                   class="w-full input-white px-6 text-black font-bold outline-none focus:ring-4 focus:ring-[#f085aa]/20 transition-all">
             </div>
 
-            <!-- WhatsApp Confirmation Checkbox -->
-            <div class="flex items-center gap-3 px-1">
+            <!-- WhatsApp Confirmation Checkbox (Only shows for Phone) -->
+            <div id="whatsapp-toggle" class="hidden flex items-center gap-3 px-1 animate-fade">
                <label class="relative flex items-center cursor-pointer">
                   <input type="checkbox" checked class="peer sr-only">
                   <div class="w-6 h-6 bg-white/10 border border-white/20 rounded-lg peer-checked:bg-[#f085aa] peer-checked:border-[#f085aa] transition-all flex items-center justify-center"></div>
-                  <!-- SVG como irmão direto para o peer-checked funcionar 100% -->
                   <svg class="absolute w-4 h-4 text-black opacity-0 peer-checked:opacity-100 transition-opacity left-1 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="4">
                      <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
                   </svg>
@@ -181,13 +189,25 @@
             CONTINUAR
          </button>
 
+         <!-- SSO Login Option -->
+         <div class="flex items-center gap-4 py-1">
+            <div class="h-px flex-1 bg-white/10"></div>
+            <span class="text-[9px] font-black text-gray-500 uppercase tracking-widest">ou</span>
+            <div class="h-px flex-1 bg-white/10"></div>
+         </div>
+
+         <button onclick="window.location.href='dashboard2.html'"
+            class="w-full h-[75px] bg-white text-black rounded-full font-black uppercase tracking-wider text-[13px] flex items-center justify-center gap-3 active:scale-95 transition-all shadow-lg whitespace-nowrap">
+            <div class="w-9 h-9 bg-gray-100 rounded-full flex items-center justify-center shrink-0">
+               <img src="https://www.gstatic.com/images/branding/product/1x/gsa_512dp.png" class="w-5 h-5">
+            </div>
+            CONTINUAR COM GOOGLE
+         </button>
+
          <!-- Data Consent Footer -->
          <div class="text-center space-y-6 pt-2">
             <p class="text-[11px] text-gray-500 font-bold leading-relaxed px-2">
                Ao continuar, concordo que meus dados poderão ser utilizados para comunicações relacionadas ao cadastro no <span class="text-white">Clube Versiani</span>.
-            </p>
-            <p class="text-[10px] text-gray-400 font-black uppercase tracking-widest">
-               Não tem cadastro? <a href="#" class="text-[#f085aa] hover:underline">Assine agora</a>
             </p>
          </div>
       </section>
@@ -346,15 +366,18 @@
                indicator.textContent = '✓ CPF Detectado';
                indicator.className = 'text-[10px] font-bold uppercase tracking-widest mt-2 ml-1 text-green-400';
                firstInputType = 'cpf';
+               document.getElementById('whatsapp-toggle').classList.add('hidden');
             } else {
                e.target.value = formatPhone(value);
                indicator.textContent = '✓ Celular Detectado';
                indicator.className = 'text-[10px] font-bold uppercase tracking-widest mt-2 ml-1 text-[#f085aa]';
                firstInputType = 'phone';
+               document.getElementById('whatsapp-toggle').classList.remove('hidden');
             }
          } else {
             e.target.value = value;
             indicator.textContent = '';
+            document.getElementById('whatsapp-toggle').classList.add('hidden');
          }
 
          btnContinue.disabled = value.length < 11;

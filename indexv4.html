@@ -172,121 +172,6 @@
          z-index: 1;
       }
 
-      /* AUTH MODAL STYLES (PREMIUM KINETICS) */
-      #auth-modal {
-         display: flex;
-         visibility: hidden;
-         pointer-events: none;
-         opacity: 0;
-         transition: all 0.8s cubic-bezier(0.19, 1, 0.22, 1);
-      }
-
-      #auth-modal.active {
-         visibility: visible;
-         pointer-events: auto;
-         opacity: 1;
-      }
-
-      #auth-modal.active .modal-card {
-         transform: scale(1) translateY(0);
-         opacity: 1;
-         filter: blur(0px);
-      }
-
-      .modal-card {
-         transform: scale(0.8) translateY(30px);
-         opacity: 0;
-         filter: blur(16px);
-         transition: all 0.9s cubic-bezier(0.19, 1, 0.22, 1);
-         will-change: transform, opacity, filter;
-      }
-
-      .input-premium {
-         background: rgba(255, 255, 255, 0.05);
-         border: 1px solid rgba(255, 255, 255, 0.1);
-         transition: all 0.4s ease;
-         color: white;
-      }
-
-      .input-premium:focus {
-         background: rgba(240, 133, 170, 0.08);
-         border-color: #f085aa;
-         outline: none;
-         box-shadow: 0 0 20px rgba(240, 133, 170, 0.15);
-      }
-
-      .auth-form-step {
-         opacity: 0;
-         filter: blur(8px);
-         transform: scale(0.96);
-         transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
-         display: none;
-      }
-
-      .auth-form-step.active {
-         display: block;
-         opacity: 1;
-         filter: blur(0px);
-         transform: scale(1);
-         animation: modalStepFadeIn 0.5s ease-out forwards;
-      }
-
-      @keyframes modalStepFadeIn {
-         from { opacity: 0; transform: translateY(10px); }
-         to { opacity: 1; transform: translateY(0); }
-      }
-
-      .input-otp {
-         width: 100%;
-         height: 54px;
-         text-align: center;
-         font-size: 1.5rem;
-         font-weight: 900;
-         background-color: rgba(0, 0, 0, 0.4) !important;
-         border: 1px solid rgba(255, 255, 255, 0.1);
-         border-radius: 12px;
-         transition: all 0.3s ease;
-         color: white !important;
-         appearance: none;
-         margin: 0;
-      }
-
-      /* Chrome, Safari, Edge, Opera */
-      .input-otp::-webkit-outer-spin-button,
-      .input-otp::-webkit-inner-spin-button {
-         -webkit-appearance: none;
-         margin: 0;
-      }
-
-      /* Firefox */
-      .input-otp[type=number] {
-         -moz-appearance: textfield;
-      }
-
-      .input-otp:focus {
-         border-color: #f085aa !important;
-         background-color: rgba(240, 133, 170, 0.1) !important;
-         outline: none;
-         box-shadow: 0 0 15px rgba(240, 133, 170, 0.3);
-      }
-
-      .step-enter {
-         animation: modalSlideIn 0.4s forwards cubic-bezier(0.23, 1, 0.32, 1);
-      }
-
-      @keyframes modalSlideIn {
-         from {
-            opacity: 0;
-            transform: translateX(10px);
-            filter: blur(5px);
-         }
-
-         to {
-            opacity: 1;
-            transform: translateX(0);
-            filter: blur(0);
-         }
-      }
    </style>
    <script type="module">
       import '/src/scripts/tailwind.config.js';
@@ -344,12 +229,12 @@
                   V3
                </a>
 
-               <button onclick="openAuthModal('login')"
+               <a href="auth.html"
                   class="px-3 md:px-7 py-2 md:py-3.5 rounded-full border border-white/10 bg-white/5 text-[8px] md:text-[11px] font-black uppercase tracking-[0.2em] text-gray-400 hover:bg-white/10 transition-all cursor-pointer whitespace-nowrap"
                   aria-label="Entrar">
                   <span class="md:hidden">Entrar</span>
                   <span class="hidden md:inline">Área de Membros</span>
-               </button>
+               </a>
             </div>
 
          </nav>
@@ -374,9 +259,9 @@
                href="#planos">Benefícios</a>
          </nav>
 
-         <button onclick="openAuthModal('signup')"
+         <a href="auth.html"
             class="mobile-link mt-8 bg-[#f085aa] text-black px-12 py-4 rounded-full font-black text-lg uppercase hover:scale-105 hover:bg-white transition-all shadow-[0_0_30px_rgba(240,133,170,0.4)] cursor-pointer text-center">ASSINE
-            AGORA</button>`n
+            AGORA</a>`n
       </div>
       <!-- STACKED HERO (Mobile Stacked / Desktop Split) -->
       <header class="relative flex flex-col lg:min-h-[90vh] lg:flex-row bg-[#050505] overflow-hidden">
@@ -922,10 +807,10 @@
                         </ul>
 
                         <!-- CTA -->
-                        <button onclick="openAuthModal('signup')"
-                           class="w-full py-4 rounded-full bg-[#f085aa] text-black font-black text-sm uppercase tracking-widest hover:bg-white transition-all shadow-[0_0_40px_rgba(240,133,170,0.3)] hover:shadow-[0_0_50px_rgba(255,255,255,0.2)] cursor-pointer">
+                        <a href="auth.html"
+                           class="w-full py-4 rounded-full bg-[#f085aa] text-black font-black text-sm uppercase tracking-widest hover:bg-white transition-all shadow-[0_0_40px_rgba(240,133,170,0.3)] hover:shadow-[0_0_50px_rgba(255,255,255,0.2)] cursor-pointer block text-center">
                            Começar com R$ 20
-                        </button>
+                        </a>
 
                      </div>
                   </div>
@@ -1060,12 +945,12 @@
          </div>
 
          <div class="flex flex-col items-center gap-8 w-full">
-            <button onclick="openAuthModal('signup')"
+            <a href="auth.html"
                class="bg-white text-black px-7 py-5 md:px-12 md:py-6 w-full max-w-md md:w-auto rounded-full text-base md:text-xl font-black uppercase hover:-translate-y-1 hover:bg-[#f085aa] hover:text-white transition-all duration-300 shadow-[0_20px_50px_rgba(240,133,170,0.15)] hover:shadow-[0_30px_60px_rgba(240,133,170,0.3)] flex items-center justify-center gap-4 group cursor-pointer whitespace-nowrap">
                Garantir Minha Vaga
                <span
                   class="material-symbols-outlined text-[1.5rem] transition-transform duration-300 group-hover:translate-x-2">arrow_forward</span>
-            </button>
+            </a>
 
             <div class="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 mt-4">
                <!-- Avatars Facepile (Social Proof) -->
@@ -1133,374 +1018,21 @@
    <div
       class="fixed bottom-0 left-0 w-full z-[80] px-4 pb-6 pt-10 pointer-events-none lg:hidden bg-gradient-to-t from-black via-black/80 to-transparent">
       <div class="max-w-[340px] mx-auto pointer-events-auto">
-         <button onclick="openAuthModal('signup')"
+         <a href="auth.html"
             class="w-full bg-[#f085aa] text-black py-4 rounded-full font-black uppercase shadow-[0_20px_60px_-10px_rgba(240,133,170,0.8)] hover:bg-white hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 flex items-center justify-center gap-2">
             <span class="text-base tracking-tight">Assinar Agora</span>
             <span class="opacity-20 text-3xl font-light">|</span>
             <span class="text-3xl tracking-tighter">R$ 20</span>
-         </button>
+         </a>
       </div>
    </div>
 
-   <!-- SEAMLESS AUTH MODAL -->
-   <div id="auth-modal" class="fixed inset-0 z-[200] items-center justify-center p-4 bg-black/80 backdrop-blur-[32px]">
-      <div
-         class="modal-card w-full max-w-[440px] glass-premium rounded-[32px] p-8 md:p-10 relative overflow-hidden shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)]">
 
-         <!-- Close Button -->
-         <button onclick="closeAuthModal()"
-            class="absolute top-6 right-6 text-gray-400 hover:text-white transition-colors cursor-pointer z-50">
-            <span class="material-symbols-outlined">close</span>
-         </button>
-
-         <div class="text-center mb-8">
-            <span class="text-[9px] font-black text-[#f085aa] uppercase tracking-[0.5em] mb-2 block">CLUB VERSIANI</span>
-            <h2 id="modal-title" class="text-2xl md:text-3xl font-black text-white uppercase tracking-tight">ACESSO AO CLUBE</h2>
-         </div>
-
-         <!-- FORMS CONTAINER (OTP FLOW) -->
-         <div class="relative min-h-[360px] flex flex-col justify-center">
-            <!-- STEP 1: IDENTIFIER -->
-            <div id="modal-step-identifier" class="auth-form-step active">
-               <div class="space-y-6">
-                  <div class="text-center md:text-left mb-6">
-                     <p class="text-gray-400 text-sm font-medium">Informe seu CPF ou Celular para receber o código de
-                        acesso.</p>
-                  </div>
-                  <div class="space-y-4">
-                     <div class="space-y-2 text-left">
-                        <label class="text-[10px] font-bold text-gray-400 uppercase tracking-widest pl-1">Identificador</label>
-                        <input type="text" id="modal-identifier" placeholder="CPF ou Celular com DDD"
-                           class="w-full bg-white h-16 rounded-2xl px-5 text-base text-black font-bold outline-none">
-                     </div>
-
-                     <!-- WhatsApp Confirmation Checkbox -->
-                     <div class="flex items-center gap-3 px-1 text-left">
-                        <label class="relative flex items-center cursor-pointer">
-                           <input type="checkbox" checked class="peer sr-only">
-                           <div class="w-6 h-6 bg-white/10 border border-white/20 rounded-lg peer-checked:bg-[#f085aa] peer-checked:border-[#f085aa] transition-all flex items-center justify-center"></div>
-                           <!-- SVG como irmão direto -->
-                           <svg class="absolute w-4 h-4 text-black opacity-0 peer-checked:opacity-100 transition-opacity left-1 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="4">
-                              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                           </svg>
-                        </label>
-                        <span class="text-sm font-bold text-white/90">Esse também é meu WhatsApp.</span>
-                     </div>
-                  </div>
-
-                  <button type="button" id="modal-btn-continue" onclick="handleModalIdentifierSubmit()" disabled
-                     class="w-full h-16 bg-[#f085aa] text-black font-black uppercase tracking-widest text-sm rounded-full hover:scale-[1.02] active:scale-[0.98] transition-all shadow-[0_15px_30px_rgba(240,133,170,0.3)] disabled:opacity-20 disabled:cursor-not-allowed">
-                     CONTINUAR
-                  </button>
-
-                  <div class="text-center space-y-4 pt-2">
-                     <p class="text-[11px] text-gray-500 font-bold leading-relaxed px-2">
-                        Ao continuar, concordo que meus dados poderão ser utilizados para comunicações relacionadas ao cadastro no <span class="text-white">Clube Versiani</span>.
-                     </p>
-                     <p class="text-[10px] text-gray-400 font-black uppercase tracking-widest">
-                        Não tem cadastro? <a href="#" class="text-[#f085aa] hover:underline">Assine agora</a>
-                     </p>
-                  </div>
-               </div>
-            </div>
-
-            <!-- STEP 2: COMPLEMENT REGISTRATION (NEW USER) -->
-            <div id="modal-step-register" class="auth-form-step">
-               <div class="space-y-6">
-                  <div class="text-center md:text-left mb-6">
-                     <p class="text-gray-400 text-sm font-medium">Não identificamos sua conta. Preencha seus dados para começar.</p>
-                  </div>
-                  
-                  <div class="space-y-4">
-                     <div class="space-y-2 text-left">
-                        <label class="text-[10px] font-bold text-gray-400 uppercase tracking-widest pl-1">Nome Completo</label>
-                        <input type="text" id="modal-reg-name" placeholder="Como quer ser chamada?"
-                           class="w-full bg-white text-black font-bold h-14 rounded-xl px-5 text-base">
-                     </div>
-
-                     <div class="space-y-2 text-left">
-                        <label id="modal-label-complement" class="text-[10px] font-bold text-gray-400 uppercase tracking-widest pl-1">Seu Celular (WhatsApp)</label>
-                        <input type="text" id="modal-reg-complement" placeholder="(00) 9 0000-0000"
-                           class="w-full bg-white text-black font-bold h-14 rounded-xl px-5 text-base">
-                     </div>
-
-                     <!-- Terms Acceptance -->
-                     <div class="flex items-start gap-3 p-4 bg-white/5 rounded-2xl border border-white/10 text-left">
-                        <label class="relative flex items-center justify-center cursor-pointer mt-1">
-                           <input type="checkbox" id="modal-reg-terms" class="peer sr-only">
-                           <div class="w-5 h-5 bg-white/10 border border-white/20 rounded-md peer-checked:bg-green-500 peer-checked:border-green-500 transition-all"></div>
-                           <!-- SVG como irmão direto -->
-                           <svg class="absolute w-3 h-3 text-black opacity-0 peer-checked:opacity-100 transition-opacity pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="4">
-                              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                           </svg>
-                        </label>
-                        <p class="text-[11px] text-gray-400 font-medium leading-relaxed">
-                           Li e concordo com os <a href="#" class="text-[#f085aa] underline">Termos de Uso</a> e a <a href="#" class="text-[#f085aa] underline">Política de Privacidade</a> do Clube Versiani.
-                        </p>
-                     </div>
-                  </div>
-
-                  <button type="button" id="modal-btn-register-submit" onclick="handleModalRegisterSubmit()" disabled
-                     class="w-full h-16 bg-[#f085aa] text-black font-black uppercase tracking-widest text-sm rounded-full shadow-lg disabled:opacity-20">
-                     CONTINUAR
-                  </button>
-               </div>
-            </div>
-
-            <!-- STEP 3: CODE (OTP) -->
-            <div id="modal-step-otp" class="auth-form-step">
-               <div class="space-y-8">
-                  <div class="text-center md:text-left mb-6">
-                     <p class="text-gray-400 text-sm font-medium" id="modal-otp-message">Enviamos um código de 6 dígitos para o seu acesso.</p>
-                  </div>
-
-                  <!-- OTP Grid -->
-                  <div class="flex justify-between gap-2">
-                     <input type="number" maxlength="1" class="input-otp modal-otp-field" pattern="\d*">
-                     <input type="number" maxlength="1" class="input-otp modal-otp-field" pattern="\d*">
-                     <input type="number" maxlength="1" class="input-otp modal-otp-field" pattern="\d*">
-                     <input type="number" maxlength="1" class="input-otp modal-otp-field" pattern="\d*">
-                     <input type="number" maxlength="1" class="input-otp modal-otp-field" pattern="\d*">
-                     <input type="number" maxlength="1" class="input-otp modal-otp-field" pattern="\d*">
-                  </div>
-
-                  <div class="text-center">
-                     <button class="text-[#f085aa] text-[10px] font-black uppercase tracking-widest hover:underline">Reenviar
-                        Código (00:45)</button>
-                  </div>
-
-                  <button type="button" id="modal-btn-validate" onclick="window.location.href='dashboard2.html'" disabled
-                     class="w-full h-16 bg-white text-black font-black uppercase tracking-widest text-sm rounded-full hover:bg-[#f085aa] hover:text-white transition-all shadow-xl disabled:opacity-20">
-                     ENTRAR
-                  </button>
-
-                  <button onclick="toModalStepIdentifier()"
-                     class="w-full text-[10px] text-gray-500 font-bold uppercase tracking-widest hover:text-white transition-colors">
-                     Voltar / Alterar Dados
-                  </button>
-               </div>
-            </div>
-
-         </div>
-
-      </div>
-   </div>
 
    <script>
       // Zaiotto Style Hero Slider Logic
       document.addEventListener('DOMContentLoaded', () => {
-         // NEW AUTH MODAL LOGIC (OTP FLOW)
-         const authModal = document.getElementById('auth-modal');
-         const modalTitle = document.getElementById('modal-title');
-         const stepIdentifier = document.getElementById('modal-step-identifier');
-         const stepRegister = document.getElementById('modal-step-register');
-         const stepOtp = document.getElementById('modal-step-otp');
-         
-         const modalIdentifierInput = document.getElementById('modal-identifier');
-         const modalBtnContinue = document.getElementById('modal-btn-continue');
-         
-         const modalRegName = document.getElementById('modal-reg-name');
-         const modalRegComplement = document.getElementById('modal-reg-complement');
-         const modalRegTerms = document.getElementById('modal-reg-terms');
-         const modalBtnRegisterSubmit = document.getElementById('modal-btn-register-submit');
-         
-         const modalOtpFields = document.querySelectorAll('.modal-otp-field');
-         const modalBtnValidate = document.getElementById('modal-btn-validate');
 
-         let modalFirstInputType = 'cpf';
-
-         // SIMULATION DB
-         const getModalDB = () => JSON.parse(localStorage.getItem('versiani_users') || '[]');
-         const saveToModalDB = (val) => {
-            const db = getModalDB();
-            if (!db.includes(val)) {
-               db.push(val);
-               localStorage.setItem('versiani_users', JSON.stringify(db));
-            }
-         };
-
-         // Intelligence Functions
-         function isValidCPF(cpf) {
-            cpf = cpf.replace(/[^\d]+/g, '');
-            if (cpf.length !== 11 || !!cpf.match(/(\d)\1{10}/)) return false;
-            let add = 0;
-            for (let i = 0; i < 9; i++) add += parseInt(cpf.charAt(i)) * (10 - i);
-            let rev = 11 - (add % 11);
-            if (rev === 10 || rev === 11) rev = 0;
-            if (rev !== parseInt(cpf.charAt(9))) return false;
-            add = 0;
-            for (let i = 0; i < 10; i++) add += parseInt(cpf.charAt(i)) * (11 - i);
-            rev = 11 - (add % 11);
-            if (rev === 10 || rev === 11) rev = 0;
-            if (rev !== parseInt(cpf.charAt(10))) return false;
-            return true;
-         }
-
-         function formatCPF(v) {
-            v = v.replace(/\D/g, "");
-            v = v.replace(/(\d{3})(\d)/, "$1.$2");
-            v = v.replace(/(\d{3})(\d)/, "$1.$2");
-            v = v.replace(/(\d{3})(\d{1,2})$/, "$1-$2");
-            return v;
-         }
-
-         function formatPhone(v) {
-            v = v.replace(/\D/g, "");
-            v = v.replace(/^(\d{2})(\d)/g, "($1) $2");
-            v = v.replace(/(\d)(\d{4})$/, "$1-$2");
-            return v;
-         }
-
-         window.openAuthModal = (mode) => {
-            authModal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-            toModalStepIdentifier();
-         };
-
-         window.closeAuthModal = () => {
-            authModal.classList.remove('active');
-            document.body.style.overflow = '';
-         };
-
-         window.toModalStepIdentifier = () => {
-            stepOtp.classList.remove('active');
-            stepRegister.classList.remove('active');
-            setTimeout(() => {
-               stepIdentifier.classList.add('active');
-               modalTitle.textContent = 'ACESSO AO CLUBE';
-            }, 50);
-         };
-
-         window.handleModalIdentifierSubmit = () => {
-            const val = modalIdentifierInput.value.replace(/\D/g, '');
-            const db = getModalDB();
-            
-            if (db.includes(val)) {
-               toModalStepCode();
-            } else {
-               toModalStepRegister();
-            }
-         };
-
-         window.toModalStepRegister = () => {
-            stepIdentifier.classList.remove('active');
-            setTimeout(() => {
-               stepRegister.classList.add('active');
-               const labelComp = document.getElementById('modal-label-complement');
-               if (modalFirstInputType === 'cpf') {
-                  labelComp.textContent = 'Seu Celular (WhatsApp)';
-                  modalRegComplement.placeholder = '(00) 9 0000-0000';
-               } else {
-                  labelComp.textContent = 'Seu CPF';
-                  modalRegComplement.placeholder = '000.000.000-00';
-               }
-            }, 50);
-         };
-
-         window.handleModalRegisterSubmit = () => {
-            const val = modalIdentifierInput.value.replace(/\D/g, '');
-            saveToModalDB(val);
-            toModalStepCode();
-         };
-
-         window.toModalStepCode = () => {
-            stepIdentifier.classList.remove('active');
-            stepRegister.classList.remove('active');
-            setTimeout(() => {
-               stepOtp.classList.add('active');
-               modalTitle.textContent = 'CONFIRMAR ACESSO';
-               
-               const otpMsg = document.getElementById('modal-otp-message');
-               if (modalFirstInputType === 'cpf') {
-                  otpMsg.textContent = 'Enviamos um código de 6 dígitos para o seu WhatsApp.';
-               } else {
-                  otpMsg.textContent = 'Enviamos um código de 6 dígitos para o celular informado.';
-               }
-               
-               modalOtpFields[0].focus();
-            }, 50);
-         };
-
-         // Intelligence for Modal Identifier
-         modalIdentifierInput.addEventListener('input', (e) => {
-            let value = e.target.value.replace(/\D/g, '');
-            if (value.length > 11) value = value.slice(0, 11);
-            
-            const indicatorId = 'modal-detection-indicator';
-            let indicator = document.getElementById(indicatorId);
-            if (!indicator) {
-               indicator = document.createElement('p');
-               indicator.id = indicatorId;
-               indicator.className = 'text-[10px] font-bold uppercase tracking-widest mt-2 ml-1 transition-all';
-               modalIdentifierInput.parentNode.appendChild(indicator);
-            }
-
-            if (value.length === 11) {
-               if (isValidCPF(value)) {
-                  e.target.value = formatCPF(value);
-                  indicator.textContent = '✓ CPF Detectado';
-                  indicator.className = 'text-[10px] font-bold uppercase tracking-widest mt-2 ml-1 text-green-400';
-                  modalFirstInputType = 'cpf';
-               } else {
-                  e.target.value = formatPhone(value);
-                  indicator.textContent = '✓ Celular Detectado';
-                  indicator.className = 'text-[10px] font-bold uppercase tracking-widest mt-2 ml-1 text-[#f085aa]';
-                  modalFirstInputType = 'phone';
-               }
-            } else {
-               e.target.value = value;
-               indicator.textContent = '';
-            }
-
-            modalBtnContinue.disabled = value.length < 11;
-         });
-
-         // Complement Logic
-         const validateModalReg = () => {
-            const isNameValid = modalRegName.value.trim().length > 3;
-            const isCompValid = modalRegComplement.value.replace(/\D/g, '').length === 11;
-            const isTerms = modalRegTerms.checked;
-            modalBtnRegisterSubmit.disabled = !(isNameValid && isCompValid && isTerms);
-         };
-
-         modalRegComplement.addEventListener('input', (e) => {
-            let value = e.target.value.replace(/\D/g, '');
-            if (value.length > 11) value = value.slice(0, 11);
-            if (modalFirstInputType === 'cpf') {
-               e.target.value = formatPhone(value);
-            } else {
-               if (value.length === 11 && isValidCPF(value)) e.target.value = formatCPF(value);
-               else e.target.value = value;
-            }
-            validateModalReg();
-         });
-         modalRegName.addEventListener('input', validateModalReg);
-         modalRegTerms.addEventListener('change', validateModalReg);
-
-         // Modal OTP Logic
-         modalOtpFields.forEach((field, index) => {
-            field.addEventListener('input', (e) => {
-               if (e.target.value.length > 1) e.target.value = e.target.value.slice(0, 1);
-               if (e.target.value.length === 1 && index < modalOtpFields.length - 1) modalOtpFields[index + 1].focus();
-               
-               const allFilled = Array.from(modalOtpFields).every(f => f.value.length === 1);
-               modalBtnValidate.disabled = !allFilled;
-            });
-
-            field.addEventListener('keydown', (e) => {
-               if (e.key === 'Backspace' && !e.target.value && index > 0) modalOtpFields[index - 1].focus();
-            });
-         });
-
-         // Close on backdrop click
-         authModal.addEventListener('click', (e) => {
-            if (e.target === authModal) closeAuthModal();
-         });
-
-         // Close on ESC
-         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && authModal.classList.contains('active')) closeAuthModal();
-         });
 
          const slides = document.querySelectorAll('#slider-slides .slide');
          let currentSlide = 0;
@@ -1577,9 +1109,7 @@
          if (closeMenuBtn) closeMenuBtn.addEventListener('click', toggleMobileMenu);
 
          mobileLinks.forEach(link => {
-            if (!link.hasAttribute('onclick')) { // Don't close instantly if it's the auth modal trigger
-               link.addEventListener('click', toggleMobileMenu);
-            }
+            link.addEventListener('click', toggleMobileMenu);
          });
 
          // Generic Carousel Auto-Loop Logic
