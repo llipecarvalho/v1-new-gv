@@ -70,6 +70,10 @@ export async function switchTab(tabId) {
     }
 
     const appContent = document.getElementById('app-content');
+    const bottomNav = document.querySelector('nav.fixed.bottom-0');
+    
+    // Sempre reexibe a bottom bar ao trocar de aba (será escondida novamente por módulos específicos se necessário)
+    bottomNav?.classList.remove('hidden');
     
     // Feedback visual de carregamento
     appContent.innerHTML = `
