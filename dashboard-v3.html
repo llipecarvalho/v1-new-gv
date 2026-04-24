@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Clube Versiani — Dashboard V3</title>
+    
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    
+    <!-- Estilos -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="/src/styles/dashboard.css">
+</head>
+<body class="overflow-x-hidden">
+
+    <!-- HEADER FIXO -->
+    <header class="fixed top-0 left-0 w-full px-6 py-2.5 flex items-center justify-between z-[1500] bg-black/80 backdrop-blur-xl border-b border-white/5">
+        <button id="menu-toggle-btn" class="w-10 h-10 rounded-full glass-card flex items-center justify-center">
+            <span class="material-symbols-outlined text-white">menu</span>
+        </button>
+        <div class="text-xl font-black tracking-tighter">VERSIANI<span class="text-[#f085aa]">.</span></div>
+        <div class="flex items-center gap-2">
+            <button class="w-10 h-10 rounded-full glass-card flex items-center justify-center relative">
+                <span class="material-symbols-outlined text-white text-[20px]">notifications</span>
+                <span class="absolute top-3 right-3 w-1.5 h-1.5 bg-[#f085aa] rounded-full shadow-[0_0_8px_#f085aa]"></span>
+            </button>
+            <button id="logout-btn" onclick="openLogoutModal()" class="w-10 h-10 rounded-full glass-card flex items-center justify-center">
+                <span class="material-symbols-outlined text-white text-[20px]">logout</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- CONTAINER DE CONTEÚDO DINÂMICO -->
+    <main id="app-content" class="pt-16 min-h-screen">
+        <!-- O conteúdo das abas será injetado aqui pelo JavaScript -->
+        <div class="flex items-center justify-center h-screen">
+            <div class="animate-spin material-symbols-outlined text-[#f085aa] text-4xl">sync</div>
+        </div>
+    </main>
+
+    <!-- NAVEGAÇÃO BASE FIXA -->
+    <nav class="fixed bottom-0 left-0 w-full h-[60px] bottom-nav px-6 flex items-center justify-between z-[2000]">
+        <button data-tab="home" class="nav-item active flex flex-col items-center gap-1.5 transition-all">
+            <span class="material-symbols-outlined text-[26px]">grid_view</span>
+            <span class="text-[8px] font-black uppercase tracking-tighter">Início</span>
+        </button>
+        <button data-tab="hub" class="nav-item flex flex-col items-center gap-1.5 text-gray-500 transition-all">
+            <span class="material-symbols-outlined text-[26px]">confirmation_number</span>
+            <span class="text-[8px] font-black uppercase tracking-tighter">Sorteios</span>
+        </button>
+        <button type="button" data-tab="plans" class="center-btn w-20 h-20 rounded-full flex flex-col items-center justify-center -translate-y-[30px] active:scale-95 transition-all border-4 border-[#050505] shadow-[0_-5px_15px_rgba(240,133,170,0.2)] cursor-pointer" aria-label="Mais Benefícios">
+            <span class="material-symbols-outlined text-white font-black text-2xl mb-1">workspace_premium</span>
+            <span class="text-[8px] font-black text-white uppercase tracking-tighter text-center leading-none">+ Benefícios</span>
+        </button>
+        <button data-tab="store" class="nav-item flex flex-col items-center gap-1.5 text-gray-500 transition-all">
+            <span class="material-symbols-outlined text-[26px]">redeem</span>
+            <span class="text-[8px] font-black uppercase tracking-tighter">Mimos</span>
+        </button>
+        <button data-tab="network" class="nav-item flex flex-col items-center gap-1.5 text-gray-500 transition-all">
+            <span class="material-symbols-outlined text-[26px]">groups</span>
+            <span class="text-[8px] font-black uppercase tracking-tighter">Rede Elite</span>
+        </button>
+    </nav>
+
+    <!-- SIDEBAR MENU FIXO (ESTRUTURA V2) -->
+    <div id="side-menu" class="fixed inset-0 z-[3000] invisible">
+        <div id="menu-backdrop" class="absolute inset-0 bg-black/80 backdrop-blur-md opacity-0 transition-opacity duration-300"></div>
+        <div id="menu-content" class="absolute left-0 top-0 h-full w-[80%] bg-[#0a0a0a] border-r border-white/5 p-8 -translate-x-full transition-transform duration-300 overflow-y-auto no-scrollbar pb-20">
+            <div class="flex items-center gap-4 mb-12">
+                <div class="w-14 h-14 rounded-full overflow-hidden border-2 border-[#f085aa]">
+                    <img src="https://images.unsplash.com/photo-1594744803329-a584af1ea51c?q=80&w=200&auto=format&fit=crop" alt="Foto de perfil da Gabriela Versiani" class="w-full h-full object-cover">
+                </div>
+                <div>
+                    <h3 class="text-sm font-black text-white uppercase leading-none">Gabriela Versiani</h3>
+                    <p class="text-[8px] font-bold text-[#f085aa] uppercase tracking-[0.2em] mt-1.5 italic">ID #001 — MEMBRO DIAMANTE</p>
+                </div>
+            </div>
+            <nav class="space-y-1">
+                <div class="pb-4 pt-2">
+                    <button data-tab="home" class="sidebar-item flex items-center gap-4 w-full px-4 py-2 text-left group hover:bg-white/5 rounded-2xl transition-all">
+                        <span class="material-symbols-outlined text-[#f085aa] group-hover:scale-110 transition-transform">grid_view</span>
+                        <span class="text-[13px] font-black uppercase tracking-wider text-white">Início</span>
+                    </button>
+                    <button data-tab="hub" class="sidebar-item flex items-center gap-4 w-full px-4 py-2 text-left group hover:bg-white/5 rounded-2xl transition-all">
+                        <span class="material-symbols-outlined text-[#f085aa] group-hover:scale-110 transition-transform">confirmation_number</span>
+                        <span class="text-[13px] font-black uppercase tracking-wider text-white">Sorteios Ativos</span>
+                    </button>
+                    <button data-tab="store" class="sidebar-item flex items-center gap-4 w-full px-4 py-2 text-left group hover:bg-white/5 rounded-2xl transition-all">
+                        <span class="material-symbols-outlined text-[#f085aa] group-hover:scale-110 transition-transform">redeem</span>
+                        <span class="text-[13px] font-black uppercase tracking-wider text-white">Mimos & Clube</span>
+                    </button>
+                    <button data-tab="network" class="sidebar-item flex items-center gap-4 w-full px-4 py-2 text-left group hover:bg-white/5 rounded-2xl transition-all">
+                        <span class="material-symbols-outlined text-[#f085aa] group-hover:scale-110 transition-transform">share_reviews</span>
+                        <span class="text-[13px] font-black uppercase tracking-wider text-white">Indique e Ganhe</span>
+                    </button>
+                    <button data-tab="plans" class="sidebar-item flex items-center gap-4 w-full px-4 py-2 text-left group hover:bg-white/5 rounded-2xl transition-all">
+                        <span class="material-symbols-outlined text-[#f085aa] group-hover:scale-110 transition-transform">workspace_premium</span>
+                        <span class="text-[13px] font-black uppercase tracking-wider text-white">Mais Benefícios</span>
+                    </button>
+                </div>
+                <div class="pt-4 mt-4 border-t border-white/5">
+                    <button onclick="openLogoutModal()" class="flex items-center gap-4 w-full px-4 py-2 text-left group hover:bg-white/5 rounded-2xl transition-all text-red-500/50 hover:text-red-500">
+                        <span class="material-symbols-outlined group-hover:scale-110 transition-transform">logout</span>
+                        <span class="text-[13px] font-black uppercase tracking-wider">Encerrar Sessão</span>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <!-- MODAL DE LOGOUT PREMIUM (DESIGN FIEL À IMAGEM) -->
+    <div id="logout-modal" class="fixed inset-0 z-[5000] hidden items-center justify-center p-6">
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-xl" onclick="closeLogoutModal()"></div>
+        
+        <div class="relative glass-premium border border-white/10 rounded-[40px] p-10 w-full max-w-[380px] text-center shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)]">
+            <h2 class="text-xl font-black text-white uppercase tracking-tight mb-4">DESEJA SAIR?</h2>
+            <p class="text-gray-400 text-sm md:text-base font-medium mb-10 leading-relaxed px-2">
+                Você precisará validar seu acesso novamente para entrar na sua conta.
+            </p>
+            
+            <div class="space-y-4">
+                <!-- Botão com Gradiente Premium (Rosa -> Roxo) -->
+                <button onclick="window.location.href='indexv4.html'" 
+                   class="w-full py-5 text-white font-black rounded-full text-sm uppercase tracking-widest transition-all active:scale-95 shadow-lg"
+                   style="background: linear-gradient(135deg, #e97eb1 0%, #4c1d95 100%);">
+                   SIM, SAIR AGORA
+                </button>
+                
+                <!-- Botão Cancelar (Cinza Escuro / Pill) -->
+                <button onclick="closeLogoutModal()" 
+                   class="w-full py-5 bg-[#222] text-white font-black rounded-full text-sm uppercase tracking-widest transition-all hover:bg-[#333] active:scale-95">
+                   CANCELAR
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Entry Point JavaScript -->
+    <script type="module" src="/src/dashboard/main.js"></script>
+</body>
+</html>

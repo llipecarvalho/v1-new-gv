@@ -176,7 +176,6 @@
    <script type="module">
       import '/src/scripts/tailwind.config.js';
    </script>
-   <script src="/src/scripts/appv4.js" type="module" defer></script>
 </head>
 
 <body class="dark-bg-base text-gray-200 antialiased overflow-x-hidden relative bg-black">
@@ -261,7 +260,7 @@
 
          <a href="auth.html"
             class="mobile-link mt-8 bg-[#f085aa] text-black px-12 py-4 rounded-full font-black text-lg uppercase hover:scale-105 hover:bg-white transition-all shadow-[0_0_30px_rgba(240,133,170,0.4)] cursor-pointer text-center">ASSINE
-            AGORA</a>`n
+            AGORA</a>
       </div>
       <!-- STACKED HERO (Mobile Stacked / Desktop Split) -->
       <header class="relative flex flex-col lg:min-h-[90vh] lg:flex-row bg-[#050505] overflow-hidden">
@@ -957,16 +956,16 @@
                <div class="flex -space-x-3 isolate">
                   <img
                      class="w-10 h-10 md:w-8 md:h-8 rounded-full border-2 border-[#050505] object-cover relative z-[4]"
-                     src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=100&auto=format&fit=crop">
+                     src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=100&auto=format&fit=crop" alt="">
                   <img
                      class="w-10 h-10 md:w-8 md:h-8 rounded-full border-2 border-[#050505] object-cover relative z-[3]"
-                     src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=100&auto=format&fit=crop">
+                     src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=100&auto=format&fit=crop" alt="">
                   <img
                      class="w-10 h-10 md:w-8 md:h-8 rounded-full border-2 border-[#050505] object-cover relative z-[2]"
-                     src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=100&auto=format&fit=crop">
+                     src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=100&auto=format&fit=crop" alt="">
                   <img
                      class="w-10 h-10 md:w-8 md:h-8 rounded-full border-2 border-[#050505] object-cover relative z-[1]"
-                     src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=100&auto=format&fit=crop">
+                     src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=100&auto=format&fit=crop" alt="">
                   <div
                      class="w-10 h-10 md:w-8 md:h-8 rounded-full border-2 border-[#050505] bg-[#111] flex items-center justify-center text-[8px] font-black text-gray-300 uppercase relative z-[0]">
                      +5k</div>
@@ -1033,43 +1032,6 @@
       // Zaiotto Style Hero Slider Logic
       document.addEventListener('DOMContentLoaded', () => {
 
-
-         const slides = document.querySelectorAll('#slider-slides .slide');
-         let currentSlide = 0;
-
-         const updateSlider = () => {
-            slides.forEach((slide, index) => {
-               const img = slide.querySelector('img');
-               if (index === currentSlide) {
-                  if (img) {
-                     // Reset instantly before starting new zoom
-                     img.style.transition = 'none';
-                     img.style.transform = 'scale(1)';
-                     img.offsetHeight; // force reflow
-                     // Start slow zoom (longer than interval for seamless flow)
-                     img.style.transition = 'transform 8s ease-out';
-                     img.style.transform = 'scale(1.15)';
-                  }
-                  slide.classList.remove('opacity-0', 'z-0');
-                  slide.classList.add('opacity-100', 'z-10');
-               } else {
-                  slide.classList.remove('opacity-100', 'z-10');
-                  slide.classList.add('opacity-0', 'z-0');
-                  // Mantemos a escala atual enquanto some para não dar "pulo"
-               }
-            });
-         };
-
-         // Inicia a Escala Ken Burns na primeira renderização visível
-         if (slides.length > 0) updateSlider();
-
-         if (slides.length > 0) {
-            // Auto-play every 5 seconds
-            setInterval(() => {
-               currentSlide = (currentSlide + 1) % slides.length;
-               updateSlider();
-            }, 5000);
-         }
 
          // FAQ Accordion Logic
          const faqToggles = document.querySelectorAll('.faq-toggle');
@@ -1202,26 +1164,6 @@
                   rendaBox.classList.remove('scale-105', 'bg-white/10');
                }, 150);
             });
-         }
-
-         // Hero Full-Screen Slider
-         const heroSlides = document.querySelectorAll('#slider-slides .slide');
-         const heroTitles = ['Prada Galleria Bag', 'Viagem para Paris', 'iPhone 16 Pro Max'];
-         const heroTitleEl = document.getElementById('hero-slide-title');
-         let heroIndex = 0;
-         if (heroSlides.length > 0) {
-            setInterval(() => {
-               heroSlides[heroIndex].style.opacity = '0';
-               heroIndex = (heroIndex + 1) % heroSlides.length;
-               heroSlides[heroIndex].style.opacity = '1';
-               if (heroTitleEl) {
-                  heroTitleEl.style.opacity = '0';
-                  setTimeout(() => {
-                     heroTitleEl.textContent = heroTitles[heroIndex];
-                     heroTitleEl.style.opacity = '1';
-                  }, 500);
-               }
-            }, 5000);
          }
 
          setupCarousel('hw');
