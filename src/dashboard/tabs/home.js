@@ -21,8 +21,22 @@ export default {
                 </div>
             </div>
 
+            <!-- Carteira Section (Atalho) -->
+            <div id="btn-home-go-to-wallet" class="px-6 -mb-6 relative z-20 cursor-pointer active:scale-95 transition-all">
+                <div class="bg-[#121212] rounded-[2.5rem] p-7 border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] flex items-center justify-between">
+                    <div>
+                        <p class="text-[9px] font-black text-white/40 uppercase tracking-[0.2em] mb-1">Saldo em Carteira</p>
+                        <h3 class="text-2xl font-black text-white tracking-tighter">R$ ${state.user.wallet.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</h3>
+                    </div>
+                    <div class="flex items-center gap-2 bg-[#f085aa]/10 px-4 py-2.5 rounded-full border border-[#f085aa]/20">
+                        <span class="text-[9px] font-black text-[#f085aa] uppercase tracking-[0.2em]">Acessar</span>
+                        <span class="material-symbols-outlined text-[#f085aa] text-sm">arrow_forward_ios</span>
+                    </div>
+                </div>
+            </div>
+
             <!-- Fundo Cinza Premium -->
-            <section class="bg-[#f8f8fa] rounded-t-[3.5rem] pt-10 pb-40 min-h-screen">
+            <section class="bg-[#f8f8fa] rounded-t-[3.5rem] pt-16 pb-40 min-h-screen">
                 <div class="section-header">
                     <h3 class="text-black font-black uppercase tracking-tighter">Minhas recompensas</h3>
                 </div>
@@ -123,6 +137,9 @@ export default {
         });
         document.getElementById('btn-home-banner-turbinar')?.addEventListener('click', () => {
             import('../main.js').then(m => m.switchTab('store'));
+        });
+        document.getElementById('btn-home-go-to-wallet')?.addEventListener('click', () => {
+            import('../main.js').then(m => m.switchTab('wallet'));
         });
     }
 };

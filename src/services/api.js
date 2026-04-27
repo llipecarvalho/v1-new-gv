@@ -6,10 +6,11 @@
 const DATA = {
     // MIMOS E CUPONS (Aparecem na Home e na Loja)
     rewards: [
+        // SKIN COUPONS
         {
-            id: 'cupom-20',
+            id: 'skin-20',
             type: 'coupon',
-            name: 'Cupom de 20% OFF',
+            name: 'Cupom R$ 20 OFF',
             cost: 20,
             category: 'skin',
             code: '2MZBYQFRQPWB',
@@ -18,6 +19,85 @@ const DATA = {
             gradient: 'from-[#f085aa] to-[#320075]'
         },
         {
+            id: 'skin-50',
+            type: 'coupon',
+            name: 'Cupom R$ 50 OFF',
+            cost: 50,
+            category: 'skin',
+            code: 'SKIN50OFF',
+            minPurchase: 500,
+            image_url: 'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&q=80&w=400',
+            gradient: 'from-[#f085aa] to-[#320075]'
+        },
+        {
+            id: 'skin-100',
+            type: 'coupon',
+            name: 'Cupom R$ 100 OFF',
+            cost: 100,
+            category: 'skin',
+            code: 'SKIN100OFF',
+            minPurchase: 1000,
+            image_url: 'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&q=80&w=400',
+            gradient: 'from-[#f085aa] to-[#320075]'
+        },
+        {
+            id: 'skin-200',
+            type: 'coupon',
+            name: 'Cupom R$ 200 OFF',
+            cost: 200,
+            category: 'skin',
+            code: 'SKIN200OFF',
+            minPurchase: 2000,
+            image_url: 'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&q=80&w=400',
+            gradient: 'from-[#f085aa] to-[#320075]'
+        },
+        // SWIM COUPONS
+        {
+            id: 'swim-20',
+            type: 'coupon',
+            name: 'Cupom R$ 20 OFF',
+            cost: 20,
+            category: 'swim',
+            code: '2MZBYQFRQPWB',
+            minPurchase: 100,
+            image_url: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=400',
+            gradient: 'from-blue-400 to-blue-600'
+        },
+        {
+            id: 'swim-50',
+            type: 'coupon',
+            name: 'Cupom R$ 50 OFF',
+            cost: 50,
+            category: 'swim',
+            code: 'SWIM50OFF',
+            minPurchase: 250,
+            image_url: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=400',
+            gradient: 'from-blue-400 to-blue-600'
+        },
+        {
+            id: 'swim-100',
+            type: 'coupon',
+            name: 'Cupom R$ 100 OFF',
+            cost: 100,
+            category: 'swim',
+            code: 'SWIM100OFF',
+            minPurchase: 500,
+            image_url: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=400',
+            gradient: 'from-blue-400 to-blue-600'
+        },
+        {
+            id: 'swim-200',
+            type: 'coupon',
+            name: 'Cupom R$ 200 OFF',
+            cost: 200,
+            category: 'swim',
+            code: 'SWIM200OFF',
+            minPurchase: 1000,
+            image_url: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=400',
+            gradient: 'from-blue-400 to-blue-600'
+        },
+        // HIGHLIGHT
+        {
             id: 'bolsa-salvatore',
             type: 'raffle_highlight',
             name: 'Bolsa Salvatore',
@@ -25,28 +105,6 @@ const DATA = {
             category: 'clube',
             image_url: 'https://images.unsplash.com/photo-1591561954557-26941169b49e?q=80&w=400&auto=format',
             link: '#hub'
-        },
-        {
-            id: 'cupom-50',
-            type: 'coupon',
-            name: 'Cartão R$ 50 OFF',
-            cost: 50,
-            category: 'skin',
-            code: 'SKIN50OFF',
-            minPurchase: 500,
-            image_url: 'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&q=80&w=400',
-            gradient: 'from-orange-400 to-orange-600'
-        },
-        {
-            id: 'cupom-20-swim',
-            type: 'coupon',
-            name: 'Cupom de 20% OFF',
-            cost: 20,
-            category: 'swim',
-            code: 'SWIM20OFF',
-            minPurchase: 100,
-            image_url: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=400',
-            gradient: 'from-blue-400 to-blue-600'
         }
     ],
 
@@ -55,9 +113,10 @@ const DATA = {
         {
             id: 'future-ferragamo',
             title: 'Salvatore Ferragamo',
-            status: 'future',
+            status: 'active',
             date: '10/06',
-            image: 'https://images.unsplash.com/photo-1591561954557-26941169b49e?q=80&w=400&auto=format'
+            image: 'https://images.unsplash.com/photo-1591561954557-26941169b49e?q=80&w=400&auto=format',
+            numbers: 150
         },
         {
             id: 'active-noronha',

@@ -10,6 +10,7 @@ export const state = {
     user: {
         name: "Gabriela Versiani",
         points: 1240,
+        wallet: 1540.50,
         level: "Diamante",
         id: "#001"
     },
@@ -28,7 +29,8 @@ const tabModules = {
     hub: () => import('./tabs/hub.js'),
     plans: () => import('./tabs/plans.js'),
     network: () => import('./tabs/network.js'),
-    rewards: () => import('./tabs/rewards.js'), // Nova Página Interna
+    rewards: () => import('./tabs/rewards.js'), 
+    wallet: () => import('./tabs/wallet.js'),
 };
 
 /**

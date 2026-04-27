@@ -58,7 +58,7 @@ export default {
 
                         <div class="space-y-1">
                             <label class="text-[9px] font-black text-gray-400 uppercase tracking-widest ml-1">Nome completo</label>
-                            <input type="text" id="net-nome" placeholder="Como quer ser chamada?" class="w-full h-11 bg-white rounded-xl px-5 text-black font-semibold text-xs outline-none shadow-inner">
+                            <input type="text" id="net-nome" placeholder="Seu Nome Completo" class="w-full h-11 bg-white rounded-xl px-5 text-black font-semibold text-xs outline-none shadow-inner">
                         </div>
 
                         <div class="grid grid-cols-2 gap-3">
