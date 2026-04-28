@@ -11,7 +11,7 @@ export const state = {
         name: "Gabriela Versiani",
         points: 1240,
         wallet: 1540.50,
-        level: "Diamante",
+        level: "Bronze",
         id: "#001"
     },
     currentTab: 'home',

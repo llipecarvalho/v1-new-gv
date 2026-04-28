@@ -5,7 +5,7 @@ export default {
         return `
         <div id="tab-raffle-purchase" class="tab-pane animate-fade bg-black min-h-screen pb-12 relative overflow-x-hidden">
             <!-- Header Fixo (Sempre visível) -->
-            <div id="purchase-hero-container" class="relative h-[280px] w-full overflow-hidden">
+            <div id="purchase-hero-container" class="relative h-[185px] w-full overflow-hidden">
                 <img id="purchase-hero-img" src="${raffle?.image || 'https://images.unsplash.com/photo-1591561954557-26941169b49e?q=80&w=1920&auto=format'}" class="w-full h-full object-cover transition-all duration-700" style="object-position: center 65%;">
                 <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
                 
@@ -21,140 +21,135 @@ export default {
 
             <!-- CONTAINER DE PASSOS -->
             <div id="purchase-steps-container" class="px-6 -mt-6 relative z-30">
-                <div class="bg-[#0a0a0a] rounded-t-[2.5rem] pt-10 min-h-[500px]">
+                <div class="bg-[#0a0a0a] rounded-t-[2.5rem] pt-6 min-h-[500px]">
                     
                     <!-- PASSO 1: SELEÇÃO -->
-                    <div id="step-selection" class="purchase-step space-y-8 animate-fade">
-                        <div class="text-center">
-                            <h2 class="text-xl font-black text-white uppercase tracking-tight">Escolha seus <span class="text-[#f085aa]">Números</span></h2>
-                            <p class="text-[9px] text-gray-500 font-bold uppercase tracking-[0.2em] mt-2">Quanto mais números, mais chances de ganhar</p>
+                    <div id="step-selection" class="purchase-step space-y-4 animate-fade">
+                        <div class="text-center mb-1">
+                            <h2 class="text-lg font-black text-white uppercase tracking-tight">Escolha seus <span class="text-[#f085aa]">Números</span></h2>
+                            <p class="text-[8px] text-gray-500 font-bold uppercase tracking-[0.2em]">Quanto mais números, mais chances de ganhar</p>
                         </div>
 
-                        <div class="space-y-3">
-                            <div class="package-option group bg-white/5 border border-white/5 rounded-3xl p-5 flex items-center justify-between cursor-pointer active:scale-95 transition-all hover:bg-white/10" data-amount="1" data-price="5">
-                                <div class="flex items-center gap-4">
-                                    <div class="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center border border-white/10 group-hover:border-[#f085aa]/50 transition-colors">
-                                        <span class="text-lg font-black text-white">01</span>
+                        <div class="space-y-2">
+                            <!-- Opção 1 -->
+                            <div class="package-option flex items-center justify-between p-3 bg-white/5 border border-white/5 rounded-2xl cursor-pointer transition-all active:scale-95" data-amount="1" data-price="5">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center border border-white/10">
+                                        <span class="text-base font-black text-white">01</span>
                                     </div>
-                                    <div>
-                                        <h4 class="text-[11px] font-black text-white uppercase tracking-tight">01 Número</h4>
-                                        <p class="text-[8px] text-gray-500 font-bold uppercase tracking-widest">Sorteio Avulso</p>
-                                    </div>
+                                    <h4 class="text-[10px] font-black text-white uppercase tracking-tight">01 Número</h4>
                                 </div>
                                 <span class="text-sm font-black text-white">R$ 5,00</span>
                             </div>
 
-                            <div class="package-option group relative bg-white/5 border border-[#f085aa]/30 rounded-3xl p-5 flex items-center justify-between cursor-pointer active:scale-95 transition-all hover:bg-white/10" data-amount="10" data-price="40">
-                                <div class="absolute -top-2 right-6 px-3 py-1 bg-[#f085aa] text-white text-[7px] font-black uppercase rounded-full tracking-widest shadow-lg">Popular</div>
-                                <div class="flex items-center gap-4">
-                                    <div class="w-12 h-12 bg-[#f085aa]/20 rounded-2xl flex items-center justify-center border border-[#f085aa]/30 group-hover:border-[#f085aa]/50 transition-colors">
-                                        <span class="text-lg font-black text-[#f085aa]">10</span>
+                            <!-- Opção 2 -->
+                            <div class="package-option flex items-center justify-between p-3 bg-[#f085aa]/10 border-2 border-[#f085aa] rounded-2xl cursor-pointer transition-all active:scale-95 relative" data-amount="10" data-price="40">
+                                <div class="absolute -top-2 right-6 px-2 py-0.5 bg-[#f085aa] text-white text-[6px] font-black uppercase rounded-full tracking-widest shadow-lg">Popular</div>
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 bg-[#f085aa] rounded-xl flex items-center justify-center">
+                                        <span class="text-base font-black text-white">10</span>
                                     </div>
-                                    <div>
-                                        <h4 class="text-[11px] font-black text-white uppercase tracking-tight">10 Números</h4>
-                                        <p class="text-[8px] text-[#f085aa] font-bold uppercase tracking-widest">Economize 20%</p>
-                                    </div>
+                                    <h4 class="text-[10px] font-black text-white uppercase tracking-tight">10 Números</h4>
                                 </div>
                                 <span class="text-sm font-black text-white">R$ 40,00</span>
                             </div>
 
-                            <div class="package-option group bg-white/5 border border-white/5 rounded-3xl p-5 flex items-center justify-between cursor-pointer active:scale-95 transition-all hover:bg-white/10" data-amount="50" data-price="150">
-                                <div class="flex items-center gap-4">
-                                    <div class="w-12 h-12 bg-[#320075]/40 rounded-2xl flex items-center justify-center border border-[#320075]/60 group-hover:border-[#f085aa]/50 transition-colors">
-                                        <span class="text-lg font-black text-white">50</span>
+                            <!-- Opção 3 -->
+                            <div class="package-option flex items-center justify-between p-3 bg-white/5 border border-white/5 rounded-2xl cursor-pointer transition-all active:scale-95" data-amount="50" data-price="150">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 bg-[#320075] rounded-xl flex items-center justify-center">
+                                        <span class="text-base font-black text-white">50</span>
                                     </div>
-                                    <div>
-                                        <h4 class="text-[11px] font-black text-white uppercase tracking-tight">50 Números</h4>
-                                        <p class="text-[8px] text-[#320075] font-black uppercase tracking-widest">Economize 40%</p>
-                                    </div>
+                                    <h4 class="text-[10px] font-black text-white uppercase tracking-tight">50 Números</h4>
                                 </div>
                                 <span class="text-sm font-black text-white">R$ 150,00</span>
                             </div>
                         </div>
 
-                        <div class="bg-white/5 border border-white/5 rounded-[2.5rem] p-8 space-y-6">
-                            <p class="text-[9px] text-center text-gray-500 font-bold uppercase tracking-[0.2em]">Personalizar quantidade</p>
-                            <div class="flex items-center justify-center gap-6">
-                                <button id="btn-minus" class="w-14 h-14 bg-white/5 border border-white/10 rounded-2xl flex items-center justify-center active:scale-90 transition-all"><span class="material-symbols-outlined text-white">remove</span></button>
-                                <div class="text-center min-w-[80px]">
-                                    <span id="custom-val" class="text-4xl font-black text-white tracking-tighter">05</span>
-                                    <p class="text-[8px] text-[#f085aa] font-black uppercase tracking-widest mt-1">Números</p>
+                        <!-- ÁREA PERSONALIZADA -->
+                        <div class="bg-white/5 border border-white/5 rounded-2xl p-4 text-center">
+                            <p class="text-[8px] font-bold text-gray-500 uppercase tracking-widest mb-3">Personalizar Quantidade</p>
+                            
+                            <div class="flex items-center justify-center gap-6 mb-4">
+                                <button id="btn-minus" class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white active:scale-90 transition-all">
+                                    <span class="material-symbols-outlined text-sm">remove</span>
+                                </button>
+                                <div class="text-center">
+                                    <span id="custom-amount" class="text-2xl font-black text-white">05</span>
+                                    <p class="text-[7px] font-black text-[#f085aa] uppercase">Números</p>
                                 </div>
-                                <button id="btn-plus" class="w-14 h-14 bg-[#f085aa] rounded-2xl flex items-center justify-center active:scale-90 transition-all"><span class="material-symbols-outlined text-white">add</span></button>
+                                <button id="btn-plus" class="w-10 h-10 rounded-xl bg-[#f085aa] flex items-center justify-center text-white shadow-lg active:scale-90 transition-all">
+                                    <span class="material-symbols-outlined text-sm">add</span>
+                                </button>
                             </div>
-                            <button id="btn-go-to-checkout" class="w-full py-5 bg-white text-black text-[10px] font-black uppercase rounded-2xl tracking-[0.2em] active:scale-95 transition-all shadow-xl">
-                                Comprar <span id="custom-price-label">R$ 25,00</span>
-                            </button>
+
+                            <button id="btn-buy-custom" class="w-full py-4 bg-white text-black text-[11px] font-black uppercase rounded-xl shadow-2xl active:scale-[0.98] transition-all tracking-tight">Comprar R$ 25,00</button>
                         </div>
                     </div>
 
                     <!-- PASSO 2: CHECKOUT (FORMA DE PAGAMENTO) -->
-                    <div id="step-checkout" class="purchase-step hidden space-y-8 animate-fade">
-                        <div class="text-center">
-                            <h2 class="text-xl font-black text-white uppercase tracking-tight">Forma de <span class="text-[#f085aa]">Pagamento</span></h2>
-                            <p class="text-[9px] text-gray-500 font-bold uppercase tracking-[0.2em] mt-2">Escolha como deseja concluir sua compra</p>
-                        </div>
-
-                        <div class="bg-white/5 border border-white/5 rounded-3xl p-6 flex justify-between items-center mx-2">
+                    <div id="step-checkout" class="purchase-step space-y-4 animate-fade hidden">
+                        <!-- RESUMO -->
+                        <div class="bg-white/5 border border-white/5 rounded-2xl p-4 flex justify-between items-center">
                             <div>
-                                <p class="text-[8px] text-gray-500 font-black uppercase tracking-widest mb-1">Total a pagar</p>
-                                <h3 id="checkout-total-label" class="text-2xl font-black text-white tracking-tighter">R$ 40,00</h3>
+                                <p class="text-[7px] font-black text-gray-500 uppercase tracking-widest">Total a Pagar</p>
+                                <h3 class="text-xl font-black text-white">R$ <span id="checkout-total">0,00</span></h3>
                             </div>
                             <div class="text-right">
-                                <p class="text-[8px] text-gray-500 font-black uppercase tracking-widest mb-1">Quantidade</p>
-                                <h3 id="checkout-amount-label" class="text-lg font-black text-[#f085aa] tracking-tight">10 Números</h3>
+                                <p class="text-[7px] font-black text-gray-500 uppercase tracking-widest">Quantidade</p>
+                                <h4 class="text-base font-black text-[#f085aa]"><span id="checkout-amount">0</span> Números</h4>
                             </div>
                         </div>
 
-                        <div class="grid grid-cols-3 gap-3 px-2">
+                        <div class="grid grid-cols-3 gap-2">
                             <!-- PIX -->
-                            <div class="payment-method-card group relative p-4 bg-white/5 border-2 border-[#f085aa] rounded-3xl flex flex-col items-center justify-center min-h-[100px] cursor-pointer transition-all active:scale-95" data-method="pix">
-                                <span class="text-sm font-black text-white uppercase tracking-[0.2em]">Pix</span>
+                            <div class="payment-method-card group relative p-3 bg-white/5 border-2 border-[#f085aa] rounded-2xl flex flex-col items-center justify-center min-h-[80px] cursor-pointer transition-all active:scale-95" data-method="pix">
+                                <span class="text-[10px] font-black text-white uppercase tracking-widest">Pix</span>
                             </div>
 
                             <!-- CARD -->
-                            <div class="payment-method-card group relative p-4 bg-white/5 border border-white/5 rounded-3xl flex flex-col items-center justify-center min-h-[100px] cursor-pointer transition-all active:scale-95 opacity-60" data-method="card">
-                                <span class="text-sm font-black text-white uppercase tracking-[0.2em]">Cartão</span>
+                            <div class="payment-method-card group relative p-3 bg-white/5 border border-white/5 rounded-2xl flex flex-col items-center justify-center min-h-[80px] cursor-pointer transition-all active:scale-95 opacity-60" data-method="card">
+                                <span class="text-[10px] font-black text-white uppercase tracking-widest">Cartão</span>
                             </div>
 
                             <!-- WALLET -->
-                            <div class="payment-method-card group relative p-4 bg-white/5 border border-white/5 rounded-3xl flex flex-col items-center justify-center min-h-[100px] cursor-pointer transition-all active:scale-95 opacity-60" data-method="wallet">
-                                <span class="text-sm font-black text-white uppercase tracking-[0.2em]">Saldo</span>
+                            <div class="payment-method-card group relative p-3 bg-white/5 border border-white/5 rounded-2xl flex flex-col items-center justify-center min-h-[80px] cursor-pointer transition-all active:scale-95 opacity-60" data-method="wallet">
+                                <span class="text-[10px] font-black text-white uppercase tracking-widest">Saldo</span>
                             </div>
-                        </div>
-
+                        </div>            
+                        
                         <!-- Detalhes Dinâmicos do Pagamento -->
-                        <div id="payment-method-details" class="px-2 animate-fade">
-                            <div class="p-5 bg-white/5 border border-white/10 rounded-3xl text-center">
-                                <p class="text-[10px] text-gray-400 font-bold uppercase tracking-widest">O QR Code do Pix será gerado no próximo passo</p>
+                        <div id="payment-method-details" class="px-1 animate-fade">
+                            <div class="p-3 bg-white/5 border border-white/10 rounded-2xl text-center">
+                                <p class="text-[8px] text-gray-400 font-bold uppercase tracking-widest">O QR Code do Pix será gerado no próximo passo</p>
                             </div>
                         </div>
 
-                        <button id="btn-confirm-payment" class="w-full py-6 text-white font-black rounded-[2rem] text-xs uppercase tracking-[0.2em] transition-all active:scale-95 shadow-2xl"
+                        <button id="btn-confirm-payment" class="w-full py-4 text-white font-black rounded-2xl text-[10px] uppercase tracking-widest transition-all active:scale-95 shadow-2xl"
                             style="background: linear-gradient(135deg, #f085aa 0%, #320075 100%);">
                             Finalizar Pagamento
                         </button>
                     </div>
 
                     <!-- PASSO 3: TELA DE PIX -->
-                    <div id="step-pix" class="purchase-step hidden space-y-8 animate-fade text-center">
-                        <div class="w-20 h-20 bg-[#32bcad]/10 rounded-3xl flex items-center justify-center mx-auto mb-6 border border-[#32bcad]/20">
-                            <span class="material-symbols-outlined text-[#32bcad] text-4xl">pix</span>
+                    <div id="step-pix" class="purchase-step hidden space-y-4 animate-fade text-center pb-10">
+                        <div class="w-16 h-16 bg-[#32bcad]/10 rounded-2xl flex items-center justify-center mx-auto mb-2 border border-[#32bcad]/20">
+                            <span class="material-symbols-outlined text-[#32bcad] text-3xl">pix</span>
                         </div>
-                        <h2 class="text-2xl font-black text-white uppercase tracking-tight">Quase lá!</h2>
-                        <p class="text-[10px] text-gray-500 font-bold uppercase tracking-[0.2em] px-10">Escaneie o QR Code abaixo para concluir sua participação</p>
+                        <h2 class="text-xl font-black text-white uppercase tracking-tight">Quase lá!</h2>
+                        <p class="text-[9px] text-gray-500 font-bold uppercase tracking-[0.2em] px-8">Escaneie o QR Code abaixo para concluir</p>
                         
-                        <div class="bg-white p-6 rounded-[3rem] mx-auto w-64 h-64 shadow-2xl flex items-center justify-center border-8 border-white/5">
-                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=versiani-payment" class="w-full h-full">
+                        <div class="bg-white p-4 rounded-[2.5rem] mx-auto w-48 h-48 shadow-2xl flex items-center justify-center">
+                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=versiani-payment" class="w-full h-full">
                         </div>
 
-                        <div class="bg-white/5 border border-white/10 rounded-3xl p-5 mx-4 flex items-center justify-between">
+                        <div class="bg-white/5 border border-white/10 rounded-2xl p-4 mx-2 flex items-center justify-between">
                             <div class="text-left overflow-hidden">
-                                <p class="text-[8px] text-gray-600 font-black uppercase mb-1">Pix Copia e Cola</p>
-                                <p class="text-[10px] text-white font-mono truncate w-40">00020126580014br.gov.bcb.pix0136...</p>
+                                <p class="text-[7px] text-gray-600 font-black uppercase mb-1">Pix Copia e Cola</p>
+                                <p class="text-[9px] text-white font-mono truncate w-32">00020126580014br.gov.bcb.pix0136...</p>
                             </div>
-                            <button class="w-12 h-12 bg-[#f085aa] rounded-2xl flex items-center justify-center text-white active:scale-90 transition-all">
-                                <span class="material-symbols-outlined">content_copy</span>
+                            <button class="w-10 h-10 bg-[#f085aa] rounded-xl flex items-center justify-center text-white active:scale-90 transition-all shadow-lg">
+                                <span class="material-symbols-outlined text-lg">content_copy</span>
                             </button>
                         </div>
 
@@ -232,7 +227,7 @@ export default {
                 }
             } else {
                 if (heroContainer) heroContainer.style.display = 'block';
-                hero.style.height = '280px';
+                hero.style.height = '185px';
                 hero.style.filter = 'none';
                 headerInfo.style.opacity = '1';
                 if (backBtn) backBtn.style.display = 'flex';
@@ -245,10 +240,10 @@ export default {
 
         // Lógica de +/- 
         const updateCustom = () => {
-            const display = document.getElementById('custom-val');
-            const priceLabel = document.getElementById('custom-price-label');
+            const display = document.getElementById('custom-amount');
+            const buyBtn = document.getElementById('btn-buy-custom');
             if (display) display.innerText = customAmount.toString().padStart(2, '0');
-            if (priceLabel) priceLabel.innerText = `R$ ${(customAmount * PRICE_PER_UNIT).toLocaleString('pt-BR', { minimumFractionDigits: 2 })}`;
+            if (buyBtn) buyBtn.innerText = `Comprar R$ ${(customAmount * PRICE_PER_UNIT).toLocaleString('pt-BR', { minimumFractionDigits: 2 })}`;
             selectedAmount = customAmount;
             selectedPrice = customAmount * PRICE_PER_UNIT;
         };
@@ -266,15 +261,15 @@ export default {
                 selectedAmount = parseInt(card.dataset.amount);
                 selectedPrice = parseFloat(card.dataset.price);
                 
-                document.getElementById('checkout-total-label').innerText = `R$ ${selectedPrice.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}`;
-                document.getElementById('checkout-amount-label').innerText = `${selectedAmount} Números`;
+                document.getElementById('checkout-total').innerText = selectedPrice.toLocaleString('pt-BR', { minimumFractionDigits: 2 });
+                document.getElementById('checkout-amount').innerText = selectedAmount;
                 switchStep('checkout');
             });
         });
 
-        document.getElementById('btn-go-to-checkout')?.addEventListener('click', () => {
-            document.getElementById('checkout-total-label').innerText = `R$ ${selectedPrice.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}`;
-            document.getElementById('checkout-amount-label').innerText = `${selectedAmount} Números`;
+        document.getElementById('btn-buy-custom')?.addEventListener('click', () => {
+            document.getElementById('checkout-total').innerText = selectedPrice.toLocaleString('pt-BR', { minimumFractionDigits: 2 });
+            document.getElementById('checkout-amount').innerText = selectedAmount;
             switchStep('checkout');
         });
 
@@ -285,25 +280,25 @@ export default {
 
             if (selectedMethod === 'pix') {
                 detailsContainer.innerHTML = `
-                    <div class="p-5 bg-white/5 border border-white/10 rounded-3xl text-center animate-fade">
-                        <p class="text-[10px] text-gray-400 font-bold uppercase tracking-widest">O QR Code do Pix será gerado no próximo passo</p>
+                    <div class="p-3 bg-white/5 border border-white/10 rounded-2xl text-center animate-fade">
+                        <p class="text-[8px] text-gray-400 font-bold uppercase tracking-widest">O QR Code do Pix será gerado no próximo passo</p>
                     </div>
                 `;
             } else if (selectedMethod === 'card') {
                 detailsContainer.innerHTML = `
-                    <div class="p-6 bg-white/5 border border-white/10 rounded-[2rem] space-y-4 animate-fade">
-                        <div class="space-y-2">
-                            <label class="text-[9px] text-gray-500 font-black uppercase tracking-widest ml-1">Número do Cartão</label>
-                            <input type="text" placeholder="0000 0000 0000 0000" class="w-full bg-white/5 border border-white/10 rounded-2xl p-4 text-white text-sm focus:border-[#f085aa] outline-none transition-all">
+                    <div class="p-4 bg-white/5 border border-white/10 rounded-2xl space-y-3 animate-fade">
+                        <div class="space-y-1">
+                            <label class="text-[8px] text-gray-500 font-black uppercase tracking-widest ml-1">Número do Cartão</label>
+                            <input type="text" placeholder="0000 0000 0000 0000" class="w-full bg-white/5 border border-white/10 rounded-xl p-3 text-white text-xs focus:border-[#f085aa] outline-none transition-all">
                         </div>
-                        <div class="grid grid-cols-2 gap-4">
-                            <div class="space-y-2">
-                                <label class="text-[9px] text-gray-500 font-black uppercase tracking-widest ml-1">Validade</label>
-                                <input type="text" placeholder="MM/AA" class="w-full bg-white/5 border border-white/10 rounded-2xl p-4 text-white text-sm focus:border-[#f085aa] outline-none">
+                        <div class="grid grid-cols-2 gap-3">
+                            <div class="space-y-1">
+                                <label class="text-[8px] text-gray-500 font-black uppercase tracking-widest ml-1">Validade</label>
+                                <input type="text" placeholder="MM/AA" class="w-full bg-white/5 border border-white/10 rounded-xl p-3 text-white text-xs focus:border-[#f085aa] outline-none">
                             </div>
-                            <div class="space-y-2">
-                                <label class="text-[9px] text-gray-500 font-black uppercase tracking-widest ml-1">CVV</label>
-                                <input type="text" placeholder="000" class="w-full bg-white/5 border border-white/10 rounded-2xl p-4 text-white text-sm focus:border-[#f085aa] outline-none">
+                            <div class="space-y-1">
+                                <label class="text-[8px] text-gray-500 font-black uppercase tracking-widest ml-1">CVV</label>
+                                <input type="text" placeholder="000" class="w-full bg-white/5 border border-white/10 rounded-xl p-3 text-white text-xs focus:border-[#f085aa] outline-none">
                             </div>
                         </div>
                     </div>
@@ -312,17 +307,17 @@ export default {
                 const balance = state.user.wallet;
                 const after = balance - selectedPrice;
                 detailsContainer.innerHTML = `
-                    <div class="p-6 bg-white/5 border border-white/10 rounded-[2rem] space-y-4 animate-fade">
-                        <div class="flex justify-between items-center px-2">
-                            <span class="text-[10px] text-gray-500 font-black uppercase">Saldo Atual</span>
-                            <span class="text-sm font-black text-white">R$ ${balance.toLocaleString('pt-BR', {minimumFractionDigits: 2})}</span>
+                    <div class="p-4 bg-white/5 border border-white/10 rounded-2xl space-y-3 animate-fade">
+                        <div class="flex justify-between items-center px-1">
+                            <span class="text-[8px] text-gray-500 font-black uppercase tracking-widest">Saldo Atual</span>
+                            <span class="text-xs font-black text-white">R$ ${balance.toLocaleString('pt-BR', {minimumFractionDigits: 2})}</span>
                         </div>
                         <div class="h-px bg-white/5"></div>
-                        <div class="flex justify-between items-center px-2">
-                            <span class="text-[10px] text-gray-500 font-black uppercase">Saldo Após Compra</span>
-                            <span class="text-sm font-black ${after >= 0 ? 'text-green-500' : 'text-red-500'}">R$ ${after.toLocaleString('pt-BR', {minimumFractionDigits: 2})}</span>
+                        <div class="flex justify-between items-center px-1">
+                            <span class="text-[8px] text-gray-500 font-black uppercase tracking-widest">Saldo Após Compra</span>
+                            <span class="text-xs font-black ${after >= 0 ? 'text-green-500' : 'text-red-500'}">R$ ${after.toLocaleString('pt-BR', {minimumFractionDigits: 2})}</span>
                         </div>
-                        ${after < 0 ? '<p class="text-[9px] text-red-500 font-bold uppercase text-center mt-2">Saldo Insuficiente</p>' : ''}
+                        ${after < 0 ? '<p class="text-[8px] text-red-500 font-black uppercase text-center mt-1">Saldo Insuficiente</p>' : ''}
                     </div>
                 `;
             }
@@ -335,10 +330,10 @@ export default {
                 
                 // Atualiza Visual dos Cards
                 document.querySelectorAll('.payment-method-card').forEach(c => {
-                    c.className = "payment-method-card group relative p-4 bg-white/5 border border-white/5 rounded-3xl flex flex-col items-center justify-center min-h-[100px] cursor-pointer transition-all active:scale-95 opacity-60";
+                    c.className = "payment-method-card group relative p-3 bg-white/5 border border-white/5 rounded-2xl flex flex-col items-center justify-center min-h-[80px] cursor-pointer transition-all active:scale-95 opacity-60";
                 });
                 
-                card.className = "payment-method-card group relative p-4 bg-white/5 border-2 border-[#f085aa] rounded-3xl flex flex-col items-center justify-center min-h-[100px] cursor-pointer transition-all active:scale-95";
+                card.className = "payment-method-card group relative p-3 bg-white/5 border-2 border-[#f085aa] rounded-2xl flex flex-col items-center justify-center min-h-[80px] cursor-pointer transition-all active:scale-95";
 
                 updatePaymentDetails();
             });
