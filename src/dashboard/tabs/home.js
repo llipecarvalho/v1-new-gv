@@ -22,15 +22,17 @@ export default {
             </div>
 
             <!-- Carteira Section (Atalho) -->
-            <div id="btn-home-go-to-wallet" class="px-6 -mb-6 relative z-20 cursor-pointer active:scale-95 transition-all hidden">
-                <div class="bg-[#121212] rounded-[2.5rem] p-7 border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] flex items-center justify-between">
+            <div id="btn-home-go-to-wallet" class="px-6 -mb-6 relative z-20 cursor-pointer active:scale-95 transition-all">
+                <div class="p-8 glass-card border border-white/10 rounded-[2.5rem] flex items-center justify-between group active:scale-[0.98] transition-all cursor-pointer shadow-2xl">
                     <div>
-                        <p class="text-[9px] font-black text-white/40 uppercase tracking-[0.2em] mb-1">Saldo em Carteira</p>
-                        <h3 class="text-2xl font-black text-white tracking-tighter">R$ ${state.user.wallet.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</h3>
+                        <p class="text-[10px] font-black text-[#f085aa] uppercase tracking-[0.3em] mb-3">PONTOS ACUMULADOS</p>
+                        <div class="flex items-baseline gap-2">
+                            <h2 class="text-4xl font-black text-white tracking-tighter points-display">${state.user.points.toLocaleString('pt-BR')}</h2>
+                            <span class="text-sm font-bold text-gray-500 uppercase tracking-widest">pts</span>
+                        </div>
                     </div>
-                    <div class="flex items-center gap-2 bg-[#f085aa]/10 px-4 py-2.5 rounded-full border border-[#f085aa]/20">
-                        <span class="text-[9px] font-black text-[#f085aa] uppercase tracking-[0.2em]">Acessar</span>
-                        <span class="material-symbols-outlined text-[#f085aa] text-sm">arrow_forward_ios</span>
+                    <div class="w-16 h-16 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-[#f085aa] transition-all duration-500 group-hover:rotate-[360deg]">
+                        <span class="material-symbols-outlined text-white text-2xl font-light">redeem</span>
                     </div>
                 </div>
             </div>
@@ -139,7 +141,7 @@ export default {
             import('../main.js').then(m => m.switchTab('store'));
         });
         document.getElementById('btn-home-go-to-wallet')?.addEventListener('click', () => {
-            import('../main.js').then(m => m.switchTab('wallet'));
+            import('../main.js').then(m => m.switchTab('store'));
         });
     }
 };
