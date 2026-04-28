@@ -31,6 +31,7 @@ const tabModules = {
     network: () => import('./tabs/network.js'),
     rewards: () => import('./tabs/rewards.js'), 
     wallet: () => import('./tabs/wallet.js'),
+    'raffle-purchase': () => import('./tabs/raffle-purchase.js'),
 };
 
 /**
@@ -74,8 +75,12 @@ export async function switchTab(tabId) {
     const appContent = document.getElementById('app-content');
     const bottomNav = document.querySelector('nav.fixed.bottom-0');
     
-    // Sempre reexibe a bottom bar ao trocar de aba (será escondida novamente por módulos específicos se necessário)
-    bottomNav?.classList.remove('hidden');
+    // Gerencia visibilidade da bottom bar
+    if (tabId === 'raffle-purchase') {
+        bottomNav?.classList.add('hidden');
+    } else {
+        bottomNav?.classList.remove('hidden');
+    }
     
     // Feedback visual de carregamento
     appContent.innerHTML = `

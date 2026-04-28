@@ -178,13 +178,19 @@ export default {
                         </div>
                     </div>
 
-                    <p class="text-[9px] text-gray-500 font-bold leading-relaxed px-4 text-center">
-                        Ao finalizar, você declara que as informações acima são verdadeiras e está de acordo com as regras de afiliação.
-                    </p>
+                    <label class="flex items-start gap-3 px-4 cursor-pointer group">
+                        <div class="relative flex items-center justify-center mt-0.5">
+                            <input type="checkbox" id="net-terms-check" class="peer appearance-none w-5 h-5 bg-white/5 border border-white/10 rounded-md checked:bg-[#f085aa] checked:border-[#f085aa] transition-all cursor-pointer">
+                            <span class="material-symbols-outlined absolute text-white text-sm scale-0 peer-checked:scale-100 transition-all pointer-events-none">check</span>
+                        </div>
+                        <p class="text-[9px] text-gray-500 font-bold leading-relaxed text-left group-hover:text-gray-400 transition-all">
+                            Ao finalizar, você declara que as informações acima são verdadeiras e está de acordo com as regras de afiliação.
+                        </p>
+                    </label>
 
                     <div class="grid grid-cols-2 gap-3 pt-2">
                         <button data-next="1" class="h-14 bg-white/5 text-white font-black uppercase tracking-widest text-[10px] rounded-xl border border-white/10 active:scale-95 transition-all">Corrigir</button>
-                        <button id="btn-finalize" class="h-14 bg-gradient-to-r from-[#f085aa] to-[#320075] text-white font-black uppercase tracking-widest text-[10px] rounded-xl shadow-xl active:scale-95 transition-all">Finalizar Cadastro</button>
+                        <button id="btn-finalize" class="h-14 bg-white/10 text-white/30 font-black uppercase tracking-widest text-[10px] rounded-xl shadow-xl active:scale-95 transition-all pointer-events-none" disabled>Finalizar Cadastro</button>
                     </div>
                 </div>
             </div>
@@ -321,8 +327,23 @@ function setupOnboarding(state) {
         }
     });
 
-    // Finalizar
-    document.getElementById('btn-finalize')?.addEventListener('click', () => {
+    // Aceite de Termos e Finalização
+    const termsCheck = document.getElementById('net-terms-check');
+    const btnFinalize = document.getElementById('btn-finalize');
+
+    termsCheck?.addEventListener('change', () => {
+        if (termsCheck.checked) {
+            btnFinalize.classList.remove('bg-white/10', 'text-white/30', 'pointer-events-none');
+            btnFinalize.classList.add('bg-gradient-to-r', 'from-[#f085aa]', 'to-[#320075]', 'text-white');
+            btnFinalize.disabled = false;
+        } else {
+            btnFinalize.classList.add('bg-white/10', 'text-white/30', 'pointer-events-none');
+            btnFinalize.classList.remove('bg-gradient-to-r', 'from-[#f085aa]', 'to-[#320075]', 'text-white');
+            btnFinalize.disabled = true;
+        }
+    });
+
+    btnFinalize?.addEventListener('click', () => {
         showSuccessModal();
     });
 

@@ -184,13 +184,12 @@ function setupHubLogic(state) {
     btnNumbers?.addEventListener('click', () => setActive(btnNumbers, viewNumbers));
     btnWinners?.addEventListener('click', () => setActive(btnWinners, viewWinners));
 
-    // Lógica de compra de números
+    // Botão Comprar Números (Redireciona para a nova página completa)
     document.querySelectorAll('.btn-buy-numbers').forEach(btn => {
-        btn.addEventListener('click', (e) => {
+        btn.onclick = (e) => {
             e.stopPropagation();
-            const raffleName = btn.getAttribute('data-raffle');
-            openBuyNumbersModal(raffleName, state);
-        });
+            import('../main.js').then(m => m.switchTab('raffle-purchase'));
+        };
     });
 
     // Lógica de clique nos cards (Abre modal de números)
@@ -222,123 +221,8 @@ function setupHubLogic(state) {
     });
 }
 
-function openBuyNumbersModal(raffleName, state) {
-    Swal.fire({
-        html: `
-            <div class="text-left">
-                <div class="mb-4 text-center">
-                    <div class="w-12 h-12 bg-[#f085aa]/10 rounded-2xl flex items-center justify-center mx-auto mb-3 border border-[#f085aa]/20">
-                        <span class="material-symbols-outlined text-[#f085aa] text-2xl">confirmation_number</span>
-                    </div>
-                    <h2 class="text-lg font-black text-white uppercase tracking-tighter leading-none">Turbine suas <span class="text-[#f085aa]">Chances</span></h2>
-                    <p class="text-[9px] text-gray-500 font-bold uppercase tracking-widest mt-1">${raffleName}</p>
-                </div>
-
-                <div class="space-y-2">
-                    <!-- Pacote 1 -->
-                    <div class="buy-package-card bg-white rounded-2xl p-3 flex items-center justify-between cursor-pointer border-2 border-transparent hover:border-[#f085aa] transition-all" data-amount="1" data-price="5">
-                        <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-xl bg-gray-100 flex items-center justify-center text-gray-400 font-black text-xs">01</div>
-                            <div>
-                                <h4 class="text-[10px] font-black text-black uppercase leading-none">01 Número</h4>
-                                <p class="text-[7px] text-gray-400 font-bold uppercase mt-1">Sorteio Avulso</p>
-                            </div>
-                        </div>
-                        <div class="text-right">
-                            <span class="text-[11px] font-black text-black">R$ 5,00</span>
-                        </div>
-                    </div>
-
-                    <!-- Pacote 10 (Destaque) -->
-                    <div class="buy-package-card bg-white rounded-2xl p-3 flex items-center justify-between cursor-pointer border-2 border-[#f085aa] relative shadow-lg" data-amount="10" data-price="40">
-                        <div class="absolute -top-2 right-4 px-2 py-0.5 bg-[#f085aa] text-white text-[6px] font-black uppercase rounded-full tracking-widest">Popular</div>
-                        <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-xl bg-[#f085aa]/10 flex items-center justify-center text-[#f085aa] font-black text-xs shadow-inner border border-[#f085aa]/10">10</div>
-                            <div>
-                                <h4 class="text-[10px] font-black text-black uppercase leading-none">10 Números</h4>
-                                <p class="text-[7px] text-green-500 font-bold uppercase mt-1">Economize 20%</p>
-                            </div>
-                        </div>
-                        <div class="text-right">
-                            <span class="text-[11px] font-black text-black">R$ 40,00</span>
-                        </div>
-                    </div>
-
-                    <!-- Pacote 50 -->
-                    <div class="buy-package-card bg-white rounded-2xl p-3 flex items-center justify-between cursor-pointer border-2 border-transparent hover:border-[#f085aa] transition-all" data-amount="50" data-price="150">
-                        <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-xl bg-[#320075]/5 flex items-center justify-center text-[#320075] font-black text-xs">50</div>
-                            <div>
-                                <h4 class="text-[10px] font-black text-black uppercase leading-none">50 Números</h4>
-                                <p class="text-[7px] text-green-500 font-bold uppercase mt-1">Economize 40%</p>
-                            </div>
-                        </div>
-                        <div class="text-right">
-                            <span class="text-[11px] font-black text-black">R$ 150,00</span>
-                        </div>
-                    </div>
-
-                    <!-- Custom Selector -->
-                    <div class="mt-2">
-                        <div class="flex items-center justify-between mb-2 px-1">
-                            <span class="text-[8px] font-black text-white/40 uppercase tracking-widest">Outra quantidade</span>
-                            <span id="custom-price-display" class="text-[9px] font-black text-[#f085aa]">R$ 0,00</span>
-                        </div>
-                        <div class="flex items-center bg-white/5 rounded-xl border border-white/10 overflow-hidden">
-                            <input type="number" id="custom-amount-input" placeholder="Ex: 5" class="flex-1 bg-transparent border-0 text-white text-xs font-black focus:ring-0 placeholder:text-white/10 px-3 py-2.5" min="1">
-                            <button id="btn-add-custom" class="px-4 self-stretch bg-white/5 text-white text-[8px] font-black uppercase border-l border-white/10 hover:bg-white/10 transition-all opacity-50 cursor-not-allowed whitespace-nowrap shrink-0" disabled>Adicionar</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        `,
-        background: '#0a0a0a',
-        showConfirmButton: false,
-        showCloseButton: true,
-        backdrop: `rgba(0,0,0,1)`, // Fundo preto sólido para esconder TUDO atrás
-        customClass: {
-            container: 'z-[10000]', // Garante que o modal fique acima da bottom bar (z-2000)
-            popup: 'rounded-[3rem] border border-white/10 shadow-2xl backdrop-blur-xl',
-            closeButton: 'text-white'
-        },
-        didOpen: () => {
-            const cards = document.querySelectorAll('.buy-package-card');
-            const input = document.getElementById('custom-amount-input');
-            const btnCustom = document.getElementById('btn-add-custom');
-            const priceDisplay = document.getElementById('custom-price-display');
-
-            cards.forEach(card => {
-                card.addEventListener('click', () => {
-                    const amount = card.getAttribute('data-amount');
-                    const price = card.getAttribute('data-price');
-                    processPurchase(amount, price, raffleName, state);
-                });
-            });
-
-            input?.addEventListener('input', (e) => {
-                const val = parseInt(e.target.value);
-                if(val > 0) {
-                    const price = val * 5;
-                    priceDisplay.textContent = `R$ ${price.toFixed(2).replace('.', ',')}`;
-                    btnCustom.disabled = false;
-                    btnCustom.classList.remove('opacity-50', 'cursor-not-allowed');
-                } else {
-                    priceDisplay.textContent = `R$ 0,00`;
-                    btnCustom.disabled = true;
-                    btnCustom.classList.add('opacity-50', 'cursor-not-allowed');
-                }
-            });
-
-            btnCustom?.addEventListener('click', () => {
-                const val = parseInt(input.value);
-                processPurchase(val, val * 5, raffleName, state);
-            });
-        }
-    });
-}
-
-function processPurchase(amount, price, raffleName, state) {
-    // Passo 1: Confirmação de Checkout
+export function processPurchase(amount, price, raffleName, state) {
+    // Passo 1: Resumo e Seleção de Pagamento
     Swal.fire({
         html: `
             <div class="text-center">
@@ -346,29 +230,56 @@ function processPurchase(amount, price, raffleName, state) {
                     <span class="material-symbols-outlined text-[#f085aa] text-3xl">shopping_cart_checkout</span>
                 </div>
                 
-                <h2 class="text-xl font-black text-white uppercase tracking-tight mb-2">Resumo da Compra</h2>
-                <p class="text-[9px] text-gray-500 font-bold uppercase tracking-[0.2em] mb-8">Confirme os detalhes antes de prosseguir</p>
+                <h2 class="text-xl font-black text-white uppercase tracking-tight mb-2">Checkout</h2>
+                <p class="text-[9px] text-gray-500 font-bold uppercase tracking-[0.2em] mb-8">Escolha como deseja pagar</p>
                 
-                <div class="bg-white/5 border border-white/5 rounded-3xl p-4 mb-8 text-left">
-                    <div class="flex justify-between items-center mb-4 pb-4 border-b border-white/5">
-                        <span class="text-[9px] font-bold text-gray-400 uppercase tracking-widest whitespace-nowrap mr-3">Quantidade</span>
-                        <span class="text-xs font-black text-white whitespace-nowrap">${amount} Números</span>
+                <!-- Resumo -->
+                <div class="bg-white/5 border border-white/5 rounded-3xl p-5 mb-6 text-left">
+                    <div class="flex justify-between items-center mb-3 pb-3 border-b border-white/5">
+                        <span class="text-[9px] font-bold text-gray-400 uppercase tracking-widest whitespace-nowrap mr-3">Produto</span>
+                        <span class="text-[10px] font-black text-white whitespace-nowrap">${amount} Números - ${raffleName}</span>
                     </div>
                     <div class="flex justify-between items-center">
-                        <span class="text-[9px] font-bold text-gray-400 uppercase tracking-widest whitespace-nowrap mr-3">Total a Pagar</span>
+                        <span class="text-[9px] font-bold text-gray-400 uppercase tracking-widest whitespace-nowrap mr-3">Total</span>
                         <span class="text-lg font-black text-[#f085aa] whitespace-nowrap">R$ ${parseFloat(price).toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</span>
                     </div>
                 </div>
 
-                <div class="space-y-3">
-                    <button id="btn-confirm-pay" class="w-full py-5 text-white font-black rounded-full text-[10px] uppercase tracking-[0.2em] transition-all active:scale-95 shadow-[0_15px_30px_rgba(233,126,177,0.3)]"
-                        style="background: linear-gradient(135deg, #e97eb1 0%, #4c1d95 100%);">
-                        CONFIRMAR E PAGAR
-                    </button>
-                    <button onclick="Swal.close()" class="w-full py-4 text-gray-500 font-black rounded-full text-[9px] uppercase tracking-[0.2em] hover:text-white transition-all">
-                        CANCELAR
-                    </button>
+                <!-- Opções de Pagamento -->
+                <div class="space-y-3 mb-8">
+                    <div id="pay-method-pix" class="pay-method-option group p-4 bg-white/5 border-2 border-[#f085aa] rounded-2xl flex items-center justify-between cursor-pointer transition-all shadow-[0_0_20px_rgba(240,133,170,0.1)]">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-[#f085aa]/10 rounded-xl flex items-center justify-center">
+                                <span class="material-symbols-outlined text-[#f085aa]">pix</span>
+                            </div>
+                            <div class="text-left">
+                                <h4 class="text-[11px] font-black text-white uppercase leading-none">Pix</h4>
+                                <p class="text-[8px] text-green-500 font-bold uppercase mt-1">Aprovação imediata</p>
+                            </div>
+                        </div>
+                        <div class="w-5 h-5 rounded-full border-2 border-[#f085aa] flex items-center justify-center">
+                            <div class="w-2.5 h-2.5 bg-[#f085aa] rounded-full"></div>
+                        </div>
+                    </div>
+
+                    <div id="pay-method-card" class="pay-method-option group p-4 bg-white/5 border border-white/5 rounded-2xl flex items-center justify-between cursor-pointer transition-all hover:bg-white/10">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center border border-white/10">
+                                <span class="material-symbols-outlined text-gray-400">credit_card</span>
+                            </div>
+                            <div class="text-left">
+                                <h4 class="text-[11px] font-black text-white uppercase leading-none">Cartão de Crédito</h4>
+                                <p class="text-[8px] text-gray-500 font-bold uppercase mt-1">Em até 12x</p>
+                            </div>
+                        </div>
+                        <div class="w-5 h-5 rounded-full border-2 border-white/10"></div>
+                    </div>
                 </div>
+
+                <button id="btn-proceed-payment" class="w-full py-5 text-white font-black rounded-full text-[10px] uppercase tracking-[0.2em] transition-all active:scale-95 shadow-[0_15px_30px_rgba(233,126,177,0.3)]"
+                    style="background: linear-gradient(135deg, #e97eb1 0%, #4c1d95 100%);">
+                    PAGAR AGORA
+                </button>
             </div>
         `,
         background: '#0a0a0a',
@@ -376,17 +287,137 @@ function processPurchase(amount, price, raffleName, state) {
         backdrop: `rgba(0,0,0,1)`,
         customClass: {
             container: 'z-[10001]',
-            popup: 'rounded-[40px] border border-white/10 shadow-2xl backdrop-blur-xl p-6 md:p-8'
+            popup: 'rounded-[40px] border border-white/10 shadow-2xl backdrop-blur-xl p-8'
         },
         didOpen: () => {
-            document.getElementById('btn-confirm-pay').addEventListener('click', () => {
-                executePayment(amount, price, raffleName, state);
+            let selectedMethod = 'pix';
+            const pixOpt = document.getElementById('pay-method-pix');
+            const cardOpt = document.getElementById('pay-method-card');
+
+            pixOpt.onclick = () => {
+                selectedMethod = 'pix';
+                pixOpt.className = "pay-method-option group p-4 bg-white/5 border-2 border-[#f085aa] rounded-2xl flex items-center justify-between cursor-pointer transition-all shadow-[0_0_20px_rgba(240,133,170,0.1)]";
+                cardOpt.className = "pay-method-option group p-4 bg-white/5 border border-white/5 rounded-2xl flex items-center justify-between cursor-pointer transition-all hover:bg-white/10";
+                pixOpt.querySelector('.w-5').innerHTML = '<div class="w-2.5 h-2.5 bg-[#f085aa] rounded-full"></div>';
+                cardOpt.querySelector('.w-5').innerHTML = '';
+            };
+
+            cardOpt.onclick = () => {
+                selectedMethod = 'card';
+                cardOpt.className = "pay-method-option group p-4 bg-white/5 border-2 border-[#f085aa] rounded-2xl flex items-center justify-between cursor-pointer transition-all shadow-[0_0_20px_rgba(240,133,170,0.1)]";
+                pixOpt.className = "pay-method-option group p-4 bg-white/5 border border-white/5 rounded-2xl flex items-center justify-between cursor-pointer transition-all hover:bg-white/10";
+                cardOpt.querySelector('.w-5').innerHTML = '<div class="w-2.5 h-2.5 bg-[#f085aa] rounded-full"></div>';
+                pixOpt.querySelector('.w-5').innerHTML = '';
+            };
+
+            document.getElementById('btn-proceed-payment').addEventListener('click', () => {
+                if (selectedMethod === 'pix') {
+                    showPixPayment(amount, price, raffleName, state);
+                } else {
+                    showCardPayment(amount, price, raffleName, state);
+                }
             });
         }
     });
 }
 
-function executePayment(amount, price, raffleName, state) {
+function showPixPayment(amount, price, raffleName, state) {
+    Swal.fire({
+        html: `
+            <div class="text-center">
+                <div class="w-16 h-16 bg-[#32bcad]/10 rounded-2xl flex items-center justify-center mx-auto mb-6 border border-[#32bcad]/20">
+                    <span class="material-symbols-outlined text-[#32bcad] text-3xl font-light">pix</span>
+                </div>
+                
+                <h2 class="text-xl font-black text-white uppercase tracking-tight mb-2">Pagamento via Pix</h2>
+                <p class="text-[9px] text-gray-500 font-bold uppercase tracking-[0.2em] mb-8">Escaneie o QR Code ou copie o código</p>
+                
+                <!-- QR Code Simulado -->
+                <div class="bg-white p-4 rounded-3xl mb-8 mx-auto w-48 h-48 flex items-center justify-center shadow-[0_20px_50px_rgba(0,0,0,0.3)]">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=versiani-pix-payment" class="w-full h-full opacity-90">
+                </div>
+
+                <div class="bg-white/5 border border-white/5 rounded-3xl p-4 mb-8">
+                    <p class="text-[8px] text-gray-500 font-black uppercase tracking-widest mb-2">Pix Copia e Cola</p>
+                    <div class="flex items-center gap-2">
+                        <input type="text" readonly value="00020126580014br.gov.bcb.pix0136..." class="bg-transparent border-none text-[10px] text-white font-mono w-full outline-none opacity-60">
+                        <span class="material-symbols-outlined text-[#f085aa] text-lg">content_copy</span>
+                    </div>
+                </div>
+
+                <button id="btn-simulate-pix-paid" class="w-full py-5 bg-white text-black font-black rounded-full text-[10px] uppercase tracking-[0.2em] transition-all active:scale-95 shadow-xl mb-4">
+                    JÁ REALIZEI O PAGAMENTO
+                </button>
+                <button onclick="Swal.close()" class="text-[9px] font-black text-gray-500 uppercase tracking-widest">CANCELAR</button>
+            </div>
+        `,
+        background: '#0a0a0a',
+        showConfirmButton: false,
+        backdrop: `rgba(0,0,0,1)`,
+        customClass: {
+            container: 'z-[10001]',
+            popup: 'rounded-[40px] border border-white/10 shadow-2xl backdrop-blur-xl p-8'
+        },
+        didOpen: () => {
+            document.getElementById('btn-simulate-pix-paid').onclick = () => {
+                executePayment(amount, price, raffleName, state);
+            };
+        }
+    });
+}
+
+function showCardPayment(amount, price, raffleName, state) {
+    Swal.fire({
+        html: `
+            <div class="text-center">
+                <div class="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center mx-auto mb-6 border border-white/10">
+                    <span class="material-symbols-outlined text-white text-3xl font-light">credit_card</span>
+                </div>
+                
+                <h2 class="text-xl font-black text-white uppercase tracking-tight mb-2">Cartão de Crédito</h2>
+                <p class="text-[9px] text-gray-500 font-bold uppercase tracking-[0.2em] mb-8">Insira os dados do seu cartão</p>
+                
+                <div class="space-y-4 mb-8 text-left">
+                    <div class="bg-white/5 border border-white/10 rounded-2xl p-4">
+                        <p class="text-[8px] text-gray-500 font-black uppercase tracking-widest mb-1">Número do Cartão</p>
+                        <input type="text" placeholder="0000 0000 0000 0000" class="bg-transparent border-none w-full text-sm text-white font-bold outline-none">
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-white/5 border border-white/10 rounded-2xl p-4">
+                            <p class="text-[8px] text-gray-500 font-black uppercase tracking-widest mb-1">Validade</p>
+                            <input type="text" placeholder="MM/AA" class="bg-transparent border-none w-full text-sm text-white font-bold outline-none">
+                        </div>
+                        <div class="bg-white/5 border border-white/10 rounded-2xl p-4">
+                            <p class="text-[8px] text-gray-500 font-black uppercase tracking-widest mb-1">CVV</p>
+                            <input type="text" placeholder="123" class="bg-transparent border-none w-full text-sm text-white font-bold outline-none">
+                        </div>
+                    </div>
+                </div>
+
+                <button id="btn-simulate-card-paid" class="w-full py-5 text-white font-black rounded-full text-[10px] uppercase tracking-[0.2em] transition-all active:scale-95 shadow-xl mb-4"
+                    style="background: linear-gradient(135deg, #e97eb1 0%, #4c1d95 100%);">
+                    FINALIZAR PAGAMENTO
+                </button>
+                <button onclick="Swal.close()" class="text-[9px] font-black text-gray-500 uppercase tracking-widest">CANCELAR</button>
+            </div>
+        `,
+        background: '#0a0a0a',
+        showConfirmButton: false,
+        backdrop: `rgba(0,0,0,1)`,
+        customClass: {
+            container: 'z-[10001]',
+            popup: 'rounded-[40px] border border-white/10 shadow-2xl backdrop-blur-xl p-8'
+        },
+        didOpen: () => {
+            document.getElementById('btn-simulate-card-paid').onclick = () => {
+                executePayment(amount, price, raffleName, state);
+            };
+        }
+    });
+}
+
+
+export function executePayment(amount, price, raffleName, state) {
     Swal.fire({
         html: `
             <div class="py-10">

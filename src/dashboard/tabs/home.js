@@ -22,7 +22,7 @@ export default {
             </div>
 
             <!-- Carteira Section (Atalho) -->
-            <div id="btn-home-go-to-wallet" class="px-6 -mb-6 relative z-20 cursor-pointer active:scale-95 transition-all">
+            <div id="btn-home-go-to-wallet" class="px-6 -mb-6 relative z-20 cursor-pointer active:scale-95 transition-all hidden">
                 <div class="bg-[#121212] rounded-[2.5rem] p-7 border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] flex items-center justify-between">
                     <div>
                         <p class="text-[9px] font-black text-white/40 uppercase tracking-[0.2em] mb-1">Saldo em Carteira</p>
@@ -127,7 +127,7 @@ export default {
     init: (state) => {
         // Vincula botões de navegação
         document.getElementById('btn-home-hero-quero')?.addEventListener('click', () => {
-            import('../main.js').then(m => m.switchTab('hub'));
+            import('../main.js').then(m => m.switchTab('raffle-purchase'));
         });
         document.getElementById('btn-home-ver-tudo-mimos')?.addEventListener('click', () => {
             import('../main.js').then(m => m.switchTab('rewards'));
