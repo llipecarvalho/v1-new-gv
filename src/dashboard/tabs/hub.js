@@ -8,14 +8,13 @@ export default {
         <div id="tab-hub" class="tab-pane animate-fade space-y-6 px-6 pb-48">
             <!-- Header -->
             <div class="text-center mb-8 pt-4">
-                <h2 class="text-xl font-black uppercase tracking-tighter text-white">Sorteios</h2>
-                <p class="text-[9px] text-gray-400 font-bold uppercase tracking-widest mt-1">Acompanhe os sorteios e resultados</p>
+                <h2 class="text-xl font-black uppercase tracking-tighter text-white">Meus Números</h2>
+                <p class="text-[9px] text-gray-400 font-bold uppercase tracking-widest mt-1">Acompanhe seus sorteios e resultados</p>
             </div>
             
             <!-- Alternador de Visão -->
             <div class="bg-[#1a1a1a] p-1 rounded-2xl flex items-center mb-8 relative border border-white/5">
-                <button id="btn-hub-active" class="flex-1 py-3 rounded-xl bg-[#f085aa] text-black text-[10px] font-black uppercase transition-all z-10">Sorteios</button>
-                <button id="btn-hub-numbers" class="flex-1 py-3 rounded-xl text-gray-500 text-[10px] font-black uppercase transition-all z-10">Meus Números</button>
+                <button id="btn-hub-active" class="flex-1 py-3 rounded-xl bg-[#f085aa] text-black text-[10px] font-black uppercase transition-all z-10">Meus Números</button>
                 <button id="btn-hub-winners" class="flex-1 py-3 rounded-xl text-gray-500 text-[10px] font-black uppercase transition-all z-10">Ganhadoras</button>
             </div>
 
@@ -52,7 +51,7 @@ export default {
                                 <div class="flex-1 min-w-0">
                                     <h3 class="text-base font-black text-white uppercase leading-none tracking-tighter truncate">${raffle.title}</h3>
                                     <p class="text-[10px] font-bold text-[#f085aa] uppercase tracking-widest mt-3">
-                                        ${raffle.status === 'active' ? `${raffle.numbers} Números` : (raffle.status === 'future' ? 'Início das vendas em breve' : 'Resultado Finalizado')}
+                                        ${raffle.status === 'active' ? `2 Números` : (raffle.status === 'future' ? 'Início das vendas em breve' : 'Resultado Finalizado')}
                                     </p>
                                 </div>
                                 <div class="text-right shrink-0">
@@ -161,18 +160,16 @@ export default {
 
 function setupHubLogic(state) {
     const btnActive = document.getElementById('btn-hub-active');
-    const btnNumbers = document.getElementById('btn-hub-numbers');
     const btnWinners = document.getElementById('btn-hub-winners');
     
     const viewActive = document.getElementById('hub-active-view');
-    const viewNumbers = document.getElementById('hub-numbers-view');
     const viewWinners = document.getElementById('hub-winners-view');
 
     const setActive = (btn, view) => {
-        [btnActive, btnNumbers, btnWinners].forEach(b => {
+        [btnActive, btnWinners].forEach(b => {
             if(b) b.className = "flex-1 py-3 rounded-xl text-gray-500 text-[10px] font-black uppercase transition-all z-10";
         });
-        [viewActive, viewNumbers, viewWinners].forEach(v => {
+        [viewActive, viewWinners].forEach(v => {
             if(v) v.classList.add('hidden');
         });
 
@@ -181,7 +178,6 @@ function setupHubLogic(state) {
     };
 
     btnActive?.addEventListener('click', () => setActive(btnActive, viewActive));
-    btnNumbers?.addEventListener('click', () => setActive(btnNumbers, viewNumbers));
     btnWinners?.addEventListener('click', () => setActive(btnWinners, viewWinners));
 
     // Botão Comprar Números (Redireciona para a nova página completa)

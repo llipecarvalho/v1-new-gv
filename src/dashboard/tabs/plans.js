@@ -12,7 +12,7 @@ export default {
                 id: 'bronze',
                 name: 'PLANO BRONZE',
                 points: 20,
-                extras: '0 NÚMEROS EXTRAS',
+                extras: '0 NÚMEROS DA SORTE',
                 price: '0',
                 colorClasses: 'from-[#1a1a1a] to-[#0a0a0a]',
                 borderClasses: 'from-white/20 to-transparent',
@@ -24,7 +24,7 @@ export default {
                 id: 'prata',
                 name: 'PLANO PRATA',
                 points: 60,
-                extras: '03 NÚMEROS EXTRAS',
+                extras: '03 NÚMEROS DA SORTE',
                 price: '50',
                 colorClasses: 'from-[#1a1a1a] to-[#0d0d0d]',
                 borderClasses: 'from-gray-300 via-gray-600 to-gray-400',
@@ -36,7 +36,7 @@ export default {
                 id: 'ouro',
                 name: 'PLANO OURO',
                 points: 200,
-                extras: '10 NÚMEROS EXTRAS',
+                extras: '10 NÚMEROS DA SORTE',
                 price: '140',
                 colorClasses: 'from-[#1c160a] to-[#0a0804]',
                 borderClasses: 'from-yellow-200 via-yellow-600 to-amber-500',
@@ -126,16 +126,16 @@ export default {
                                         </div>
                                     </div>
 
-                                    <div class="flex items-center justify-between mt-8">
+                                    <div class="flex items-center justify-between gap-4 mt-8">
                                         <div class="flex flex-col">
                                             <span class="text-[7px] font-black text-white/30 uppercase tracking-widest mb-1">Investimento</span>
-                                            <div class="flex items-baseline gap-1">
+                                            <div class="flex items-baseline gap-0.5">
                                                 <span class="text-xs font-black text-white/40 mr-1">R$</span>
                                                 <span class="text-4xl font-black text-white tracking-tighter">${plan.price}</span>
-                                                <span class="text-xs font-black text-white/40">,00</span>
+                                                <span class="text-[10px] font-bold text-white/30 lowercase ml-0.5">/mês</span>
                                             </div>
                                         </div>
-                                        <button class="btn-upgrade-trigger h-12 px-8 bg-gradient-to-b ${plan.id === 'ouro' ? 'from-yellow-300 via-yellow-500 to-amber-600' : 'from-white to-gray-300'} text-black text-[11px] font-black uppercase rounded-2xl shadow-xl active:scale-95 transition-all flex items-center gap-2 group/btn" 
+                                        <button class="btn-upgrade-trigger h-12 px-6 bg-gradient-to-b ${plan.id === 'ouro' ? 'from-yellow-300 via-yellow-500 to-amber-600' : 'from-white to-gray-300'} text-black text-[11px] font-black uppercase rounded-2xl shadow-xl active:scale-95 transition-all flex items-center gap-2 group/btn" 
                                                 data-plan="${plan.id}" 
                                                 data-price="${plan.price}" 
                                                 data-name="${plan.id === 'prata' ? 'Prata' : (plan.id === 'ouro' ? 'Ouro' : 'Bronze')}">
