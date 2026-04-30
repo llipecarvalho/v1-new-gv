@@ -1,3 +1,6 @@
+import bolsaImg from '../assets/bolsa.png';
+import bolsaDesktopImg from '../assets/bolsadesktop.png';
+
 /**
  * API Service - Central de Dados do Clube Versiani
  * Aqui você gerencia todos os conteúdos que aparecem no dashboard.
@@ -103,7 +106,7 @@ const DATA = {
             name: 'Bolsa Salvatore',
             status: 'ATUAL',
             category: 'clube',
-            image_url: 'https://images.unsplash.com/photo-1584917865442-de89df76afd3?q=80&w=800&auto=format&fit=crop',
+            image_url: bolsaImg,
             link: '#hub'
         }
     ],
@@ -115,8 +118,8 @@ const DATA = {
             title: 'Salvatore Ferragamo',
             status: 'active',
             date: '10/06',
-            image: 'https://images.unsplash.com/photo-1584917865442-de89df76afd3?q=80&w=800&auto=format&fit=crop',
-            imageDesktop: 'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=1200&auto=format&fit=crop',
+            image: bolsaImg,
+            imageDesktop: bolsaDesktopImg,
             numbers: 150
         },
         {

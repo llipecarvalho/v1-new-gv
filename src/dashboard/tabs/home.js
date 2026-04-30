@@ -3,14 +3,17 @@
  * Restaurado para ser 100% FIEL ao dashboard2.html (V2) - Versão Final
  */
 
+import bolsaImg from '../../assets/bolsa.png';
+import bolsaDesktopImg from '../../assets/bolsadesktop.png';
+
 export default {
     render: (state) => `
         <div id="tab-home" class="tab-pane animate-fade space-y-8">
             <!-- Hero Section -->
             <div class="px-6 lg:px-12 xl:px-16 pt-4 lg:pt-8">
                 <div class="relative rounded-[2.5rem] lg:rounded-[3.5rem] overflow-hidden shadow-2xl border border-white/5 h-[380px] lg:h-[380px]">
-                    <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover lg:hidden" style="object-position: center;">
-                    <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=1200&auto=format&fit=crop" class="w-full h-full object-cover hidden lg:block" style="object-position: center 80%;">
+                    <img src="${bolsaImg}" class="w-full h-full object-cover lg:hidden" style="object-position: center;">
+                    <img src="${bolsaDesktopImg}" class="w-full h-full object-cover hidden lg:block" style="object-position: center 80%;">
                     <div class="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent"></div>
                     <div class="absolute bottom-8 lg:bottom-12 left-8 lg:left-12 right-8 lg:right-12 flex items-end justify-between">
                         <div class="max-w-[180px] lg:max-w-[300px]">
