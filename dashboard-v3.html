@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     
     <!-- Estilos -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -74,13 +74,14 @@
             <!-- LOGO (Desktop) -->
             <div class="hidden lg:block text-2xl font-black tracking-tighter mb-10 pl-2">VERSIANI<span class="text-[#f085aa]">.</span></div>
 
-            <div class="flex items-center gap-4 mb-10 pl-2">
-                <div class="w-14 h-14 shrink-0 rounded-full overflow-hidden border-2 border-[#f085aa]">
-                    <img src="https://images.unsplash.com/photo-1594744803329-a584af1ea51c?q=80&w=200&auto=format&fit=crop" alt="Foto de perfil da Gabriela Versiani" class="w-full h-full object-cover">
+            <div class="flex items-center gap-3 mb-10 pl-2">
+                <div class="w-12 h-12 shrink-0 rounded-full overflow-hidden border-2 border-[#f085aa] bg-zinc-900 flex items-center justify-center">
+                    <img src="https://images.unsplash.com/photo-1594744803329-a584af1ea51c?q=80&w=200&auto=format&fit=crop" class="w-full h-full object-cover" onerror="this.style.opacity='0'">
+                    <span class="material-symbols-outlined text-zinc-700 absolute">person</span>
                 </div>
                 <div class="min-w-0 flex-1">
-                    <h3 class="text-sm font-black text-white uppercase leading-none truncate">Gabriela Versiani</h3>
-                    <p id="sidebar-user-level" class="text-[8px] font-bold text-[#f085aa] uppercase tracking-[0.2em] mt-1.5 italic truncate">ID #001 — MEMBRO BRONZE</p>
+                    <h3 class="text-xs font-black text-white uppercase leading-tight truncate">Gabriela Versiani</h3>
+                    <p id="sidebar-user-level" class="text-[7px] font-bold text-[#f085aa] uppercase tracking-[0.2em] mt-1 italic truncate opacity-80">ID #001 — MEMBRO BRONZE</p>
                 </div>
             </div>
             <nav class="space-y-1">

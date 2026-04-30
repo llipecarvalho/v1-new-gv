@@ -103,7 +103,7 @@ const DATA = {
             name: 'Bolsa Salvatore',
             status: 'ATUAL',
             category: 'clube',
-            image_url: '/src/assets/bolsa.png',
+            image_url: 'https://images.unsplash.com/photo-1584917865442-de89df76afd3?q=80&w=800&auto=format&fit=crop',
             link: '#hub'
         }
     ],
@@ -115,8 +115,8 @@ const DATA = {
             title: 'Salvatore Ferragamo',
             status: 'active',
             date: '10/06',
-            image: '/src/assets/bolsa.png',
-            imageDesktop: '/src/assets/bolsadesktop.png',
+            image: 'https://images.unsplash.com/photo-1584917865442-de89df76afd3?q=80&w=800&auto=format&fit=crop',
+            imageDesktop: 'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?q=80&w=1200&auto=format&fit=crop',
             numbers: 150
         },
         {
