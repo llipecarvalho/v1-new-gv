@@ -14,13 +14,13 @@
     <!-- Estilos -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <link rel="stylesheet" href="/src/styles/dashboard.css">
+    <link rel="stylesheet" href="./src/styles/dashboard.css">
 </head>
 <body class="overflow-x-hidden">
 
-    <!-- HEADER FIXO -->
-    <header class="fixed top-0 left-0 w-full px-6 py-2.5 flex items-center justify-between z-[1500] bg-black/80 backdrop-blur-xl border-b border-white/5">
-        <button id="menu-toggle-btn" class="w-10 h-10 rounded-full glass-card flex items-center justify-center">
+    <!-- HEADER FIXO (Apenas Mobile) -->
+    <header class="fixed top-0 left-0 w-full px-6 py-2.5 flex items-center justify-between z-[1500] bg-black/80 backdrop-blur-xl border-b border-white/5 lg:hidden">
+        <button id="menu-toggle-btn" class="w-10 h-10 rounded-full glass-card flex items-center justify-center lg:hidden">
             <span class="material-symbols-outlined text-white">menu</span>
         </button>
         <div class="text-xl font-black tracking-tighter">VERSIANI<span class="text-[#f085aa]">.</span></div>
@@ -36,15 +36,15 @@
     </header>
 
     <!-- CONTAINER DE CONTEÚDO DINÂMICO -->
-    <main id="app-content" class="pt-16 min-h-screen">
+    <main id="app-content" class="pt-16 lg:pt-0 min-h-screen lg:pl-72 transition-all duration-300">
         <!-- O conteúdo das abas será injetado aqui pelo JavaScript -->
-        <div class="flex items-center justify-center h-screen">
+        <div class="flex items-center justify-center h-[calc(100vh-64px)]">
             <div class="animate-spin material-symbols-outlined text-[#f085aa] text-4xl">sync</div>
         </div>
     </main>
 
-    <!-- NAVEGAÇÃO BASE FIXA -->
-    <nav class="fixed bottom-0 left-0 w-full h-[60px] bottom-nav px-6 flex items-center justify-between z-[2000]">
+    <!-- NAVEGAÇÃO BASE FIXA (MOBILE ONLY) -->
+    <nav class="fixed bottom-0 left-0 w-full h-[60px] bottom-nav px-6 flex items-center justify-between z-[2000] lg:hidden">
         <button data-tab="home" class="nav-item active flex flex-col items-center gap-1.5 transition-all">
             <span class="material-symbols-outlined text-[26px]">grid_view</span>
             <span class="text-[8px] font-black uppercase tracking-tighter">Início</span>
@@ -68,16 +68,19 @@
     </nav>
 
     <!-- SIDEBAR MENU FIXO (ESTRUTURA V2) -->
-    <div id="side-menu" class="fixed inset-0 z-[3000] invisible">
-        <div id="menu-backdrop" class="absolute inset-0 bg-black/80 backdrop-blur-md opacity-0 transition-opacity duration-300"></div>
-        <div id="menu-content" class="absolute left-0 top-0 h-full w-[80%] bg-[#0a0a0a] border-r border-white/5 p-8 -translate-x-full transition-transform duration-300 overflow-y-auto no-scrollbar pb-20">
-            <div class="flex items-center gap-4 mb-12">
-                <div class="w-14 h-14 rounded-full overflow-hidden border-2 border-[#f085aa]">
+    <div id="side-menu" class="fixed inset-y-0 left-0 z-[3000] lg:z-[1000] w-[80%] md:w-72 lg:w-72 invisible lg:visible transition-all duration-300">
+        <div id="menu-backdrop" class="absolute inset-0 bg-black/80 backdrop-blur-md opacity-0 transition-opacity duration-300 lg:hidden"></div>
+        <div id="menu-content" class="absolute left-0 top-0 h-full w-full bg-[#0a0a0a] border-r border-white/5 p-6 lg:p-8 -translate-x-full lg:translate-x-0 transition-transform duration-300 overflow-y-auto no-scrollbar pb-20">
+            <!-- LOGO (Desktop) -->
+            <div class="hidden lg:block text-2xl font-black tracking-tighter mb-10 pl-2">VERSIANI<span class="text-[#f085aa]">.</span></div>
+
+            <div class="flex items-center gap-4 mb-10 pl-2">
+                <div class="w-14 h-14 shrink-0 rounded-full overflow-hidden border-2 border-[#f085aa]">
                     <img src="https://images.unsplash.com/photo-1594744803329-a584af1ea51c?q=80&w=200&auto=format&fit=crop" alt="Foto de perfil da Gabriela Versiani" class="w-full h-full object-cover">
                 </div>
-                <div>
-                    <h3 class="text-sm font-black text-white uppercase leading-none">Gabriela Versiani</h3>
-                    <p class="text-[8px] font-bold text-[#f085aa] uppercase tracking-[0.2em] mt-1.5 italic">ID #001 — MEMBRO DIAMANTE</p>
+                <div class="min-w-0 flex-1">
+                    <h3 class="text-sm font-black text-white uppercase leading-none truncate">Gabriela Versiani</h3>
+                    <p id="sidebar-user-level" class="text-[8px] font-bold text-[#f085aa] uppercase tracking-[0.2em] mt-1.5 italic truncate">ID #001 — MEMBRO BRONZE</p>
                 </div>
             </div>
             <nav class="space-y-1">
@@ -141,6 +144,6 @@
     </div>
 
     <!-- Entry Point JavaScript -->
-    <script type="module" src="/src/dashboard/main.js"></script>
+    <script type="module" src="./src/dashboard/main.js"></script>
 </body>
 </html>

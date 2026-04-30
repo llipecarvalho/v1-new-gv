@@ -51,8 +51,8 @@ export default {
 
         return `
             <div id="tab-plans" class="tab-pane animate-fade px-6 space-y-6 pt-4 pb-32">
-                <div id="plans-main-view" class="space-y-6">
-                    <div class="text-center mb-6">
+                <div id="plans-main-view" class="space-y-6 lg:max-w-4xl lg:mx-auto w-full">
+                    <div class="text-center mb-6 pt-4 lg:pt-12">
                         <h2 class="text-xl font-black uppercase tracking-tighter text-white">Benefícios <span class="text-[#f085aa]">Elite</span></h2>
                         <p class="text-[9px] text-gray-400 font-bold uppercase tracking-widest mt-1">Sua jornada no clube.</p>
                     </div>
@@ -102,31 +102,33 @@ export default {
                     <h3 class="text-[13px] font-black uppercase tracking-widest mb-6 px-2 text-white/50 text-center">Planos Disponíveis:</h3>
 
                     <!-- LISTA DINÂMICA DE OUTROS PLANOS -->
-                    ${otherPlans.map(plan => `
-                        <div class="relative group overflow-hidden bg-gradient-to-br ${plan.borderClasses} rounded-[2.5rem] p-[1.5px] shadow-2xl transition-all duration-700 hover:-translate-y-2">
-                            <div class="absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-all duration-1000"></div>
-                            <div class="relative bg-gradient-to-b ${plan.colorClasses} rounded-[2.5rem] p-6 h-full overflow-hidden">
-                                <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:20px_20px]"></div>
-                                
-                                <div class="relative z-10">
-                                    <div class="flex justify-between items-center mb-5">
-                                        <div>
-                                            <h4 class="text-3xl font-black text-white tracking-tighter uppercase leading-none bg-gradient-to-b from-white to-gray-400 bg-clip-text text-transparent">${plan.name}</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        ${otherPlans.map(plan => `
+                            <div class="relative group overflow-hidden bg-gradient-to-br ${plan.borderClasses} rounded-[2.5rem] p-[1.5px] shadow-2xl transition-all duration-700 hover:-translate-y-2 flex flex-col">
+                                <div class="absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-all duration-1000"></div>
+                                <div class="relative bg-gradient-to-b ${plan.colorClasses} rounded-[2.5rem] p-6 h-full overflow-hidden flex flex-col">
+                                    <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:20px_20px]"></div>
+                                    
+                                    <div class="relative z-10 flex-1">
+                                        <div class="flex justify-between items-center mb-5">
+                                            <div>
+                                                <h4 class="text-3xl font-black text-white tracking-tighter uppercase leading-none bg-gradient-to-b from-white to-gray-400 bg-clip-text text-transparent">${plan.name}</h4>
+                                            </div>
+                                        </div>
+
+                                        <div class="space-y-3 mb-6">
+                                            <div class="flex items-center gap-4 py-2 border-b border-white/5">
+                                                <div class="w-2 h-2 rounded-full bg-[${plan.accentColor}] shadow-[0_0_10px_${plan.accentColor}] shrink-0"></div>
+                                                <p class="text-[12px] font-black text-white/90 uppercase">${plan.extras}</p>
+                                            </div>
+                                            <div class="flex items-center gap-4 py-2 border-b border-white/5">
+                                                <div class="w-2 h-2 rounded-full bg-[${plan.accentColor}] shadow-[0_0_10px_${plan.accentColor}] shrink-0"></div>
+                                                <p class="text-[12px] font-black text-white/90 uppercase">${plan.points} PONTOS</p>
+                                            </div>
                                         </div>
                                     </div>
 
-                                    <div class="space-y-3 mb-6">
-                                        <div class="flex items-center gap-4 py-2 border-b border-white/5">
-                                            <div class="w-2 h-2 rounded-full bg-[${plan.accentColor}] shadow-[0_0_10px_${plan.accentColor}]"></div>
-                                            <p class="text-[12px] font-black text-white/90 uppercase">${plan.extras}</p>
-                                        </div>
-                                        <div class="flex items-center gap-4 py-2 border-b border-white/5">
-                                            <div class="w-2 h-2 rounded-full bg-[${plan.accentColor}] shadow-[0_0_10px_${plan.accentColor}]"></div>
-                                            <p class="text-[12px] font-black text-white/90 uppercase">${plan.points} PONTOS</p>
-                                        </div>
-                                    </div>
-
-                                    <div class="flex items-center justify-between gap-4 mt-8">
+                                    <div class="relative z-10 flex flex-col gap-4 mt-auto border-t border-white/5 pt-4">
                                         <div class="flex flex-col">
                                             <span class="text-[7px] font-black text-white/30 uppercase tracking-widest mb-1">Investimento</span>
                                             <div class="flex items-baseline gap-0.5">
@@ -135,7 +137,7 @@ export default {
                                                 <span class="text-[10px] font-bold text-white/30 lowercase ml-0.5">/mês</span>
                                             </div>
                                         </div>
-                                        <button class="btn-upgrade-trigger h-12 px-6 bg-gradient-to-b ${plan.id === 'ouro' ? 'from-yellow-300 via-yellow-500 to-amber-600' : 'from-white to-gray-300'} text-black text-[11px] font-black uppercase rounded-2xl shadow-xl active:scale-95 transition-all flex items-center gap-2 group/btn" 
+                                        <button class="btn-upgrade-trigger h-12 w-full justify-center bg-gradient-to-b ${plan.id === 'ouro' ? 'from-yellow-300 via-yellow-500 to-amber-600' : 'from-white to-gray-300'} text-black text-[11px] font-black uppercase rounded-2xl shadow-xl active:scale-95 transition-all flex items-center gap-2 group/btn mt-2" 
                                                 data-plan="${plan.id}" 
                                                 data-price="${plan.price}" 
                                                 data-name="${plan.id === 'prata' ? 'Prata' : (plan.id === 'ouro' ? 'Ouro' : 'Bronze')}">
@@ -145,12 +147,12 @@ export default {
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    `).join('')}
+                        `).join('')}
+                    </div>
                 </div>
 
                 <!-- VIEW DE CHECKOUT -->
-                <div id="plans-upgrade-view" class="hidden animate-fade-up">
+                <div id="plans-upgrade-view" class="hidden animate-fade-up lg:max-w-xl lg:mx-auto w-full">
                     <!-- Conteúdo dinâmico via JS -->
                 </div>
             </div>
@@ -365,7 +367,10 @@ export default {
                     </div>
                 `;
                 document.getElementById('btn-finish-upgrade')?.addEventListener('click', () => {
-                    import('../main.js').then(m => m.switchTab('plans'));
+                    import('../main.js').then(m => {
+                        m.updatePointsUI();
+                        m.switchTab('plans');
+                    });
                 });
             };
 

@@ -9,24 +9,18 @@ export default {
         return `
         <div id="tab-store" class="tab-pane animate-fade space-y-6 px-6 pb-48">
             <!-- Header -->
-            <div class="flex items-center justify-between mb-6 pt-4">
-                <div>
-                    <h2 class="text-xl font-black uppercase tracking-tighter text-white">Mimos do <span class="text-gradient-versiani">Clube</span></h2>
-                    <p class="text-[9px] text-gray-400 font-bold uppercase tracking-widest mt-1">Troque seus pontos por benefícios.</p>
-                </div>
-                <div class="flex items-center gap-1.5 bg-[#f085aa]/10 px-3 py-1.5 rounded-full border border-[#f085aa]/20 shadow-[0_0_15px_rgba(240,133,170,0.1)]">
-                    <span class="material-symbols-outlined text-[#f085aa] text-sm leading-none">stars</span>
-                    <span class="text-[10px] font-black text-white leading-none">${state.user.points.toLocaleString('pt-BR')} PTS</span>
-                </div>
+            <div class="text-center mb-6 pt-4 lg:pt-12">
+                <h2 class="text-xl font-black uppercase tracking-tighter text-white">Mimos do <span class="text-[#f085aa]">Clube</span></h2>
+                <p class="text-[9px] text-gray-400 font-bold uppercase tracking-widest mt-1">Troque seus pontos por benefícios.</p>
             </div>
 
-            <div class="bg-[#1a1a1a] p-1 rounded-2xl flex items-center mb-6 relative border border-white/5">
-                <button id="btn-store-shop" class="flex-1 py-3 rounded-xl bg-[#f085aa] text-black text-[10px] font-black uppercase transition-all z-10">Mimos</button>
-                <button id="btn-store-history" class="flex-1 py-3 rounded-xl text-gray-500 text-[10px] font-black uppercase transition-all z-10">Resgates</button>
+            <div class="bg-[#1a1a1a] p-1 rounded-2xl flex items-center mb-6 relative border border-white/5 lg:max-w-sm lg:mx-auto">
+                <button id="btn-store-shop" class="flex-1 flex items-center justify-center text-center py-2 rounded-xl bg-[#f085aa] text-black text-[10px] font-black uppercase transition-all z-10">Mimos</button>
+                <button id="btn-store-history" class="flex-1 flex items-center justify-center text-center py-2 rounded-xl text-gray-500 text-[10px] font-black uppercase transition-all z-10">Resgates</button>
             </div>
 
             <!-- VIEW: LOJA -->
-            <div id="store-shop-view" class="space-y-6">
+            <div id="store-shop-view" class="space-y-6 lg:max-w-6xl lg:mx-auto w-full">
                 <!-- Filtros por Categoria -->
                 <div class="flex items-center gap-3 mb-6 overflow-x-auto pb-2 scrollbar-hide">
                     <button id="btn-cat-skin" class="px-5 py-2 rounded-full bg-[#f085aa] text-black text-[10px] font-black uppercase whitespace-nowrap transition-all">Skin</button>
@@ -34,7 +28,7 @@ export default {
                 </div>
 
                 <!-- GRID DE CUPONS -->
-                <div id="coupons-grid" class="grid grid-cols-1 gap-6">
+                <div id="coupons-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     ${coupons.map(item => `
                         <div class="store-item" data-category="${item.category}">
                             <div class="bg-white border border-black/5 rounded-[3rem] p-4 flex flex-col h-full transition-all hover:scale-[1.02] active:scale-95 group store-card overflow-hidden shadow-xl">
@@ -64,8 +58,8 @@ export default {
 
 
             <!-- VIEW: HISTÓRICO DE RESGATES -->
-            <div id="store-history-view" class="hidden space-y-4">
-                <div id="redemption-list" class="space-y-4">
+            <div id="store-history-view" class="hidden lg:max-w-6xl lg:mx-auto w-full">
+                <div id="redemption-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     <!-- Dinâmico via JS -->
                 </div>
             </div>
@@ -90,15 +84,15 @@ function setupStoreLogic(state) {
 
     // TAB SWITCH PRINCIPAL
     btnShop?.addEventListener('click', () => {
-        btnShop.className = "flex-1 py-3 rounded-xl bg-[#f085aa] text-black text-[10px] font-black uppercase transition-all z-10";
-        btnHistory.className = "flex-1 py-3 rounded-xl text-gray-500 text-[10px] font-black uppercase transition-all z-10";
+        btnShop.className = "flex-1 flex items-center justify-center text-center py-2 rounded-xl bg-[#f085aa] text-black text-[10px] font-black uppercase transition-all z-10";
+        btnHistory.className = "flex-1 flex items-center justify-center text-center py-2 rounded-xl text-gray-500 text-[10px] font-black uppercase transition-all z-10";
         viewShop.classList.remove('hidden');
         viewHistory.classList.add('hidden');
     });
 
     btnHistory?.addEventListener('click', () => {
-        btnHistory.className = "flex-1 py-3 rounded-xl bg-[#f085aa] text-black text-[10px] font-black uppercase transition-all z-10";
-        btnShop.className = "flex-1 py-3 rounded-xl text-gray-500 text-[10px] font-black uppercase transition-all z-10";
+        btnHistory.className = "flex-1 flex items-center justify-center text-center py-2 rounded-xl bg-[#f085aa] text-black text-[10px] font-black uppercase transition-all z-10";
+        btnShop.className = "flex-1 flex items-center justify-center text-center py-2 rounded-xl text-gray-500 text-[10px] font-black uppercase transition-all z-10";
         viewHistory.classList.remove('hidden');
         viewShop.classList.add('hidden');
         renderHistory();
@@ -149,19 +143,27 @@ function setupStoreLogic(state) {
         }
 
         container.innerHTML = history.reverse().map(item => `
-            <div class="bg-[#121212] rounded-3xl p-6 border border-white/5 flex items-center justify-between">
-                <div>
-                    <div class="flex items-center gap-2 mb-1">
-                        <span class="px-2 py-0.5 rounded-full bg-white/5 text-[7px] font-black text-[#f085aa] uppercase tracking-widest border border-[#f085aa]/20">${item.category || 'Skin'}</span>
-                        <h4 class="text-sm font-black text-white uppercase tracking-tight">${item.name}</h4>
-                    </div>
-                    <p class="text-[9px] font-bold text-[#f085aa] uppercase tracking-widest">${item.code}</p>
-                    <p class="text-[8px] font-bold text-gray-600 uppercase tracking-widest mt-2">${item.date}</p>
+            <div class="bg-[#121212] rounded-[2rem] p-6 border border-white/5 flex flex-col h-full relative group hover:border-[#f085aa]/30 transition-colors shadow-xl">
+                <div class="absolute top-5 right-5">
+                    <span class="px-2 py-1 rounded-full bg-[#f085aa]/10 text-[7px] font-black text-[#f085aa] uppercase tracking-widest border border-[#f085aa]/20">${item.category || 'Skin'}</span>
                 </div>
-                <button onclick="window.open('https://6be6du-45.myshopify.com/discount/${item.code}?redirect=/collections/colecao_cupom_${item.cost}', '_blank')" 
-                    class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white hover:bg-[#f085aa] transition-colors border border-white/10">
-                    <span class="material-symbols-outlined text-base">open_in_new</span>
-                </button>
+                
+                <div class="mb-4 flex-1 pr-16">
+                    <h4 class="text-sm font-black text-white uppercase tracking-tight mb-3 line-clamp-2">${item.name}</h4>
+                    <span class="text-[8px] font-black text-gray-500 uppercase tracking-widest mb-1 block">Código do Cupom</span>
+                    <p class="text-[10px] font-bold text-[#f085aa] uppercase tracking-widest bg-[#f085aa]/10 px-2 py-1.5 rounded inline-block border border-[#f085aa]/20">${item.code}</p>
+                </div>
+                
+                <div class="flex items-end justify-between mt-auto pt-4 border-t border-white/5">
+                    <div>
+                        <span class="text-[8px] font-black text-gray-500 uppercase tracking-widest block mb-0.5">Resgatado em</span>
+                        <p class="text-[9px] font-bold text-white uppercase tracking-tight">${item.date}</p>
+                    </div>
+                    <button onclick="window.open('https://6be6du-45.myshopify.com/discount/${item.code}?redirect=/collections/colecao_cupom_${item.cost}', '_blank')" 
+                        class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white hover:bg-[#f085aa] hover:text-black transition-all border border-white/10 shrink-0">
+                        <span class="material-symbols-outlined text-sm">open_in_new</span>
+                    </button>
+                </div>
             </div>
         `).join('');
     }

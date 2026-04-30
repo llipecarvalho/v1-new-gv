@@ -135,6 +135,12 @@ export function updatePointsUI() {
     document.querySelectorAll('.points-display').forEach(el => {
         el.textContent = `${points} pts`;
     });
+    
+    // Atualiza o nível na sidebar (exclusiva do desktop)
+    const sidebarLevel = document.getElementById('sidebar-user-level');
+    if (sidebarLevel) {
+        sidebarLevel.textContent = `ID ${state.user.id || '#001'} — MEMBRO ${state.user.level.toUpperCase()}`;
+    }
 }
 
 /**
@@ -198,7 +204,9 @@ function setupEventListeners() {
         btn.addEventListener('click', () => {
             const tabId = btn.getAttribute('data-tab');
             switchTab(tabId);
-            toggleMenu(); // Fecha o menu após clicar
+            if (window.innerWidth < 1024) {
+                toggleMenu(); // Fecha o menu após clicar apenas no mobile
+            }
         });
     });
 

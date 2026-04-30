@@ -116,6 +116,7 @@ const DATA = {
             status: 'active',
             date: '10/06',
             image: '/src/assets/bolsa.png',
+            imageDesktop: '/src/assets/bolsadesktop.png',
             numbers: 150
         },
         {
@@ -141,6 +142,30 @@ const DATA = {
             date: '30/04',
             image: 'https://images.unsplash.com/photo-1616348436168-de43ad0db179?q=80&w=400&auto=format',
             numbers: 24
+        },
+        {
+            id: 'active-macbook',
+            title: 'MacBook Pro M3 Max',
+            status: 'finished',
+            date: '15/04',
+            image: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?q=80&w=400&auto=format',
+            numbers: 15
+        },
+        {
+            id: 'active-rolex',
+            title: 'Rolex Submariner',
+            status: 'finished',
+            date: '30/03',
+            image: 'https://images.unsplash.com/photo-1523170335258-f5ed11844a49?q=80&w=400&auto=format',
+            numbers: 10
+        },
+        {
+            id: 'active-porsche',
+            title: 'Porsche Macan',
+            status: 'finished',
+            date: '15/03',
+            image: 'https://images.unsplash.com/photo-1503376713203-d6c29c8e8334?q=80&w=400&auto=format',
+            numbers: 5
         }
     ],
 

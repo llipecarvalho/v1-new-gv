@@ -5,18 +5,18 @@
 
 export default {
     render: (state) => `
-        <div id="tab-network" class="tab-pane animate-fade px-6 pt-4 pb-48">
+        <div id="tab-network" class="tab-pane animate-fade px-6 pt-4 lg:pt-12 pb-48">
             <!-- HEADER DA ABA -->
-            <div class="flex items-center justify-between mb-8">
-                <button id="btn-network-back" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white border border-white/10 active:scale-90 transition-all">
-                    <span class="material-symbols-outlined text-sm">arrow_back_ios</span>
+            <div class="flex items-center justify-between mb-8 relative w-full">
+                <button id="btn-network-back" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white border border-white/10 active:scale-90 transition-all relative z-10">
+                    <span class="material-symbols-outlined text-sm ml-1">arrow_back_ios</span>
                 </button>
-                <h2 class="text-lg font-black text-white uppercase tracking-tighter">Área <span class="text-gradient-versiani">Afiliada</span></h2>
+                <h2 class="text-lg font-black text-white uppercase tracking-tighter absolute left-1/2 -translate-x-1/2 w-full text-center pointer-events-none">Área <span class="text-gradient-versiani">Afiliada</span></h2>
                 <div class="w-10 h-10"></div>
             </div>
 
             <!-- CONTÊINER REDE ELITE -->
-            <div id="affiliate-onboarding" class="space-y-4">
+            <div id="affiliate-onboarding" class="space-y-4 lg:max-w-2xl lg:mx-auto w-full">
                 <div class="text-center mb-2">
                     <p class="text-[10px] text-gray-400 font-bold uppercase tracking-widest leading-relaxed px-4">Faça parte do time Versiani e ganhe comissões exclusivas.</p>
                 </div>
@@ -34,8 +34,8 @@ export default {
                     <div class="space-y-2">
                         <p class="text-xs font-black text-white uppercase tracking-widest">Você é?</p>
                         <div class="flex p-1 bg-white/5 rounded-xl border border-white/10">
-                            <button id="btn-type-pf" class="flex-1 py-3 rounded-lg text-[10px] font-black uppercase transition-all bg-gradient-to-r from-[#f085aa] to-[#320075] text-white shadow-lg">Pessoa Física</button>
-                            <button id="btn-type-empresa" class="flex-1 py-3 rounded-lg text-[10px] font-black uppercase transition-all bg-white/5 text-gray-500">Empresa</button>
+                            <button id="btn-type-pf" class="flex-1 flex items-center justify-center text-center py-2 rounded-lg text-[10px] font-black uppercase transition-all bg-gradient-to-r from-[#f085aa] to-[#320075] text-white shadow-lg">Pessoa Física</button>
+                            <button id="btn-type-empresa" class="flex-1 flex items-center justify-center text-center py-2 rounded-lg text-[10px] font-black uppercase transition-all bg-white/5 text-gray-500">Empresa</button>
                         </div>
                     </div>
 
@@ -196,8 +196,8 @@ export default {
             </div>
 
             <!-- PAINEL REDE ELITE (PÓS-CADASTRO) -->
-            <div id="affiliate-dashboard" class="hidden space-y-8 animate-fade">
-                <div class="text-center">
+            <div id="affiliate-dashboard" class="hidden space-y-8 animate-fade lg:max-w-2xl lg:mx-auto w-full">
+                <div class="text-center mb-6 pt-4 lg:pt-12">
                     <h2 class="text-xl font-black text-white uppercase tracking-tighter">Painel <span class="text-gradient-versiani">Rede Elite</span></h2>
                 </div>
 
@@ -292,15 +292,15 @@ function setupOnboarding(state) {
 
     btnPF?.addEventListener('click', () => {
         userType = 'pf';
-        btnPF.className = "flex-1 py-3 rounded-lg text-[10px] font-black uppercase transition-all bg-gradient-to-r from-[#f085aa] to-[#320075] text-white shadow-lg";
-        btnEmpresa.className = "flex-1 py-3 rounded-lg text-[10px] font-black uppercase transition-all bg-white/5 text-gray-500";
+        btnPF.className = "flex-1 flex items-center justify-center text-center py-2 rounded-lg text-[10px] font-black uppercase transition-all bg-gradient-to-r from-[#f085aa] to-[#320075] text-white shadow-lg";
+        btnEmpresa.className = "flex-1 flex items-center justify-center text-center py-2 rounded-lg text-[10px] font-black uppercase transition-all bg-white/5 text-gray-500";
         groupEmpresa.classList.add('hidden');
     });
 
     btnEmpresa?.addEventListener('click', () => {
         userType = 'empresa';
-        btnEmpresa.className = "flex-1 py-3 rounded-lg text-[10px] font-black uppercase transition-all bg-gradient-to-r from-[#f085aa] to-[#320075] text-white shadow-lg";
-        btnPF.className = "flex-1 py-3 rounded-lg text-[10px] font-black uppercase transition-all bg-white/5 text-gray-500";
+        btnEmpresa.className = "flex-1 flex items-center justify-center text-center py-2 rounded-lg text-[10px] font-black uppercase transition-all bg-gradient-to-r from-[#f085aa] to-[#320075] text-white shadow-lg";
+        btnPF.className = "flex-1 flex items-center justify-center text-center py-2 rounded-lg text-[10px] font-black uppercase transition-all bg-white/5 text-gray-500";
         groupEmpresa.classList.remove('hidden');
     });
 
