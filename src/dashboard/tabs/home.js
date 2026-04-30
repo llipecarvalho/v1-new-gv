@@ -9,7 +9,7 @@ export default {
             <!-- Hero Section -->
             <div class="px-6 pt-4">
                 <div class="relative rounded-[2.5rem] overflow-hidden shadow-2xl border border-white/5 h-[380px]">
-                    <img src="https://images.unsplash.com/photo-1591561954557-26941169b49e?q=80&w=1920&auto=format" class="w-full h-full object-cover" style="object-position: 50% -110px;">
+                    <img src="/src/assets/bolsa.png" class="w-full h-full object-cover" style="object-position: center;">
                     <div class="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent"></div>
                     <div class="absolute bottom-8 left-8 right-8 flex items-end justify-between">
                         <div class="max-w-[180px]">
@@ -109,14 +109,6 @@ export default {
 
                 <!-- FOOTER BANNERS -->
                 <div class="px-6 space-y-4 mt-12 pb-10">
-                    <div id="btn-home-banner-turbinar" class="bg-[#320075] rounded-3xl p-6 flex justify-between items-center text-white cursor-pointer shadow-lg overflow-hidden relative">
-                        <div class="absolute -right-4 -top-4 w-24 h-24 bg-white/10 rounded-full blur-2xl"></div>
-                        <div class="relative z-10">
-                            <h3 class="text-xs font-black uppercase tracking-widest leading-tight">Quer turbinar seus benefícios?<br>Compre pacotes extras.</h3>
-                        </div>
-                        <span class="material-symbols-outlined text-white text-3xl opacity-40">stars</span>
-                    </div>
-
                     <div class="bg-gray-50 rounded-3xl p-5 flex items-center justify-between text-gray-400 border border-gray-100 shadow-sm">
                         <span class="text-[9px] font-bold uppercase tracking-[0.1em]">Dúvidas frequentes do Clube</span>
                         <span class="material-symbols-outlined">chevron_right</span>
@@ -136,9 +128,6 @@ export default {
         });
         document.getElementById('btn-home-ver-mais-mimos-card')?.addEventListener('click', () => {
             import('../main.js').then(m => m.switchTab('rewards'));
-        });
-        document.getElementById('btn-home-banner-turbinar')?.addEventListener('click', () => {
-            import('../main.js').then(m => m.switchTab('store'));
         });
         document.getElementById('btn-home-go-to-wallet')?.addEventListener('click', () => {
             import('../main.js').then(m => m.switchTab('store'));

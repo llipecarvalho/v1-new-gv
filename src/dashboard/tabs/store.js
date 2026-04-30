@@ -20,10 +20,8 @@ export default {
                 </div>
             </div>
 
-            <!-- Alternador Principal: Loja vs Pacotes vs Resgates -->
             <div class="bg-[#1a1a1a] p-1 rounded-2xl flex items-center mb-6 relative border border-white/5">
                 <button id="btn-store-shop" class="flex-1 py-3 rounded-xl bg-[#f085aa] text-black text-[10px] font-black uppercase transition-all z-10">Mimos</button>
-                <button id="btn-store-packages" class="flex-1 py-3 rounded-xl text-gray-500 text-[10px] font-black uppercase transition-all z-10">Pacotes</button>
                 <button id="btn-store-history" class="flex-1 py-3 rounded-xl text-gray-500 text-[10px] font-black uppercase transition-all z-10">Resgates</button>
             </div>
 
@@ -63,35 +61,7 @@ export default {
                 </div>
             </div>
 
-            <!-- VIEW: PACOTES (SORTEIOS) -->
-            <div id="store-packages-view" class="hidden space-y-6">
-                <div class="bg-[#121212] rounded-[2.5rem] p-8 border border-white/5 relative overflow-hidden">
-                    <div class="relative z-10">
-                        <h3 class="text-xl font-black text-white uppercase tracking-tighter leading-none mb-2">Turbine suas<br>Chances</h3>
-                        <p class="text-[9px] text-gray-400 font-bold uppercase tracking-widest">Aumente suas chances de ganhar o prêmio do mês.</p>
-                        
-                        <button id="btn-store-go-to-purchase" class="mt-8 px-8 py-4 bg-[#f085aa] text-white text-[10px] font-black uppercase rounded-full shadow-[0_10px_20px_rgba(240,133,170,0.3)] active:scale-95 transition-all">
-                            Ver Pacotes Disponíveis
-                        </button>
-                    </div>
-                    <!-- Ilustração sutil de fundo -->
-                    <span class="material-symbols-outlined absolute -right-4 -bottom-4 text-white/5 text-[150px] rotate-12">confirmation_number</span>
-                </div>
 
-                <!-- Lista rápida de benefícios de recarga -->
-                <div class="grid grid-cols-2 gap-4">
-                    <div class="bg-white/5 rounded-3xl p-5 border border-white/5">
-                        <span class="material-symbols-outlined text-[#f085aa] mb-3">bolt</span>
-                        <h4 class="text-[10px] font-black text-white uppercase">Créditos na hora</h4>
-                        <p class="text-[8px] text-gray-500 font-bold uppercase mt-1">Via Pix</p>
-                    </div>
-                    <div class="bg-white/5 rounded-3xl p-5 border border-white/5 hidden">
-                        <span class="material-symbols-outlined text-[#f085aa] mb-3">account_balance_wallet</span>
-                        <h4 class="text-[10px] font-black text-white uppercase">Saldo Protegido</h4>
-                        <p class="text-[8px] text-gray-500 font-bold uppercase mt-1">Carteira Elite</p>
-                    </div>
-                </div>
-            </div>
 
             <!-- VIEW: HISTÓRICO DE RESGATES -->
             <div id="store-history-view" class="hidden space-y-4">
@@ -110,10 +80,8 @@ export default {
 
 function setupStoreLogic(state) {
     const btnShop = document.getElementById('btn-store-shop');
-    const btnPackages = document.getElementById('btn-store-packages');
     const btnHistory = document.getElementById('btn-store-history');
     const viewShop = document.getElementById('store-shop-view');
-    const viewPackages = document.getElementById('store-packages-view');
     const viewHistory = document.getElementById('store-history-view');
 
     const btnSkin = document.getElementById('btn-cat-skin');
@@ -123,36 +91,20 @@ function setupStoreLogic(state) {
     // TAB SWITCH PRINCIPAL
     btnShop?.addEventListener('click', () => {
         btnShop.className = "flex-1 py-3 rounded-xl bg-[#f085aa] text-black text-[10px] font-black uppercase transition-all z-10";
-        btnPackages.className = "flex-1 py-3 rounded-xl text-gray-500 text-[10px] font-black uppercase transition-all z-10";
         btnHistory.className = "flex-1 py-3 rounded-xl text-gray-500 text-[10px] font-black uppercase transition-all z-10";
         viewShop.classList.remove('hidden');
-        viewPackages.classList.add('hidden');
-        viewHistory.classList.add('hidden');
-    });
-
-    btnPackages?.addEventListener('click', () => {
-        btnPackages.className = "flex-1 py-3 rounded-xl bg-[#f085aa] text-black text-[10px] font-black uppercase transition-all z-10";
-        btnShop.className = "flex-1 py-3 rounded-xl text-gray-500 text-[10px] font-black uppercase transition-all z-10";
-        btnHistory.className = "flex-1 py-3 rounded-xl text-gray-500 text-[10px] font-black uppercase transition-all z-10";
-        viewPackages.classList.remove('hidden');
-        viewShop.classList.add('hidden');
         viewHistory.classList.add('hidden');
     });
 
     btnHistory?.addEventListener('click', () => {
         btnHistory.className = "flex-1 py-3 rounded-xl bg-[#f085aa] text-black text-[10px] font-black uppercase transition-all z-10";
         btnShop.className = "flex-1 py-3 rounded-xl text-gray-500 text-[10px] font-black uppercase transition-all z-10";
-        btnPackages.className = "flex-1 py-3 rounded-xl text-gray-500 text-[10px] font-black uppercase transition-all z-10";
         viewHistory.classList.remove('hidden');
         viewShop.classList.add('hidden');
-        viewPackages.classList.add('hidden');
         renderHistory();
     });
 
-    // Redirecionamento para Compra Direta
-    document.getElementById('btn-store-go-to-purchase')?.addEventListener('click', () => {
-        import('../main.js').then(m => m.switchTab('raffle-purchase'));
-    });
+
 
     // FILTRO DE CATEGORIAS
     function filter(cat) {
