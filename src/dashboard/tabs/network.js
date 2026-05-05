@@ -199,29 +199,23 @@ export default {
             <div id="affiliate-dashboard" class="hidden space-y-3 lg:space-y-4 animate-fade lg:max-w-3xl lg:mx-auto w-full pt-1 lg:pt-6">
                 
                 <!-- Cards de Resumo -->
-                <div class="grid grid-cols-2 lg:grid-cols-4 gap-2 lg:gap-3">
-                    <div class="bg-[#111] p-3 lg:p-4 rounded-2xl lg:rounded-3xl border border-white/5 space-y-0.5 lg:space-y-1">
-                        <p class="text-[7px] lg:text-[9px] font-black text-gray-500 uppercase tracking-widest">Saldo</p>
-                        <h3 class="text-lg lg:text-xl font-black text-white">R$ <span class="text-gradient-versiani">0,00</span></h3>
+                <div class="grid grid-cols-2 gap-2 lg:gap-4 lg:max-w-2xl lg:mx-auto">
+                    <div class="bg-[#111] p-3 lg:p-5 rounded-2xl lg:rounded-3xl border border-white/5 space-y-0.5 lg:space-y-1">
+                        <p class="text-[7px] lg:text-[9px] font-black text-gray-500 uppercase tracking-widest text-center lg:text-left">Saldo</p>
+                        <h3 class="text-lg lg:text-2xl font-black text-white text-center lg:text-left">R$ 10.000,00</h3>
                     </div>
-                    <div class="bg-[#111] p-3 lg:p-4 rounded-2xl lg:rounded-3xl border border-white/5 space-y-0.5 lg:space-y-1">
-                        <p class="text-[7px] lg:text-[9px] font-black text-gray-500 uppercase tracking-widest">A Receber</p>
-                        <h3 class="text-lg lg:text-xl font-black text-white">R$ 0,00</h3>
-                    </div>
-                    <div class="bg-[#111] p-3 lg:p-4 rounded-2xl lg:rounded-3xl border border-white/5 space-y-0.5 lg:space-y-1">
-                        <p class="text-[7px] lg:text-[9px] font-black text-gray-500 uppercase tracking-widest">Indicações</p>
-                        <h3 class="text-lg lg:text-xl font-black text-white">0</h3>
-                    </div>
-                    <div class="bg-[#111] p-3 lg:p-4 rounded-2xl lg:rounded-3xl border border-white/5 space-y-0.5 lg:space-y-1">
-                        <p class="text-[7px] lg:text-[9px] font-black text-gray-500 uppercase tracking-widest">Conversão</p>
-                        <h3 class="text-lg lg:text-xl font-black text-white">0%</h3>
+                    <div class="bg-[#111] p-3 lg:p-5 rounded-2xl lg:rounded-3xl border border-white/5 space-y-0.5 lg:space-y-1">
+                        <p class="text-[7px] lg:text-[9px] font-black text-gray-500 uppercase tracking-widest text-center lg:text-left">A Receber</p>
+                        <h3 class="text-lg lg:text-2xl font-black text-white text-center lg:text-left">R$ 2.540,00</h3>
                     </div>
                 </div>
 
                 <!-- Botão de Saque -->
-                <button id="btn-open-withdraw" class="w-full h-12 lg:h-14 bg-gradient-to-r from-[#f085aa] to-[#320075] rounded-xl lg:rounded-2xl flex items-center justify-center text-white font-black uppercase text-[10px] lg:text-xs tracking-[0.2em] shadow-lg active:scale-95 transition-all">
-                    Solicitar Saque
-                </button>
+                <div class="flex justify-center w-full">
+                    <button id="btn-open-withdraw" class="w-full max-w-xs h-12 lg:h-14 bg-gradient-to-r from-[#f085aa] to-[#320075] rounded-xl lg:rounded-2xl flex items-center justify-center text-white font-black uppercase text-[10px] lg:text-xs tracking-[0.2em] shadow-lg active:scale-95 transition-all">
+                        Solicitar Saque
+                    </button>
+                </div>
 
                 <!-- Link de Afiliada -->
                 <div class="bg-[#111] p-3 lg:p-5 rounded-[1.5rem] lg:rounded-[2rem] border border-white/5 space-y-3 lg:space-y-4">
@@ -262,13 +256,12 @@ export default {
                 </div>
             </div>
         </div>
-        </div>
 
         <!-- TELA DE SAQUE & MOVIMENTAÇÕES (FULL PAGE) -->
         <div id="modal-withdraw" class="fixed inset-0 z-[5000] hidden bg-[#050505] flex-col overflow-hidden animate-fade">
             
             <!-- HEADER DA PÁGINA DE SAQUE -->
-            <header class="w-full px-6 py-6 flex items-center justify-between border-b border-white/5 bg-black/50 backdrop-blur-xl sticky top-0 z-30">
+            <header class="w-full px-6 py-4 lg:py-6 flex items-center justify-between border-b border-white/5 bg-black/80 backdrop-blur-xl sticky top-0 z-30">
                 <button id="btn-close-withdraw" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white border border-white/10 active:scale-90 transition-all">
                     <span class="material-symbols-outlined text-sm ml-1">arrow_back_ios</span>
                 </button>
@@ -278,7 +271,7 @@ export default {
 
             <!-- CONTEÚDO DA PÁGINA -->
             <div class="flex-1 overflow-y-auto no-scrollbar">
-                <div class="max-w-2xl mx-auto w-full p-4 lg:p-8 space-y-6">
+                <div class="max-w-3xl mx-auto w-full p-4 lg:p-8 space-y-6 pt-8">
                     
                     <!-- Seção de Dados e Saque -->
                     <div class="flex flex-col gap-6">
@@ -312,7 +305,7 @@ export default {
                             <div class="relative z-10 space-y-6">
                                 <div class="text-center">
                                     <p class="text-[8px] font-black text-gray-400 uppercase tracking-[0.2em] mb-1">Disponível para Saque</p>
-                                    <h4 class="text-2xl font-black text-white tracking-tighter">R$ <span class="text-gradient-versiani">10.000,00</span></h4>
+                                    <h4 class="text-2xl font-black text-white tracking-tighter">R$ 10.000,00</h4>
                                 </div>
                                 
                                 <div class="space-y-3">
@@ -320,10 +313,11 @@ export default {
                                         <label class="absolute -top-1.5 left-4 px-1.5 bg-[#121212] text-[7px] font-black text-[#f085aa] uppercase tracking-widest z-10">Valor do Saque</label>
                                         <input type="number" placeholder="0,00" class="w-full h-12 bg-transparent border-2 border-white/10 rounded-xl px-4 text-white font-black text-lg outline-none focus:border-[#f085aa] transition-all" min="10">
                                     </div>
-                                    <button class="w-full h-12 bg-gradient-to-r from-[#f085aa] to-[#320075] text-white font-black uppercase text-[10px] tracking-[0.2em] rounded-xl shadow-lg active:scale-95 transition-all">
+                                    <div class="flex justify-center w-full">
+                                    <button class="w-full max-w-xs h-12 bg-gradient-to-r from-[#f085aa] to-[#320075] text-white font-black uppercase text-[10px] tracking-[0.2em] rounded-xl shadow-lg active:scale-95 transition-all">
                                         Confirmar Saque
                                     </button>
-                                    <p class="text-[8px] text-center text-gray-500 font-bold uppercase tracking-widest opacity-60">Recebimento em até 24h úteis</p>
+                                </div>
                                 </div>
                             </div>
                         </div>
