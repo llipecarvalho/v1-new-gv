@@ -195,71 +195,73 @@ export default {
                 </div>
             </div>
 
-            <div id="affiliate-dashboard" class="hidden space-y-3 animate-fade lg:max-w-2xl lg:mx-auto w-full pt-1">
+            <!-- PAINEL DO AFILIADO (DASHBOARD) -->
+            <div id="affiliate-dashboard" class="hidden space-y-3 lg:space-y-4 animate-fade lg:max-w-3xl lg:mx-auto w-full pt-1 lg:pt-6">
                 
-                <!-- Cards de Resumo Ultra-Compactos -->
-                <div class="grid grid-cols-2 lg:grid-cols-4 gap-2">
-                    <div class="bg-[#111] p-3 rounded-2xl border border-white/5 space-y-0.5">
-                        <p class="text-[7px] font-black text-gray-500 uppercase tracking-widest">Saldo</p>
-                        <h3 class="text-lg font-black text-white">R$ <span class="text-gradient-versiani">0,00</span></h3>
+                <!-- Cards de Resumo -->
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-2 lg:gap-3">
+                    <div class="bg-[#111] p-3 lg:p-4 rounded-2xl lg:rounded-3xl border border-white/5 space-y-0.5 lg:space-y-1">
+                        <p class="text-[7px] lg:text-[9px] font-black text-gray-500 uppercase tracking-widest">Saldo</p>
+                        <h3 class="text-lg lg:text-xl font-black text-white">R$ <span class="text-gradient-versiani">0,00</span></h3>
                     </div>
-                    <div class="bg-[#111] p-3 rounded-2xl border border-white/5 space-y-0.5">
-                        <p class="text-[7px] font-black text-gray-500 uppercase tracking-widest">A Receber</p>
-                        <h3 class="text-lg font-black text-white">R$ 0,00</h3>
+                    <div class="bg-[#111] p-3 lg:p-4 rounded-2xl lg:rounded-3xl border border-white/5 space-y-0.5 lg:space-y-1">
+                        <p class="text-[7px] lg:text-[9px] font-black text-gray-500 uppercase tracking-widest">A Receber</p>
+                        <h3 class="text-lg lg:text-xl font-black text-white">R$ 0,00</h3>
                     </div>
-                    <div class="bg-[#111] p-3 rounded-2xl border border-white/5 space-y-0.5">
-                        <p class="text-[7px] font-black text-gray-500 uppercase tracking-widest">Indicações</p>
-                        <h3 class="text-lg font-black text-white">0</h3>
+                    <div class="bg-[#111] p-3 lg:p-4 rounded-2xl lg:rounded-3xl border border-white/5 space-y-0.5 lg:space-y-1">
+                        <p class="text-[7px] lg:text-[9px] font-black text-gray-500 uppercase tracking-widest">Indicações</p>
+                        <h3 class="text-lg lg:text-xl font-black text-white">0</h3>
                     </div>
-                    <div class="bg-[#111] p-3 rounded-2xl border border-white/5 space-y-0.5">
-                        <p class="text-[7px] font-black text-gray-500 uppercase tracking-widest">Conversão</p>
-                        <h3 class="text-lg font-black text-white">0%</h3>
+                    <div class="bg-[#111] p-3 lg:p-4 rounded-2xl lg:rounded-3xl border border-white/5 space-y-0.5 lg:space-y-1">
+                        <p class="text-[7px] lg:text-[9px] font-black text-gray-500 uppercase tracking-widest">Conversão</p>
+                        <h3 class="text-lg lg:text-xl font-black text-white">0%</h3>
                     </div>
                 </div>
 
-                <!-- Botão de Saque Slim -->
-                <button id="btn-open-withdraw" class="w-full h-12 bg-gradient-to-r from-[#f085aa] to-[#320075] rounded-xl flex items-center justify-center text-white font-black uppercase text-[10px] tracking-[0.2em] shadow-lg active:scale-95 transition-all">
+                <!-- Botão de Saque -->
+                <button id="btn-open-withdraw" class="w-full h-12 lg:h-14 bg-gradient-to-r from-[#f085aa] to-[#320075] rounded-xl lg:rounded-2xl flex items-center justify-center text-white font-black uppercase text-[10px] lg:text-xs tracking-[0.2em] shadow-lg active:scale-95 transition-all">
                     Solicitar Saque
                 </button>
 
-                <!-- Link de Afiliada Slim -->
-                <div class="bg-[#111] p-3 rounded-[1.5rem] border border-white/5 space-y-3">
+                <!-- Link de Afiliada -->
+                <div class="bg-[#111] p-3 lg:p-5 rounded-[1.5rem] lg:rounded-[2rem] border border-white/5 space-y-3 lg:space-y-4">
                     <div class="flex items-center justify-between px-1">
-                        <h4 class="text-[8px] font-black text-gray-400 uppercase tracking-[0.2em]">Seu Link de Afiliada</h4>
-                        <span class="text-[7px] font-bold text-[#f085aa] uppercase tracking-widest bg-[#f085aa]/10 px-2 py-0.5 rounded-full">Ativo</span>
+                        <h4 class="text-[8px] lg:text-[10px] font-black text-gray-400 uppercase tracking-[0.2em]">Seu Link de Afiliada</h4>
+                        <span class="text-[7px] lg:text-[9px] font-bold text-[#f085aa] uppercase tracking-widest bg-[#f085aa]/10 px-2 lg:px-3 py-0.5 rounded-full">Ativo</span>
                     </div>
                     
                     <div class="relative group">
-                        <div class="relative bg-black/50 rounded-lg p-2 flex items-center justify-between border border-white/5">
-                            <span class="text-[9px] font-bold text-gray-500 truncate pr-4">Aguardando aprovação...</span>
-                            <button class="w-7 h-7 rounded-md bg-white/5 flex items-center justify-center text-white hover:bg-white/10 active:scale-90 transition-all">
-                                <span class="material-symbols-outlined text-xs">content_copy</span>
+                        <div class="relative bg-black/50 lg:bg-black rounded-lg lg:rounded-xl p-2 lg:p-4 flex items-center justify-between border border-white/5 lg:border-white/10">
+                            <span class="text-[9px] lg:text-sm font-bold text-gray-400 truncate pr-4">Aguardando aprovação...</span>
+                            <button class="w-7 h-7 lg:w-10 lg:h-10 rounded-md lg:rounded-lg bg-white/5 flex items-center justify-center text-white hover:bg-white/10 active:scale-90 transition-all">
+                                <span class="material-symbols-outlined text-xs lg:text-lg">content_copy</span>
                             </button>
                         </div>
                     </div>
                 </div>
 
                 <!-- MELHORES DICAS -->
-                <div class="space-y-2">
+                <div class="space-y-2 lg:space-y-3">
                     <div class="flex items-center gap-2 px-2">
-                        <h3 class="text-[8px] font-black text-white uppercase tracking-widest">Melhores Dicas</h3>
-                        <span class="text-[10px]">💰</span>
+                        <h3 class="text-[8px] lg:text-[10px] font-black text-white uppercase tracking-widest">Melhores Dicas</h3>
+                        <span class="text-[10px] lg:text-sm">💰</span>
                     </div>
-                    <div class="bg-white/5 rounded-2xl p-3 flex items-center gap-4 border border-white/5">
-                        <div class="w-8 h-8 rounded-lg bg-[#f085aa]/10 flex items-center justify-center flex-shrink-0">
-                            <span class="material-symbols-outlined text-[#f085aa] text-lg">rocket_launch</span>
+                    <div class="bg-white/5 rounded-2xl lg:rounded-[2rem] p-3 lg:p-6 flex items-center gap-4 lg:gap-6 border border-white/5">
+                        <div class="w-8 h-8 lg:w-12 lg:h-12 rounded-lg lg:rounded-2xl bg-[#f085aa]/10 flex items-center justify-center flex-shrink-0">
+                            <span class="material-symbols-outlined text-[#f085aa] text-lg lg:text-3xl">rocket_launch</span>
                         </div>
-                        <p class="text-[9px] font-bold text-gray-400 leading-tight">Compartilhe seu link nos stories para converter 3x mais.</p>
+                        <p class="text-[9px] lg:text-sm font-bold text-gray-400 lg:text-gray-300 leading-tight">Compartilhe seu link nos stories para converter 3x mais.</p>
                     </div>
                 </div>
 
                 <!-- RODAPÉ E ESPAÇADOR -->
-                <div class="pt-2 pb-24 text-center">
-                    <button id="btn-edit-registration" class="text-[8px] font-black text-gray-500 uppercase tracking-[0.2em] hover:text-white transition-all">
+                <div class="pt-2 pb-24 lg:pb-12 text-center">
+                    <button id="btn-edit-registration" class="text-[8px] lg:text-[10px] font-black text-gray-500 uppercase tracking-[0.2em] hover:text-white transition-all">
                         Revisar ou editar cadastro
                     </button>
                 </div>
             </div>
+        </div>
         </div>
 
         <!-- TELA DE SAQUE & MOVIMENTAÇÕES (FULL PAGE) -->
