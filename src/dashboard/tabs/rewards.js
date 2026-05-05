@@ -1,7 +1,7 @@
 /**
  * Módulo de Página Interna: Central de Prêmios
  * Acessível via botão "Ver Tudo" da Home. 
- * Mostra Mimos e Sorteios em um só lugar sem alterar a Bottom Bar.
+ * Mostra Benefícios e Sorteios em um só lugar sem alterar a Bottom Bar.
  */
 
 export default {
@@ -31,7 +31,7 @@ export default {
             <!-- Filtros -->
             <div class="flex gap-2 overflow-x-auto no-scrollbar pb-2">
                 <button data-filter="all" class="filter-pill active">Todos</button>
-                <button data-filter="reward" class="filter-pill">Mimos</button>
+                <button data-filter="reward" class="filter-pill">Benefícios</button>
                 <button data-filter="raffle" class="filter-pill">Sorteios</button>
             </div>
 
@@ -82,7 +82,7 @@ export default {
 
 function renderItemCard(item) {
     const isRaffle = item.type === 'raffle';
-    const tagLabel = isRaffle ? 'SORTEIO' : 'MIMO';
+    const tagLabel = isRaffle ? 'SORTEIO' : 'BENEFÍCIO';
     const tagColor = isRaffle ? 'bg-orange-500' : 'bg-[#f085aa]';
     const btnLabel = isRaffle ? 'Ver Detalhes' : 'Resgatar';
     

@@ -1,5 +1,5 @@
 /**
- * Módulo da Aba Loja (Mimos)
+ * Módulo da Aba Loja (Benefícios)
  */
 
 export default {
@@ -10,12 +10,12 @@ export default {
         <div id="tab-store" class="tab-pane animate-fade space-y-6 px-6 pb-48">
             <!-- Header -->
             <div class="text-center mb-6 pt-4 lg:pt-12">
-                <h2 class="text-xl font-black uppercase tracking-tighter text-white">Mimos do <span class="text-[#f085aa]">Clube</span></h2>
+                <h2 class="text-xl font-black uppercase tracking-tighter text-white">Benefícios do <span class="text-[#f085aa]">Clube</span></h2>
                 <p class="text-[9px] text-gray-400 font-bold uppercase tracking-widest mt-1">Troque seus pontos por benefícios.</p>
             </div>
 
             <div class="bg-[#1a1a1a] p-1 rounded-2xl flex items-center mb-6 relative border border-white/5 lg:max-w-sm lg:mx-auto">
-                <button id="btn-store-shop" class="flex-1 flex items-center justify-center text-center py-2 rounded-xl bg-[#f085aa] text-black text-[10px] font-black uppercase transition-all z-10">Mimos</button>
+                <button id="btn-store-shop" class="flex-1 flex items-center justify-center text-center py-2 rounded-xl bg-[#f085aa] text-black text-[10px] font-black uppercase transition-all z-10">Benefícios</button>
                 <button id="btn-store-history" class="flex-1 flex items-center justify-center text-center py-2 rounded-xl text-gray-500 text-[10px] font-black uppercase transition-all z-10">Resgates</button>
             </div>
 

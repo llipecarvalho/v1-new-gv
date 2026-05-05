@@ -195,58 +195,216 @@ export default {
                 </div>
             </div>
 
-            <!-- PAINEL REDE ELITE (PÓS-CADASTRO) -->
-            <div id="affiliate-dashboard" class="hidden space-y-8 animate-fade lg:max-w-2xl lg:mx-auto w-full">
-                <div class="text-center mb-6 pt-4 lg:pt-12">
-                    <h2 class="text-xl font-black text-white uppercase tracking-tighter">Painel <span class="text-gradient-versiani">Rede Elite</span></h2>
+            <div id="affiliate-dashboard" class="hidden space-y-3 animate-fade lg:max-w-2xl lg:mx-auto w-full pt-1">
+                
+                <!-- Cards de Resumo Ultra-Compactos -->
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-2">
+                    <div class="bg-[#111] p-3 rounded-2xl border border-white/5 space-y-0.5">
+                        <p class="text-[7px] font-black text-gray-500 uppercase tracking-widest">Saldo</p>
+                        <h3 class="text-lg font-black text-white">R$ <span class="text-gradient-versiani">0,00</span></h3>
+                    </div>
+                    <div class="bg-[#111] p-3 rounded-2xl border border-white/5 space-y-0.5">
+                        <p class="text-[7px] font-black text-gray-500 uppercase tracking-widest">A Receber</p>
+                        <h3 class="text-lg font-black text-white">R$ 0,00</h3>
+                    </div>
+                    <div class="bg-[#111] p-3 rounded-2xl border border-white/5 space-y-0.5">
+                        <p class="text-[7px] font-black text-gray-500 uppercase tracking-widest">Indicações</p>
+                        <h3 class="text-lg font-black text-white">0</h3>
+                    </div>
+                    <div class="bg-[#111] p-3 rounded-2xl border border-white/5 space-y-0.5">
+                        <p class="text-[7px] font-black text-gray-500 uppercase tracking-widest">Conversão</p>
+                        <h3 class="text-lg font-black text-white">0%</h3>
+                    </div>
                 </div>
 
-                <!-- CARDS DE SALDO -->
-                <div class="grid grid-cols-2 gap-4">
-                    <div class="bg-[#121212] rounded-[2.5rem] p-8 border border-white/5 shadow-xl">
-                        <span class="text-[8px] font-black text-gray-500 uppercase tracking-widest mb-2 block">Saldo</span>
-                        <h4 class="text-2xl font-black text-white tracking-tighter">R$ <span class="text-gradient-versiani">0,00</span></h4>
-                    </div>
-                    <div class="bg-[#121212] rounded-[2.5rem] p-8 border border-white/5 shadow-xl">
-                        <span class="text-[8px] font-black text-gray-500 uppercase tracking-widest mb-2 block">A Receber</span>
-                        <h4 class="text-2xl font-black text-white tracking-tighter opacity-80">R$ 0,00</h4>
-                    </div>
-                </div>
-
-                <!-- BOTÃO DE SAQUE -->
-                <button class="w-full h-16 bg-gradient-to-r from-[#f085aa] to-[#320075] text-white font-black uppercase tracking-[0.2em] text-xs rounded-full shadow-2xl active:scale-95 transition-all">
+                <!-- Botão de Saque Slim -->
+                <button id="btn-open-withdraw" class="w-full h-12 bg-gradient-to-r from-[#f085aa] to-[#320075] rounded-xl flex items-center justify-center text-white font-black uppercase text-[10px] tracking-[0.2em] shadow-lg active:scale-95 transition-all">
                     Solicitar Saque
                 </button>
 
-                <!-- LINK DE AFILIADA -->
-                <div class="bg-white/5 rounded-[2.5rem] p-8 border border-white/5 space-y-4">
-                    <span class="text-[9px] font-black text-gray-400 uppercase tracking-widest block ml-1">Seu Link de Afiliada</span>
-                    <div class="flex items-center gap-3 bg-black/40 rounded-[1.5rem] p-4 border border-white/5">
-                        <p class="flex-1 text-[11px] font-bold text-gray-500 italic truncate">Aguardando aprovação...</p>
-                        <button class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:text-white transition-all">
-                            <span class="material-symbols-outlined text-lg">content_copy</span>
-                        </button>
+                <!-- Link de Afiliada Slim -->
+                <div class="bg-[#111] p-3 rounded-[1.5rem] border border-white/5 space-y-3">
+                    <div class="flex items-center justify-between px-1">
+                        <h4 class="text-[8px] font-black text-gray-400 uppercase tracking-[0.2em]">Seu Link de Afiliada</h4>
+                        <span class="text-[7px] font-bold text-[#f085aa] uppercase tracking-widest bg-[#f085aa]/10 px-2 py-0.5 rounded-full">Ativo</span>
+                    </div>
+                    
+                    <div class="relative group">
+                        <div class="relative bg-black/50 rounded-lg p-2 flex items-center justify-between border border-white/5">
+                            <span class="text-[9px] font-bold text-gray-500 truncate pr-4">Aguardando aprovação...</span>
+                            <button class="w-7 h-7 rounded-md bg-white/5 flex items-center justify-center text-white hover:bg-white/10 active:scale-90 transition-all">
+                                <span class="material-symbols-outlined text-xs">content_copy</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
 
                 <!-- MELHORES DICAS -->
-                <div class="space-y-4">
+                <div class="space-y-2">
                     <div class="flex items-center gap-2 px-2">
-                        <h3 class="text-[11px] font-black text-white uppercase tracking-widest">Melhores Dicas</h3>
-                        <span>💰</span>
+                        <h3 class="text-[8px] font-black text-white uppercase tracking-widest">Melhores Dicas</h3>
+                        <span class="text-[10px]">💰</span>
                     </div>
-                    <div class="bg-white/5 rounded-[2rem] p-6 flex items-center gap-5 border border-white/5">
-                        <div class="w-14 h-14 rounded-2xl bg-[#f085aa]/10 flex items-center justify-center flex-shrink-0">
-                            <span class="material-symbols-outlined text-[#f085aa] text-3xl">rocket_launch</span>
+                    <div class="bg-white/5 rounded-2xl p-3 flex items-center gap-4 border border-white/5">
+                        <div class="w-8 h-8 rounded-lg bg-[#f085aa]/10 flex items-center justify-center flex-shrink-0">
+                            <span class="material-symbols-outlined text-[#f085aa] text-lg">rocket_launch</span>
                         </div>
-                        <p class="text-[11px] font-bold text-gray-300 leading-relaxed">Compartilhe seu link nos stories para converter 3x mais.</p>
+                        <p class="text-[9px] font-bold text-gray-400 leading-tight">Compartilhe seu link nos stories para converter 3x mais.</p>
                     </div>
                 </div>
 
-                <!-- RODAPÉ -->
-                <button id="btn-edit-registration" class="w-full text-[10px] font-black text-gray-500 uppercase tracking-[0.2em] hover:text-white transition-all pt-4">
-                    Revisar ou editar cadastro
+                <!-- RODAPÉ E ESPAÇADOR -->
+                <div class="pt-2 pb-24 text-center">
+                    <button id="btn-edit-registration" class="text-[8px] font-black text-gray-500 uppercase tracking-[0.2em] hover:text-white transition-all">
+                        Revisar ou editar cadastro
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- TELA DE SAQUE & MOVIMENTAÇÕES (FULL PAGE) -->
+        <div id="modal-withdraw" class="fixed inset-0 z-[5000] hidden bg-[#050505] flex-col overflow-hidden animate-fade">
+            
+            <!-- HEADER DA PÁGINA DE SAQUE -->
+            <header class="w-full px-6 py-6 flex items-center justify-between border-b border-white/5 bg-black/50 backdrop-blur-xl sticky top-0 z-30">
+                <button id="btn-close-withdraw" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white border border-white/10 active:scale-90 transition-all">
+                    <span class="material-symbols-outlined text-sm ml-1">arrow_back_ios</span>
                 </button>
+                <h2 class="text-lg font-black text-white uppercase tracking-tighter absolute left-1/2 -translate-x-1/2 w-full text-center pointer-events-none">Solicitar <span class="text-gradient-versiani">Saque</span></h2>
+                <div class="w-10 h-10"></div>
+            </header>
+
+            <!-- CONTEÚDO DA PÁGINA -->
+            <div class="flex-1 overflow-y-auto no-scrollbar">
+                <div class="max-w-2xl mx-auto w-full p-4 lg:p-8 space-y-6">
+                    
+                    <!-- Seção de Dados e Saque -->
+                    <div class="flex flex-col gap-6">
+                        <!-- Lado Esquerdo: Dados do Usuário -->
+                        <div class="w-full space-y-4">
+                            <div class="pb-2 border-b border-white/5">
+                                <h3 id="withdraw-user-name" class="text-lg font-black text-white uppercase tracking-tighter">Fulano da Silva José Souza</h3>
+                                <p id="withdraw-user-id" class="text-[8px] font-bold text-[#f085aa] uppercase tracking-[0.2em] mt-1 opacity-80">Documento: 59.105.056/0001-53</p>
+                            </div>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                                <div class="space-y-1.5">
+                                    <label class="text-[8px] font-black text-gray-500 uppercase tracking-widest ml-1">Chave Pix Selecionada</label>
+                                    <div class="h-11 bg-white/5 border border-white/10 rounded-xl flex items-center px-4">
+                                        <span class="text-white font-black text-xs truncate">133.450.974-00</span>
+                                    </div>
+                                </div>
+                                <div class="space-y-1.5">
+                                    <label class="text-[8px] font-black text-gray-500 uppercase tracking-widest ml-1">Banco Destino</label>
+                                    <div class="h-11 bg-white/5 border border-white/10 rounded-xl flex items-center px-4">
+                                        <span class="text-white font-black text-xs truncate">Banco de Pernambuco S.A</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Widget de Saque Compacto -->
+                        <div class="w-full bg-gradient-to-br from-[#121212] to-[#0a0a0a] p-6 rounded-[2rem] border border-white/5 shadow-2xl relative overflow-hidden group">
+                            <div class="absolute -top-20 -right-20 w-40 h-40 bg-[#f085aa]/5 blur-[80px] rounded-full"></div>
+                            
+                            <div class="relative z-10 space-y-6">
+                                <div class="text-center">
+                                    <p class="text-[8px] font-black text-gray-400 uppercase tracking-[0.2em] mb-1">Disponível para Saque</p>
+                                    <h4 class="text-2xl font-black text-white tracking-tighter">R$ <span class="text-gradient-versiani">10.000,00</span></h4>
+                                </div>
+                                
+                                <div class="space-y-3">
+                                    <div class="relative">
+                                        <label class="absolute -top-1.5 left-4 px-1.5 bg-[#121212] text-[7px] font-black text-[#f085aa] uppercase tracking-widest z-10">Valor do Saque</label>
+                                        <input type="number" placeholder="0,00" class="w-full h-12 bg-transparent border-2 border-white/10 rounded-xl px-4 text-white font-black text-lg outline-none focus:border-[#f085aa] transition-all" min="10">
+                                    </div>
+                                    <button class="w-full h-12 bg-gradient-to-r from-[#f085aa] to-[#320075] text-white font-black uppercase text-[10px] tracking-[0.2em] rounded-xl shadow-lg active:scale-95 transition-all">
+                                        Confirmar Saque
+                                    </button>
+                                    <p class="text-[8px] text-center text-gray-500 font-bold uppercase tracking-widest opacity-60">Recebimento em até 24h úteis</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Seção de Movimentações -->
+                    <div class="space-y-6">
+                        <div class="flex items-center justify-between px-2">
+                            <h4 class="text-sm font-black text-white uppercase tracking-widest">Extrato de Movimentações</h4>
+                            <div class="flex items-center gap-2">
+                                <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                                <span class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Atualizado agora</span>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white/5 rounded-[2rem] p-4 border border-white/5">
+                            <div class="overflow-x-auto no-scrollbar">
+                                <table class="w-full min-w-[500px]">
+                                    <thead class="text-[8px] font-black text-gray-500 uppercase tracking-widest border-b border-white/5">
+                                        <tr>
+                                            <th class="pb-3 text-center">Operação</th>
+                                            <th class="pb-3 text-left">Detalhamento</th>
+                                            <th class="pb-3 text-right px-4">Valor</th>
+                                            <th class="pb-3 text-right">Data/Hora</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="text-[10px] font-bold text-white uppercase tracking-tight">
+                                        <tr class="border-b border-white/5 group hover:bg-white/[0.02] transition-all">
+                                            <td class="py-3 text-center"><span class="px-2 py-0.5 bg-white/5 rounded-full text-[8px] text-gray-400 border border-white/10">Saída</span></td>
+                                            <td class="py-3">Resgate PIX - Finalizado</td>
+                                            <td class="py-3 text-right px-4 text-[#f085aa]">- R$ 90,00</td>
+                                            <td class="py-3 text-right opacity-40 whitespace-nowrap">06/02/2025 • 14:30</td>
+                                        </tr>
+                                        <tr class="border-b border-white/5 group hover:bg-white/[0.02] transition-all">
+                                            <td class="py-3 text-center"><span class="px-2 py-0.5 bg-white/5 rounded-full text-[8px] text-gray-400 border border-white/10">Saída</span></td>
+                                            <td class="py-3">Resgate PIX - Finalizado</td>
+                                            <td class="py-3 text-right px-4 text-[#f085aa]">- R$ 120,00</td>
+                                            <td class="py-3 text-right opacity-40 whitespace-nowrap">05/02/2025 • 09:15</td>
+                                        </tr>
+                                        <tr class="border-b border-white/5 group hover:bg-white/[0.02] transition-all">
+                                            <td class="py-3 text-center"><span class="px-2 py-0.5 bg-[#f085aa]/10 rounded-full text-[8px] text-[#f085aa] border border-[#f085aa]/20">Entrada</span></td>
+                                            <td class="py-3">Comissão de Venda - Sorteio 1</td>
+                                            <td class="py-3 text-right px-4 text-white">R$ 350,00</td>
+                                            <td class="py-3 text-right opacity-40 whitespace-nowrap">04/02/2025 • 18:00</td>
+                                        </tr>
+                                        <tr class="border-b border-white/5 group hover:bg-white/[0.02] transition-all">
+                                            <td class="py-3 text-center"><span class="px-2 py-0.5 bg-[#f085aa]/10 rounded-full text-[8px] text-[#f085aa] border border-[#f085aa]/20">Entrada</span></td>
+                                            <td class="py-3">Comissão de Venda - Sorteio 2</td>
+                                            <td class="py-3 text-right px-4 text-white">R$ 100,00</td>
+                                            <td class="py-3 text-right opacity-40 whitespace-nowrap">03/02/2025 • 21:10</td>
+                                        </tr>
+                                        <tr class="group hover:bg-white/[0.02] transition-all">
+                                            <td class="py-3 text-center"><span class="px-2 py-0.5 bg-white/5 rounded-full text-[8px] text-gray-400 border border-white/10">Saída</span></td>
+                                            <td class="py-3">Resgate PIX - Finalizado</td>
+                                            <td class="py-3 text-right px-4 text-[#f085aa]">- R$ 440,00</td>
+                                            <td class="py-3 text-right opacity-40 whitespace-nowrap">01/02/2025 • 11:05</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <!-- Rodapé do Extrato -->
+                            <div class="mt-4 pt-4 border-t border-white/5 flex items-center justify-between gap-4">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center">
+                                        <span class="material-symbols-outlined text-[#f085aa] text-sm">history</span>
+                                    </div>
+                                    <div>
+                                        <p class="text-[8px] font-black text-gray-500 uppercase tracking-widest">Saldo Inicial</p>
+                                        <p class="text-[10px] font-bold text-gray-400 uppercase">31/01/2025</p>
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                    <p class="text-[8px] font-black text-gray-500 uppercase tracking-widest mb-0.5">Total Acumulado</p>
+                                    <p class="text-xl font-black text-white tracking-tighter">R$ 10.200,00</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Espaçamento extra no final -->
+                    <div class="h-20"></div>
+                </div>
             </div>
         </div>
     `,
@@ -353,6 +511,27 @@ function setupOnboarding(state) {
         goToStep(1);
     });
 
+    // Controle do Modal de Saque
+    const modalWithdraw = document.getElementById('modal-withdraw');
+    const btnOpenWithdraw = document.getElementById('btn-open-withdraw');
+    const btnCloseWithdraw = document.getElementById('btn-close-withdraw');
+    const backdropWithdraw = document.getElementById('close-withdraw-backdrop');
+
+    btnOpenWithdraw?.addEventListener('click', () => {
+        modalWithdraw?.classList.remove('hidden');
+        modalWithdraw?.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+    });
+
+    const closeWithdraw = () => {
+        modalWithdraw?.classList.add('hidden');
+        modalWithdraw?.classList.remove('flex');
+        document.body.style.overflow = '';
+    };
+
+    btnCloseWithdraw?.addEventListener('click', closeWithdraw);
+    backdropWithdraw?.addEventListener('click', closeWithdraw);
+
     function showDashboard() {
         onboardingContainer?.classList.add('hidden');
         dashboardContainer?.classList.remove('hidden');
@@ -404,16 +583,25 @@ function setupOnboarding(state) {
         if (typeof Swal !== 'undefined') {
             Swal.fire({
                 html: `
-                    <div class="text-center py-6">
-                        <h3 class="text-3xl font-black text-white uppercase mb-4 leading-tight">CADASTRO<br>ENVIADO!</h3>
-                        <p class="text-sm text-gray-400 font-bold mb-8">Análise em andamento. Em breve você receberá a confirmação.</p>
-                        <button id="swal-btn-ok" class="w-full h-14 bg-gradient-to-r from-[#f085aa] to-[#320075] text-white font-black uppercase tracking-widest rounded-full shadow-xl">Entendido</button>
+                    <div class="text-center p-4">
+                        <h2 class="text-xl font-black text-white uppercase tracking-tight mb-4 leading-tight">CADASTRO<br>ENVIADO!</h2>
+                        <p class="text-gray-400 text-sm font-medium mb-10 leading-relaxed px-2">
+                            Sua análise está em andamento. Em breve você receberá a confirmação no seu e-mail.
+                        </p>
+                        
+                        <button id="swal-btn-ok" 
+                           class="w-full py-5 text-white font-black rounded-full text-sm uppercase tracking-widest transition-all active:scale-95 shadow-lg"
+                           style="background: linear-gradient(135deg, #e97eb1 0%, #4c1d95 100%);">
+                           ENTENDIDO
+                        </button>
                     </div>
                 `,
-                background: '#121212',
+                background: 'transparent',
                 showConfirmButton: false,
+                backdrop: `rgba(0,0,0,0.8)`,
                 customClass: {
-                    popup: 'rounded-[3rem] border border-white/10'
+                    container: 'backdrop-blur-xl',
+                    popup: 'glass-premium border border-white/10 rounded-[40px] p-6 w-full max-w-[380px] shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)]'
                 },
                 didOpen: () => {
                     document.getElementById('swal-btn-ok').onclick = () => {

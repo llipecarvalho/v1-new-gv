@@ -48,38 +48,30 @@ export default {
                     <h3 class="text-black font-black uppercase tracking-tighter lg:text-2xl">Minhas recompensas</h3>
                 </div>
                 
-                <!-- GRID DE 4 CARDS -->
-                <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 px-6 lg:px-12 xl:px-16 mb-12 lg:mb-16 lg:max-w-[1400px] mx-auto">
-                    <div class="reward-card lg:h-[150px] lg:p-6 lg:hover:-translate-y-2 lg:hover:shadow-2xl">
-                        <span class="text-4xl lg:text-5xl font-black text-black">08</span>
-                        <p class="text-[10px] lg:text-[11px] font-bold text-black/40 uppercase tracking-tight leading-tight mt-2">cotas no <span class="block lg:inline">sorteio elite</span></p>
+                <!-- GRID DE 2 CARDS (Otimizado) -->
+                <div class="grid grid-cols-2 gap-4 lg:gap-8 px-6 lg:px-12 xl:px-16 mb-12 lg:mb-16 lg:max-w-4xl mx-auto">
+                    <div class="reward-card lg:h-[160px] lg:p-8 lg:hover:-translate-y-2 lg:hover:shadow-2xl">
+                        <span class="text-4xl lg:text-6xl font-black text-black">08</span>
+                        <p class="text-[10px] lg:text-[12px] font-bold text-black/40 uppercase tracking-tight leading-tight mt-2">chances no <span class="block lg:inline">sorteio elite</span></p>
                     </div>
-                    <div id="btn-home-go-to-wallet-desktop" class="reward-card lg:h-[150px] lg:p-6 lg:hover:-translate-y-2 lg:hover:shadow-2xl cursor-pointer group active:scale-95 transition-all">
+                    <div id="btn-home-go-to-wallet-desktop" class="reward-card lg:h-[160px] lg:p-8 lg:hover:-translate-y-2 lg:hover:shadow-2xl cursor-pointer group active:scale-95 transition-all">
                         <div class="flex items-center justify-between">
                             <div class="flex items-baseline gap-1">
-                                <span class="text-4xl lg:text-5xl font-black text-black">${state.user.points.toLocaleString('pt-BR')}</span>
-                                <span class="text-[8px] lg:text-[10px] font-black text-black/40 uppercase">pts</span>
+                                <span class="text-4xl lg:text-6xl font-black text-black">${state.user.points.toLocaleString('pt-BR')}</span>
+                                <span class="text-[8px] lg:text-[12px] font-black text-black/40 uppercase">pts</span>
                             </div>
-                            <div class="hidden lg:flex w-10 h-10 rounded-full bg-gray-50 border border-gray-100 items-center justify-center group-hover:bg-[#f085aa] group-hover:text-white group-hover:border-[#f085aa] transition-all duration-300">
-                                <span class="material-symbols-outlined text-[20px]">redeem</span>
+                            <div class="hidden lg:flex w-12 h-12 rounded-full bg-gray-50 border border-gray-100 items-center justify-center group-hover:bg-[#f085aa] group-hover:text-white group-hover:border-[#f085aa] transition-all duration-300">
+                                <span class="material-symbols-outlined text-[24px]">redeem</span>
                             </div>
                         </div>
-                        <p class="text-[10px] lg:text-[11px] font-bold text-black/40 uppercase tracking-tight leading-tight mt-2">pontos para <span class="block lg:inline">resgate vip</span></p>
-                    </div>
-                    <div class="reward-card lg:h-[150px] lg:p-6 lg:hover:-translate-y-2 lg:hover:shadow-2xl">
-                        <span class="text-4xl lg:text-5xl font-black text-black">1</span>
-                        <p class="text-[10px] lg:text-[11px] font-bold text-black/40 uppercase tracking-tight leading-tight mt-2">mimo versiani <span class="block lg:inline">disponível</span></p>
-                    </div>
-                    <div class="reward-card lg:h-[150px] lg:p-6 lg:hover:-translate-y-2 lg:hover:shadow-2xl">
-                        <span class="text-4xl lg:text-5xl font-black text-black">12</span>
-                        <p class="text-[10px] lg:text-[11px] font-bold text-black/40 uppercase tracking-tight leading-tight mt-2">amigas na <span class="block lg:inline">sua rede elite</span></p>
+                        <p class="text-[10px] lg:text-[12px] font-bold text-black/40 uppercase tracking-tight leading-tight mt-2">pontos para <span class="block lg:inline">resgate vip</span></p>
                     </div>
                 </div>
 
                 <!-- VITRINE (MIMOS E SORTEIOS EM CARROSSEL/GRID) -->
                 <div class="mt-12 lg:mt-20 px-6 lg:px-12 xl:px-16 lg:max-w-[1400px] mx-auto">
                     <div class="section-header !px-0 lg:mb-10 flex items-center justify-between">
-                        <h3 class="text-black font-black uppercase tracking-tighter lg:text-2xl">Mimos e Sorteios</h3>
+                        <h3 class="text-black font-black uppercase tracking-tighter lg:text-2xl">Benefícios e Sorteios</h3>
                         <div class="flex items-center gap-2 lg:gap-4">
                             <!-- SETAS DE NAVEGAÇÃO (Apenas Desktop) -->
                             <div class="hidden lg:flex items-center gap-2">
@@ -94,9 +86,9 @@ export default {
                         </div>
                     </div>
                     
-                    <div id="home-mimos-carousel" class="carousel-container no-scrollbar lg:gap-6 lg:scroll-smooth">
+                    <div id="home-mimos-carousel" class="carousel-container no-scrollbar lg:scroll-smooth">
                         ${state.collections.rewards.map(item => `
-                            <div class="carousel-item lg:!flex-[0_0_calc(25%-18px)]">
+                            <div class="carousel-item lg:!flex-[0_0_calc(33.333%-(var(--carousel-gap)*0.666))]">
                                 <div class="bg-white rounded-[2rem] lg:rounded-[2.5rem] p-4 lg:p-5 shadow-xl border border-black/5 flex flex-col h-[240px] lg:h-[320px] transition-all hover:-translate-y-2 lg:hover:shadow-2xl active:scale-95 cursor-pointer">
                                     <div class="aspect-square w-full rounded-2xl lg:rounded-[1.5rem] ${item.gradient || 'bg-gray-50'} overflow-hidden flex items-center justify-center mb-3 lg:mb-5 shadow-inner">
                                         ${item.image_url 
@@ -119,10 +111,10 @@ export default {
                         `).join('')}
 
                         <!-- Item Final: Ver Mais (UX Hint) -->
-                        <div class="carousel-item pr-6 lg:!flex-[0_0_calc(25%-18px)] lg:pr-6">
+                        <div class="carousel-item lg:!flex-[0_0_calc(33.333%-(var(--carousel-gap)*0.666))]">
                             <div id="btn-home-ver-mais-mimos-card" class="bg-gray-100 rounded-[2rem] lg:rounded-[2.5rem] p-4 flex flex-col items-center justify-center h-[240px] lg:h-[320px] border-2 border-dashed border-gray-200 cursor-pointer hover:bg-gray-200 transition-colors">
                                 <span class="material-symbols-outlined text-gray-400 text-3xl lg:text-4xl mb-2 lg:mb-4">add_circle</span>
-                                <span class="text-[9px] lg:text-[11px] font-black text-gray-400 uppercase tracking-widest text-center">Ver todos<br>os mimos</span>
+                                <span class="text-[9px] lg:text-[11px] font-black text-gray-400 uppercase tracking-widest text-center">Ver todos<br>os benefícios</span>
                             </div>
                         </div>
                     </div>
@@ -136,9 +128,9 @@ export default {
                         <button onclick="document.getElementById('btn-nav-hub')?.click(); setTimeout(() => document.getElementById('btn-hub-winners')?.click(), 100);" class="btn-ver-tudo font-black lg:px-6 lg:py-2.5 lg:text-[10px] hover:bg-black/5 transition-colors !m-0">Ver Todas</button>
                     </div>
                     
-                    <div class="flex overflow-x-auto gap-4 lg:gap-6 pb-6 snap-x snap-mandatory no-scrollbar -mx-6 px-6 lg:mx-0 lg:px-0">
+                    <div class="carousel-container no-scrollbar lg:scroll-smooth">
                         ${state.collections.winners.slice(0, 5).map(winner => `
-                            <div class="bg-white rounded-[2rem] lg:rounded-[2.5rem] p-5 shadow-lg border border-black/5 flex flex-col justify-between min-w-[260px] lg:min-w-[calc(33.333%-16px)] snap-start shrink-0 hover:-translate-y-2 lg:hover:shadow-xl transition-all">
+                            <div class="carousel-item bg-white rounded-[2rem] lg:rounded-[2.5rem] p-5 shadow-lg border border-black/5 flex flex-col justify-between lg:min-w-[calc(33.333%-(var(--carousel-gap)*0.666))] shrink-0 hover:-translate-y-2 lg:hover:shadow-xl transition-all">
                                 <div>
                                     <div class="flex items-center gap-3 mb-4">
                                         <div class="w-10 h-10 rounded-full bg-[#f085aa]/10 flex items-center justify-center text-[#f085aa] font-black text-lg border border-[#f085aa]/20">

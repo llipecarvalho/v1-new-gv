@@ -44,7 +44,7 @@ export default {
                                     </button>
                                     <div class="flex flex-col items-center">
                                         <span id="custom-amount" class="text-2xl font-black text-white tracking-tighter">10</span>
-                                        <span class="text-[7px] font-black text-[#f085aa] uppercase tracking-[0.3em] -mt-1">Cotas</span>
+                                        <span class="text-[7px] font-black text-[#f085aa] uppercase tracking-[0.3em] -mt-1">Chances</span>
                                     </div>
                                     <button id="btn-plus" class="w-10 h-10 flex items-center justify-center text-[#f085aa] transition-all active:scale-75">
                                         <span class="material-symbols-outlined text-base">add</span>
@@ -169,7 +169,7 @@ export default {
                             </div>
                             <div class="space-y-3">
                                 <h3 class="text-2xl font-black text-white uppercase tracking-tighter">Pedido Realizado!</h3>
-                                <p class="text-[12px] text-gray-500 font-bold uppercase tracking-[0.2em] leading-relaxed">Suas cotas serão liberadas em instantes no seu painel.</p>
+                                <p class="text-[12px] text-gray-500 font-bold uppercase tracking-[0.2em] leading-relaxed">Suas chances serão liberadas em instantes no seu painel.</p>
                             </div>
                             <button id="btn-success-view" class="w-full py-5 bg-white text-black text-[11px] font-black uppercase rounded-2xl shadow-xl active:scale-95 transition-all tracking-widest">
                                 Ver Meus Números

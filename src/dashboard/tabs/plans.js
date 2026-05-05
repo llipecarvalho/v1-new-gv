@@ -1,5 +1,5 @@
 /**
- * Módulo da Aba Planos (+ Benefícios)
+ * Módulo da Aba Planos (+ Upgrade)
  */
 
 export default {
@@ -53,7 +53,7 @@ export default {
             <div id="tab-plans" class="tab-pane animate-fade px-6 space-y-6 pt-4 pb-32">
                 <div id="plans-main-view" class="space-y-6 lg:max-w-4xl lg:mx-auto w-full">
                     <div class="text-center mb-6 pt-4 lg:pt-12">
-                        <h2 class="text-xl font-black uppercase tracking-tighter text-white">Benefícios <span class="text-[#f085aa]">Elite</span></h2>
+                        <h2 class="text-xl font-black uppercase tracking-tighter text-white">Planos <span class="text-[#f085aa]">Elite</span></h2>
                         <p class="text-[9px] text-gray-400 font-bold uppercase tracking-widest mt-1">Sua jornada no clube.</p>
                     </div>
 
@@ -362,7 +362,7 @@ export default {
                             <p class="text-[10px] text-gray-500 font-bold uppercase tracking-widest px-8 leading-relaxed">Você agora é ${planName.toUpperCase()}.</p>
                         </div>
                         <button id="btn-finish-upgrade" class="px-12 py-5 bg-white text-black font-black rounded-full text-[10px] uppercase tracking-widest shadow-2xl active:scale-95 transition-all">
-                            Ver meus Benefícios
+                            Ver meus Planos
                         </button>
                     </div>
                 `;

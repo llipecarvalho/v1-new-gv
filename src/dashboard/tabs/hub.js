@@ -68,10 +68,10 @@ export default {
                 <!-- Realizados -->
                 ${state.collections.raffles.filter(r => r.status === 'finished').length > 0 ? `
                 <div>
-                    <h3 class="text-[10px] font-black text-gray-500 uppercase tracking-[0.2em] mb-6 pl-2">Sorteios Realizados</h3>
-                    <div id="finished-raffles-carousel" class="flex overflow-x-auto gap-4 lg:gap-6 pb-6 snap-x snap-mandatory no-scrollbar -mx-6 px-6 lg:mx-0 lg:px-0">
+                    <h3 class="text-[10px] font-black text-gray-500 uppercase tracking-[0.2em] mb-6">Sorteios Realizados</h3>
+                    <div id="finished-raffles-carousel" class="carousel-container no-scrollbar lg:gap-6 lg:scroll-smooth">
                         ${state.collections.raffles.filter(r => r.status === 'finished').map(raffle => `
-                            <div class="raffle-card group bg-[#1a1a1a] rounded-[2rem] overflow-hidden border border-white/5 flex flex-col h-[320px] min-w-[280px] lg:min-w-[calc(33.333%-16px)] snap-start shrink-0" data-raffle="${raffle.title}">
+                            <div class="carousel-item raffle-card group bg-[#1a1a1a] rounded-[2rem] overflow-hidden border border-white/5 flex flex-col h-[320px] lg:!flex-[0_0_calc(33.333%-(var(--carousel-gap)*0.666))] shrink-0" data-raffle="${raffle.title}">
                                 <div class="relative h-[200px] shrink-0 overflow-hidden">
                                     <img src="${raffle.image}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" style="object-position: center;">
                                     <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
