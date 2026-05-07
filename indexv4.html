@@ -41,14 +41,16 @@
 
       .reveal-off {
          opacity: 0;
-         transform: translateY(60px);
-         transition: all 2s cubic-bezier(0.22, 1, 0.36, 1);
+         transition-property: opacity;
+         transition-duration: 1200ms;
+         transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+         transition-delay: var(--reveal-delay, 0ms);
+         will-change: opacity;
          pointer-events: none;
       }
 
       .reveal-on {
          opacity: 1;
-         transform: translateY(0);
          pointer-events: auto;
       }
 
@@ -262,68 +264,44 @@
             class="mobile-link mt-8 bg-[#f085aa] text-black px-12 py-4 rounded-full font-black text-lg uppercase hover:scale-105 hover:bg-white transition-all shadow-[0_0_30px_rgba(240,133,170,0.4)] cursor-pointer text-center">ASSINE
             AGORA</a>
       </div>
-      <!-- STACKED HERO (Mobile Stacked / Desktop Split) -->
-      <header class="relative flex flex-col lg:min-h-[90vh] lg:flex-row bg-[#050505] overflow-hidden">
+      <!-- HERO: mobile preservado | desktop full-bleed com sobreposição -->
+      <header class="relative flex flex-col lg:min-h-[90vh] bg-[#050505] overflow-hidden">
+         <div class="relative w-full h-[72vh] lg:absolute lg:inset-0 lg:h-full" style="z-index: 5;">
+            <img src="/src/assets/bolsadesktop.png" alt="Bolsa Salvatore Ferragamo - Prêmio Versiani"
+               class="w-full h-full object-cover object-center select-none pointer-events-none">
+            <div class="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[#050505] via-[#050505]/70 to-transparent lg:hidden"></div>
 
-         <!-- Top Area (Mobile) / Left Side (Desktop): Image Slider -->
-         <div
-            class="relative w-full h-[85vh] pt-7 lg:pt-0 lg:h-auto lg:absolute lg:inset-0 lg:w-full lg:h-full overflow-hidden"
-            style="z-index: 10;">
-            <img src="https://images.unsplash.com/photo-1591561954557-26941169b49e?q=80&w=1920&auto=format"
-               alt="Bolsa Gucci Marmont - Prêmio Versiani"
-               class="w-full h-full object-contain select-none pointer-events-none scale-110 transform-gpu drop-shadow-[0_10px_30px_rgba(0,0,0,0.8)] brightness-105">
-
-            <!-- Fade overlay para fundir a imagem com a parte inferior (Solid Dark) -->
-            <div
-               class="absolute inset-x-0 bottom-0 h-8 bg-gradient-to-t from-[#050505] via-[#050505]/80 to-transparent lg:hidden"
-               style="z-index: 15;"></div>
-
-            <!-- Mobile Prize Title Position -->
-            <div class="absolute top-28 left-6 z-20 lg:hidden">
+            <div class="absolute top-24 left-6 z-40 lg:hidden">
                <div class="bg-[#f59e0b] px-3 py-1.5 rounded-md flex flex-col gap-0.5 shadow-xl skew-x-[-6deg]">
-                  <span class="text-[7px] font-black text-black/70 uppercase tracking-[0.25em] ml-0.5 mt-0.5">Próximo
-                     Prêmio</span>
-                  <h2 id="hero-slide-title-mobile"
-                     class="text-[14px] leading-tight font-black text-black uppercase tracking-tighter">
-                     SALVATORE FERRAGAMO</h2>
+                  <span class="text-[7px] font-black text-black/70 uppercase tracking-[0.25em] ml-0.5 mt-0.5">Próximo Prêmio</span>
+                  <h2 class="text-[14px] leading-tight font-black text-black uppercase tracking-tighter">SALVATORE FERRAGAMO</h2>
                </div>
             </div>
          </div>
 
-         <!-- Bottom Area (Mobile) / Context Over (Desktop): Text Content -->
-         <div
-            class="relative w-full lg:min-h-[90vh] flex flex-col justify-center bg-[#050505] px-4 pt-8 pb-12 lg:bg-transparent lg:px-24 lg:px-32 lg:pt-0 lg:pb-0"
-            style="z-index: 20;">
+         <div class="hidden lg:block absolute inset-0 bg-gradient-to-r from-black/80 via-black/45 to-black/20" style="z-index: 10;"></div>
+         <div class="hidden lg:block absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" style="z-index: 10;"></div>
 
-            <!-- Desktop Overlay (Hidden on Mobile) -->
-            <div class="absolute inset-0 bg-gradient-to-r from-black/75 via-black/30 to-transparent hidden lg:block"
-               style="z-index: -1;"></div>
-
-            <div class="space-y-8 max-w-2xl relative text-center lg:text-left mx-auto lg:mx-0 w-full">
+         <div class="relative w-full lg:min-h-[90vh] flex flex-col justify-center bg-[#050505] px-4 pt-8 pb-12 lg:bg-transparent lg:items-start lg:px-24 lg:pt-24 lg:pb-4" style="z-index: 20;">
+            <div class="space-y-8 max-w-2xl lg:max-w-4xl text-center lg:text-left w-full">
                <div class="space-y-5">
                   <h1
-                     class="text-[2.8rem] sm:text-6xl md:text-8xl lg:text-[7rem] font-black text-white leading-[0.9] tracking-tighter uppercase whitespace-nowrap">
-                     Acesse o <span class="text-gradient-rose">luxo</span>
+                     class="text-[2.8rem] sm:text-6xl md:text-8xl lg:text-[5.6rem] font-black text-white leading-[0.9] lg:leading-[1.02] tracking-tight uppercase lg:whitespace-nowrap">
+                     Acesse o <span class="text-gradient-rose pr-1">luxo</span>
                   </h1>
 
-                  <div
-                     class="flex flex-col gap-4 text-[17px] md:text-xl text-gray-400 font-medium leading-relaxed max-w-[380px] mx-auto lg:mx-0">
-                     <p class="text-white font-bold text-xl md:text-2xl">Entre para o Clube Versiani e<br> concorra a esta<br>
-                        Salvatore Ferragamo.</p>
+                  <div class="flex flex-col gap-4 text-[17px] md:text-xl text-gray-300 font-medium leading-relaxed max-w-[380px] lg:max-w-[520px] mx-auto lg:mx-0">
+                     <p class="text-white font-bold text-xl md:text-2xl">Entre para o Clube Versiani e<br>concorra a esta Salvatore Ferragamo.</p>
                      <p>Aproveite descontos exclusivos nas marcas do Clube.</p>
                   </div>
                </div>
 
-            <!-- Desktop Prize UI (Hidden on Mobile) -->
-            <div class="hidden lg:block absolute bottom-12 left-24 lg:left-32">
-               <span class="text-[10px] font-black text-[#f085aa] uppercase tracking-[0.3em] block mb-2">[ PRÓXIMO
-                  PRÊMIO ]</span>
-               <h2 id="hero-slide-title-desktop"
-                  class="text-4xl lg:text-5xl font-black text-white uppercase tracking-tighter drop-shadow-xl">SALVATORE
-                  FERRAGAMO</h2>
+               <div class="hidden lg:block pt-24">
+                  <span class="text-[10px] font-black text-[#f085aa] uppercase tracking-[0.3em] block mb-2">[ PRÓXIMO PRÊMIO ]</span>
+                  <h2 id="hero-slide-title-desktop" class="text-4xl lg:text-5xl font-black text-white uppercase tracking-tighter">SALVATORE FERRAGAMO</h2>
+               </div>
             </div>
          </div>
-
       </header>
 
       <!-- INFINITE MARQUEE TICKER -->
@@ -354,7 +332,7 @@
          </div>
          <div class="max-w-7xl mx-auto px-6 relative z-10">
             <div class="flex items-end justify-between mb-8 gap-6">
-               <div class="space-y-4 md:text-center md:w-full">
+               <div class="space-y-4 md:text-center md:w-full reveal-off">
                   <span class="text-xs font-black text-[#f085aa] uppercase tracking-[0.3em]">[ SUA ENTRADA NESSE
                      UNIVERSO ]</span>
                   <h2
@@ -470,8 +448,8 @@
       </section>
 
       <!-- DREAM BRIDGE -->
-      <section
-         class="pt-10 pb-20 md:pt-16 md:pb-32 px-6 border-b border-white/5 bg-[#050505] reveal-off relative overflow-hidden">
+      <section id="dream-bridge"
+         class="pt-10 pb-20 md:pt-16 md:pb-32 px-6 border-b border-white/5 bg-[#050505] relative overflow-hidden">
          <!-- Atmospheric Depth -->
          <div class="absolute inset-0 -z-10 pointer-events-none overflow-hidden">
             <div class="absolute inset-0 bg-gradient-to-b from-[#08060c] via-[#050505] to-[#0a0a0a]"></div>
@@ -487,7 +465,7 @@
          </div>
          <div class="max-w-7xl mx-auto relative z-10">
             <div
-               class="bento-card glass-premium p-8 md:p-12 relative overflow-hidden bg-gradient-to-br from-white/5 via-black/70 to-black/90 border border-white/10 border-t-white/20 max-w-4xl mx-auto">
+               class="bento-card glass-premium p-8 md:p-12 relative overflow-hidden bg-gradient-to-br from-white/5 via-black/70 to-black/90 border border-white/10 border-t-white/20 max-w-4xl mx-auto reveal-off">
                <div
                   class="absolute -top-24 -right-24 w-[320px] h-[320px] bg-[#f085aa]/15 blur-[100px] rounded-full pointer-events-none">
                </div>
@@ -538,79 +516,98 @@
       </section>
 
       <!-- ECONOMY SHOWCASE (The Value Proposition) -->
-      <section
-         class="pt-10 pb-10 md:pt-12 md:pb-16 px-6 md:border-b border-white/5 overflow-hidden relative bg-[#070707] reveal-off">
-         <div
-            class="absolute inset-0 z-0 pointer-events-none bg-[#070707]">
-         </div>
+      <section id="beneficios"
+         class="py-24 px-6 md:px-8 bg-[#050505] relative overflow-hidden">
+         <style>
+            .border-beam { position: relative; }
+            .border-beam::after {
+               content: ""; position: absolute; inset: -1px;
+               background: linear-gradient(90deg, transparent, #f085aa, transparent);
+               background-size: 200% 100%; border-radius: 2.5rem;
+               mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+               mask-composite: exclude; z-index: 2; opacity: 0;
+               transition: opacity 0.5s; animation: beam 4s linear infinite;
+            }
+            .group.border-beam::after { opacity: 0.15; }
+            .group:hover.border-beam::after { opacity: 0.6; }
+            @keyframes beam {
+               from { background-position: 200% 0; }
+               to { background-position: -200% 0; }
+            }
+            .noise-bg {
+               background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+               opacity: 0.03;
+            }
+         </style>
+         <div class="absolute inset-0 z-0 pointer-events-none bg-[#050505]"></div>
 
-         <div class="max-w-7xl mx-auto relative z-10 md:grid md:grid-cols-2 md:gap-16 md:items-center">
-            <div>
-               <span
-                  class="text-[9px] md:text-xs font-black text-[#f085aa] uppercase tracking-[0.2em] md:tracking-[0.3em] mb-4 block leading-relaxed max-w-[90vw]">
-                  [ UM VALOR PEQUENO. UM ACESSO AO EXTRAORDINÁRIO. ]
-               </span>
-               <h2
-                  class="text-[22px] md:text-2xl lg:text-3xl font-black text-white uppercase tracking-tighter leading-tight mb-8">
-                  <span class="block">Você sempre ganha.</span>
-                  <span class="block">De um jeito ou de outro.</span>
+         <div class="max-w-7xl mx-auto relative z-10">
+            <div class="text-center mb-10 md:mb-12 space-y-4">
+               <span class="text-xs font-black text-[#f085aa] uppercase tracking-[0.3em] mb-4 block">[ UM VALOR PEQUENO. UM ACESSO AO EXTRAORDINÁRIO. ]</span>
+               <h2 class="text-3xl md:text-5xl font-black text-white uppercase tracking-tighter mb-6 leading-[0.95] reveal-off">
+                  Você sempre ganha.<br>
+                  De um jeito ou de outro.
                </h2>
-               <p class="text-[17px] md:text-xl text-gray-300 font-medium leading-relaxed mb-8 max-w-[420px]">
-                  Essa é a diferença entre o Clube Versiani e qualquer outra assinatura: <span class="text-gradient-rose font-black">seu dinheiro trabalha por você de dois jeitos ao mesmo tempo.</span>
+               <p class="text-base md:text-lg text-white/40 font-medium max-w-2xl mx-auto leading-relaxed">
+                  Essa é a diferença entre o Clube Versiani e qualquer outra assinatura:<br class="hidden md:block">
+                  <span class="text-gradient-rose font-black">seu dinheiro trabalha por você de dois jeitos ao mesmo tempo.</span>
                </p>
             </div>
 
-            <div class="w-full mt-10 md:mt-0 relative group">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 lg:max-w-5xl lg:mx-auto">
+               <!-- Card 1: Sorteio -->
+               <div class="group border-beam relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-gradient-to-br from-[#121212] to-[#0a0a0a] p-8 md:p-12 min-h-[280px] flex flex-col justify-center transition-all duration-700 hover:-translate-y-2 shadow-[0_4px_20px_rgba(0,0,0,0.5)] hover:shadow-[0_20px_50px_-12px_rgba(240,133,170,0.2)] reveal-off">
+                  <div class="absolute inset-0 noise-bg pointer-events-none"></div>
+                  
+                  <!-- Glossy Shine -->
+                  <div class="absolute inset-0 bg-gradient-to-tr from-white/[0.02] via-transparent to-transparent pointer-events-none"></div>
+                  <div class="absolute -inset-[100%] bg-gradient-to-r from-transparent via-white/[0.03] to-transparent rotate-45 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 pointer-events-none"></div>
 
-               <div id="cards-carousel" class="flex flex-col gap-4 md:gap-6 relative z-10">
-
-                  <!-- Premium Card 1 (Estilo Imagem) -->
-                  <div
-                     class="p-8 md:p-10 rounded-[32px] border border-[#f085aa]/20 bg-gradient-to-br from-[#2b1f24] to-[#120d11] relative overflow-hidden w-full shadow-lg transition-all duration-300">
-                     <div class="relative z-10 flex flex-col h-full justify-center">
-                        <h3 class="text-[22px] md:text-2xl font-black text-white uppercase tracking-tighter mb-4">Sua
-                           chance todo mês</h3>
-                        <p class="text-[16px] md:text-[17px] text-gray-300 font-medium leading-relaxed mb-6">
-                           Enquanto sua assinatura estiver ativa, você está no sorteio. Um novo prêmio. Uma nova chance.
-                           Todo mês.
+                  <div class="relative z-10 space-y-6">
+                     <div class="space-y-4">
+                        <h3 class="text-2xl md:text-3xl font-black text-white uppercase tracking-tighter leading-[0.95] transition-all duration-700">SUA CHANCE<br>TODO MÊS</h3>
+                        <p class="text-lg md:text-xl text-white/50 font-medium leading-relaxed max-w-[90%] transition-colors duration-700 group-hover:text-white/70">
+                           Enquanto sua assinatura estiver ativa, você está no sorteio. <span class="text-white font-bold border-b border-[#f085aa]/40 pb-0.5">Um novo prêmio. Uma nova chance. Todo mês.</span>
                         </p>
                      </div>
                   </div>
+               </div>
 
-                  <!-- Premium Card 2 (Estilo Imagem) -->
-                  <div
-                     class="p-8 md:p-10 rounded-[32px] border border-[#f085aa]/20 bg-gradient-to-br from-[#2b1f24] to-[#120d11] relative overflow-hidden w-full shadow-lg transition-all duration-300">
-                     <div class="relative z-10 flex flex-col h-full justify-center">
-                        <h3 class="text-[22px] md:text-2xl font-black text-white uppercase tracking-tighter mb-4">Seus
-                           pontos,<br>seu dinheiro</h3>
-                        <p class="text-[16px] md:text-[17px] text-gray-300 font-medium leading-relaxed mb-6">
-                           20 pontos todo mês.<br>
-                           1 ponto = R$1 de desconto real.
-                        </p>
-                        <p class="text-[16px] md:text-[17px] text-gray-300 font-medium leading-relaxed">
-                           Use na <span class="text-[#f085aa] font-bold">Versiani Skin</span> ou na <span
-                              class="text-[#f085aa] font-bold">Versiani Swim</span>
-                           <span class="block text-gray-500 text-[14px] md:text-[15px] mt-2">— as marcas que já estão no
-                              seu feed.</span>
-                        </p>
+               <!-- Card 2: Pontos -->
+               <div class="group border-beam relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-gradient-to-br from-[#121212] to-[#0a0a0a] p-8 md:p-12 min-h-[280px] flex flex-col justify-center transition-all duration-700 hover:-translate-y-2 shadow-[0_4px_20px_rgba(0,0,0,0.5)] hover:shadow-[0_20px_50px_-12px_rgba(240,133,170,0.2)] reveal-off">
+                  <div class="absolute inset-0 noise-bg pointer-events-none"></div>
+
+                  <!-- Glossy Shine -->
+                  <div class="absolute inset-0 bg-gradient-to-tr from-white/[0.02] via-transparent to-transparent pointer-events-none"></div>
+                  <div class="absolute -inset-[100%] bg-gradient-to-r from-transparent via-white/[0.03] to-transparent rotate-45 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 pointer-events-none"></div>
+
+                  <div class="relative z-10 space-y-6">
+                     <div class="space-y-4">
+                        <h3 class="text-2xl md:text-3xl font-black text-white uppercase tracking-tighter leading-[0.95] transition-all duration-700">SEUS PONTOS,<br>SEU DINHEIRO</h3>
+                        <div class="space-y-4">
+                           <p class="text-lg md:text-xl text-white/50 font-medium leading-relaxed transition-colors duration-700 group-hover:text-white/70">
+                              <span class="text-white font-bold">20 pontos todo mês.</span><br>
+                              1 ponto = R$1 de desconto real.
+                           </p>
+                           <p class="text-lg text-white/40 font-medium leading-relaxed transition-colors duration-700 group-hover:text-white/60">
+                              Use na <span class="text-[#f085aa] font-bold underline underline-offset-8 decoration-[#f085aa]/20 hover:decoration-[#f085aa] transition-all">Versiani Skin</span> ou na <span class="text-[#f085aa] font-bold underline underline-offset-8 decoration-[#f085aa]/20 hover:decoration-[#f085aa] transition-all">Versiani Swim</span>.
+                           </p>
+                        </div>
                      </div>
                   </div>
-
                </div>
+            </div>
 
-               <!-- Fechamento -->
-               <div class="mt-8 text-center">
-                  <p class="text-lg md:text-xl text-white font-bold leading-relaxed">
-                     No Clube Versiani, não existe
-                  </p>
-                  <p class="text-2xl md:text-3xl font-black text-[#f085aa] leading-tight tracking-tight">mês perdido.</p>
-               </div>
+            <div class="mt-12 text-center reveal-off">
+               <p class="text-xl md:text-2xl font-bold text-white leading-relaxed">
+                  No Clube Versiani, não existe <span class="text-xl md:text-2xl font-black text-[#f085aa] tracking-tight ml-1">mês perdido.</span>
+               </p>
             </div>
          </div>
       </section>
 
       <!-- SOCIAL PROOF / WALL OF LOVE -->
-      <section
+      <section id="provas-sociais"
          class="pt-12 pb-10 md:pt-16 md:pb-16 px-6 md:border-b border-white/5 bg-[#080808] relative overflow-hidden">
          <div
             class="absolute lg:hidden top-[-8%] left-[-24%] w-[72vw] h-[72vw] bg-[#f085aa]/16 blur-[120px] rounded-full z-0 pointer-events-none">
@@ -619,7 +616,7 @@
             class="absolute lg:hidden bottom-[-10%] right-[-24%] w-[78vw] h-[78vw] bg-[#320075]/18 blur-[130px] rounded-full z-0 pointer-events-none">
          </div>
          <div class="max-w-7xl mx-auto relative z-10">
-            <div class="text-center mb-10 md:mb-12 space-y-4">
+            <div class="text-center mb-10 md:mb-12 space-y-4 reveal-off">
                <span class="text-xs font-black text-[#f085aa] uppercase tracking-[0.3em] mb-4 block">[ QUEM JÁ VIVEU
                   ISSO ]</span>
                <h2 class="text-3xl md:text-5xl font-black text-white uppercase tracking-tight leading-tight mb-6">
@@ -631,7 +628,7 @@
                </p>
             </div>
 
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 reveal-off">
                <div class="relative group aspect-[3/4] overflow-hidden rounded-2xl border border-white/5 reveal-off">
                   <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400&auto=format&fit=crop"
                      alt="Camila R. - Membro Versiani" width="400" height="533" loading="lazy"
@@ -825,13 +822,13 @@
             class="absolute lg:hidden bottom-[-14%] right-[-22%] w-[78vw] h-[78vw] bg-[#320075]/18 blur-[140px] rounded-full z-0 pointer-events-none">
          </div>
          <div class="max-w-3xl mx-auto mt-0 relative z-10">
-            <div class="text-center mb-16 space-y-4">
+            <div class="text-center mb-16 space-y-4 reveal-off">
                <span class="text-xs font-black text-gray-500 uppercase tracking-[0.3em]">[ TRANSPARÊNCIA TOTAL ]</span>
                <h2 class="text-3xl md:text-6xl font-black text-white uppercase tracking-tight leading-tight">Dúvidas
                   Frequentes</h2>
             </div>
 
-            <div class="space-y-4 text-left">
+            <div class="space-y-4 text-left reveal-off">
 
                <!-- FAQ 4 -->
                <div class="border-b border-white/10 pb-4">
@@ -1192,30 +1189,39 @@
 
 
          // Scroll Reveal Logic (Global)
-         const observerOptions = { threshold: 0.15 };
-         const observer = new IntersectionObserver((entries) => {
+         const revealElements = document.querySelectorAll('.reveal-off');
+
+         // Stagger por seção para evitar entrada "de uma vez"
+         document.querySelectorAll('section').forEach(section => {
+            const items = [...section.querySelectorAll('.reveal-off')];
+            items.forEach((el, idx) => {
+               const delay = Math.min(idx, 8) * 120 + 120;
+               el.style.setProperty('--reveal-delay', `${delay}ms`);
+            });
+         });
+
+         // Fallback para elementos fora de section
+         revealElements.forEach((el) => {
+            if (!el.style.getPropertyValue('--reveal-delay')) {
+               el.style.setProperty('--reveal-delay', '180ms');
+            }
+         });
+
+         const observerOptions = {
+            threshold: 0.12,
+            rootMargin: '0px 0px -10% 0px'
+         };
+
+         const observer = new IntersectionObserver((entries, obs) => {
             entries.forEach(entry => {
-               if (entry.isIntersecting) {
-                  entry.target.classList.add('reveal-on');
-                  entry.target.classList.remove('reveal-off');
-               }
+               if (!entry.isIntersecting) return;
+               entry.target.classList.add('reveal-on');
+               entry.target.classList.remove('reveal-off');
+               obs.unobserve(entry.target);
             });
          }, observerOptions);
 
-         document.querySelectorAll('.reveal-off:not(.reveal-late)').forEach(el => observer.observe(el));
-
-         // High Threshold Reveal (Specific for Photos Section)
-         const lateObserverOptions = { threshold: 0.90 };
-         const lateObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-               if (entry.isIntersecting) {
-                  entry.target.classList.add('reveal-on');
-                  entry.target.classList.remove('reveal-off');
-               }
-            });
-         }, lateObserverOptions);
-
-         document.querySelectorAll('.reveal-late').forEach(el => lateObserver.observe(el));
+         revealElements.forEach(el => observer.observe(el));
       });
    </script>
 </body>
