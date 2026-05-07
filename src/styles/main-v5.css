@@ -1,0 +1,3067 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+@font-face {
+  font-family: 'Thunder';
+  src: url('https://html.aqlova.com/pixora-prev/pixora/assets/fonts/Thunder-BoldLC.woff2') format('woff2'),
+       url('https://html.aqlova.com/pixora-prev/pixora/assets/fonts/Thunder-BoldLC.woff') format('woff');
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ThunderMed';
+  src: url('https://html.aqlova.com/pixora-prev/pixora/assets/fonts/Thunder-MediumLC.woff2') format('woff2'),
+       url('https://html.aqlova.com/pixora-prev/pixora/assets/fonts/Thunder-MediumLC.woff') format('woff');
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', sans-serif; background-color: #050505; color: #ffffff; }
+
+.material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+.symbol-fill { font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+
+/* Custom High-Reward Esthetics */
+.glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.luxury-gradient-bg {
+  background: linear-gradient(135deg, #320075 0%, #6e1c3f 50%, #f085aa 100%);
+}
+
+.luxury-gradient-text {
+  background: linear-gradient(135deg, #320075 0%, #f085aa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* --- V2 DARK PREMIUM CLASSES --- */
+
+.dark-bg-base {
+  background-color: #050505;
+  background-image: radial-gradient(circle at 15% 50%, rgba(50, 0, 117, 0.1), transparent 25%),
+                    radial-gradient(circle at 85% 30%, rgba(240, 133, 170, 0.05), transparent 25%);
+}
+
+.bento-card {
+  background: rgba(15, 15, 15, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 1.5rem;
+  transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.bento-card:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transform: translateY(-4px);
+}
+
+.text-gradient-rose {
+  background: linear-gradient(135deg, #f085aa 0%, #ffb0c9 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.pill-nav-glass {
+  background: rgba(10, 10, 10, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 20s linear infinite;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.faq-panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out, opacity 0.4s ease-out;
+  opacity: 0;
+}
+
+.faq-panel.active {
+  max-height: 500px; /* arbitrary large value */
+  opacity: 1;
+}
+
+.vip-gradient {
+  background: linear-gradient(135deg, #1d1a22 0%, #4a4452 100%);
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 2s infinite;
+}
+
+@keyframes pulseGlow {
+  0% { box-shadow: 0 0 0 0 rgba(240, 133, 170, 0.7); }
+  70% { box-shadow: 0 0 0 15px rgba(240, 133, 170, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(240, 133, 170, 0); }
+}
+
+/* Mobile Optimization for 360x800 */
+@media (max-width: 767px) {
+  header {
+    min-height: auto !important;
+    height: calc(100vh - 80px); /* Adjust for nav and footer visibility */
+    max-height: 720px;
+  }
+  #zaiotto-slider {
+    min-height: 45vh !important;
+  }
+}
+
+/* Nav & Footer */
+.nav-link { color: rgba(29, 26, 34, 0.7); font-weight: 700; transition: color .2s ease; }
+.nav-link:hover { color: #320075; }
+.footer-link { color: rgba(29, 26, 34, 0.6); font-size: .875rem; transition: color .2s ease; }
+.footer-link:hover { color: #320075; }
+
+/* ==============================
+   V5 — Luxe Editorial Overrides
+   ============================== */
+.v5-luxe {
+  background:
+    radial-gradient(1200px 540px at 70% -10%, rgba(240,133,170,.18), transparent 60%),
+    radial-gradient(900px 460px at 10% 0%, rgba(50,0,117,.22), transparent 58%),
+    #050505;
+}
+
+.v5-luxe .pill-nav-glass {
+  background: rgba(7, 7, 7, 0.58);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 18px 40px -24px rgba(0,0,0,.85), inset 0 1px 0 rgba(255,255,255,.08);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.v5-luxe h1 {
+  letter-spacing: -0.04em;
+  text-wrap: balance;
+  font-family: 'Thunder', 'Inter', sans-serif;
+}
+
+.v5-luxe .v5-hero .streak-beam {
+  animation: heroBeamFlow 7s ease-in-out infinite alternate;
+}
+
+.v5-luxe .v5-hero .hero-highlights > div,
+.v5-luxe .v5-hero .hero-side-note {
+  box-shadow: 0 28px 46px -32px rgba(0,0,0,.85), inset 0 1px 0 rgba(255,255,255,.05);
+}
+
+.v5-luxe .v5-hero .hero-highlights > div {
+  transition: transform .35s ease, border-color .35s ease;
+}
+
+.v5-luxe .v5-hero .hero-highlights > div:hover {
+  transform: translateY(-4px);
+  border-color: rgba(240,133,170,.46);
+}
+
+@keyframes heroBeamFlow {
+  0% { transform: translateX(-2%) scaleX(1); opacity: .65; }
+  100% { transform: translateX(9%) scaleX(1.08); opacity: .95; }
+}
+
+@media (max-width: 1023px) {
+  .v5-luxe .v5-hero h1 {
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+.v5-luxe .text-gradient-rose {
+  background: linear-gradient(130deg, #f085aa 8%, #ffd2e3 54%, #f085aa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.v5-luxe section {
+  position: relative;
+}
+
+.v5-luxe section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(255,255,255,.015), rgba(0,0,0,0));
+}
+
+.v5-luxe .bento-card,
+.v5-luxe #cards-carousel > div,
+.v5-luxe #planos .rounded-2xl {
+  background: linear-gradient(165deg, rgba(255,255,255,.08) 0%, rgba(255,255,255,.025) 35%, rgba(0,0,0,.25) 100%);
+  border: 1px solid rgba(255,255,255,.12);
+  box-shadow:
+    0 26px 60px -36px rgba(0,0,0,.85),
+    0 0 0 1px rgba(255,255,255,.02) inset;
+}
+
+.v5-luxe .bento-card:hover,
+.v5-luxe #cards-carousel > div:hover {
+  transform: translateY(-6px);
+  border-color: rgba(240,133,170,.36);
+  box-shadow:
+    0 34px 70px -34px rgba(0,0,0,.9),
+    0 0 42px -22px rgba(240,133,170,.55);
+}
+
+.v5-luxe #cards-carousel {
+  gap: 1.25rem;
+}
+
+.v5-luxe #cards-carousel h3 {
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  font-family: 'ThunderMed', 'Inter', sans-serif;
+}
+
+.v5-luxe a[href="auth.html"],
+.v5-luxe .btn-shine {
+  box-shadow: 0 0 0 1px rgba(255,255,255,.15) inset, 0 14px 30px -16px rgba(240,133,170,.45);
+}
+
+.v5-luxe a[href="auth.html"]:hover {
+  transform: translateY(-1px);
+}
+
+.v5-luxe .animate-marquee {
+  animation-duration: 26s;
+}
+
+.v5-luxe #faq .faq-toggle h4 {
+  letter-spacing: .01em;
+}
+
+@media (min-width: 1024px) {
+  .v5-luxe section {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .v5-luxe .max-w-7xl {
+    max-width: 82rem;
+  }
+
+  .v5-luxe h2 {
+    letter-spacing: -0.028em;
+    font-family: 'Thunder', 'Inter', sans-serif;
+  }
+
+  /* Fase 2 — reestruturação visual desktop */
+  .v5-luxe #como-funciona #hw-carousel {
+    max-width: 82rem;
+    margin-inline: auto;
+    gap: 1.1rem;
+  }
+
+  .v5-luxe #como-funciona #hw-carousel > .bento-card {
+    height: 24rem;
+    border-radius: 1.85rem;
+  }
+
+  .v5-luxe #beneficios .max-w-7xl {
+    max-width: 76rem;
+  }
+
+  .v5-luxe #beneficios .grid {
+    gap: 1.5rem;
+  }
+
+  .v5-luxe #beneficios .group.border-beam {
+    min-height: 21.5rem;
+    border-radius: 2rem;
+  }
+
+  .v5-luxe #provas-sociais .grid {
+    gap: 1.1rem;
+  }
+
+  .v5-luxe #provas-sociais .grid > div {
+    border-radius: 1.3rem;
+  }
+
+  .v5-luxe #provas-sociais .grid > div:nth-child(2),
+  .v5-luxe #provas-sociais .grid > div:nth-child(4) {
+    transform: translateY(2rem);
+  }
+
+  .v5-luxe #planos .max-w-7xl > .flex {
+    align-items: flex-start;
+    gap: 5rem;
+  }
+
+  .v5-luxe #planos .max-w-7xl > .flex > .flex-1 {
+    max-width: 44rem;
+  }
+
+  .v5-luxe #planos .max-w-7xl > .flex > .w-full {
+    position: sticky;
+    top: 7.2rem;
+  }
+
+  .v5-luxe #faq .max-w-3xl {
+    max-width: 64rem;
+  }
+
+  .v5-luxe #faq .faq-toggle h4 {
+    font-size: 1.12rem;
+  }
+}
+
+
+
+/* ==============================
+   V5.2 — Fashion Editorial + Luxo Minimalista
+   Direção: B+A (impacto Pixora, controle premium)
+   ============================== */
+.v5-luxe {
+  --v5-bg: #050505;
+  --v5-ink: #f7f3ef;
+  --v5-muted: rgba(247,243,239,.58);
+  --v5-line: rgba(247,243,239,.12);
+  --v5-rose: #f085aa;
+  --v5-rose-soft: #ffd1df;
+  background: #050505 !important;
+}
+
+.v5-luxe::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    linear-gradient(rgba(255,255,255,.026) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px),
+    radial-gradient(680px 380px at 72% 8%, rgba(240,133,170,.12), transparent 68%),
+    #050505;
+  background-size: 64px 64px, 64px 64px, auto, auto;
+}
+
+.v5-luxe .pill-nav-glass {
+  border-radius: 999px;
+  background: rgba(5,5,5,.72) !important;
+  border-color: rgba(255,255,255,.12) !important;
+}
+
+.v5-luxe .nav-link {
+  color: rgba(247,243,239,.62) !important;
+  font-size: .72rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+.v5-luxe .nav-link:hover {
+  color: #fff !important;
+}
+
+.v5-luxe .v5-hero {
+  min-height: 94vh !important;
+  background: #050505 !important;
+  border-bottom: 1px solid var(--v5-line);
+}
+
+.v5-luxe .v5-hero::before {
+  content: "VERSIANI";
+  position: absolute;
+  left: 50%;
+  bottom: -7vw;
+  transform: translateX(-50%);
+  z-index: 12;
+  font-family: 'Thunder', 'Inter', sans-serif;
+  font-size: clamp(8rem, 24vw, 25rem);
+  line-height: .7;
+  letter-spacing: -.035em;
+  color: rgba(255,255,255,.035);
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.v5-luxe .v5-hero img {
+  filter: saturate(.84) contrast(1.06) brightness(.78);
+  transform: scale(1.04);
+}
+
+.v5-luxe .v5-hero h1 {
+  max-width: 8ch;
+  font-size: clamp(4.8rem, 13.2vw, 13.5rem) !important;
+  line-height: .71 !important;
+  letter-spacing: -.038em !important;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+.v5-luxe .v5-hero h1 .text-gradient-rose {
+  display: inline-block;
+  background: none !important;
+  color: var(--v5-rose-soft) !important;
+  -webkit-text-fill-color: var(--v5-rose-soft) !important;
+}
+
+.v5-luxe .v5-hero .space-y-8 {
+  max-width: 58rem !important;
+}
+
+.v5-luxe .v5-hero p {
+  max-width: 34rem;
+  color: rgba(247,243,239,.66) !important;
+  letter-spacing: -.02em;
+}
+
+.v5-luxe .v5-hero p:first-child {
+  color: #fff !important;
+}
+
+.v5-luxe .v5-hero .streak-beam {
+  height: 1px !important;
+  width: 58% !important;
+  top: 49% !important;
+  left: 0 !important;
+  background: linear-gradient(90deg, transparent, rgba(240,133,170,.95), rgba(255,255,255,.6), transparent) !important;
+  box-shadow: 0 0 26px rgba(240,133,170,.58);
+}
+
+.v5-luxe section[id] {
+  border-bottom: 1px solid rgba(247,243,239,.08) !important;
+}
+
+.v5-luxe section[id] .max-w-7xl,
+.v5-luxe #faq .max-w-3xl {
+  max-width: 88rem !important;
+}
+
+.v5-luxe section[id] h2 {
+  font-family: 'Thunder', 'Inter', sans-serif !important;
+  font-size: clamp(4.2rem, 10vw, 10.5rem) !important;
+  line-height: .76 !important;
+  letter-spacing: -.035em !important;
+  text-transform: uppercase;
+  color: var(--v5-ink) !important;
+}
+
+.v5-luxe section[id] span[class*="tracking-[0.3em]"],
+.v5-luxe section[id] span[class*="tracking"] {
+  color: var(--v5-rose-soft) !important;
+  letter-spacing: .26em !important;
+}
+
+.v5-luxe #como-funciona {
+  padding-top: clamp(5rem, 10vw, 9rem) !important;
+}
+
+.v5-luxe #como-funciona .md\:text-center,
+.v5-luxe #beneficios .text-center,
+.v5-luxe #provas-sociais .text-center {
+  text-align: left !important;
+}
+
+.v5-luxe #como-funciona .md\:w-full {
+  width: auto !important;
+}
+
+.v5-luxe #hw-carousel {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 1px !important;
+  padding-inline: 1.5rem !important;
+  background: rgba(255,255,255,.1);
+  border: 1px solid rgba(255,255,255,.1);
+}
+
+.v5-luxe #hw-carousel > .bento-card,
+.v5-luxe #beneficios .group.border-beam,
+.v5-luxe #planos .rounded-2xl {
+  border-radius: 0 !important;
+  border: 0 !important;
+  background: #090909 !important;
+  box-shadow: none !important;
+}
+
+.v5-luxe #hw-carousel > .bento-card:hover,
+.v5-luxe #beneficios .group.border-beam:hover,
+.v5-luxe #planos .rounded-2xl:hover {
+  transform: translateY(-3px) !important;
+  background: #101010 !important;
+}
+
+.v5-luxe #hw-carousel > .bento-card h3,
+.v5-luxe #beneficios h3,
+.v5-luxe #planos h3 {
+  font-family: 'ThunderMed', 'Inter', sans-serif !important;
+  font-size: clamp(2rem, 3vw, 3.4rem) !important;
+  line-height: .84 !important;
+  letter-spacing: -.02em !important;
+  text-transform: uppercase;
+}
+
+.v5-luxe #hw-carousel > .bento-card p,
+.v5-luxe #beneficios p,
+.v5-luxe #planos p,
+.v5-luxe #provas-sociais p,
+.v5-luxe #faq p {
+  color: var(--v5-muted) !important;
+}
+
+.v5-luxe #dream-bridge .bento-card {
+  max-width: none !important;
+  min-height: 58vh;
+  border-radius: 0 !important;
+  border: 1px solid rgba(255,255,255,.1) !important;
+  background:
+    linear-gradient(90deg, rgba(255,255,255,.045), rgba(255,255,255,.012)),
+    #070707 !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.v5-luxe #dream-bridge h2,
+.v5-luxe #dream-bridge h3 {
+  font-family: 'Thunder', 'Inter', sans-serif !important;
+  font-size: clamp(4rem, 11vw, 11rem) !important;
+  line-height: .74 !important;
+  max-width: 10ch;
+}
+
+.v5-luxe #beneficios .grid {
+  gap: 1px !important;
+  background: rgba(255,255,255,.1);
+  border: 1px solid rgba(255,255,255,.1);
+}
+
+.v5-luxe #beneficios .border-beam::after {
+  display: none !important;
+}
+
+.v5-luxe #provas-sociais {
+  background: #050505 !important;
+}
+
+.v5-luxe #provas-sociais .grid {
+  gap: 1px !important;
+  background: rgba(255,255,255,.1);
+  border: 1px solid rgba(255,255,255,.1);
+}
+
+.v5-luxe #provas-sociais .grid > div {
+  border-radius: 0 !important;
+  border: 0 !important;
+  filter: saturate(.78) contrast(1.08);
+}
+
+.v5-luxe #provas-sociais .grid > div img {
+}
+
+.v5-luxe #planos .max-w-7xl > .flex {
+  gap: clamp(2.5rem, 8vw, 8rem) !important;
+}
+
+.v5-luxe #planos a[href="auth.html"],
+.v5-luxe a[href="auth.html"] {
+  border-radius: 0 !important;
+  background: var(--v5-ink) !important;
+  color: #080808 !important;
+  box-shadow: none !important;
+}
+
+.v5-luxe #planos a[href="auth.html"]:hover,
+.v5-luxe a[href="auth.html"]:hover {
+  background: var(--v5-rose-soft) !important;
+}
+
+.v5-luxe #faq .faq-toggle,
+.v5-luxe #faq .border-b {
+  border-color: rgba(255,255,255,.12) !important;
+}
+
+.v5-luxe #faq .faq-toggle h4 {
+  font-family: 'ThunderMed', 'Inter', sans-serif !important;
+  font-size: clamp(1.7rem, 3vw, 2.8rem) !important;
+  line-height: .9 !important;
+  text-transform: uppercase;
+}
+
+@media (max-width: 1023px) {
+  .v5-luxe .v5-hero::before { display: none; }
+  .v5-luxe .v5-hero h1 {
+    font-family: 'Thunder', 'Inter', sans-serif !important;
+    font-size: clamp(4.2rem, 22vw, 7.4rem) !important;
+    line-height: .76 !important;
+    max-width: 7ch;
+    margin-inline: auto;
+  }
+  .v5-luxe #hw-carousel,
+  .v5-luxe #beneficios .grid,
+  .v5-luxe #provas-sociais .grid {
+    display: flex !important;
+    background: transparent !important;
+    border: 0 !important;
+    gap: 1rem !important;
+  }
+  .v5-luxe section[id] h2 {
+    font-size: clamp(3.5rem, 17vw, 6.6rem) !important;
+    line-height: .78 !important;
+  }
+  .v5-luxe #como-funciona .md\:text-center,
+  .v5-luxe #beneficios .text-center,
+  .v5-luxe #provas-sociais .text-center {
+    text-align: center !important;
+  }
+}
+
+
+/* ==============================
+   V5.3 — C+A Premium Comercial Clean
+   Direção: clareza, conversão e luxo minimalista
+   ============================== */
+.v5-luxe {
+  --ca-bg: #050505;
+  --ca-panel: #0d0d0f;
+  --ca-panel-2: #121216;
+  --ca-text: #ffffff;
+  --ca-muted: rgba(255,255,255,.62);
+  --ca-line: rgba(255,255,255,.10);
+  --ca-rose: #f085aa;
+  --ca-rose-soft: #ffd3e2;
+  background:
+    radial-gradient(760px 420px at 78% 8%, rgba(240,133,170,.12), transparent 65%),
+    radial-gradient(560px 360px at 12% 10%, rgba(50,0,117,.14), transparent 60%),
+    #050505 !important;
+}
+
+.v5-luxe::before {
+  display: none !important;
+}
+
+.v5-luxe .pill-nav-glass {
+  background: rgba(7,7,8,.72) !important;
+  border: 1px solid rgba(255,255,255,.12) !important;
+  border-radius: 999px !important;
+  box-shadow: 0 18px 44px -30px rgba(0,0,0,.9) !important;
+}
+
+.v5-luxe .nav-link {
+  font-size: .78rem !important;
+  letter-spacing: .08em !important;
+  text-transform: none !important;
+  color: rgba(255,255,255,.68) !important;
+}
+
+.v5-luxe .v5-hero {
+  min-height: 90vh !important;
+  border-bottom: 1px solid rgba(255,255,255,.08) !important;
+}
+
+.v5-luxe .v5-hero::before {
+  display: none !important;
+}
+
+.v5-luxe .v5-hero img {
+  filter: saturate(.92) contrast(1.03) brightness(.82) !important;
+  transform: scale(1.01) !important;
+}
+
+.v5-luxe .v5-hero h1 {
+  font-family: 'Inter', sans-serif !important;
+  max-width: 12ch !important;
+  font-size: clamp(3.4rem, 7.2vw, 7.2rem) !important;
+  line-height: .88 !important;
+  letter-spacing: -.065em !important;
+  text-transform: none !important;
+  font-weight: 900 !important;
+}
+
+.v5-luxe .v5-hero h1 .text-gradient-rose {
+  background: linear-gradient(135deg, #f085aa 0%, #ffd5e4 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+.v5-luxe .v5-hero p {
+  max-width: 34rem !important;
+  color: rgba(255,255,255,.66) !important;
+}
+
+.v5-luxe .v5-hero p:first-child {
+  color: #fff !important;
+}
+
+.v5-luxe .v5-hero .streak-beam {
+  display: none !important;
+}
+
+.v5-luxe .hero-primary-cta a {
+  border-radius: 999px !important;
+  box-shadow: 0 18px 36px -24px rgba(240,133,170,.65) !important;
+}
+
+.v5-luxe .hero-primary-cta a:first-child,
+.v5-luxe a[href="auth.html"] {
+  background: #f085aa !important;
+  color: #080808 !important;
+}
+
+.v5-luxe .hero-primary-cta a:first-child:hover,
+.v5-luxe a[href="auth.html"]:hover {
+  background: #fff !important;
+  color: #080808 !important;
+}
+
+.v5-luxe section[id] {
+  border-bottom: 1px solid rgba(255,255,255,.07) !important;
+}
+
+.v5-luxe section[id] h2,
+.v5-luxe #dream-bridge h2,
+.v5-luxe #dream-bridge h3 {
+  font-family: 'Inter', sans-serif !important;
+  font-size: clamp(2.45rem, 5.2vw, 5.4rem) !important;
+  line-height: .96 !important;
+  letter-spacing: -.055em !important;
+  text-transform: none !important;
+  font-weight: 900 !important;
+  color: #fff !important;
+}
+
+.v5-luxe section[id] span[class*="tracking"] {
+  color: var(--ca-rose) !important;
+  letter-spacing: .18em !important;
+}
+
+.v5-luxe #como-funciona .md\:text-center,
+.v5-luxe #beneficios .text-center,
+.v5-luxe #provas-sociais .text-center {
+  text-align: center !important;
+}
+
+.v5-luxe #hw-carousel {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 1.25rem !important;
+  padding-inline: 1.5rem !important;
+  background: transparent !important;
+  border: 0 !important;
+}
+
+.v5-luxe #hw-carousel > .bento-card,
+.v5-luxe #beneficios .group.border-beam,
+.v5-luxe #planos .rounded-2xl {
+  border-radius: 1.6rem !important;
+  border: 1px solid rgba(255,255,255,.10) !important;
+  background: linear-gradient(180deg, rgba(255,255,255,.055), rgba(255,255,255,.022)) !important;
+  box-shadow: 0 24px 70px -50px rgba(0,0,0,.9) !important;
+}
+
+.v5-luxe #hw-carousel > .bento-card:hover,
+.v5-luxe #beneficios .group.border-beam:hover,
+.v5-luxe #planos .rounded-2xl:hover {
+  transform: translateY(-6px) !important;
+  border-color: rgba(240,133,170,.34) !important;
+  background: linear-gradient(180deg, rgba(255,255,255,.075), rgba(255,255,255,.03)) !important;
+}
+
+.v5-luxe #hw-carousel > .bento-card h3,
+.v5-luxe #beneficios h3,
+.v5-luxe #planos h3,
+.v5-luxe #faq .faq-toggle h4 {
+  font-family: 'Inter', sans-serif !important;
+  font-size: clamp(1.28rem, 2.1vw, 2rem) !important;
+  line-height: 1.03 !important;
+  letter-spacing: -.035em !important;
+  text-transform: none !important;
+  font-weight: 900 !important;
+}
+
+.v5-luxe #dream-bridge .bento-card {
+  min-height: auto !important;
+  border-radius: 2rem !important;
+  background: linear-gradient(135deg, rgba(240,133,170,.08), rgba(255,255,255,.035) 38%, rgba(0,0,0,.42)) !important;
+  border: 1px solid rgba(255,255,255,.12) !important;
+}
+
+.v5-luxe #beneficios .grid,
+.v5-luxe #provas-sociais .grid {
+  background: transparent !important;
+  border: 0 !important;
+  gap: 1.4rem !important;
+}
+
+.v5-luxe #beneficios .border-beam::after {
+  display: block !important;
+  opacity: .08 !important;
+}
+
+.v5-luxe #provas-sociais {
+  background: #080808 !important;
+}
+
+.v5-luxe #provas-sociais .grid > div {
+  border-radius: 1.35rem !important;
+  border: 1px solid rgba(255,255,255,.08) !important;
+  overflow: hidden !important;
+}
+
+.v5-luxe #provas-sociais .grid > div:nth-child(2),
+.v5-luxe #provas-sociais .grid > div:nth-child(4) {
+  transform: translateY(1.25rem) !important;
+}
+
+.v5-luxe #planos .max-w-7xl > .flex {
+  gap: clamp(2.5rem, 5vw, 5rem) !important;
+}
+
+.v5-luxe #faq .max-w-3xl {
+  max-width: 56rem !important;
+}
+
+@media (max-width: 1023px) {
+  .v5-luxe .v5-hero h1 {
+    font-family: 'Inter', sans-serif !important;
+    font-size: clamp(3.2rem, 14vw, 5.3rem) !important;
+    line-height: .9 !important;
+    max-width: 10ch !important;
+  }
+
+  .v5-luxe #hw-carousel,
+  .v5-luxe #beneficios .grid,
+  .v5-luxe #provas-sociais .grid {
+    display: flex !important;
+    gap: 1rem !important;
+  }
+
+  .v5-luxe section[id] h2,
+  .v5-luxe #dream-bridge h2,
+  .v5-luxe #dream-bridge h3 {
+    font-size: clamp(2.35rem, 11vw, 4.2rem) !important;
+    line-height: .96 !important;
+  }
+
+  .v5-luxe #provas-sociais .grid > div:nth-child(2),
+  .v5-luxe #provas-sociais .grid > div:nth-child(4) {
+    transform: none !important;
+  }
+}
+
+
+/* ==============================
+   V5.4 — Conceito 2+3
+   A Vitrine do Desejo + Clube Privado
+   ============================== */
+.v5-luxe {
+  --club-bg: #050404;
+  --club-panel: #0b090a;
+  --club-cream: #fff7ef;
+  --club-muted: rgba(255,247,239,.62);
+  --club-line: rgba(255,247,239,.12);
+  --club-rose: #f085aa;
+  --club-gold: #d6b06d;
+  background:
+    radial-gradient(520px 420px at 72% 22%, rgba(240,133,170,.16), transparent 70%),
+    radial-gradient(740px 520px at 86% 68%, rgba(214,176,109,.10), transparent 72%),
+    #050404 !important;
+}
+
+.v5-luxe .pill-nav-glass {
+  background: rgba(5,4,4,.72) !important;
+  border: 1px solid rgba(255,247,239,.12) !important;
+  border-radius: 999px !important;
+}
+
+.v5-luxe .v5-hero {
+  min-height: 92vh !important;
+  background:
+    linear-gradient(90deg, rgba(5,4,4,.96) 0%, rgba(5,4,4,.80) 38%, rgba(5,4,4,.34) 70%, rgba(5,4,4,.62) 100%),
+    #050404 !important;
+  border-bottom: 1px solid rgba(255,247,239,.10) !important;
+}
+
+.v5-luxe .v5-hero::before {
+  content: "" !important;
+  display: block !important;
+  position: absolute;
+  right: 7.5vw;
+  top: 15vh;
+  width: min(38vw, 520px);
+  height: 67vh;
+  z-index: 9;
+  pointer-events: none;
+  border: 1px solid rgba(255,247,239,.20);
+  background:
+    linear-gradient(180deg, rgba(255,247,239,.06), rgba(255,247,239,.012)),
+    radial-gradient(circle at 50% 35%, rgba(240,133,170,.18), transparent 58%);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.08),
+    0 40px 90px -56px rgba(0,0,0,.92),
+    0 0 90px -62px rgba(240,133,170,.9);
+}
+
+.v5-luxe .v5-hero::after {
+  content: "PRIZE OF THE MONTH";
+  position: absolute;
+  right: 9.5vw;
+  top: 17vh;
+  z-index: 21;
+  color: rgba(255,247,239,.52);
+  font-size: .64rem;
+  letter-spacing: .34em;
+  font-weight: 900;
+  pointer-events: none;
+}
+
+.v5-luxe .v5-hero > div:first-child {
+  z-index: 13 !important;
+}
+
+.v5-luxe .v5-hero img {
+  object-position: 31% center !important;
+  filter: saturate(.92) contrast(1.06) brightness(.86) drop-shadow(0 34px 72px rgba(0,0,0,.72)) !important;
+  transform: scale(1.035) !important;
+}
+
+.v5-luxe .hero-vitrine-frame {
+  position: absolute;
+  right: 5.7vw;
+  top: 12vh;
+  width: min(42vw, 585px);
+  height: 73vh;
+  z-index: 8;
+  border: 1px solid rgba(214,176,109,.18);
+  pointer-events: none;
+}
+
+.v5-luxe .hero-vitrine-frame::before,
+.v5-luxe .hero-vitrine-frame::after {
+  content: "";
+  position: absolute;
+  width: 76px;
+  height: 76px;
+  border-color: rgba(240,133,170,.60);
+  pointer-events: none;
+}
+
+.v5-luxe .hero-vitrine-frame::before {
+  left: -1px;
+  top: -1px;
+  border-left: 2px solid;
+  border-top: 2px solid;
+}
+
+.v5-luxe .hero-vitrine-frame::after {
+  right: -1px;
+  bottom: -1px;
+  border-right: 2px solid;
+  border-bottom: 2px solid;
+}
+
+.v5-luxe .hero-member-pass {
+  position: absolute;
+  right: 8.5vw;
+  bottom: 9vh;
+  z-index: 22;
+  width: 320px;
+  padding: 1.15rem;
+  border-radius: 1.35rem;
+  border: 1px solid rgba(255,247,239,.16);
+  background:
+    linear-gradient(135deg, rgba(255,247,239,.10), rgba(255,247,239,.025)),
+    rgba(8,7,7,.66);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 28px 70px -42px rgba(0,0,0,.95);
+}
+
+.v5-luxe .hero-member-pass span {
+  display: block;
+  color: var(--club-gold);
+  font-size: .62rem;
+  letter-spacing: .24em;
+  font-weight: 900;
+}
+
+.v5-luxe .hero-member-pass strong {
+  display: block;
+  color: var(--club-cream);
+  font-size: 1.02rem;
+  letter-spacing: -.02em;
+  margin-top: .2rem;
+}
+
+.v5-luxe .hero-member-pass small {
+  color: #080707;
+  background: var(--club-rose);
+  border-radius: 999px;
+  padding: .38rem .62rem;
+  font-weight: 900;
+}
+
+.v5-luxe .hero-member-pass p {
+  margin: 1rem 0 0;
+  color: rgba(255,247,239,.64) !important;
+  font-size: .82rem;
+  line-height: 1.35;
+}
+
+.v5-luxe .v5-hero h1 {
+  font-family: 'Inter', sans-serif !important;
+  max-width: 9.5ch !important;
+  font-size: clamp(4rem, 8.3vw, 8.6rem) !important;
+  line-height: .82 !important;
+  letter-spacing: -.075em !important;
+  font-weight: 950 !important;
+  text-transform: none !important;
+}
+
+.v5-luxe .v5-hero h1 .text-gradient-rose {
+  background: linear-gradient(135deg, var(--club-rose), #ffd5e4 48%, var(--club-gold)) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+.v5-luxe .v5-hero .space-y-8 {
+  max-width: 50rem !important;
+}
+
+.v5-luxe .v5-hero p {
+  max-width: 30rem !important;
+  color: var(--club-muted) !important;
+}
+
+.v5-luxe .v5-hero p:first-child {
+  color: var(--club-cream) !important;
+}
+
+.v5-luxe .hero-primary-cta a {
+  border-radius: 999px !important;
+  padding: 1rem 1.55rem !important;
+}
+
+.v5-luxe .hero-primary-cta a:first-child,
+.v5-luxe a[href="auth.html"] {
+  background: var(--club-cream) !important;
+  color: #090707 !important;
+}
+
+.v5-luxe .hero-primary-cta a:first-child:hover,
+.v5-luxe a[href="auth.html"]:hover {
+  background: var(--club-rose) !important;
+  color: #090707 !important;
+}
+
+.v5-luxe #hero-slide-title-desktop {
+  color: var(--club-cream) !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: clamp(2rem, 3.2vw, 3.2rem) !important;
+  letter-spacing: -.05em !important;
+  text-transform: none !important;
+}
+
+.v5-luxe .animate-marquee {
+  background: var(--club-cream);
+}
+
+.v5-luxe section[id] h2,
+.v5-luxe #dream-bridge h2,
+.v5-luxe #dream-bridge h3 {
+  font-family: 'Inter', sans-serif !important;
+  font-size: clamp(2.5rem, 5.8vw, 6.2rem) !important;
+  line-height: .92 !important;
+  letter-spacing: -.07em !important;
+  font-weight: 950 !important;
+  text-transform: none !important;
+}
+
+.v5-luxe #hw-carousel > .bento-card,
+.v5-luxe #beneficios .group.border-beam,
+.v5-luxe #planos .rounded-2xl,
+.v5-luxe #dream-bridge .bento-card {
+  border-radius: 1.75rem !important;
+  border: 1px solid rgba(255,247,239,.11) !important;
+  background:
+    linear-gradient(180deg, rgba(255,247,239,.055), rgba(255,247,239,.018)),
+    rgba(11,9,10,.88) !important;
+  box-shadow: 0 30px 80px -58px rgba(0,0,0,.95) !important;
+}
+
+.v5-luxe #hw-carousel > .bento-card h3,
+.v5-luxe #beneficios h3,
+.v5-luxe #planos h3,
+.v5-luxe #faq .faq-toggle h4 {
+  font-family: 'Inter', sans-serif !important;
+  font-size: clamp(1.35rem, 2vw, 2.05rem) !important;
+  line-height: 1.02 !important;
+  letter-spacing: -.045em !important;
+  font-weight: 900 !important;
+  text-transform: none !important;
+}
+
+.v5-luxe #beneficios .group.border-beam::before {
+  content: "MEMBER BENEFIT";
+  position: absolute;
+  top: 1.25rem;
+  right: 1.4rem;
+  color: rgba(214,176,109,.62);
+  font-size: .62rem;
+  letter-spacing: .20em;
+  font-weight: 900;
+}
+
+.v5-luxe #provas-sociais .grid > div {
+  border-radius: 1.4rem !important;
+  border: 1px solid rgba(255,247,239,.10) !important;
+  box-shadow: 0 28px 70px -52px rgba(0,0,0,.95) !important;
+}
+
+@media (max-width: 1023px) {
+  .v5-luxe .v5-hero::before,
+  .v5-luxe .v5-hero::after { display: none !important; }
+  .v5-luxe .v5-hero h1 {
+    font-size: clamp(3.4rem, 15vw, 5.6rem) !important;
+    line-height: .86 !important;
+    max-width: 9ch !important;
+  }
+  .v5-luxe .v5-hero img {
+    object-position: center !important;
+    transform: scale(1) !important;
+  }
+}
+
+
+/* ==============================
+   V5.5 — Refinamento 2+3
+   Mais vitrine, mais clube, menos ruído
+   ============================== */
+.v5-luxe .v5-hero {
+  min-height: 94vh !important;
+}
+
+.v5-luxe .v5-hero::before {
+  right: 8.4vw !important;
+  top: 13.5vh !important;
+  width: min(36vw, 500px) !important;
+  height: 69vh !important;
+  background:
+    linear-gradient(180deg, rgba(255,247,239,.075), rgba(255,247,239,.012)),
+    radial-gradient(circle at 52% 42%, rgba(240,133,170,.23), transparent 56%),
+    radial-gradient(circle at 50% 72%, rgba(214,176,109,.10), transparent 58%) !important;
+}
+
+.v5-luxe .hero-vitrine-frame {
+  right: 6.9vw !important;
+  top: 10.8vh !important;
+  width: min(39vw, 555px) !important;
+  height: 75vh !important;
+}
+
+.v5-luxe .hero-vitrine-frame::before,
+.v5-luxe .hero-vitrine-frame::after {
+  width: 96px !important;
+  height: 96px !important;
+}
+
+.v5-luxe .hero-vitrine-plaque {
+  position: absolute;
+  right: 11vw;
+  top: 76vh;
+  z-index: 23;
+  min-width: 250px;
+  padding: .9rem 1.05rem;
+  border-left: 2px solid rgba(214,176,109,.65);
+  background: linear-gradient(90deg, rgba(5,4,4,.76), rgba(5,4,4,.18));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.v5-luxe .hero-vitrine-plaque span {
+  display: block;
+  color: rgba(255,247,239,.50);
+  font-size: .62rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+
+.v5-luxe .hero-vitrine-plaque strong {
+  display: block;
+  margin-top: .22rem;
+  color: var(--club-cream);
+  font-size: 1.25rem;
+  letter-spacing: -.045em;
+}
+
+.v5-luxe .hero-member-pass {
+  right: 7.8vw !important;
+  bottom: 7.5vh !important;
+  width: 340px !important;
+  border-color: rgba(255,247,239,.20) !important;
+  background:
+    linear-gradient(145deg, rgba(255,247,239,.12), rgba(255,247,239,.025) 48%, rgba(240,133,170,.06)),
+    rgba(8,7,7,.72) !important;
+}
+
+.v5-luxe .hero-eyebrow {
+  display: inline-flex;
+  color: rgba(255,247,239,.58);
+  font-size: .72rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  font-weight: 900;
+  border-bottom: 1px solid rgba(214,176,109,.40);
+  padding-bottom: .65rem;
+  margin-bottom: .35rem;
+}
+
+.v5-luxe .v5-hero h1 {
+  font-size: clamp(4.2rem, 8.8vw, 9.1rem) !important;
+  line-height: .80 !important;
+}
+
+.v5-luxe .v5-hero p:first-child {
+  font-size: clamp(1.25rem, 1.85vw, 1.75rem) !important;
+  line-height: 1.12 !important;
+}
+
+.v5-luxe .hero-primary-cta {
+  margin-top: .2rem !important;
+}
+
+.v5-luxe .hero-primary-cta a:first-child {
+  position: relative;
+  overflow: hidden;
+}
+
+.v5-luxe .hero-primary-cta a:first-child::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.55), transparent);
+  transform: translateX(-120%);
+  transition: transform .65s ease;
+}
+
+.v5-luxe .hero-primary-cta a:first-child:hover::after {
+  transform: translateX(120%);
+}
+
+.v5-luxe #como-funciona,
+.v5-luxe #dream-bridge,
+.v5-luxe #beneficios,
+.v5-luxe #provas-sociais,
+.v5-luxe #planos,
+.v5-luxe #faq {
+  padding-top: clamp(4.8rem, 8vw, 7.5rem) !important;
+  padding-bottom: clamp(4.8rem, 8vw, 7.5rem) !important;
+}
+
+.v5-luxe #hw-carousel > .bento-card,
+.v5-luxe #beneficios .group.border-beam,
+.v5-luxe #planos .rounded-2xl,
+.v5-luxe #dream-bridge .bento-card {
+  box-shadow:
+    0 28px 80px -62px rgba(0,0,0,.96),
+    inset 0 1px 0 rgba(255,255,255,.05) !important;
+}
+
+.v5-luxe #hw-carousel > .bento-card::before,
+.v5-luxe #beneficios .group.border-beam::after,
+.v5-luxe #planos .rounded-2xl::before {
+  opacity: .10 !important;
+}
+
+.v5-luxe #provas-sociais .grid > div img {
+  filter: saturate(.86) contrast(1.04) brightness(.88);
+}
+
+.v5-luxe #provas-sociais .grid > div:hover img {
+  filter: saturate(1) contrast(1.07) brightness(.94);
+}
+
+@media (max-width: 1023px) {
+  .v5-luxe .hero-eyebrow {
+    justify-content: center;
+    font-size: .62rem;
+    letter-spacing: .12em;
+    max-width: 20rem;
+    margin-inline: auto;
+  }
+}
+
+
+/* Remoção definitiva dos elementos vetados da hero */
+.v5-luxe .v5-hero::after,
+.v5-luxe .hero-primary-cta,
+.v5-luxe .hero-eyebrow,
+.v5-luxe .hero-member-pass,
+.v5-luxe .hero-vitrine-plaque {
+  display: none !important;
+}
+
+
+/* ==============================
+   V5.6 — Polimento de direção
+   Vitrine limpa + clube desejável + conversão sem ruído
+   ============================== */
+.v5-luxe {
+  background:
+    radial-gradient(720px 440px at 76% 16%, rgba(240,133,170,.105), transparent 68%),
+    radial-gradient(620px 420px at 18% 0%, rgba(214,176,109,.055), transparent 64%),
+    #050404 !important;
+}
+
+.v5-luxe .v5-hero {
+  min-height: 93vh !important;
+}
+
+.v5-luxe .v5-hero > div:first-child {
+  width: 58% !important;
+  left: auto !important;
+  right: 0 !important;
+  overflow: visible !important;
+}
+
+.v5-luxe .v5-hero img {
+  object-position: 42% center !important;
+  transform: scale(1.055) translateX(-2.5%) !important;
+  filter: saturate(.88) contrast(1.05) brightness(.88) drop-shadow(0 36px 82px rgba(0,0,0,.78)) !important;
+}
+
+.v5-luxe .v5-hero::before {
+  right: 8.8vw !important;
+  top: 12.8vh !important;
+  width: min(35vw, 500px) !important;
+  height: 71vh !important;
+  border-color: rgba(255,247,239,.155) !important;
+  background:
+    linear-gradient(180deg, rgba(255,247,239,.052), rgba(255,247,239,.010)),
+    radial-gradient(circle at 50% 42%, rgba(240,133,170,.18), transparent 60%) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.055),
+    0 46px 98px -62px rgba(0,0,0,.95) !important;
+}
+
+.v5-luxe .hero-vitrine-frame {
+  right: 7.2vw !important;
+  top: 10.4vh !important;
+  width: min(38vw, 555px) !important;
+  height: 76vh !important;
+  opacity: .86;
+}
+
+.v5-luxe .v5-hero h1 {
+  max-width: 8.2ch !important;
+  font-size: clamp(4.25rem, 8.55vw, 8.9rem) !important;
+  line-height: .81 !important;
+  letter-spacing: -.082em !important;
+}
+
+.v5-luxe .v5-hero .space-y-8 {
+  max-width: 42rem !important;
+}
+
+.v5-luxe .v5-hero .space-y-5 {
+  gap: 1.65rem !important;
+}
+
+.v5-luxe .v5-hero p:first-child {
+  font-size: clamp(1.18rem, 1.55vw, 1.52rem) !important;
+  line-height: 1.16 !important;
+  max-width: 29rem !important;
+}
+
+.v5-luxe .v5-hero p:last-child {
+  font-size: 1rem !important;
+  max-width: 24rem !important;
+  color: rgba(255,247,239,.54) !important;
+}
+
+.v5-luxe #hero-slide-title-desktop {
+  font-size: clamp(1.75rem, 2.6vw, 2.65rem) !important;
+  opacity: .92;
+}
+
+/* Seções: mais respiro e menos aparência de template */
+.v5-luxe #como-funciona,
+.v5-luxe #dream-bridge,
+.v5-luxe #beneficios,
+.v5-luxe #provas-sociais,
+.v5-luxe #planos,
+.v5-luxe #faq {
+  background: transparent !important;
+}
+
+.v5-luxe section[id] .max-w-7xl {
+  max-width: 80rem !important;
+}
+
+.v5-luxe section[id] h2,
+.v5-luxe #dream-bridge h2,
+.v5-luxe #dream-bridge h3 {
+  font-size: clamp(2.75rem, 5.35vw, 5.85rem) !important;
+  letter-spacing: -.074em !important;
+  line-height: .91 !important;
+}
+
+.v5-luxe section[id] span[class*="tracking"] {
+  font-size: .68rem !important;
+  letter-spacing: .20em !important;
+  color: rgba(214,176,109,.86) !important;
+}
+
+/* Como funciona: cards de membership, não SaaS */
+.v5-luxe #hw-carousel {
+  max-width: 76rem !important;
+  gap: 1rem !important;
+}
+
+.v5-luxe #hw-carousel > .bento-card {
+  height: 25rem !important;
+  padding: 2rem !important;
+  border-radius: 1.9rem !important;
+  background:
+    linear-gradient(180deg, rgba(255,247,239,.065), rgba(255,247,239,.018)),
+    #090707 !important;
+  border: 1px solid rgba(255,247,239,.105) !important;
+}
+
+.v5-luxe #hw-carousel > .bento-card > span {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 6.6rem !important;
+  color: rgba(214,176,109,.055) !important;
+  top: .8rem !important;
+  right: 1.2rem !important;
+}
+
+.v5-luxe #hw-carousel .material-symbols-outlined {
+  font-size: 1.45rem !important;
+}
+
+.v5-luxe #hw-carousel .w-14 {
+  width: 2.8rem !important;
+  height: 2.8rem !important;
+  border-radius: 999px !important;
+  color: rgba(240,133,170,.95) !important;
+  background: rgba(255,247,239,.045) !important;
+}
+
+.v5-luxe #hw-carousel h3 {
+  margin-top: auto !important;
+  font-size: clamp(1.7rem, 2.4vw, 2.65rem) !important;
+  line-height: .92 !important;
+  max-width: 10ch;
+}
+
+.v5-luxe #hw-carousel p {
+  font-size: .96rem !important;
+  line-height: 1.58 !important;
+  color: rgba(255,247,239,.58) !important;
+}
+
+/* Bloco emocional: vira peça de manifesto curto */
+.v5-luxe #dream-bridge .bento-card {
+  max-width: 70rem !important;
+  min-height: 30rem !important;
+  padding: clamp(2rem, 5vw, 4.5rem) !important;
+  border-radius: 2.2rem !important;
+  background:
+    radial-gradient(560px 280px at 80% 20%, rgba(240,133,170,.13), transparent 62%),
+    linear-gradient(135deg, rgba(255,247,239,.062), rgba(255,247,239,.016)),
+    #080707 !important;
+}
+
+.v5-luxe #dream-bridge p {
+  max-width: 42rem !important;
+  color: rgba(255,247,239,.60) !important;
+}
+
+/* Benefícios: dois cartões fortes */
+.v5-luxe #beneficios .grid {
+  max-width: 68rem !important;
+  margin-inline: auto !important;
+  gap: 1.1rem !important;
+}
+
+.v5-luxe #beneficios .group.border-beam {
+  min-height: 24rem !important;
+  padding: clamp(2rem, 4vw, 3.2rem) !important;
+  border-radius: 2rem !important;
+}
+
+.v5-luxe #beneficios h3 {
+  max-width: 9ch;
+  font-size: clamp(2rem, 3vw, 3.25rem) !important;
+}
+
+.v5-luxe #beneficios p {
+  font-size: clamp(1rem, 1.35vw, 1.2rem) !important;
+  line-height: 1.58 !important;
+}
+
+/* Prova social: vitrine aspiracional */
+.v5-luxe #provas-sociais .grid {
+  max-width: 76rem !important;
+  margin-inline: auto !important;
+  gap: 1rem !important;
+}
+
+.v5-luxe #provas-sociais .grid > div {
+  border-radius: 1.65rem !important;
+  background: #080707 !important;
+}
+
+.v5-luxe #provas-sociais .grid > div img {
+  filter: saturate(.78) contrast(1.04) brightness(.84) !important;
+}
+
+.v5-luxe #provas-sociais .grid > div:hover img {
+  transform: scale(1.075) !important;
+  filter: saturate(.98) contrast(1.06) brightness(.92) !important;
+}
+
+/* Plano: mais cara de cartão de clube */
+.v5-luxe #planos .rounded-2xl {
+  border-radius: 2.15rem !important;
+  background:
+    linear-gradient(145deg, rgba(255,247,239,.085), rgba(255,247,239,.024) 48%, rgba(240,133,170,.055)),
+    #090707 !important;
+}
+
+.v5-luxe #planos .text-6xl,
+.v5-luxe #planos .md\:text-7xl {
+  letter-spacing: -.06em !important;
+}
+
+.v5-luxe #faq .max-w-3xl {
+  max-width: 60rem !important;
+}
+
+@media (max-width: 1023px) {
+  .v5-luxe .v5-hero > div:first-child {
+    width: 100% !important;
+    right: auto !important;
+  }
+  .v5-luxe .v5-hero h1 {
+    font-size: clamp(3.4rem, 14vw, 5.5rem) !important;
+    max-width: 9ch !important;
+  }
+  .v5-luxe #hw-carousel > .bento-card {
+    height: 22rem !important;
+  }
+}
+
+
+/* Hero: imagem full-bleed preenchendo toda a dobra */
+.v5-luxe .v5-hero > div:first-child {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  left: 0 !important;
+  right: 0 !important;
+  overflow: hidden !important;
+}
+
+.v5-luxe .v5-hero img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: 25% center !important;
+  transform: scale(1) !important;
+  filter: saturate(.9) contrast(1.04) brightness(.82) drop-shadow(0 30px 70px rgba(0,0,0,.65)) !important;
+}
+
+
+/* Ajuste fino hero image */
+.v5-luxe .v5-hero img {
+  object-position: 24% center !important;
+}
+
+
+/* Navbar padronizada — limpa, premium e focada em conversão */
+.v5-luxe .pill-nav-glass {
+  height: 4.35rem !important;
+  max-width: 72rem !important;
+  padding: .45rem .55rem !important;
+  background: rgba(6,5,5,.76) !important;
+  border: 1px solid rgba(255,247,239,.12) !important;
+  box-shadow: 0 24px 70px -48px rgba(0,0,0,.95), inset 0 1px 0 rgba(255,255,255,.045) !important;
+}
+
+.v5-luxe .pill-nav-glass > div:first-child {
+  gap: 1.35rem !important;
+}
+
+.v5-luxe .pill-nav-glass span.text-lg,
+.v5-luxe .pill-nav-glass span.md\:text-3xl {
+  font-family: 'Inter', sans-serif !important;
+  font-size: clamp(1.1rem, 1.6vw, 1.65rem) !important;
+  letter-spacing: -.055em !important;
+  font-weight: 900 !important;
+}
+
+.v5-luxe .nav-main-links {
+  gap: 1.35rem !important;
+  margin-left: .75rem !important;
+}
+
+.v5-luxe .nav-main-links a {
+  position: relative;
+  color: rgba(255,247,239,.58) !important;
+  font-size: .68rem !important;
+  letter-spacing: .13em !important;
+  text-transform: uppercase !important;
+  font-weight: 800 !important;
+  padding: .55rem 0;
+}
+
+.v5-luxe .nav-main-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: .28rem;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #f085aa, transparent);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform .28s ease;
+}
+
+.v5-luxe .nav-main-links a:hover {
+  color: #fff7ef !important;
+}
+
+.v5-luxe .nav-main-links a:hover::after {
+  transform: scaleX(1);
+}
+
+.v5-luxe .nav-cta {
+  background: #fff7ef !important;
+  color: #090707 !important;
+  border: 1px solid rgba(255,247,239,.18) !important;
+  box-shadow: 0 18px 42px -28px rgba(255,247,239,.55) !important;
+}
+
+.v5-luxe .nav-cta:hover {
+  background: #f085aa !important;
+  color: #090707 !important;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 767px) {
+  .v5-luxe .pill-nav-glass {
+    height: 3.6rem !important;
+    padding: .35rem .45rem !important;
+  }
+  .v5-luxe .nav-cta {
+    letter-spacing: .10em !important;
+  }
+}
+
+
+/* Navbar CTA alinhado ao pill da nav */
+.v5-luxe .nav-cta {
+  border-radius: 9999px !important;
+}
+
+
+/* Correção forte: CTA da navbar sempre pill */
+.v5-luxe .pill-nav-glass .nav-actions .nav-cta,
+.v5-luxe .pill-nav-glass .nav-actions a[href="auth.html"].nav-cta {
+  border-radius: 9999px !important;
+  overflow: hidden !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+
+/* Centraliza links principais exatamente no meio da navbar */
+@media (min-width: 768px) {
+  .v5-luxe .pill-nav-glass {
+    position: relative !important;
+  }
+
+  .v5-luxe .nav-main-links {
+    position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    margin-left: 0 !important;
+    justify-content: center !important;
+    white-space: nowrap !important;
+  }
+}
+
+
+/* Ajuste fino hero image solicitado */
+.v5-luxe .v5-hero img {
+  object-position: 17% center !important;
+}
+
+
+/* Ajuste fino hero image solicitado */
+.v5-luxe .v5-hero img {
+  object-position: 12% center !important;
+}
+
+
+/* Ajuste fino hero image solicitado */
+.v5-luxe .v5-hero img {
+  object-position: 6% center !important;
+}
+
+
+/* Hero: dar mais respiro abaixo do bloco de texto */
+@media (min-width: 1024px) {
+  .v5-luxe .v5-hero > div[style*="z-index: 20"] {
+    padding-bottom: 7rem !important;
+    transform: translateY(-1.8rem);
+  }
+}
+
+
+/* Correção: afastar texto da borda esquerda sem subir o bloco */
+@media (min-width: 1024px) {
+  .v5-luxe .v5-hero > div[style*="z-index: 20"] {
+    transform: none !important;
+    padding-left: clamp(5.5rem, 8vw, 8.5rem) !important;
+    padding-bottom: 2.5rem !important;
+  }
+}
+
+
+/* Ajuste fino: texto da hero um pouco mais à direita */
+@media (min-width: 1024px) {
+  .v5-luxe .v5-hero > div[style*="z-index: 20"] {
+    padding-left: clamp(6.5rem, 9.5vw, 10rem) !important;
+  }
+}
+
+
+/* Ajuste fino: texto da hero ainda mais à direita */
+@media (min-width: 1024px) {
+  .v5-luxe .v5-hero > div[style*="z-index: 20"] {
+    padding-left: clamp(7.5rem, 11vw, 11.5rem) !important;
+  }
+}
+
+
+/* Ajuste fino: texto da hero mais à direita */
+@media (min-width: 1024px) {
+  .v5-luxe .v5-hero > div[style*="z-index: 20"] {
+    padding-left: clamp(8.5rem, 12.5vw, 13rem) !important;
+  }
+}
+
+
+/* ==============================
+   V5.7 — Padronização das seções pós-hero
+   Alinhamento, ritmo e cards mais premium
+   ============================== */
+.v5-luxe #como-funciona,
+.v5-luxe #dream-bridge,
+.v5-luxe #beneficios,
+.v5-luxe #provas-sociais,
+.v5-luxe #planos,
+.v5-luxe #faq {
+  padding-top: clamp(4rem, 7vw, 6.25rem) !important;
+  padding-bottom: clamp(4rem, 7vw, 6.25rem) !important;
+}
+
+.v5-luxe #como-funciona .max-w-7xl,
+.v5-luxe #dream-bridge .max-w-7xl,
+.v5-luxe #beneficios .max-w-7xl,
+.v5-luxe #provas-sociais .max-w-7xl,
+.v5-luxe #planos .max-w-7xl,
+.v5-luxe #faq .max-w-3xl {
+  max-width: 74rem !important;
+}
+
+.v5-luxe #como-funciona .flex.items-end,
+.v5-luxe #beneficios .text-center,
+.v5-luxe #provas-sociais .text-center {
+  margin-bottom: 2.1rem !important;
+}
+
+.v5-luxe #como-funciona .md\:text-center,
+.v5-luxe #beneficios .text-center,
+.v5-luxe #provas-sociais .text-center {
+  text-align: left !important;
+}
+
+.v5-luxe section[id] h2,
+.v5-luxe #dream-bridge h2,
+.v5-luxe #dream-bridge h3 {
+  font-size: clamp(2.35rem, 4.3vw, 4.55rem) !important;
+  line-height: .96 !important;
+  letter-spacing: -.058em !important;
+  max-width: 12ch;
+}
+
+.v5-luxe #beneficios h2,
+.v5-luxe #provas-sociais h2,
+.v5-luxe #planos h2 {
+  max-width: 13ch;
+}
+
+.v5-luxe #como-funciona span[class*="tracking"],
+.v5-luxe #beneficios span[class*="tracking"],
+.v5-luxe #provas-sociais span[class*="tracking"],
+.v5-luxe #planos span[class*="tracking"],
+.v5-luxe #faq span[class*="tracking"] {
+  font-size: .66rem !important;
+  letter-spacing: .18em !important;
+  margin-bottom: .55rem !important;
+}
+
+/* Como funciona */
+.v5-luxe #hw-carousel {
+  max-width: 74rem !important;
+  padding: 0 !important;
+  gap: 1rem !important;
+}
+
+.v5-luxe #hw-carousel > .bento-card {
+  height: auto !important;
+  min-height: 20rem !important;
+  padding: 1.65rem !important;
+  border-radius: 1.5rem !important;
+}
+
+.v5-luxe #hw-carousel > .bento-card > span {
+  font-size: 5rem !important;
+  top: .7rem !important;
+  right: 1rem !important;
+}
+
+.v5-luxe #hw-carousel .w-14 {
+  width: 3rem !important;
+  height: 3rem !important;
+  margin-bottom: .7rem !important;
+}
+
+.v5-luxe #hw-carousel .material-symbols-outlined {
+  font-size: 1.55rem !important;
+}
+
+.v5-luxe #hw-carousel h3 {
+  max-width: 12.5ch !important;
+  font-size: clamp(1.45rem, 1.9vw, 2.05rem) !important;
+  line-height: 1.02 !important;
+  margin-bottom: .75rem !important;
+}
+
+.v5-luxe #hw-carousel p {
+  font-size: .93rem !important;
+  line-height: 1.55 !important;
+  max-width: 24rem !important;
+}
+
+/* Bloco desejo */
+.v5-luxe #dream-bridge .bento-card {
+  max-width: 74rem !important;
+  min-height: auto !important;
+  padding: clamp(2rem, 4vw, 3.5rem) !important;
+  border-radius: 1.7rem !important;
+}
+
+.v5-luxe #dream-bridge p {
+  font-size: clamp(1rem, 1.4vw, 1.25rem) !important;
+  line-height: 1.55 !important;
+}
+
+/* Benefícios */
+.v5-luxe #beneficios .grid {
+  max-width: 74rem !important;
+  gap: 1rem !important;
+}
+
+.v5-luxe #beneficios .group.border-beam {
+  min-height: 19rem !important;
+  padding: clamp(1.8rem, 3vw, 2.7rem) !important;
+  border-radius: 1.55rem !important;
+}
+
+.v5-luxe #beneficios h3 {
+  max-width: 12ch !important;
+  font-size: clamp(1.65rem, 2.4vw, 2.55rem) !important;
+  line-height: 1.02 !important;
+}
+
+.v5-luxe #beneficios p {
+  font-size: clamp(.98rem, 1.25vw, 1.12rem) !important;
+  line-height: 1.55 !important;
+}
+
+/* Prova social */
+.v5-luxe #provas-sociais .grid {
+  max-width: 74rem !important;
+  gap: .85rem !important;
+}
+
+.v5-luxe #provas-sociais .grid > div {
+  border-radius: 1.35rem !important;
+}
+
+.v5-luxe #provas-sociais h4 {
+  letter-spacing: -.02em !important;
+}
+
+/* Planos */
+.v5-luxe #planos .max-w-7xl > .flex {
+  max-width: 74rem !important;
+  margin-inline: auto !important;
+  gap: clamp(2.5rem, 5vw, 4.5rem) !important;
+}
+
+.v5-luxe #planos .rounded-2xl {
+  border-radius: 1.7rem !important;
+}
+
+.v5-luxe #planos ul li p:first-child {
+  letter-spacing: -.02em !important;
+}
+
+/* FAQ */
+.v5-luxe #faq .max-w-3xl {
+  max-width: 58rem !important;
+}
+
+.v5-luxe #faq h2 {
+  margin-inline: auto;
+  text-align: center;
+}
+
+.v5-luxe #faq .faq-toggle h4 {
+  font-size: clamp(1.2rem, 1.8vw, 1.65rem) !important;
+  line-height: 1.1 !important;
+}
+
+@media (max-width: 1023px) {
+  .v5-luxe #como-funciona .md\:text-center,
+  .v5-luxe #beneficios .text-center,
+  .v5-luxe #provas-sociais .text-center {
+    text-align: center !important;
+  }
+
+  .v5-luxe section[id] h2,
+  .v5-luxe #dream-bridge h2,
+  .v5-luxe #dream-bridge h3 {
+    font-size: clamp(2.25rem, 10vw, 4rem) !important;
+    max-width: none !important;
+  }
+
+  .v5-luxe #hw-carousel > .bento-card {
+    min-height: 18.5rem !important;
+  }
+}
+
+
+/* Como Funciona: centralizar heading da seção */
+.v5-luxe #como-funciona .md\:text-center,
+.v5-luxe #como-funciona .reveal-off {
+  text-align: center !important;
+  width: 100% !important;
+  margin-inline: auto !important;
+}
+
+.v5-luxe #como-funciona h2 {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-align: center !important;
+}
+
+
+/* Dream bridge: reduzir largura do card manifesto */
+.v5-luxe #dream-bridge .bento-card {
+  max-width: 58rem !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+
+/* Dream bridge: deixar card ainda mais compacto */
+.v5-luxe #dream-bridge .bento-card {
+  max-width: 46rem !important;
+}
+
+
+/* Benefícios: centralizar heading da seção */
+.v5-luxe #beneficios .text-center {
+  text-align: center !important;
+}
+
+.v5-luxe #beneficios h2 {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-align: center !important;
+}
+
+.v5-luxe #beneficios p {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+
+/* Benefícios: manter segunda linha inteira */
+.v5-luxe #beneficios h2 {
+  max-width: 16ch !important;
+}
+
+.v5-luxe #beneficios h2 .whitespace-nowrap {
+  white-space: nowrap !important;
+}
+
+
+/* Benefícios: cards mais refinados e sem label extra */
+.v5-luxe #beneficios .group.border-beam::before {
+  display: none !important;
+  content: none !important;
+}
+
+.v5-luxe #beneficios .grid {
+  max-width: 70rem !important;
+  gap: 1.25rem !important;
+}
+
+.v5-luxe #beneficios .group.border-beam {
+  min-height: 18rem !important;
+  padding: clamp(2rem, 3.4vw, 3rem) !important;
+  justify-content: flex-start !important;
+  border-radius: 1.65rem !important;
+  background:
+    radial-gradient(360px 180px at 18% 0%, rgba(240,133,170,.10), transparent 64%),
+    linear-gradient(145deg, rgba(255,247,239,.065), rgba(255,247,239,.018)),
+    #0a0909 !important;
+}
+
+.v5-luxe #beneficios .group.border-beam:hover {
+  transform: translateY(-4px) !important;
+  border-color: rgba(240,133,170,.32) !important;
+}
+
+.v5-luxe #beneficios h3 {
+  max-width: 11ch !important;
+  font-size: clamp(1.9rem, 2.7vw, 3rem) !important;
+  line-height: .96 !important;
+  margin-bottom: 1.15rem !important;
+}
+
+.v5-luxe #beneficios p {
+  max-width: 30rem !important;
+  font-size: clamp(1.02rem, 1.28vw, 1.18rem) !important;
+  line-height: 1.55 !important;
+  color: rgba(255,247,239,.62) !important;
+}
+
+.v5-luxe #beneficios p .text-white,
+.v5-luxe #beneficios p span.text-white {
+  color: #fff7ef !important;
+}
+
+.v5-luxe #beneficios .mt-12 p {
+  font-size: clamp(1.45rem, 2.2vw, 2.35rem) !important;
+  line-height: 1.08 !important;
+  color: rgba(255,247,239,.72) !important;
+}
+
+.v5-luxe #beneficios .mt-12 p span {
+  display: inline-block;
+  font-size: inherit !important;
+  color: #f085aa !important;
+  letter-spacing: -.035em !important;
+}
+
+
+/* Benefícios: subtítulo em uma linha no desktop */
+@media (min-width: 1024px) {
+  .v5-luxe #beneficios .text-center > p {
+    max-width: none !important;
+    white-space: nowrap !important;
+  }
+
+  .v5-luxe #beneficios .text-center > p br {
+    display: none !important;
+  }
+
+  .v5-luxe #beneficios .text-center > p .text-gradient-rose {
+    display: block !important;
+    white-space: nowrap !important;
+  }
+}
+
+
+/* Prova social: centralizar heading seguindo padrão */
+.v5-luxe #provas-sociais .text-center {
+  text-align: center !important;
+}
+
+.v5-luxe #provas-sociais h2 {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-align: center !important;
+}
+
+.v5-luxe #provas-sociais p {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-align: center !important;
+}
+
+
+/* Hero: corrigir corte do “O” em luxo */
+.v5-luxe .v5-hero h1 {
+  max-width: 10ch !important;
+  overflow: visible !important;
+  padding-right: .18em !important;
+}
+
+.v5-luxe .v5-hero h1 .text-gradient-rose {
+  padding-right: .18em !important;
+  overflow: visible !important;
+}
+
+
+/* Hero: animação premium da bolsa (float sutil + suporte parallax) */
+.v5-luxe .v5-hero > div:first-child {
+  will-change: transform;
+}
+
+.v5-luxe .v5-hero img {
+  animation: heroBagFloat 8s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+@keyframes heroBagFloat {
+  0% { transform: scale(1.005) translate3d(0, 0, 0); }
+  100% { transform: scale(1.018) translate3d(0, -10px, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .v5-luxe .v5-hero img {
+    animation: none !important;
+  }
+}
+
+
+/* Hero: animação da bolsa mais perceptível sem ficar chamativa */
+.v5-luxe .v5-hero img {
+  animation: heroBagFloatVisible 6.5s ease-in-out infinite alternate !important;
+  will-change: translate, scale, filter;
+}
+
+@keyframes heroBagFloatVisible {
+  0% {
+    translate: 0 0;
+    scale: 1;
+    filter: saturate(.9) contrast(1.04) brightness(.82) drop-shadow(0 30px 70px rgba(0,0,0,.65));
+  }
+  100% {
+    translate: 10px -18px;
+    scale: 1.018;
+    filter: saturate(.94) contrast(1.06) brightness(.87) drop-shadow(0 42px 88px rgba(0,0,0,.72));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .v5-luxe .v5-hero img {
+    animation: none !important;
+    translate: 0 0 !important;
+    scale: 1 !important;
+  }
+}
+
+
+/* Hero: brilho premium no texto “o luxo” */
+.v5-luxe .v5-hero h1 .text-gradient-rose {
+  background: linear-gradient(110deg, #f085aa 0%, #ffd7e5 24%, #fff7ef 42%, #e6be7a 58%, #f085aa 78%, #ffd7e5 100%) !important;
+  background-size: 240% 100% !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  animation: luxoTextShine 4.8s ease-in-out infinite !important;
+  filter: drop-shadow(0 0 0 rgba(240,133,170,0));
+}
+
+@keyframes luxoTextShine {
+  0%, 100% {
+    background-position: 0% 50%;
+    filter: drop-shadow(0 0 0 rgba(240,133,170,0));
+  }
+  45% {
+    background-position: 100% 50%;
+    filter: drop-shadow(0 0 18px rgba(240,133,170,.26));
+  }
+  58% {
+    background-position: 100% 50%;
+    filter: drop-shadow(0 0 26px rgba(255,215,229,.34));
+  }
+}
+
+
+/* ==============================
+   Mobile V5 — Hero refinada
+   ============================== */
+@media (max-width: 767px) {
+  .v5-luxe .v5-hero {
+    min-height: 100svh !important;
+    height: 100svh !important;
+    max-height: none !important;
+    display: flex !important;
+    justify-content: flex-end !important;
+    padding: 0 !important;
+  }
+
+  .v5-luxe .v5-hero > div:first-child {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  .v5-luxe .v5-hero img {
+    object-position: 50% center !important;
+    filter: saturate(.9) contrast(1.04) brightness(.68) !important;
+    animation: heroBagFloatMobile 7s ease-in-out infinite alternate !important;
+  }
+
+  .v5-luxe .v5-hero > div[style*="z-index: 20"] {
+    min-height: 100svh !important;
+    height: 100svh !important;
+    justify-content: flex-end !important;
+    align-items: center !important;
+    padding: 6.2rem 1.25rem 3.2rem !important;
+    transform: none !important;
+    background: linear-gradient(180deg, rgba(5,4,4,.12) 0%, rgba(5,4,4,.34) 38%, rgba(5,4,4,.92) 84%, #050404 100%) !important;
+  }
+
+  .v5-luxe .v5-hero .space-y-8 {
+    max-width: 22rem !important;
+    width: 100% !important;
+    text-align: center !important;
+  }
+
+  .v5-luxe .v5-hero .space-y-5 {
+    gap: 1rem !important;
+  }
+
+  .v5-luxe .v5-hero h1 {
+    font-family: 'Inter', sans-serif !important;
+    font-size: clamp(3.25rem, 18vw, 4.9rem) !important;
+    line-height: .86 !important;
+    letter-spacing: -.075em !important;
+    max-width: 8.2ch !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-right: .08em !important;
+  }
+
+  .v5-luxe .v5-hero h1 br {
+    display: block !important;
+  }
+
+  .v5-luxe .v5-hero h1 .text-gradient-rose {
+    padding-right: .12em !important;
+  }
+
+  .v5-luxe .v5-hero .flex.flex-col.gap-4 {
+    max-width: 20.5rem !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    gap: .75rem !important;
+  }
+
+  .v5-luxe .v5-hero p:first-child {
+    font-size: 1.05rem !important;
+    line-height: 1.18 !important;
+  }
+
+  .v5-luxe .v5-hero p:last-child {
+    font-size: .92rem !important;
+    line-height: 1.45 !important;
+    color: rgba(255,247,239,.62) !important;
+  }
+
+  .v5-luxe .v5-hero .hidden.lg\:block.pt-10 {
+    display: none !important;
+  }
+}
+
+@keyframes heroBagFloatMobile {
+  0% { translate: 0 0; scale: 1; }
+  100% { translate: 0 -8px; scale: 1.012; }
+}
+
+
+/* Mobile hero: reduzir tamanho visual da bolsa */
+@media (max-width: 767px) {
+  .v5-luxe .v5-hero img {
+    position: absolute !important;
+    top: 5.1rem !important;
+    left: 50% !important;
+    width: 88% !important;
+    height: 54% !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    transform: translateX(-50%) !important;
+  }
+}
+
+
+/* Hero picture responsivo */
+.v5-luxe .v5-hero picture {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+
+/* Mobile hero: ajuste após troca para bolsa.png */
+@media (max-width: 767px) {
+  .v5-luxe .v5-hero {
+    min-height: 100svh !important;
+    height: 100svh !important;
+    overflow: hidden !important;
+  }
+
+  .v5-luxe .v5-hero > div:first-child {
+    inset: 0 !important;
+    height: 100% !important;
+  }
+
+  .v5-luxe .v5-hero picture {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  .v5-luxe .v5-hero img {
+    top: 8.7rem !important;
+    left: 50% !important;
+    width: 86% !important;
+    height: 41% !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    transform: translateX(-50%) !important;
+    filter: saturate(.94) contrast(1.05) brightness(.86) drop-shadow(0 24px 46px rgba(0,0,0,.66)) !important;
+  }
+
+  .v5-luxe .v5-hero .absolute.top-24.left-6 {
+    top: 6.5rem !important;
+    left: 1.5rem !important;
+  }
+
+  .v5-luxe .v5-hero > div[style*="z-index: 20"] {
+    padding: 6rem 1.35rem 5.15rem !important;
+    justify-content: flex-end !important;
+  }
+
+  .v5-luxe .v5-hero .space-y-8 {
+    max-width: 20.5rem !important;
+  }
+
+  .v5-luxe .v5-hero h1 {
+    font-size: clamp(3.05rem, 15.5vw, 4.28rem) !important;
+    line-height: .82 !important;
+    letter-spacing: -.078em !important;
+    margin-bottom: .15rem !important;
+  }
+
+  .v5-luxe .v5-hero .flex.flex-col.gap-4 {
+    gap: .55rem !important;
+    max-width: 19.5rem !important;
+  }
+
+  .v5-luxe .v5-hero p:first-child {
+    font-size: 1rem !important;
+    line-height: 1.13 !important;
+  }
+
+  .v5-luxe .v5-hero p:last-child {
+    font-size: .86rem !important;
+    line-height: 1.35 !important;
+  }
+}
+
+
+/* ==============================
+   Mobile hero igual à referência V4
+   ============================== */
+@media (max-width: 767px) {
+  .v5-luxe .pill-nav-glass {
+    height: 3.65rem !important;
+    max-width: calc(100vw - 2rem) !important;
+    padding: .45rem .55rem !important;
+    border-radius: 9999px !important;
+    background: rgba(8,8,10,.88) !important;
+    border: 1px solid rgba(255,255,255,.12) !important;
+  }
+
+  .v5-luxe .pill-nav-glass span.text-lg,
+  .v5-luxe .pill-nav-glass span.md\:text-3xl {
+    font-size: 1.15rem !important;
+    letter-spacing: -.06em !important;
+  }
+
+  .v5-luxe .nav-actions {
+    gap: .5rem !important;
+  }
+
+  .v5-luxe .mobile-version-pill {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-width: 2.45rem !important;
+    height: 2.35rem !important;
+    border-radius: 9999px !important;
+    background: #fff7ef !important;
+    color: #090707 !important;
+    border: 1px solid rgba(255,247,239,.18) !important;
+  }
+
+  .v5-luxe .nav-cta {
+    height: 2.35rem !important;
+    min-width: 4.25rem !important;
+    padding: 0 .9rem !important;
+    border-radius: 9999px !important;
+    background: rgba(255,255,255,.055) !important;
+    color: rgba(255,247,239,.72) !important;
+    border: 1px solid rgba(255,255,255,.12) !important;
+    box-shadow: none !important;
+  }
+
+  .v5-luxe .v5-hero {
+    height: auto !important;
+    min-height: 100svh !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    background: #050505 !important;
+    overflow: hidden !important;
+  }
+
+  .v5-luxe .v5-hero > div:first-child {
+    position: relative !important;
+    inset: auto !important;
+    width: 100% !important;
+    height: 61vh !important;
+    min-height: 430px !important;
+    max-height: 520px !important;
+    overflow: hidden !important;
+  }
+
+  .v5-luxe .v5-hero picture {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  .v5-luxe .v5-hero img {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center top !important;
+    transform: none !important;
+    filter: saturate(.98) contrast(1.05) brightness(.88) !important;
+    animation: none !important;
+  }
+
+  .v5-luxe .v5-hero > div:first-child::after {
+    content: "";
+    position: absolute;
+    inset: auto 0 0;
+    height: 38%;
+    background: linear-gradient(180deg, transparent, #050505 86%);
+    z-index: 6;
+    pointer-events: none;
+  }
+
+  .v5-luxe .v5-hero .absolute.top-24.left-6 {
+    top: 5.8rem !important;
+    left: 1.5rem !important;
+    z-index: 40 !important;
+  }
+
+  .v5-luxe .v5-hero .absolute.top-24.left-6 > div {
+    border-radius: .45rem !important;
+    padding: .55rem .8rem !important;
+  }
+
+  .v5-luxe .v5-hero > div[style*="z-index: 20"] {
+    position: relative !important;
+    min-height: auto !important;
+    height: auto !important;
+    z-index: 20 !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+    padding: 1.75rem 1.35rem 3.2rem !important;
+    background: #050505 !important;
+    transform: none !important;
+  }
+
+  .v5-luxe .v5-hero .space-y-8 {
+    max-width: 22.5rem !important;
+    width: 100% !important;
+    text-align: center !important;
+  }
+
+  .v5-luxe .v5-hero .space-y-5 {
+    gap: 1.15rem !important;
+  }
+
+  .v5-luxe .v5-hero h1 {
+    font-family: 'Inter', sans-serif !important;
+    max-width: none !important;
+    font-size: clamp(2.65rem, 12vw, 3.45rem) !important;
+    line-height: .92 !important;
+    letter-spacing: -.075em !important;
+    text-transform: uppercase !important;
+    white-space: nowrap !important;
+    margin: 0 auto !important;
+    padding-right: 0 !important;
+  }
+
+  .v5-luxe .v5-hero h1 br {
+    display: none !important;
+  }
+
+  .v5-luxe .v5-hero h1 .text-gradient-rose {
+    padding-right: .08em !important;
+  }
+
+  .v5-luxe .v5-hero .flex.flex-col.gap-4 {
+    max-width: 21.5rem !important;
+    margin-inline: auto !important;
+    gap: 1rem !important;
+  }
+
+  .v5-luxe .v5-hero p:first-child {
+    font-size: 1.12rem !important;
+    line-height: 1.18 !important;
+    color: #fff !important;
+  }
+
+  .v5-luxe .v5-hero p:last-child {
+    font-size: 1rem !important;
+    line-height: 1.55 !important;
+    color: rgba(255,255,255,.70) !important;
+  }
+
+  .v5-luxe .v5-hero .hidden.lg\:block.pt-10 {
+    display: none !important;
+  }
+}
+
+
+/* Mobile hero: remover zoom da bolsa e dar respiro */
+@media (max-width: 767px) {
+  .v5-luxe .v5-hero img {
+    object-fit: contain !important;
+    object-position: center center !important;
+    width: 92% !important;
+    height: 92% !important;
+    inset: 4.2rem auto auto 50% !important;
+    transform: translateX(-50%) !important;
+  }
+
+  .v5-luxe .nav-actions {
+    gap: 0 !important;
+  }
+}
+
+
+/* Mobile hero: zoom controlado de 15% na bolsa */
+@media (max-width: 767px) {
+  .v5-luxe .v5-hero img {
+    width: 106% !important;
+    height: 106% !important;
+    transform: translateX(-50%) scale(1.15) !important;
+    transform-origin: center center !important;
+  }
+}
+
+
+/* Mobile hero: subir bolsa e bloco de texto */
+@media (max-width: 767px) {
+  .v5-luxe .v5-hero > div:first-child {
+    height: 56vh !important;
+    min-height: 395px !important;
+    max-height: 470px !important;
+  }
+
+  .v5-luxe .v5-hero img {
+    inset: 2.35rem auto auto 50% !important;
+  }
+
+  .v5-luxe .v5-hero > div[style*="z-index: 20"] {
+    padding-top: .55rem !important;
+    padding-bottom: 2.6rem !important;
+  }
+
+  .v5-luxe .v5-hero .space-y-5 {
+    gap: .85rem !important;
+  }
+}
+
+
+/* Mobile hero: eliminar espaço vazio abaixo do texto */
+@media (max-width: 767px) {
+  .v5-luxe .v5-hero {
+    min-height: auto !important;
+    height: auto !important;
+    padding-bottom: 0 !important;
+  }
+
+  .v5-luxe .v5-hero > div[style*="z-index: 20"] {
+    min-height: auto !important;
+    height: auto !important;
+    padding-top: .45rem !important;
+    padding-bottom: 1.35rem !important;
+  }
+
+  .v5-luxe .v5-hero .space-y-8 {
+    margin-bottom: 0 !important;
+  }
+}
+
+
+/* Mobile hero: overlay mais leve para mostrar mais a bolsa */
+@media (max-width: 767px) {
+  .v5-luxe .v5-hero img {
+    filter: saturate(1) contrast(1.04) brightness(.98) drop-shadow(0 18px 34px rgba(0,0,0,.48)) !important;
+  }
+
+  .v5-luxe .v5-hero > div:first-child::after {
+    height: 24% !important;
+    background: linear-gradient(180deg, transparent 0%, rgba(5,5,5,.55) 58%, #050505 100%) !important;
+  }
+}
+
+
+/* Mobile hero: overlay ainda mais baixo */
+@media (max-width: 767px) {
+  .v5-luxe .v5-hero > div:first-child::after {
+    height: 18% !important;
+  }
+}
+
+
+/* Mobile: corrigir espaçamento do título da hero */
+@media (max-width: 767px) {
+  .v5-luxe .v5-hero h1 .text-gradient-rose {
+    margin-left: .12em !important;
+  }
+}
+
+/* Mobile: cards sempre centralizados no carrossel */
+@media (max-width: 767px) {
+  .v5-luxe #hw-carousel,
+  .v5-luxe #cards-carousel,
+  .v5-luxe #planos-carousel {
+    display: flex !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scroll-snap-type: x mandatory !important;
+    scroll-padding-left: 10vw !important;
+    scroll-padding-right: 10vw !important;
+    padding-left: 10vw !important;
+    padding-right: 10vw !important;
+    gap: 1rem !important;
+    justify-content: flex-start !important;
+  }
+
+  .v5-luxe #hw-carousel > .bento-card,
+  .v5-luxe #cards-carousel > div,
+  .v5-luxe #planos-carousel > div {
+    flex: 0 0 80vw !important;
+    width: 80vw !important;
+    max-width: 80vw !important;
+    scroll-snap-align: center !important;
+    scroll-snap-stop: always !important;
+  }
+}
+
+
+/* Mobile: corrigir seção Benefícios — sem vazamento e cards empilhados */
+@media (max-width: 767px) {
+  .v5-luxe #beneficios .text-center {
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+  }
+
+  .v5-luxe #beneficios h2 {
+    max-width: 20rem !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    font-size: clamp(2.25rem, 11vw, 3.35rem) !important;
+    line-height: .94 !important;
+    letter-spacing: -.055em !important;
+    white-space: normal !important;
+    overflow-wrap: normal !important;
+  }
+
+  .v5-luxe #beneficios h2 .whitespace-nowrap {
+    white-space: normal !important;
+  }
+
+  .v5-luxe #beneficios .text-center > p {
+    max-width: 20.5rem !important;
+    white-space: normal !important;
+    font-size: .98rem !important;
+    line-height: 1.45 !important;
+  }
+
+  .v5-luxe #beneficios .text-center > p .text-gradient-rose {
+    display: inline !important;
+    white-space: normal !important;
+  }
+
+  .v5-luxe #beneficios .grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    max-width: 20.5rem !important;
+    width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    gap: 1rem !important;
+  }
+
+  .v5-luxe #beneficios .group.border-beam {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: auto !important;
+    padding: 2rem 1.65rem !important;
+    border-radius: 1.45rem !important;
+  }
+
+  .v5-luxe #beneficios h3 {
+    max-width: 100% !important;
+    font-size: clamp(2rem, 11vw, 2.8rem) !important;
+    line-height: .92 !important;
+    overflow-wrap: normal !important;
+  }
+
+  .v5-luxe #beneficios .group.border-beam p {
+    max-width: 100% !important;
+    font-size: 1rem !important;
+    line-height: 1.5 !important;
+  }
+
+  .v5-luxe #beneficios .mt-12 p {
+    max-width: 20rem !important;
+    font-size: clamp(1.2rem, 6vw, 1.65rem) !important;
+    line-height: 1.15 !important;
+  }
+}
+
+
+/* Mobile: seção Prova Social seguindo referência */
+@media (max-width: 767px) {
+  .v5-luxe #provas-sociais {
+    padding: 3.6rem 1.35rem 4rem !important;
+    background:
+      radial-gradient(420px 260px at 50% 0%, rgba(240,133,170,.12), transparent 68%),
+      linear-gradient(180deg, #160f12 0%, #080707 100%) !important;
+  }
+
+  .v5-luxe #provas-sociais .max-w-7xl {
+    max-width: 23rem !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .v5-luxe #provas-sociais .text-center {
+    text-align: center !important;
+    margin-bottom: 2.5rem !important;
+  }
+
+  .v5-luxe #provas-sociais span[class*="tracking"] {
+    display: block !important;
+    color: #f29abd !important;
+    font-size: .72rem !important;
+    letter-spacing: .42em !important;
+    margin-bottom: 1.1rem !important;
+  }
+
+  .v5-luxe #provas-sociais h2 {
+    max-width: 21rem !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+    font-family: 'Inter', sans-serif !important;
+    font-size: clamp(1.85rem, 8.1vw, 2.45rem) !important;
+    line-height: 1.18 !important;
+    letter-spacing: -.045em !important;
+    text-transform: uppercase !important;
+    font-weight: 950 !important;
+  }
+
+  .v5-luxe #provas-sociais .text-center > p {
+    max-width: 20rem !important;
+    margin: 1.4rem auto 0 !important;
+    text-align: center !important;
+    font-size: 1rem !important;
+    line-height: 1.55 !important;
+    color: rgba(230,226,235,.74) !important;
+  }
+
+  .v5-luxe #provas-sociais .grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 1rem !important;
+    width: 100% !important;
+    max-width: 22rem !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    background: transparent !important;
+    border: 0 !important;
+  }
+
+  .v5-luxe #provas-sociais .grid > div,
+  .v5-luxe #provas-sociais .grid > div:nth-child(2),
+  .v5-luxe #provas-sociais .grid > div:nth-child(4) {
+    width: 100% !important;
+    aspect-ratio: 3 / 4 !important;
+    transform: none !important;
+    border-radius: .9rem !important;
+    border: 1px solid rgba(255,255,255,.10) !important;
+    overflow: hidden !important;
+    background: #090808 !important;
+    box-shadow: 0 20px 42px -30px rgba(0,0,0,.9) !important;
+  }
+
+  .v5-luxe #provas-sociais .grid > div img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    filter: saturate(.84) contrast(1.04) brightness(.88) !important;
+    transform: none !important;
+  }
+
+  .v5-luxe #provas-sociais .grid > div .absolute.inset-0 {
+    background: linear-gradient(180deg, rgba(0,0,0,.04) 0%, rgba(0,0,0,.18) 38%, rgba(0,0,0,.86) 100%) !important;
+  }
+
+  .v5-luxe #provas-sociais .grid > div .absolute.bottom-4,
+  .v5-luxe #provas-sociais .grid > div .absolute.bottom-6 {
+    left: .95rem !important;
+    right: .85rem !important;
+    bottom: .95rem !important;
+  }
+
+  .v5-luxe #provas-sociais .grid > div p {
+    text-align: left !important;
+    margin: 0 0 .3rem !important;
+    font-size: .62rem !important;
+    line-height: 1.25 !important;
+    letter-spacing: .10em !important;
+    color: #f29abd !important;
+  }
+
+  .v5-luxe #provas-sociais .grid > div h4 {
+    text-align: left !important;
+    font-size: .98rem !important;
+    line-height: 1.05 !important;
+    color: #fff !important;
+    letter-spacing: -.03em !important;
+  }
+}
+
+
+/* Footer CTA: quebra exata em 2 linhas */
+.v5-luxe footer h2 .cta-line-1,
+.v5-luxe footer h2 .cta-line-2 {
+  display: inline-block !important;
+  white-space: nowrap !important;
+}
+
+
+/* Mobile: CTA final sem cortar nas laterais */
+@media (max-width: 767px) {
+  .v5-luxe footer h2 {
+    width: 100% !important;
+    max-width: 21rem !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    font-size: clamp(2.05rem, 9vw, 2.55rem) !important;
+    line-height: .94 !important;
+    letter-spacing: -.055em !important;
+    overflow: visible !important;
+  }
+
+  .v5-luxe footer h2 .cta-line-1,
+  .v5-luxe footer h2 .cta-line-2 {
+    display: block !important;
+    white-space: nowrap !important;
+  }
+}
+
+
+/* CTA final: estrutura em 3 linhas */
+.v5-luxe footer h2 .cta-line-1,
+.v5-luxe footer h2 .cta-line-2,
+.v5-luxe footer h2 .cta-line-3 {
+  display: inline-block !important;
+  white-space: nowrap !important;
+}
+
+@media (max-width: 767px) {
+  .v5-luxe footer h2 {
+    max-width: 22rem !important;
+    font-size: clamp(2rem, 9.2vw, 2.65rem) !important;
+    line-height: .88 !important;
+  }
+
+  .v5-luxe footer h2 .cta-line-1,
+  .v5-luxe footer h2 .cta-line-2,
+  .v5-luxe footer h2 .cta-line-3 {
+    display: block !important;
+    white-space: nowrap !important;
+  }
+}
+
+
+/* CTA final: reduzir espaçamento entre linhas */
+.v5-luxe footer h2 {
+  line-height: .78 !important;
+}
+
+.v5-luxe footer h2 .cta-line-1,
+.v5-luxe footer h2 .cta-line-2,
+.v5-luxe footer h2 .cta-line-3 {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+@media (max-width: 767px) {
+  .v5-luxe footer h2 {
+    line-height: .82 !important;
+  }
+}
+
+
+/* CTA final: linhas mais próximas */
+.v5-luxe footer h2 {
+  line-height: .70 !important;
+}
+
+.v5-luxe footer h2 .cta-line-1,
+.v5-luxe footer h2 .cta-line-2,
+.v5-luxe footer h2 .cta-line-3 {
+  display: block !important;
+  line-height: .86 !important;
+}
+
+.v5-luxe footer h2 .cta-line-2,
+.v5-luxe footer h2 .cta-line-3 {
+  margin-top: -.10em !important;
+}
+
+@media (max-width: 767px) {
+  .v5-luxe footer h2 {
+    line-height: .70 !important;
+  }
+
+  .v5-luxe footer h2 .cta-line-2,
+  .v5-luxe footer h2 .cta-line-3 {
+    margin-top: -.13em !important;
+  }
+}
+
+
+/* CTA final mobile: mesmas configs do título de Prova Social */
+@media (max-width: 767px) {
+  .v5-luxe footer h2 {
+    max-width: 21rem !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+    font-family: 'Inter', sans-serif !important;
+    font-size: clamp(1.85rem, 8.1vw, 2.45rem) !important;
+    line-height: 1.18 !important;
+    letter-spacing: -.045em !important;
+    text-transform: uppercase !important;
+    font-weight: 950 !important;
+  }
+
+  .v5-luxe footer h2 .cta-line-1,
+  .v5-luxe footer h2 .cta-line-2,
+  .v5-luxe footer h2 .cta-line-3 {
+    line-height: inherit !important;
+    margin-top: 0 !important;
+  }
+}
+
+
+/* CTA final mobile: corrigir gaps causados pelos <br> e igualar densidade visual */
+@media (max-width: 767px) {
+  .v5-luxe footer h2 br {
+    display: none !important;
+  }
+
+  .v5-luxe footer h2 {
+    font-family: 'Inter', sans-serif !important;
+    font-size: clamp(1.85rem, 8.1vw, 2.45rem) !important;
+    line-height: .98 !important;
+    letter-spacing: -.045em !important;
+    font-weight: 950 !important;
+    text-transform: uppercase !important;
+  }
+
+  .v5-luxe footer h2 .cta-line-1,
+  .v5-luxe footer h2 .cta-line-2,
+  .v5-luxe footer h2 .cta-line-3 {
+    display: block !important;
+    line-height: .98 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+}
+
+
+/* Mobile: rounded-full nos CTAs indicados */
+@media (max-width: 767px) {
+  .v5-luxe footer a[href="auth.html"],
+  .v5-luxe > .fixed.bottom-0 a[href="auth.html"],
+  .v5-luxe div.fixed.bottom-0 a[href="auth.html"] {
+    border-radius: 9999px !important;
+    overflow: hidden !important;
+  }
+}
