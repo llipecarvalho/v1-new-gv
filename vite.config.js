@@ -10,6 +10,7 @@ export default defineConfig({
         'dashboard-v3': resolve(__dirname, 'dashboard-v3.html'),
         indexv3: resolve(__dirname, 'indexv3.html'),
         indexv4: resolve(__dirname, 'indexv4.html'),
+        indexv5: resolve(__dirname, 'indexv5.html'),
       },
     },
   },
