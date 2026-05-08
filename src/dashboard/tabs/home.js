@@ -171,10 +171,10 @@ export default {
             import('../main.js').then(m => m.switchTab('raffle-purchase'));
         });
         document.getElementById('btn-home-ver-tudo-mimos')?.addEventListener('click', () => {
-            import('../main.js').then(m => m.switchTab('rewards'));
+            import('../main.js').then(m => m.switchTab('store'));
         });
         document.getElementById('btn-home-ver-mais-mimos-card')?.addEventListener('click', () => {
-            import('../main.js').then(m => m.switchTab('rewards'));
+            import('../main.js').then(m => m.switchTab('store'));
         });
         document.getElementById('btn-home-go-to-wallet')?.addEventListener('click', () => {
             import('../main.js').then(m => m.switchTab('store'));
